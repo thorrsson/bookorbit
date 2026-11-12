@@ -1,5 +1,5 @@
 import { ConflictException, ForbiddenException, Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { compare, hash } from 'bcryptjs';
+import { compare, hash, hashSync } from 'bcryptjs';
 import { and, eq } from 'drizzle-orm';
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 
@@ -9,6 +9,8 @@ import { CreateOpdsUserDto } from './dto/create-opds-user.dto';
 import { UpdateOpdsUserDto } from './dto/update-opds-user.dto';
 
 type Db = NodePgDatabase<typeof schema>;
+
+const DUMMY_BCRYPT_HASH = hashSync('bookorbit-dummy-password', 12);
 
 function isUniqueViolation(error: unknown): boolean {
   if (!error || typeof error !== 'object') return false;
@@ -96,9 +98,9 @@ export class OpdsUserService {
     const opdsUser = await this.db.query.opdsUsers.findFirst({
       where: eq(schema.opdsUsers.username, username),
     });
+    // Constant-cost compare so response time does not reveal whether the username exists.
+    const valid = await compare(password, opdsUser?.passwordHash ?? DUMMY_BCRYPT_HASH);
     if (!opdsUser) return null;
-
-    const valid = await compare(password, opdsUser.passwordHash);
     if (!valid) return null;
 
     const parentUser = await this.db.query.users.findFirst({

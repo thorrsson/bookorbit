@@ -7,12 +7,15 @@ import { Permission } from '@bookorbit/types';
 import type { RequestUser } from '../../common/types/request-user';
 import { PermissionService } from '../../common/services/permission.service';
 import { UserService } from '../user/user.service';
+import { AuthFailureLimiter } from '../../common/utils/auth-failure-limiter';
 import { KoreaderRepository } from './koreader.repository';
 
 const MD5_HEX = /^[0-9a-f]{32}$/i;
 
 @Injectable()
 export class KoreaderAuthGuard implements CanActivate {
+  private readonly failures = new AuthFailureLimiter();
+
   constructor(
     private readonly repo: KoreaderRepository,
     private readonly userService: UserService,
@@ -28,9 +31,14 @@ export class KoreaderAuthGuard implements CanActivate {
       throw new UnauthorizedException('Missing KOReader credentials');
     }
 
+    const ipKey = `koreader:ip:${request.ip}`;
+    const userKey = `koreader:user:${request.ip}:${username.toLowerCase()}`;
+    this.failures.assertAllowed(ipKey, userKey);
+
     const koreaderUser = await this.repo.findKoreaderUserByUsername(username);
 
     if (!koreaderUser) {
+      this.failures.recordFailure(ipKey, userKey);
       throw new UnauthorizedException('Invalid credentials');
     }
 
@@ -40,8 +48,11 @@ export class KoreaderAuthGuard implements CanActivate {
 
     const isValid = await this.verifyPassword(key, koreaderUser.passwordHash, koreaderUser.passwordMd5);
     if (!isValid) {
+      this.failures.recordFailure(ipKey, userKey);
       throw new UnauthorizedException('Invalid credentials');
     }
+
+    this.failures.reset(userKey);
 
     const user = await this.userService.findByIdWithPermissions(koreaderUser.userId);
     if (!user || !user.active) {

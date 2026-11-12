@@ -97,4 +97,21 @@ describe('KoboTokenGuard', () => {
 
     await expect(guard.canActivate(makeContext({ params: { deviceToken: 'tok' } }))).resolves.toBe(true);
   });
+
+  it('does not steal a hardware id already bound to another device', async () => {
+    const db = makeDb();
+    const userService = { findByIdWithPermissions: vi.fn().mockResolvedValue({ id: 4, active: true }) };
+    const permissionService = { userHas: vi.fn().mockReturnValue(true) };
+    const guard = new KoboTokenGuard(db as never, userService as never, permissionService as never);
+
+    db.query.koboDevices.findFirst
+      .mockResolvedValueOnce({ id: 2, token: 'tok', userId: 4 })
+      .mockResolvedValueOnce({ id: 99 });
+
+    const request = { params: { deviceToken: 'tok' }, headers: { 'x-kobo-deviceid': 'victim-device' } };
+    await expect(guard.canActivate(makeContext(request))).resolves.toBe(true);
+
+    expect(db.set).toHaveBeenCalledTimes(1);
+    expect(db.set.mock.calls[0][0]).not.toHaveProperty('clientDeviceId');
+  });
 });
