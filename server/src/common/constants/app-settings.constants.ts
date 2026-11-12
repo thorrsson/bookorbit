@@ -2,6 +2,7 @@ import type { AuthorAutoEnrichmentConfig, DefaultLibraryAccessConfig, OidcAutoPr
 
 export const APP_SETTING_KEYS = {
   ALLOW_REGISTRATION: 'allow_registration',
+  PASSWORD_RESET_LIFETIME_MINUTES: 'password_reset_lifetime_minutes',
   OPDS_ENABLED: 'opds_enabled',
   BOOK_DOCK_PAUSED: 'book_dock_paused',
   BOOK_DOCK_AUTO_FETCH_METADATA: 'book_dock_auto_fetch_metadata',

@@ -7,6 +7,7 @@ import { Auditable } from '../../common/decorators/auditable.decorator';
 import { AppSettingsService } from './app-settings.service';
 import { OidcProviderService } from './oidc-provider.service';
 import { UpdateAppSettingDto } from './dto/update-app-setting.dto';
+import { UpdatePasswordResetSettingsDto } from './dto/update-password-reset-settings.dto';
 import { UpdateFilePatternDto } from './dto/update-file-pattern.dto';
 import { UpdateBooleanSettingDto } from './dto/update-boolean-setting.dto';
 import { UpdateApiKeySettingsDto } from './dto/update-api-key-settings.dto';
@@ -103,6 +104,18 @@ export class AppSettingsController {
   @Get('api-keys')
   getApiKeySettings() {
     return this.appSettingsService.getApiKeySettings();
+  }
+
+  @Get('password-reset')
+  getPasswordResetSettings() {
+    return this.appSettingsService.getPasswordResetSettings();
+  }
+
+  @Put('password-reset')
+  @HttpCode(HttpStatus.OK)
+  @Auditable({ action: AuditAction.AppSettingsUpdate, resource: AuditResource.AppSettings, description: 'Updated password reset lifetime' })
+  updatePasswordResetSettings(@Body() dto: UpdatePasswordResetSettingsDto) {
+    return this.appSettingsService.updatePasswordResetSettings(dto);
   }
 
   @Put('api-keys')

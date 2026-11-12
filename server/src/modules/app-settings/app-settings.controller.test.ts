@@ -1,4 +1,6 @@
 import { Test } from '@nestjs/testing';
+import { Permission } from '@bookorbit/types';
+import { PERMISSION_KEY } from '../../common/decorators/require-permission.decorator';
 
 import { AppSettingsController } from './app-settings.controller';
 import { AppSettingsService } from './app-settings.service';
@@ -7,6 +9,8 @@ import { OidcProviderService } from './oidc-provider.service';
 function makeService(): jest.Mocked<AppSettingsService> {
   return {
     listSettings: vi.fn().mockResolvedValue([]),
+    getPasswordResetSettings: vi.fn(),
+    updatePasswordResetSettings: vi.fn(),
     getValue: vi.fn(),
     update: vi.fn(),
     isBookDockAutoFetchEnabled: vi.fn(),
@@ -81,6 +85,15 @@ describe('AppSettingsController', () => {
       expect(service.update).toHaveBeenCalledWith('allow_registration', 'true');
       expect(result).toEqual(setting);
     });
+  });
+
+  it('reads and updates password reset settings under the app-settings permission', async () => {
+    service.getPasswordResetSettings.mockResolvedValue({ lifetimeMinutes: 15 });
+    service.updatePasswordResetSettings.mockResolvedValue({ lifetimeMinutes: 60 });
+    expect(Reflect.getMetadata(PERMISSION_KEY, AppSettingsController)).toBe(Permission.ManageAppSettings);
+    await expect(controller.getPasswordResetSettings()).resolves.toEqual({ lifetimeMinutes: 15 });
+    await expect(controller.updatePasswordResetSettings({ lifetimeMinutes: 60 })).resolves.toEqual({ lifetimeMinutes: 60 });
+    expect(service.updatePasswordResetSettings).toHaveBeenCalledWith({ lifetimeMinutes: 60 });
   });
 
   describe('getUploadPattern / setUploadPattern', () => {

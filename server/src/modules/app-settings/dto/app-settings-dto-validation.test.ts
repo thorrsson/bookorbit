@@ -4,6 +4,7 @@ import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
 
 import { UpdateAppSettingDto } from './update-app-setting.dto';
+import { UpdatePasswordResetSettingsDto } from './update-password-reset-settings.dto';
 import { UpdateBooleanSettingDto } from './update-boolean-setting.dto';
 import { UpdateDefaultLibraryAccessDto } from './update-default-library-access.dto';
 import { UpdateFilePatternDto } from './update-file-pattern.dto';
@@ -14,6 +15,22 @@ async function errorsFor<T extends object>(cls: new () => T, input: Record<strin
 }
 
 describe('App settings DTO validation', () => {
+  it.each([1, 15, 1440])('accepts a password reset lifetime of %i minutes', async (lifetimeMinutes) => {
+    expect(await errorsFor(UpdatePasswordResetSettingsDto, { lifetimeMinutes })).toHaveLength(0);
+  });
+
+  it.each([0, -1, 1441, 1.5, '15', null, undefined])('rejects invalid password reset lifetime %s', async (lifetimeMinutes) => {
+    expect((await errorsFor(UpdatePasswordResetSettingsDto, { lifetimeMinutes })).length).toBeGreaterThan(0);
+  });
+
+  it('rejects extra password reset settings fields under the global whitelist policy', async () => {
+    const errors = await validate(plainToInstance(UpdatePasswordResetSettingsDto, { lifetimeMinutes: 15, unknown: true }), {
+      whitelist: true,
+      forbidNonWhitelisted: true,
+    });
+    expect(errors.map((error) => error.property)).toContain('unknown');
+  });
+
   it('validates update-app-setting payload value as required non-empty string', async () => {
     expect((await errorsFor(UpdateAppSettingDto, { value: 'enabled' })).length).toBe(0);
     expect((await errorsFor(UpdateAppSettingDto, { value: '' })).length).toBeGreaterThan(0);

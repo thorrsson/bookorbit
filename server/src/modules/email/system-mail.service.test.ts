@@ -73,7 +73,7 @@ describe('SystemMailService', () => {
   });
 
   it('sends a password reset email using the configured provider', async () => {
-    await service.sendPasswordReset('user@example.com', 'User', 'raw-token');
+    await service.sendPasswordReset('user@example.com', 'User', 'raw-token', 60);
 
     expect(transport.buildTransporter).toHaveBeenCalledWith({
       host: 'smtp.example.com',
@@ -99,14 +99,25 @@ describe('SystemMailService', () => {
     );
   });
 
+  it.each([1, 15, 1440])('shows the actual %i-minute lifetime in both email formats', async (minutes) => {
+    await service.sendPasswordReset('user@example.com', 'User', 'raw-token', minutes);
+    const label = `${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`;
+    expect(transporter.sendMail).toHaveBeenCalledWith(
+      expect.objectContaining({
+        text: expect.stringContaining(`expires in ${label}.`),
+        html: expect.stringContaining(`>${label}</strong>`),
+      }),
+    );
+  });
+
   it('throws when no system provider is configured at send time', async () => {
     repo.findSystemProvider.mockResolvedValue([]);
-    await expect(service.sendPasswordReset('user@example.com', 'User', 'raw-token')).rejects.toThrow(ServiceUnavailableException);
+    await expect(service.sendPasswordReset('user@example.com', 'User', 'raw-token', 15)).rejects.toThrow(ServiceUnavailableException);
     expect(transport.buildTransporter).not.toHaveBeenCalled();
   });
 
   it('throws when SMTP delivery fails', async () => {
     transporter.sendMail.mockRejectedValue(new Error('smtp timeout'));
-    await expect(service.sendPasswordReset('user@example.com', 'User', 'raw-token')).rejects.toThrow(ServiceUnavailableException);
+    await expect(service.sendPasswordReset('user@example.com', 'User', 'raw-token', 15)).rejects.toThrow(ServiceUnavailableException);
   });
 });

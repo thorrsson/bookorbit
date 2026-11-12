@@ -512,8 +512,8 @@ export class AuthService {
       return;
     }
 
-    const rawToken = await this.userService.generatePasswordResetToken(user.id);
-    await this.systemMailService.sendPasswordReset(user.email, user.name, rawToken);
+    const { token, lifetimeMinutes } = await this.userService.generatePasswordResetToken(user.id);
+    await this.systemMailService.sendPasswordReset(user.email, user.name, token, lifetimeMinutes);
 
     this.auditEvents.emit(AUDIT_EVENT, {
       userId: user.id,
