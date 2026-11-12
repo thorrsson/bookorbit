@@ -96,6 +96,7 @@ function stubApi(overrides: StubOptions = {}) {
     }
     if (input === '/api/v1/libraries') return jsonResponse({ libraries: [{ id: 1, name: 'Novels' }] })
     if (input === '/api/v1/app-settings/default-library-access') return jsonResponse({ libraryIds: [] })
+    if (input === '/api/v1/app-settings/password-reset') return jsonResponse({ lifetimeMinutes: 15 })
     if (input === '/api/v1/app-settings') {
       return jsonResponse([{ key: 'allow_registration', value: String(overrides.allowRegistration ?? false) }])
     }
@@ -143,6 +144,19 @@ beforeEach(() => {
 })
 
 describe('UsersPage self-registration toggle', () => {
+  it('shows password reset settings to app-settings admins and hides them otherwise', async () => {
+    const wrapper = mount(UsersPage)
+    await flushPromises()
+    expect(wrapper.find('#password-reset-lifetime').exists()).toBe(true)
+    wrapper.unmount()
+    permState.isSuperuser = false
+    permState.denied = ['manage_app_settings']
+    const restricted = mount(UsersPage)
+    await flushPromises()
+    expect(restricted.find('#password-reset-lifetime').exists()).toBe(false)
+    restricted.unmount()
+  })
+
   it('reflects the stored setting', async () => {
     stubApi({ allowRegistration: true })
     const wrapper = mount(UsersPage)

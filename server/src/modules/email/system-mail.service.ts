@@ -22,7 +22,7 @@ export class SystemMailService {
     return !!provider;
   }
 
-  async sendPasswordReset(to: string, name: string, rawToken: string): Promise<void> {
+  async sendPasswordReset(to: string, name: string, rawToken: string, lifetimeMinutes: number): Promise<void> {
     const startedAt = Date.now();
     const appUrl = (this.config.get<string>('app.appUrl') ?? '').replace(/\/+$/, '');
     const resetUrl = `${appUrl}/reset-password?token=${encodeURIComponent(rawToken)}`;
@@ -59,8 +59,8 @@ export class SystemMailService {
         from,
         to,
         subject: 'Reset your password',
-        text: this.buildResetText(name, resetUrl),
-        html: this.buildResetHtml(name, resetUrl),
+        text: this.buildResetText(name, resetUrl, lifetimeMinutes),
+        html: this.buildResetHtml(name, resetUrl, lifetimeMinutes),
       });
       this.logger.log(`[${this.event}] [end] toEmail=${to} durationMs=${Date.now() - startedAt} - password reset send completed`);
     } catch (error) {
@@ -73,13 +73,13 @@ export class SystemMailService {
     }
   }
 
-  private buildResetText(name: string, resetUrl: string): string {
+  private buildResetText(name: string, resetUrl: string, lifetimeMinutes: number): string {
     return [
       `Hi ${name},`,
       '',
       'We received a request to reset the password for your account.',
       '',
-      'Click the link below to set a new password. This link expires in 15 minutes.',
+      `Click the link below to set a new password. This link expires in ${lifetimeMinutes} ${lifetimeMinutes === 1 ? 'minute' : 'minutes'}.`,
       '',
       resetUrl,
       '',
@@ -88,7 +88,7 @@ export class SystemMailService {
     ].join('\n');
   }
 
-  private buildResetHtml(name: string, resetUrl: string): string {
+  private buildResetHtml(name: string, resetUrl: string, lifetimeMinutes: number): string {
     const escapedName = name.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     const escapedUrl = resetUrl.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
     return `<!DOCTYPE html>
@@ -113,7 +113,7 @@ export class SystemMailService {
               <p style="margin:0 0 8px;font-size:20px;font-weight:600;color:#18181b;">Reset your password</p>
               <p style="margin:0 0 24px;font-size:14px;color:#71717a;line-height:1.6;">
                 Hi ${escapedName}, we received a request to reset the password for your account.
-                This link expires in <strong style="color:#18181b;">15 minutes</strong>.
+                This link expires in <strong style="color:#18181b;">${lifetimeMinutes} ${lifetimeMinutes === 1 ? 'minute' : 'minutes'}</strong>.
               </p>
               <a href="${escapedUrl}"
                  style="display:inline-block;padding:11px 24px;background:#18181b;color:#ffffff;font-size:14px;font-weight:500;text-decoration:none;border-radius:6px;">

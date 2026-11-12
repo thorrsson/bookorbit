@@ -567,10 +567,10 @@ export class UserRepository {
     return this.db.query.users.findFirst({ where: eq(schema.users.email, email) });
   }
 
-  async generateResetToken(userId: number): Promise<string> {
+  async generateResetToken(userId: number, lifetimeMinutes: number): Promise<string> {
     const rawToken = randomBytes(32).toString('hex');
     const tokenHash = createHash('sha256').update(rawToken).digest('hex');
-    const expiresAt = new Date(Date.now() + 15 * 60 * 1000);
+    const expiresAt = new Date(Date.now() + lifetimeMinutes * 60 * 1000);
 
     await this.db.transaction(async (tx) => {
       await tx

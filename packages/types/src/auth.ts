@@ -3,6 +3,13 @@ export enum LoginErrorCode {
   PASSWORD_AUTH_DISABLED = "password_auth_disabled",
 }
 
+export const DEFAULT_PASSWORD_RESET_LIFETIME_MINUTES = 15;
+export const MAX_PASSWORD_RESET_LIFETIME_MINUTES = 1440;
+
+export interface PasswordResetSettings {
+  lifetimeMinutes: number;
+}
+
 export const AuthenticationMethod = {
   Password: "password",
   Oidc: "oidc",

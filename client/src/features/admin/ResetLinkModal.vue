@@ -62,7 +62,7 @@ function handleCopy() {
         </Button>
       </div>
 
-      <p class="text-sm text-muted-foreground mb-3">{{ t('adminFeature.resetLink.description') }}</p>
+      <p class="text-sm text-muted-foreground mb-3">{{ t('adminFeature.resetLink.configuredDescription') }}</p>
 
       <div class="flex gap-2">
         <input

@@ -3,6 +3,9 @@ import { ConfigService, type ConfigType } from '@nestjs/config';
 
 import {
   type ApiKeySettings,
+  type PasswordResetSettings,
+  DEFAULT_PASSWORD_RESET_LIFETIME_MINUTES,
+  MAX_PASSWORD_RESET_LIFETIME_MINUTES,
   type BookRequestImportFormats,
   BOOK_REQUEST_AUTOMATION_SETTING_KEYS,
   BOOK_REQUEST_IMPORT_FORMATS,
@@ -91,6 +94,9 @@ export class AppSettingsService {
   }
 
   async update(key: string, value: string) {
+    if (key === APP_SETTING_KEYS.PASSWORD_RESET_LIFETIME_MINUTES) {
+      throw new BadRequestException(`Setting '${key}' is managed by the password reset settings endpoint and cannot be written here`);
+    }
     if (BOOK_DOCK_MANAGED_SETTING_KEYS.includes(key)) {
       throw new BadRequestException(`Setting '${key}' is managed by the Book Dock endpoints and cannot be written here`);
     }
@@ -114,6 +120,29 @@ export class AppSettingsService {
     if (!setting) throw new NotFoundException(`Setting '${key}' not found`);
     this.clearRuntimeSettingCache(key);
     return setting;
+  }
+
+  async getPasswordResetSettings(): Promise<PasswordResetSettings> {
+    const startedAt = Date.now();
+    const value = await this.getValue(APP_SETTING_KEYS.PASSWORD_RESET_LIFETIME_MINUTES);
+    if (value === null) return { lifetimeMinutes: DEFAULT_PASSWORD_RESET_LIFETIME_MINUTES };
+    const minutes = /^\d+$/.test(value) ? Number(value) : NaN;
+    if (!Number.isInteger(minutes) || minutes < 1 || minutes > MAX_PASSWORD_RESET_LIFETIME_MINUTES) {
+      this.logger.warn(
+        `[password_reset.settings] [fail] durationMs=${Date.now() - startedAt} errorClass=ValidationError error="invalid stored lifetime" - using default lifetime`,
+      );
+      return { lifetimeMinutes: DEFAULT_PASSWORD_RESET_LIFETIME_MINUTES };
+    }
+    return { lifetimeMinutes: minutes };
+  }
+
+  async updatePasswordResetSettings(settings: PasswordResetSettings): Promise<PasswordResetSettings> {
+    const { lifetimeMinutes } = settings;
+    if (!Number.isInteger(lifetimeMinutes) || lifetimeMinutes < 1 || lifetimeMinutes > MAX_PASSWORD_RESET_LIFETIME_MINUTES) {
+      throw new BadRequestException(`Password reset lifetime must be an integer between 1 and ${MAX_PASSWORD_RESET_LIFETIME_MINUTES} minutes`);
+    }
+    await this.repo.upsert(APP_SETTING_KEYS.PASSWORD_RESET_LIFETIME_MINUTES, String(lifetimeMinutes));
+    return { lifetimeMinutes };
   }
 
   async isBookDockAutoFetchEnabled(): Promise<boolean> {

@@ -68,7 +68,7 @@ function makeService(dbOverrides?: Record<string, unknown>) {
     findByIdWithPermissions: vi.fn(),
     create: vi.fn(),
     incrementTokenVersion: vi.fn().mockResolvedValue(undefined),
-    generatePasswordResetToken: vi.fn().mockResolvedValue('raw-reset-token'),
+    generatePasswordResetToken: vi.fn().mockResolvedValue({ token: 'raw-reset-token', lifetimeMinutes: 60 }),
   };
   const config = {
     get: vi.fn().mockImplementation((key: string) => {
@@ -802,7 +802,7 @@ describe('AuthService', () => {
       await service.forgotPassword({ email: 'u@example.com' });
       // fire-and-forget — flush microtasks
       await new Promise((r) => setImmediate(r));
-      expect(systemMailService.sendPasswordReset).toHaveBeenCalledWith('u@example.com', 'User', 'raw-reset-token');
+      expect(systemMailService.sendPasswordReset).toHaveBeenCalledWith('u@example.com', 'User', 'raw-reset-token', 60);
     });
 
     it('silently returns without sending email for inactive user', async () => {

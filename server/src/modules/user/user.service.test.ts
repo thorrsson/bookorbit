@@ -55,6 +55,7 @@ describe('UserService', () => {
 
   const appConfiguration = { appUrl: '' };
   const appSettingsService = {
+    getPasswordResetSettings: vi.fn(),
     getDefaultLibraryAccessLibraryIds: vi.fn(),
   };
   const userStatistics = {
@@ -85,6 +86,7 @@ describe('UserService', () => {
     mockRandomBytes.mockReturnValue(Buffer.from('abcd', 'hex'));
     appConfiguration.appUrl = 'https://app.example.com';
     appSettingsService.getDefaultLibraryAccessLibraryIds.mockResolvedValue([]);
+    appSettingsService.getPasswordResetSettings.mockResolvedValue({ lifetimeMinutes: 15 });
 
     userRepo.create.mockResolvedValue({ id: 10, username: 'newuser', name: 'New User' });
     userRepo.createOidcUser.mockResolvedValue({ id: 11, username: 'oidcuser', name: 'OIDC User' });
@@ -94,6 +96,12 @@ describe('UserService', () => {
     userRepo.updateManagedUser.mockResolvedValue({ status: 'updated', user: { id: 2 } });
     userRepo.deleteManagedUser.mockResolvedValue('updated');
     userRepo.setSuperuser.mockResolvedValue('updated');
+  });
+
+  it('generates reset tokens using the current admin setting and returns the lifetime for email delivery', async () => {
+    appSettingsService.getPasswordResetSettings.mockResolvedValue({ lifetimeMinutes: 1440 });
+    await expect(service.generatePasswordResetToken(7)).resolves.toEqual({ token: 'reset-token', lifetimeMinutes: 1440 });
+    expect(userRepo.generateResetToken).toHaveBeenCalledWith(7, 1440);
   });
 
   it('createUser rejects duplicate usernames', async () => {
@@ -123,7 +131,7 @@ describe('UserService', () => {
     expect(userRepo.findByOidcSubject).toHaveBeenCalledWith('subject', 'issuer');
     expect(userRepo.linkOidcIdentity).toHaveBeenCalledWith(7, 'subject', 'issuer', 'https://img.example/a.jpg');
     expect(userRepo.createOidcUser).toHaveBeenCalled();
-    expect(userRepo.generateResetToken).toHaveBeenCalledWith(7);
+    expect(userRepo.generateResetToken).toHaveBeenCalledWith(7, 15);
     expect(userRepo.incrementTokenVersion).toHaveBeenCalledWith(7);
     expect(userRepo.findByIdWithPermissions).toHaveBeenCalledWith(7);
     expect(userRepo.create).toHaveBeenCalledWith({ username: 'new' });
@@ -143,6 +151,7 @@ describe('UserService', () => {
 
   it('createUser creates user, deduplicates permission/library lists, and returns reset URL', async () => {
     userRepo.findByUsername.mockResolvedValue(null);
+    appSettingsService.getPasswordResetSettings.mockResolvedValue({ lifetimeMinutes: 60 });
 
     const result = await service.createUser({
       username: 'newuser',
@@ -163,6 +172,7 @@ describe('UserService', () => {
     );
     expect(userRepo.setPermissions).toHaveBeenCalledWith(10, [Permission.LibraryDownload, Permission.KoboSync]);
     expect(userRepo.assignViewerLibraries).toHaveBeenCalledWith(10, [3, 5]);
+    expect(userRepo.generateResetToken).toHaveBeenCalledWith(10, 60);
     expect(result).toEqual({ id: 10, username: 'newuser', name: 'New User', resetUrl: 'https://app.example.com/reset-password?token=reset-token' });
   });
 
@@ -823,10 +833,12 @@ describe('UserService', () => {
     userRepo.findByIdWithPermissions.mockResolvedValue({ id: 2, isSuperuser: false, provisioningMethod: 'local' });
     userRepo.generateResetToken.mockResolvedValue('token-2');
     appConfiguration.appUrl = 'http://localhost:6263';
+    appSettingsService.getPasswordResetSettings.mockResolvedValue({ lifetimeMinutes: 1440 });
 
     await expect(service.adminResetPassword(2, reqUser({ isSuperuser: true }))).resolves.toEqual({
       resetUrl: 'http://localhost:6263/reset-password?token=token-2',
     });
+    expect(userRepo.generateResetToken).toHaveBeenCalledWith(2, 1440);
   });
 });
 

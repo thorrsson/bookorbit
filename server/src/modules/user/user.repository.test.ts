@@ -436,7 +436,7 @@ describe('UserRepository', () => {
     await expect(repo.findExistingLibraryIds([3, 7, 9])).resolves.toEqual([3, 7]);
   });
 
-  it('generateResetToken revokes previous active tokens and inserts a new hashed token in one transaction', async () => {
+  it.each([1, 15, 1440])('generateResetToken uses a %i-minute lifetime and revokes previous active tokens', async (minutes) => {
     const tx = {
       update: vi.fn().mockReturnThis(),
       set: vi.fn().mockReturnThis(),
@@ -448,13 +448,17 @@ describe('UserRepository', () => {
     db.transaction.mockImplementation(async (cb: (tx: typeof tx) => Promise<void>) => cb(tx));
     vi.spyOn(Date, 'now').mockReturnValue(new Date('2026-01-01T00:00:00.000Z').getTime());
 
-    const token = await repo.generateResetToken(22);
+    const token = await repo.generateResetToken(22, minutes);
 
     expect(token).toBe('abcd');
     expect(tx.update).toHaveBeenCalledWith(schema.passwordResetTokens);
     expect(tx.insert).toHaveBeenCalledWith(schema.passwordResetTokens);
     expect(tx.values).toHaveBeenCalledWith(
-      expect.objectContaining({ userId: 22, tokenHash: 'token-hash', expiresAt: new Date('2026-01-01T00:15:00.000Z') }),
+      expect.objectContaining({
+        userId: 22,
+        tokenHash: 'token-hash',
+        expiresAt: new Date(Date.parse('2026-01-01T00:00:00.000Z') + minutes * 60_000),
+      }),
     );
   });
 

@@ -76,8 +76,10 @@ export class UserService {
     return user;
   }
 
-  generatePasswordResetToken(userId: number): Promise<string> {
-    return this.userRepo.generateResetToken(userId);
+  async generatePasswordResetToken(userId: number): Promise<{ token: string; lifetimeMinutes: number }> {
+    const { lifetimeMinutes } = await this.appSettingsService.getPasswordResetSettings();
+    const token = await this.userRepo.generateResetToken(userId, lifetimeMinutes);
+    return { token, lifetimeMinutes };
   }
 
   incrementTokenVersion(userId: number) {
@@ -160,7 +162,7 @@ export class UserService {
     }
 
     const appUrl = this.appConfiguration.appUrl;
-    const rawToken = await this.userRepo.generateResetToken(user.id);
+    const { token: rawToken } = await this.generatePasswordResetToken(user.id);
     const resetUrl = `${appUrl}/reset-password?token=${rawToken}`;
 
     return { id: user.id, username: user.username, name: user.name, resetUrl };
@@ -454,7 +456,7 @@ export class UserService {
       throw new BadRequestException('Shared accounts do not have passwords');
     }
     const appUrl = this.appConfiguration.appUrl;
-    const rawToken = await this.userRepo.generateResetToken(targetUserId);
+    const { token: rawToken } = await this.generatePasswordResetToken(targetUserId);
     return { resetUrl: `${appUrl}/reset-password?token=${rawToken}` };
   }
 

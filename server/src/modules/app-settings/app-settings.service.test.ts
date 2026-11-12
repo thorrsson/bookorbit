@@ -113,6 +113,38 @@ describe('AppSettingsService', () => {
       await expect(service.getApiKeySettings()).resolves.toEqual({ enabled: true, maxLifetimeDays: null });
     });
 
+    describe('password reset settings', () => {
+      it('defaults to 15 minutes without a stored setting', async () => {
+        await expect(service.getPasswordResetSettings()).resolves.toEqual({ lifetimeMinutes: 15 });
+      });
+
+      it('reads the persisted lifetime', async () => {
+        repo.findByKey.mockResolvedValue({ value: '1440' } as never);
+        await expect(service.getPasswordResetSettings()).resolves.toEqual({ lifetimeMinutes: 1440 });
+      });
+
+      it.each(['0', '1441', '1.5', 'invalid'])('logs and uses the default for invalid stored value %s', async (value) => {
+        repo.findByKey.mockResolvedValue({ value } as never);
+        await expect(service.getPasswordResetSettings()).resolves.toEqual({ lifetimeMinutes: 15 });
+        expect(Logger.prototype.warn).toHaveBeenCalled();
+      });
+
+      it.each([1, 15, 1440])('persists %i minutes even when no setting row exists', async (lifetimeMinutes) => {
+        await expect(service.updatePasswordResetSettings({ lifetimeMinutes })).resolves.toEqual({ lifetimeMinutes });
+        expect(repo.upsert).toHaveBeenCalledWith('password_reset_lifetime_minutes', String(lifetimeMinutes));
+      });
+
+      it.each([0, -1, 1441, 1.5, NaN])('rejects invalid lifetime %s before writing', async (lifetimeMinutes) => {
+        await expect(service.updatePasswordResetSettings({ lifetimeMinutes })).rejects.toThrow(BadRequestException);
+        expect(repo.upsert).not.toHaveBeenCalled();
+      });
+
+      it('prevents bypassing validation through the generic settings endpoint', async () => {
+        await expect(service.update('password_reset_lifetime_minutes', '9999')).rejects.toThrow(BadRequestException);
+        expect(repo.updateByKey).not.toHaveBeenCalled();
+      });
+    });
+
     it('reads a stored limit and ignores an invalid one', async () => {
       repo.findMany.mockResolvedValue([
         { key: 'api_keys_enabled', value: 'false' },

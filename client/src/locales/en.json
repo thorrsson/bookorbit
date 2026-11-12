@@ -4827,6 +4827,7 @@
     "resetLink": {
       "title": "Password Reset Link",
       "description": "Share this link with the user. It expires in 15 minutes.",
+      "configuredDescription": "Share this link with the user. Its lifetime is set by the administrator.",
       "copy": "Copy",
       "copied": "Copied!",
       "copyFailed": "Copy failed",
@@ -5039,6 +5040,13 @@
         "enabledNotice": "New accounts start with the default library access below and no other permissions. Grant permissions before they can use protected features.",
         "loadError": "Failed to load the self-registration setting",
         "saveError": "Failed to update the self-registration setting"
+      },
+      "passwordReset": {
+        "label": "Password reset link lifetime (minutes)",
+        "hint": "Choose 1 to 1440 minutes (up to 24 hours). Applies to new emailed and admin-generated links, including account setup links. Existing links keep their original expiry.",
+        "loadError": "Failed to load the password reset lifetime",
+        "saveError": "Failed to save the password reset lifetime",
+        "saved": "Password reset lifetime saved"
       },
       "defaultLibraryAccess": {
         "title": "Default Library Access",
