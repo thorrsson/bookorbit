@@ -67,16 +67,20 @@ export class KoboTokenGuard implements CanActivate {
   }
 
   private async touchDevice(deviceId: number, clientDeviceId: string | null): Promise<void> {
+    let claimableClientDeviceId = clientDeviceId;
     if (clientDeviceId) {
-      await this.db
-        .update(schema.koboDevices)
-        .set({ clientDeviceId: null })
-        .where(and(eq(schema.koboDevices.clientDeviceId, clientDeviceId), ne(schema.koboDevices.id, deviceId)));
+      // A hardware id already bound to another device is never reassigned from a request header,
+      // otherwise any token holder could hijack token-less access for someone else's device.
+      const owner = await this.db.query.koboDevices.findFirst({
+        where: and(eq(schema.koboDevices.clientDeviceId, clientDeviceId), ne(schema.koboDevices.id, deviceId)),
+        columns: { id: true },
+      });
+      if (owner) claimableClientDeviceId = null;
     }
 
     await this.db
       .update(schema.koboDevices)
-      .set({ lastSeenAt: new Date(), ...(clientDeviceId && { clientDeviceId }) })
+      .set({ lastSeenAt: new Date(), ...(claimableClientDeviceId && { clientDeviceId: claimableClientDeviceId }) })
       .where(eq(schema.koboDevices.id, deviceId));
   }
 

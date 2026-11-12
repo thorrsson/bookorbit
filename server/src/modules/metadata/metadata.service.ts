@@ -13,6 +13,7 @@ import * as schema from '../../db/schema';
 import { mapWithConcurrency } from '../../common/utils/batch.utils';
 import { isFileDerivedChapterSource } from '../../common/utils/audiobook-chapters.utils';
 import { sanitizeLogValue } from '../../common/utils/log-sanitize.utils';
+import { safeFetch } from '../../common/utils/safe-fetch';
 import { inNameOrder } from '../../common/utils/insert-lock-order.utils';
 import { isKnownPlaceholderCover } from '../../common/utils/placeholder-cover.utils';
 import {
@@ -64,6 +65,7 @@ const MAX_PUBLISHED_YEAR = 2200;
 const MAX_COVER_DOWNLOADS = 3;
 const MAX_COVER_DOWNLOAD_BYTES = 20 * 1024 * 1024;
 const COVER_DOWNLOAD_TIMEOUT_MS = 15_000;
+const COVER_DOWNLOAD_MAX_REDIRECTS = 3;
 const AUDIO_DURATION_PROBE_CONCURRENCY = 4;
 
 /** A fetched cover and how the provider's stated shape fits the slot it is meant for. */
@@ -420,7 +422,20 @@ export class MetadataService {
       return null;
     }
     if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null;
-    const res = await fetch(parsed, { signal: AbortSignal.timeout(COVER_DOWNLOAD_TIMEOUT_MS) });
+    const signal = AbortSignal.timeout(COVER_DOWNLOAD_TIMEOUT_MS);
+    let res = await safeFetch(parsed.href, { signal, redirect: 'manual' }, { pinResolvedAddress: true });
+    for (let hops = 0; res.status >= 300 && res.status < 400; hops++) {
+      const location = res.headers.get('location');
+      if (!location || hops >= COVER_DOWNLOAD_MAX_REDIRECTS) return null;
+      let next: URL;
+      try {
+        next = new URL(location, parsed);
+      } catch {
+        return null;
+      }
+      if (next.protocol !== 'http:' && next.protocol !== 'https:') return null;
+      res = await safeFetch(next.href, { signal, redirect: 'manual' }, { pinResolvedAddress: true });
+    }
     if (!res.ok || !res.body) return null;
     const declared = Number(res.headers.get('content-length'));
     if (Number.isFinite(declared) && declared > MAX_COVER_DOWNLOAD_BYTES) return null;

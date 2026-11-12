@@ -1,3 +1,7 @@
+vi.mock('../../common/utils/safe-fetch', () => ({
+  safeFetch: (url: string, init?: RequestInit) => global.fetch(url, init),
+}));
+
 vi.mock('fs/promises', () => ({
   readFile: vi.fn(),
   stat: vi.fn(),

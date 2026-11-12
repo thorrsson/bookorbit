@@ -9,6 +9,7 @@ import type { ContentFilterRules } from '@bookorbit/types';
 import { PermissionService } from '../../common/services/permission.service';
 import { OpdsUserService } from './opds-user.service';
 import { UserService } from '../user/user.service';
+import { AuthFailureLimiter } from '../../common/utils/auth-failure-limiter';
 
 export interface OpdsRequestUser {
   opdsUserId: number;
@@ -52,6 +53,8 @@ function parseCoverToken(token: string, secret: string): number | null {
 
 @Injectable()
 export class OpdsAuthGuard implements CanActivate {
+  private readonly failures = new AuthFailureLimiter();
+
   constructor(
     private readonly opdsUserService: OpdsUserService,
     private readonly userService: UserService,
@@ -109,11 +112,18 @@ export class OpdsAuthGuard implements CanActivate {
     const username = decoded.slice(0, colonIndex);
     const password = decoded.slice(colonIndex + 1);
 
+    const ipKey = `opds:ip:${request.ip}`;
+    const userKey = `opds:user:${request.ip}:${username.toLowerCase()}`;
+    this.failures.assertAllowed(ipKey, userKey);
+
     const result = await this.opdsUserService.validateCredentials(username, password);
     if (!result) {
+      this.failures.recordFailure(ipKey, userKey);
       reply.header('WWW-Authenticate', 'Basic realm="bookorbit OPDS"');
       throw new UnauthorizedException('Invalid credentials');
     }
+
+    this.failures.reset(userKey);
 
     if (!result.parentUser.active) {
       throw new UnauthorizedException('Account is disabled');
