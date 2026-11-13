@@ -104,9 +104,7 @@ describe('KoboTokenGuard', () => {
     const permissionService = { userHas: vi.fn().mockReturnValue(true) };
     const guard = new KoboTokenGuard(db as never, userService as never, permissionService as never);
 
-    db.query.koboDevices.findFirst
-      .mockResolvedValueOnce({ id: 2, token: 'tok', userId: 4 })
-      .mockResolvedValueOnce({ id: 99 });
+    db.query.koboDevices.findFirst.mockResolvedValueOnce({ id: 2, token: 'tok', userId: 4 }).mockResolvedValueOnce({ id: 99 });
 
     const request = { params: { deviceToken: 'tok' }, headers: { 'x-kobo-deviceid': 'victim-device' } };
     await expect(guard.canActivate(makeContext(request))).resolves.toBe(true);

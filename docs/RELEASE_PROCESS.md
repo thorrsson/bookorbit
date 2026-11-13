@@ -32,15 +32,9 @@ Why PR title is required: with squash merges, the final commit analyzed by seman
 
 Validation in CI and release checks:
 
-- PR branch name must follow `BO-123-fix-reader-pagination`
 - PR title must match commitlint rules
   - Example: `fix(reader): reduce rerendering in chapter list`
 - PR commit headers must match commitlint rules
-- PR description must include at least one GitHub closing-keyword issue reference:
-  - `close`, `closes`, `closed`, `fix`, `fixes`, `fixed`, `resolve`, `resolves`, `resolved`
-  - Examples: `Closes #123`, `Fixes: #123`, `RESOLVED owner/repo#123`
-- Branch issue number must exist in this repository
-- PR description issue references must resolve to valid GitHub issues (same repo or `owner/repo#issue`)
 
 Examples:
 

@@ -382,7 +382,7 @@ These are the rules that most commonly cause PR rejections. Following them from 
 
 The CI workflow (`.github/workflows/ci.yml`) triggers on every PR to `main`:
 
-1. **PR conventions** - Enforces `BO-<issue-number>-<short-description>` branch names, PR title format, commit-header rules from [COMMIT_GUIDELINES.md](COMMIT_GUIDELINES.md), and a PR-description issue link using GitHub closing keywords (`close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved`). CI also verifies that referenced issue numbers actually exist.
+1. **PR conventions** - Enforces PR title format and commit-header rules from [COMMIT_GUIDELINES.md](COMMIT_GUIDELINES.md).
 2. **Dependency review** - Checks for supply chain issues in new dependencies.
 3. **Change detection** - Determines which workspaces (server/client) have changed files.
 4. **Lint** - Runs ESLint and format checks on changed workspaces.
@@ -406,7 +406,7 @@ Releases are created manually via `workflow_dispatch` on the `release.yml` workf
 3. Creates a Git tag and GitHub Release with auto-generated release notes.
 4. Builds, scans, and publishes a Docker image with version and `latest` tags.
 
-On pull requests, CI enforces branch naming (`BO-<issue-number>-<short-description>`), validates PR titles with commitlint (for squash-merge release safety), validates PR commit headers against [COMMIT_GUIDELINES.md](COMMIT_GUIDELINES.md), and requires at least one GitHub closing-keyword issue reference in the PR description (for example: `Closes #123`, `Fixes: #123`, or `RESOLVED owner/repo#123`). It also verifies that the branch issue exists in this repository and that PR description issue references resolve to valid GitHub issues. Only releasable types (`feat`, `fix`, `perf`, `security`, `db`, `style`) trigger version bumps.
+On pull requests, CI validates PR titles with commitlint (for squash-merge release safety) and validates PR commit headers against [COMMIT_GUIDELINES.md](COMMIT_GUIDELINES.md). Only releasable types (`feat`, `fix`, `perf`, `security`, `db`, `style`) trigger version bumps.
 
 Example PR description snippet:
 

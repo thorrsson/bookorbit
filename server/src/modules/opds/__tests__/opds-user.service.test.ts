@@ -3,6 +3,7 @@ import { Test } from '@nestjs/testing';
 
 vi.mock('bcryptjs', () => ({
   hash: vi.fn((value: string) => Promise.resolve(`mock-hash:${value}`)),
+  hashSync: vi.fn((value: string) => `mock-hash:${value}`),
   compare: vi.fn((plain: string, hashed: string) => Promise.resolve(hashed === `mock-hash:${plain}`)),
 }));
 
