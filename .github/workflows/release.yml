@@ -167,11 +167,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          BEFORE_TAG=$(git tag --sort=-v:refname | head -1 || true)
+          # Compare tags on this repo's remote, not local tags: semantic-release
+          # may fetch tags from elsewhere that never get pushed here.
+          list_remote_tags() {
+            git ls-remote --tags --refs origin 'v*' | awk '{sub("refs/tags/", "", $2); print $2}' | sort
+          }
+          BEFORE_TAGS=$(list_remote_tags)
           pnpm exec semantic-release
-          git fetch --tags --quiet
-          AFTER_TAG=$(git tag --sort=-v:refname | head -1 || true)
-          if [[ -n "$AFTER_TAG" && "$AFTER_TAG" != "$BEFORE_TAG" ]]; then
+          AFTER_TAG=$(comm -13 <(echo "$BEFORE_TAGS") <(list_remote_tags) | sort -V | tail -1)
+          if [[ -n "$AFTER_TAG" ]]; then
             VERSION="${AFTER_TAG#v}"
             echo "new_release_published=true" >> "$GITHUB_OUTPUT"
             echo "new_release_version=${VERSION}" >> "$GITHUB_OUTPUT"

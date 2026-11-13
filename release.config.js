@@ -2,7 +2,10 @@
 
 const { spawnSync } = require("child_process");
 
-const DOCKER_IMAGE = "ghcr.io/bookorbit/bookorbit";
+// Derive from the Actions context so forks release against their own repo and
+// image instead of upstream. Falls back to upstream for local dry runs.
+const GITHUB_REPOSITORY = process.env.GITHUB_REPOSITORY || "bookorbit/bookorbit";
+const DOCKER_IMAGE = `ghcr.io/${GITHUB_REPOSITORY.toLowerCase()}`;
 
 const TYPES = [
   { type: "feat", section: "Features" },
@@ -190,7 +193,7 @@ function finalizeContext(ctx) {
 
 module.exports = {
   branches: ["main"],
-  repositoryUrl: "https://github.com/bookorbit/bookorbit",
+  repositoryUrl: `https://github.com/${GITHUB_REPOSITORY}`,
   tagFormat: "v${version}",
   plugins: [
     [
