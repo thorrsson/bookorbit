@@ -4,7 +4,8 @@ const { spawnSync } = require("child_process");
 
 // Derive from the Actions context so forks release against their own repo and
 // image instead of upstream. Falls back to upstream for local dry runs.
-const GITHUB_REPOSITORY = process.env.GITHUB_REPOSITORY || "bookorbit/bookorbit";
+const UPSTREAM_REPOSITORY = "bookorbit/bookorbit";
+const GITHUB_REPOSITORY = process.env.GITHUB_REPOSITORY || UPSTREAM_REPOSITORY;
 const DOCKER_IMAGE = `ghcr.io/${GITHUB_REPOSITORY.toLowerCase()}`;
 
 const TYPES = [
@@ -234,6 +235,18 @@ module.exports = {
     // "## Highlights" section (see docs/whats-new-authoring-guide.md) before it
     // goes public, then click "Publish release". The git tag and Docker images
     // are still produced; BookOrbit hides draft releases until they are published.
-    ["@semantic-release/github", { draftRelease: true }],
+    //
+    // Forks inherit upstream commits whose "#123" references point at upstream
+    // issues, so commenting on or labelling them fails the success step.
+    [
+      "@semantic-release/github",
+      {
+        draftRelease: true,
+        ...(GITHUB_REPOSITORY !== UPSTREAM_REPOSITORY && {
+          successComment: false,
+          releasedLabels: false,
+        }),
+      },
+    ],
   ],
 };
