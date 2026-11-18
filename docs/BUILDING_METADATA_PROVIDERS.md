@@ -229,7 +229,7 @@ GitHub Container Registry (GHCR) is free for public images and sits next to your
    source, and any known gaps.
 
 6. **Tell people about it** in a
-   [Community Discussion](https://github.com/bookorbit/bookorbit/issues/new?template=discussion.yml).
+   [Community Discussion](https://github.com/thorrsson/bookorbit/issues/new?template=discussion.yml).
    To have it offered under **Available to install** in every BookOrbit, open a pull request that
    adds it to `directory.json` in
    [bookorbit-metadata-providers](https://github.com/bookorbit/bookorbit-metadata-providers).

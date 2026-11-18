@@ -36,7 +36,7 @@ The rest of this guide still applies (issue first, PR template, etc.), but expec
 
 ## Security Issues
 
-Do **not** open public issues for security vulnerabilities. Use GitHub's [private vulnerability reporting](https://github.com/bookorbit/bookorbit/security/advisories/new) instead. See [SECURITY.md](.github/SECURITY.md) for details.
+Do **not** open public issues for security vulnerabilities. Use GitHub's [private vulnerability reporting](https://github.com/thorrsson/bookorbit/security/advisories/new) instead. See [SECURITY.md](.github/SECURITY.md) for details.
 
 ---
 
@@ -50,9 +50,9 @@ This is the end-to-end journey from idea to merged PR. Each phase builds on the 
 > contributor. PRs without prior approval and assignment will be closed without review.
 
 - Browse [open issues](../../issues) for something you want to tackle.
-- Report a problem using the [bug report](https://github.com/bookorbit/bookorbit/issues/new?template=bug_report.yml) form, or propose a concrete improvement using the [feature request](https://github.com/bookorbit/bookorbit/issues/new?template=feature_request.yml) form.
-- For setup or usage questions, use [Question / Help](https://github.com/bookorbit/bookorbit/issues/new?template=question.yml).
-- Not sure if your idea fits the roadmap? Start a [Community Discussion](https://github.com/bookorbit/bookorbit/issues/new?template=discussion.yml) before investing time.
+- Report a problem using the [bug report](https://github.com/thorrsson/bookorbit/issues/new?template=bug_report.yml) form, or propose a concrete improvement using the [feature request](https://github.com/thorrsson/bookorbit/issues/new?template=feature_request.yml) form.
+- For setup or usage questions, use [Question / Help](https://github.com/thorrsson/bookorbit/issues/new?template=question.yml).
+- Not sure if your idea fits the roadmap? Start a [Community Discussion](https://github.com/thorrsson/bookorbit/issues/new?template=discussion.yml) before investing time.
 
 ### Phase 2: Get Maintainer Approval
 
@@ -80,7 +80,7 @@ with clear reproduction are usually approved quickly.
 ```bash
 git clone https://github.com/<your-username>/bookorbit.git
 cd bookorbit
-git remote add upstream https://github.com/bookorbit/bookorbit.git
+git remote add upstream https://github.com/thorrsson/bookorbit.git
 ```
 
 > **Trusted contributors** with direct push access can skip the fork and work on branches in the main repository. The rest of this guide assumes the fork workflow.

@@ -7,19 +7,19 @@
 
 A self-hosted library and reading platform for ebooks, PDFs, audiobooks, and comics.
 
-[![Latest release](https://img.shields.io/github/v/release/bookorbit/bookorbit?label=latest&style=flat-square)](https://github.com/bookorbit/bookorbit/releases)
-[![Stars](https://img.shields.io/github/stars/bookorbit/bookorbit?style=flat-square&color=FFC72C)](https://github.com/bookorbit/bookorbit/stargazers)
-[![GHCR Pulls](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fghcr-badge.elias.eu.org%2Fapi%2Fbookorbit%2Fbookorbit%2Fbookorbit&query=downloadCount&label=Docker%20Pulls&logo=docker&style=flat-square&color=2496ed)](https://github.com/bookorbit/bookorbit/pkgs/container/bookorbit)
-[![CI](https://img.shields.io/github/actions/workflow/status/bookorbit/bookorbit/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bookorbit/bookorbit/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/actions/workflow/status/bookorbit/bookorbit/release.yml?style=flat-square&label=release)](https://github.com/bookorbit/bookorbit/actions/workflows/release.yml)
-[![Coverage](https://img.shields.io/codecov/c/github/bookorbit/bookorbit?style=flat-square&flag=server&token=F6TADEFCUV&label=server%20coverage)](https://codecov.io/gh/bookorbit/bookorbit)
+[![Latest release](https://img.shields.io/github/v/release/thorrsson/bookorbit?label=latest&style=flat-square)](https://github.com/thorrsson/bookorbit/releases)
+[![Stars](https://img.shields.io/github/stars/thorrsson/bookorbit?style=flat-square&color=FFC72C)](https://github.com/thorrsson/bookorbit/stargazers)
+[![GHCR Pulls](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fghcr-badge.elias.eu.org%2Fapi%2Fthorrsson%2Fbookorbit%2Fbookorbit&query=downloadCount&label=Docker%20Pulls&logo=docker&style=flat-square&color=2496ed)](https://github.com/thorrsson/bookorbit/pkgs/container/bookorbit)
+[![CI](https://img.shields.io/github/actions/workflow/status/thorrsson/bookorbit/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/thorrsson/bookorbit/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/actions/workflow/status/thorrsson/bookorbit/release.yml?style=flat-square&label=release)](https://github.com/thorrsson/bookorbit/actions/workflows/release.yml)
+[![Coverage](https://img.shields.io/codecov/c/github/thorrsson/bookorbit?style=flat-square&flag=server&label=server%20coverage)](https://codecov.io/gh/thorrsson/bookorbit)
 
 [![Website](https://img.shields.io/badge/Website-bookorbit.app-blue?style=flat-square&logo=googlechrome&logoColor=white&color=4169E1)](https://bookorbit.app)
 [![Demo](https://img.shields.io/badge/Demo-live-brightgreen?style=flat-square&logo=rocket&logoColor=white&color=40a829)](https://demo.bookorbit.app/magic?token=2d92cb900e184cf0eb8b11f72cffc6011673d1016e1b300d750eb3d76abc1572)
 [![App Store](https://img.shields.io/badge/App_Store-download-0D96F6?style=flat-square&logo=appstore&logoColor=white)](https://apps.apple.com/us/app/bookorbit-the-official-app/id6811807346)
 ![Android coming soon](https://img.shields.io/badge/Android-coming_soon-3DDC84?style=flat-square&logo=android&logoColor=white)
 [![Crowdin](https://img.shields.io/badge/Crowdin-translate-2E3340?style=flat-square&logo=crowdin&logoColor=white)](https://crowdin.com/project/bookorbit)
-[![Contributing](https://img.shields.io/badge/Contributing-guide-orange?style=flat-square&logo=handshake&logoColor=white)](https://github.com/bookorbit/bookorbit/blob/main/CONTRIBUTING.md)
+[![Contributing](https://img.shields.io/badge/Contributing-guide-orange?style=flat-square&logo=handshake&logoColor=white)](https://github.com/thorrsson/bookorbit/blob/main/CONTRIBUTING.md)
 
 ![BookOrbit dashboard showing reading stats, widgets, and book shelves](docs/images/dashboard-overview.png)
 
@@ -122,8 +122,8 @@ Take your library anywhere with the official native BookOrbit app. Read ebooks, 
 ```bash
 mkdir bookorbit && cd bookorbit
 mkdir -p books data/app data/postgres
-curl -fsSLo .env https://raw.githubusercontent.com/bookorbit/bookorbit/main/.env.example
-curl -fsSLo docker-compose.yml https://raw.githubusercontent.com/bookorbit/bookorbit/main/docker-compose.yml
+curl -fsSLo .env https://raw.githubusercontent.com/thorrsson/bookorbit/main/.env.example
+curl -fsSLo docker-compose.yml https://raw.githubusercontent.com/thorrsson/bookorbit/main/docker-compose.yml
 ```
 
 Edit `.env` and set these required values:
@@ -212,7 +212,7 @@ If BookOrbit is valuable to you and you would like to support its continued deve
 - [Get the official iPhone and Apple Watch app](https://apps.apple.com/us/app/bookorbit-the-official-app/id6811807346)
 - [Support BookOrbit on Ko-fi](https://ko-fi.com/neonbookorbit)
 - [Contribute through Open Collective](https://opencollective.com/bookorbit)
-- [Star BookOrbit on GitHub](https://github.com/bookorbit/bookorbit)
+- [Star BookOrbit on GitHub](https://github.com/thorrsson/bookorbit)
 
 Financial support is entirely optional. Using BookOrbit, recommending it to others, or starring the repository also makes a meaningful difference.
 
@@ -253,10 +253,10 @@ When adding user-facing text in code, add the Vue I18n key only to `client/src/l
 
 ## 💬 Help and Community
 
-- **Questions and help:** [Ask in GitHub Issues](https://github.com/bookorbit/bookorbit/issues/new?template=question.yml) or [browse help requests](https://github.com/bookorbit/bookorbit/issues?q=is%3Aissue%20label%3Asupport).
-- **Community conversations:** [Start a conversation](https://github.com/bookorbit/bookorbit/issues/new?template=discussion.yml) or [browse community topics](https://github.com/bookorbit/bookorbit/issues?q=is%3Aissue%20label%3Adiscussion).
-- **Bug reports:** [GitHub Issues](https://github.com/bookorbit/bookorbit/issues/new?template=bug_report.yml)
-- **Feature requests:** [GitHub Issues](https://github.com/bookorbit/bookorbit/issues/new?template=feature_request.yml)
+- **Questions and help:** [Ask in GitHub Issues](https://github.com/thorrsson/bookorbit/issues/new?template=question.yml) or [browse help requests](https://github.com/thorrsson/bookorbit/issues?q=is%3Aissue%20label%3Asupport).
+- **Community conversations:** [Start a conversation](https://github.com/thorrsson/bookorbit/issues/new?template=discussion.yml) or [browse community topics](https://github.com/thorrsson/bookorbit/issues?q=is%3Aissue%20label%3Adiscussion).
+- **Bug reports:** [GitHub Issues](https://github.com/thorrsson/bookorbit/issues/new?template=bug_report.yml)
+- **Feature requests:** [GitHub Issues](https://github.com/thorrsson/bookorbit/issues/new?template=feature_request.yml)
 - **Security vulnerabilities:** Follow the private reporting process in the [Security Policy](.github/SECURITY.md).
 
 Questions are welcome, even if you are unsure whether something is a bug. Share workflows, your setup, or companion apps in community conversations. See the [community guide](docs/COMMUNITY.md) for choosing a category and how topics are handled.

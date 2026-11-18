@@ -8,7 +8,7 @@ import { buildRequestSignal, sanitizeLogError, sleep } from '../provider-utils';
 import { RanobeDbBookResponse, RanobeDbSearchResponse } from './ranobedb.types';
 
 const BASE_URL = 'https://ranobedb.org/api/v0';
-const USER_AGENT = 'bookorbit/1.0 (+https://github.com/bookorbit/bookorbit)';
+const USER_AGENT = 'bookorbit/1.0 (+https://github.com/thorrsson/bookorbit)';
 
 class RateLimiter {
   private nextAllowedTime = 0;

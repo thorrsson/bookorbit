@@ -33,7 +33,7 @@ Read-aloud generation is opt-in. Add the following values to the deployment `.en
 COMPOSE_PROFILES=read-aloud
 READ_ALOUD_WORKER_URL=http://read-aloud-worker:8787
 READ_ALOUD_WORKER_TOKEN=<a-random-secret-of-at-least-16-characters>
-READ_ALOUD_WORKER_IMAGE=ghcr.io/bookorbit/bookorbit-read-aloud-worker:latest
+READ_ALOUD_WORKER_IMAGE=ghcr.io/thorrsson/bookorbit-read-aloud-worker:latest
 ```
 
 Generate the shared token with `openssl rand -hex 32`. The worker port is exposed only to the Compose network. The app and worker must use the same token.

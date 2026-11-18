@@ -10,7 +10,7 @@ defineProps<{ isRail: boolean }>()
 
 const { t } = useI18n()
 const githubStarPopoverOpen = ref(false)
-const GITHUB_REPOSITORY_URL = 'https://github.com/bookorbit/bookorbit'
+const GITHUB_REPOSITORY_URL = 'https://github.com/thorrsson/bookorbit'
 
 function handlePopoverOpenChange(open: boolean) {
   githubStarPopoverOpen.value = open

@@ -79,7 +79,7 @@ export class ReleaseNotesService {
     const enabled = await this.appSettingsService.isUpdateCheckEnabled();
     if (!enabled) return [];
 
-    const repo = this.config.get<string>('app.githubReleasesRepo') ?? 'bookorbit/bookorbit';
+    const repo = this.config.get<string>('app.githubReleasesRepo') ?? 'thorrsson/bookorbit';
     const token = this.config.get<string>('app.githubReleasesToken');
     const url = `https://api.github.com/repos/${repo}/releases?per_page=${RELEASE_NOTES_PER_PAGE}&page=${page}`;
     const start = Date.now();

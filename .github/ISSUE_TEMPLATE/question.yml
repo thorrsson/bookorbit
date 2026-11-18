@@ -10,12 +10,12 @@ body:
         You do not need approval or assignment to ask for help.
 
         Check the [documentation](https://bookorbit.app) and
-        [existing help requests](https://github.com/bookorbit/bookorbit/issues?q=is%3Aissue%20label%3Asupport)
+        [existing help requests](https://github.com/thorrsson/bookorbit/issues?q=is%3Aissue%20label%3Asupport)
         for an answer first. If you still need help, ask here.
 
         Do not include passwords, tokens, private book content, or other sensitive information in
         logs or screenshots. Report security vulnerabilities privately using the
-        [security policy](https://github.com/bookorbit/bookorbit/blob/main/.github/SECURITY.md).
+        [security policy](https://github.com/thorrsson/bookorbit/blob/main/.github/SECURITY.md).
 
         NAS and network storage configurations are unsupported. For storage-related problems,
         reproduce the problem on supported local storage before asking for troubleshooting help.

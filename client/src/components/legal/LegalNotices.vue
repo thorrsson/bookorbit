@@ -7,9 +7,12 @@ import { useLegalNotices } from './useLegalNotices'
 const { t } = useI18n()
 const { open, closeLegalNotices, handleOpenChange } = useLegalNotices()
 
+// ADDITIONAL_TERMS.md requires the attribution to link to the original project,
+// while the source offer must point at this modified version's repository.
 const PROJECT_URL = 'https://github.com/bookorbit/bookorbit'
-const LICENSE_URL = `${PROJECT_URL}/blob/main/LICENSE`
-const ADDITIONAL_TERMS_URL = `${PROJECT_URL}/blob/main/ADDITIONAL_TERMS.md`
+const SOURCE_URL = 'https://github.com/thorrsson/bookorbit'
+const LICENSE_URL = `${SOURCE_URL}/blob/main/LICENSE`
+const ADDITIONAL_TERMS_URL = `${SOURCE_URL}/blob/main/ADDITIONAL_TERMS.md`
 </script>
 
 <template>
@@ -60,7 +63,7 @@ const ADDITIONAL_TERMS_URL = `${PROJECT_URL}/blob/main/ADDITIONAL_TERMS.md`
 
           <div class="grid gap-2 sm:grid-cols-3">
             <a
-              :href="PROJECT_URL"
+              :href="SOURCE_URL"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center justify-center gap-1.5 rounded-md border border-border px-3 py-2 font-medium text-foreground outline-hidden hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
