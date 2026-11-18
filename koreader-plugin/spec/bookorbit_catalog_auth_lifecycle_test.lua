@@ -149,7 +149,7 @@ assertEqual(plugin.settings.userkey, "old-key", "failed login preserves the prev
 assertEqual(plugin.settings.catalog_dashboard_cache.displayName, "Previous account", "failed login preserves the current account cache")
 assertEqual(#applied_api, 0, "failed login does not replace the catalog client")
 assertEqual(refreshCount(), 0, "failed login does not refresh the catalog")
-assertEqual(shown[#shown].text, "Login failed. Create or check your KOReader credentials in BookOrbit web settings.",
+assertEqual(shown[#shown].text, "Login failed. Create or check your KOReader credentials in TLS Library web settings.",
     "failed login shows the credential error")
 
 print("bookorbit_catalog_auth_lifecycle_test: ok")

@@ -229,7 +229,7 @@ describe('useBookDockUpload requests', () => {
 })
 
 describe('useBookDockUpload server failures', () => {
-  it('keeps the error code and message from a BookOrbit rejection', async () => {
+  it('keeps the error code and message from a TLS Library rejection', async () => {
     const { upload } = await loadComposable()
 
     upload.addFiles([book('dune.epub')])
@@ -257,7 +257,7 @@ describe('useBookDockUpload server failures', () => {
     expect(upload.failures.value[0]?.failure).toMatchObject({ kind: 'server', status: 400, message: 'file must be provided' })
   })
 
-  it('marks an HTML error page as coming from in front of BookOrbit', async () => {
+  it('marks an HTML error page as coming from in front of TLS Library', async () => {
     const { upload } = await loadComposable()
 
     upload.addFiles([book('dune.epub')])
@@ -268,7 +268,7 @@ describe('useBookDockUpload server failures', () => {
     expect(upload.failures.value[0]?.failure).toEqual({ kind: 'server', status: 413, errorCode: null, message: null, fromBookOrbit: false })
   })
 
-  it('does not trust a JSON body that lacks the BookOrbit error envelope', async () => {
+  it('does not trust a JSON body that lacks the TLS Library error envelope', async () => {
     const { upload } = await loadComposable()
 
     upload.addFiles([book('dune.epub')])

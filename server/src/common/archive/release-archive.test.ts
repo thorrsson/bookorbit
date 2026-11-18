@@ -170,13 +170,13 @@ describe('extractReleaseArchive with a ZIP', () => {
     const count = Math.floor(ARCHIVE_BOUNDS.maxTotalBytes / declaredSize) + 8;
     const entries = Array.from({ length: count }, (_, index) => ({ name: `part-${index}.epub`, contents: Buffer.from('x'), declaredSize }));
 
-    await expect(extract(entries)).rejects.toThrow(/more than BookOrbit will extract/);
+    await expect(extract(entries)).rejects.toThrow(/more than TLS Library will extract/);
     await expect(readdir(target)).resolves.toEqual([]);
   });
 
   it('refuses an entry larger on its own than the per-entry bound', async () => {
     const declaredSize = ARCHIVE_BOUNDS.maxEntryBytes + 1;
-    await expect(extract([{ name: 'huge.epub', contents: Buffer.from('x'), declaredSize }])).rejects.toThrow(/larger than BookOrbit will extract/);
+    await expect(extract([{ name: 'huge.epub', contents: Buffer.from('x'), declaredSize }])).rejects.toThrow(/larger than TLS Library will extract/);
   });
 
   it('refuses an archive with more entries than the bound', async () => {
@@ -233,7 +233,7 @@ describe('extractReleaseArchive with a ZIP', () => {
 
         // Each half fits on its own; together they do not.
         await extractReleaseArchive(first, 'zip', join(target, 'a'), budget);
-        await expect(extractReleaseArchive(second, 'zip', join(target, 'b'), budget)).rejects.toThrow(/more than BookOrbit will extract/);
+        await expect(extractReleaseArchive(second, 'zip', join(target, 'b'), budget)).rejects.toThrow(/more than TLS Library will extract/);
       });
     });
 
@@ -253,7 +253,7 @@ describe('extractReleaseArchive with a ZIP', () => {
         await writeFile(second, buildZip([{ name: 'b.epub', contents, declaredSize: 1024 }]));
 
         await extractReleaseArchive(first, 'zip', join(target, 'a'), budget);
-        await expect(extractReleaseArchive(second, 'zip', join(target, 'b'), budget)).rejects.toThrow(/more than BookOrbit will extract/);
+        await expect(extractReleaseArchive(second, 'zip', join(target, 'b'), budget)).rejects.toThrow(/more than TLS Library will extract/);
       });
     });
 
@@ -263,7 +263,7 @@ describe('extractReleaseArchive with a ZIP', () => {
         const archive = join(workspace, 'liar.zip');
         await writeFile(archive, buildZip([{ name: 'Dune.epub', contents: Buffer.alloc(16 * 1024, 'x'), declaredSize: 1024 }]));
 
-        await expect(extractReleaseArchive(archive, 'zip', target)).rejects.toThrow(/larger than BookOrbit will extract/);
+        await expect(extractReleaseArchive(archive, 'zip', target)).rejects.toThrow(/larger than TLS Library will extract/);
       });
     });
 
@@ -425,7 +425,7 @@ describe('extractReleaseArchive with a 7z', () => {
       mountSevenZip({ 'Dune.epub': 'far more than eight bytes' });
 
       await expect(extractReleaseArchive(await archiveAt('release.7z'), '7z', join(workspace, 'out'))).rejects.toThrow(
-        /more than BookOrbit will extract/,
+        /more than TLS Library will extract/,
       );
       expect(vfs.reads).toHaveLength(0);
     });

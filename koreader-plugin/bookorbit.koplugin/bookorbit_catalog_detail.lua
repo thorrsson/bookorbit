@@ -555,7 +555,7 @@ function CatalogDetail:detailMenuItems(d, detail)
     if #d.usable > 0 then
         table.insert(items, { icon = "download", label = _("Download options"), action = { kind = "download-options" } })
     end
-    table.insert(items, { icon = "refresh-cw", label = _("Refresh from BookOrbit"), action = { kind = "refresh" } })
+    table.insert(items, { icon = "refresh-cw", label = _("Refresh from TLS Library"), action = { kind = "refresh" } })
     if d.on_device then
         table.insert(items, { icon = "trash", label = _("Remove from device"), action = { kind = "remove" }, separator = true })
     end

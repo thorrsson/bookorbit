@@ -65,7 +65,7 @@ export class DownloadContentRemovalService {
 
     if (content.expectOnDisk && !(await exists(localRoot))) {
       throw new BadRequestException(
-        "BookOrbit cannot find this download's files where the path mapping places them, so it cannot delete them. Check the path mapping, or remove the download without deleting its files. Nothing was removed.",
+        "TLS Library cannot find this download's files where the path mapping places them, so it cannot delete them. Check the path mapping, or remove the download without deleting its files. Nothing was removed.",
       );
     }
 
@@ -80,7 +80,7 @@ export class DownloadContentRemovalService {
     const blocked = await firstUnwritableParent(files);
     if (blocked) {
       throw new BadRequestException(
-        `BookOrbit cannot delete this download's files: it may not write to the download directory (${blocked}). Nothing was removed.`,
+        `TLS Library cannot delete this download's files: it may not write to the download directory (${blocked}). Nothing was removed.`,
       );
     }
 
@@ -176,7 +176,7 @@ export function remoteFolderName(remotePath: string): string {
 function assertNotMappedRoot(localRoot: string, containmentRoot: string): void {
   if (normalize(localRoot) !== normalize(containmentRoot)) return;
   throw new BadRequestException(
-    "This download's folder is the mapped download directory itself, so BookOrbit will not delete it. Nothing was removed.",
+    "This download's folder is the mapped download directory itself, so TLS Library will not delete it. Nothing was removed.",
   );
 }
 
@@ -186,7 +186,7 @@ async function lstatIfPresent(path: string): Promise<Awaited<ReturnType<typeof l
   } catch (error) {
     const code = errorCode(error);
     if (code === 'ENOENT') return null;
-    throw new BadRequestException(`BookOrbit cannot read the download directory (${code}). Nothing was removed.`);
+    throw new BadRequestException(`TLS Library cannot read the download directory (${code}). Nothing was removed.`);
   }
 }
 
@@ -202,7 +202,7 @@ async function walkFolder(root: string): Promise<{ files: string[]; directories:
     try {
       entries = await readdir(join(root, relativeDir), { withFileTypes: true });
     } catch (error) {
-      throw new BadRequestException(`BookOrbit cannot read the download directory (${errorCode(error)}). Nothing was removed.`);
+      throw new BadRequestException(`TLS Library cannot read the download directory (${errorCode(error)}). Nothing was removed.`);
     }
 
     for (const entry of entries) {
@@ -210,7 +210,7 @@ async function walkFolder(root: string): Promise<{ files: string[]; directories:
       if (entry.isDirectory()) {
         if (depth + 1 > MAX_FOLDER_DEPTH) {
           throw new BadRequestException(
-            "This download's folder is nested too deeply to be one download, so BookOrbit will not delete it. Nothing was removed.",
+            "This download's folder is nested too deeply to be one download, so TLS Library will not delete it. Nothing was removed.",
           );
         }
         directories.push(relativePath);
@@ -220,7 +220,7 @@ async function walkFolder(root: string): Promise<{ files: string[]; directories:
       }
       if (files.length + directories.length > MAX_FOLDER_ENTRIES) {
         throw new BadRequestException(
-          "This download's folder holds too many files to be one download, so BookOrbit will not delete it. Nothing was removed.",
+          "This download's folder holds too many files to be one download, so TLS Library will not delete it. Nothing was removed.",
         );
       }
     }
@@ -236,7 +236,7 @@ async function exists(path: string): Promise<boolean> {
   } catch (error) {
     const code = errorCode(error);
     if (code === 'ENOENT') return false;
-    throw new BadRequestException(`BookOrbit cannot read the download directory (${code}). Nothing was removed.`);
+    throw new BadRequestException(`TLS Library cannot read the download directory (${code}). Nothing was removed.`);
   }
 }
 

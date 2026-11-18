@@ -8,7 +8,7 @@ For the contribution process (issues, PRs, review), see [CONTRIBUTING.md](../CON
 
 ## Architecture Overview
 
-BookOrbit is a pnpm monorepo with a Vue 3 single-page app, a NestJS API server, shared packages, and optional worker processes.
+TLS Library is a pnpm monorepo with a Vue 3 single-page app, a NestJS API server, shared packages, and optional worker processes.
 
 ```mermaid
 graph LR
@@ -167,7 +167,7 @@ If everything worked, you will see the server, client, and types watcher start u
 
 | Check                                    | Expected                                   |
 | ---------------------------------------- | ------------------------------------------ |
-| Open http://localhost:6263               | BookOrbit login page loads                 |
+| Open http://localhost:6263               | TLS Library login page loads               |
 | Open http://localhost:6262/api/v1/health | Returns `{"status":"ok"}`                  |
 | `docker ps`                              | Shows `bookorbit-dev-db` container running |
 

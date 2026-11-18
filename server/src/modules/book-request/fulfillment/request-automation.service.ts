@@ -407,7 +407,7 @@ export class RequestAutomationService implements OnModuleInit {
         requestId,
         trigger,
         'GRABS_REFUSED',
-        (title) => `"${title}" was approved without a decision and every release BookOrbit tried was refused`,
+        (title) => `"${title}" was approved without a decision and every release TLS Library tried was refused`,
       );
       return;
     }

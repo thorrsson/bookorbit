@@ -1,6 +1,6 @@
 # API Keys
 
-An API key lets a script, a home automation, or another tool call the BookOrbit API without a password. Each key belongs to one person, can do at most what that person can do, and can be narrowed further: read only, a smaller set of permissions, or a few libraries.
+An API key lets a script, a home automation, or another tool call the TLS Library API without a password. Each key belongs to one person, can do at most what that person can do, and can be narrowed further: read only, a smaller set of permissions, or a few libraries.
 
 ## Who can create keys
 
@@ -10,7 +10,7 @@ A key stops working as soon as its owner loses the `api_keys` permission, is sus
 
 ## Using a key
 
-A key is shown once, when it is created or regenerated. It starts with `bok_` and is 53 characters long. BookOrbit stores only a hash of it, so a lost key cannot be recovered; regenerate it instead.
+A key is shown once, when it is created or regenerated. It starts with `bok_` and is 53 characters long. TLS Library stores only a hash of it, so a lost key cannot be recovered; regenerate it instead.
 
 Send the key in either header on any `/api/v1` request:
 

@@ -361,7 +361,7 @@ describe('PdfV4ReaderView', () => {
     expect(mockOnActivity).toHaveBeenCalledOnce()
   })
 
-  it('routes back from the BookOrbit reader shell', async () => {
+  it('routes back from the TLS Library reader shell', async () => {
     const wrapper = await mountReader()
     wrapper.getComponent({ name: 'PdfReaderContent' }).vm.$emit('back')
     expect(mockRouterBack).toHaveBeenCalledOnce()

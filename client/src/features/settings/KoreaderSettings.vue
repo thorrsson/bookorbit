@@ -1636,7 +1636,7 @@ async function handleDownloadPlugin() {
                   <li>{{ t('settings.reader.koreader.pluginStep3') }}</li>
                   <li>
                     {{ t('settings.reader.koreader.pluginStep4Prefix') }}
-                    <span class="font-mono text-foreground">Browse BookOrbit</span>
+                    <span class="font-mono text-foreground">Browse TLS Library</span>
                     {{ t('settings.reader.koreader.pluginStep4Suffix') }}
                   </li>
                 </ol>
@@ -1997,7 +1997,7 @@ async function handleDownloadPlugin() {
                 </p>
               </div>
               <div class="min-w-0 rounded-md border border-border bg-background px-3 py-2">
-                <p class="text-xs font-medium text-muted-foreground">BookOrbit</p>
+                <p class="text-xs font-medium text-muted-foreground">TLS Library</p>
                 <p class="mt-1 text-sm font-medium text-foreground truncate">
                   {{ pendingLinkTarget.title ?? t('settings.reader.koreader.hashLinks.untitledBook') }}
                 </p>

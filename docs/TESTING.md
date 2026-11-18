@@ -1,6 +1,6 @@
 # Testing Guide
 
-BookOrbit has three layers of tests:
+TLS Library has three layers of tests:
 
 - **Server unit tests:** isolated tests for NestJS services, controllers, repositories, and utilities. Dependencies are mocked; no database required.
 - **Client unit tests:** tests for Vue composables and pure utility functions using a jsdom environment.
@@ -130,7 +130,7 @@ check that your env vars match the values in `server/.env.example`.
 | `book-dock-ingest-finalize`       | full  | dedicated-db | 45 min  | Book Dock upload ingest and finalize flow                                                                             |
 | `metadata-write`                  | full  | dedicated-db | 60 min  | Metadata write operations (field updates, bulk edits)                                                                 |
 | `metadata-lock`                   | full  | dedicated-db | 60 min  | Metadata lock enforcement across operations                                                                           |
-| `migration-booklore`              | full  | dedicated-db | 70 min  | Booklore v1 to BookOrbit data migration                                                                               |
+| `migration-booklore`              | full  | dedicated-db | 70 min  | Booklore v1 to TLS Library data migration                                                                             |
 | `migration-audiobookshelf`        | full  | dedicated-db | 90 min  | Audiobookshelf live API and real-backup migration                                                                     |
 | `migration-calibre-web-automated` | full  | dedicated-db | 120 min | Calibre-Web Automated stopped-snapshot migration                                                                      |
 | `authorization-matrix`            | full  | dedicated-db | 60 min  | Permission enforcement across all protected routes                                                                    |

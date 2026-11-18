@@ -127,7 +127,7 @@ async function main(): Promise<void> {
   }
 
   console.log(`\n${'─'.repeat(60)}`);
-  console.log(warnings === 0 ? '✓ No problems detected - this is what BookOrbit will render.' : `⚠ ${warnings} warning(s) above.`);
+  console.log(warnings === 0 ? '✓ No problems detected - this is what TLS Library will render.' : `⚠ ${warnings} warning(s) above.`);
 }
 
 main().catch((e) => {

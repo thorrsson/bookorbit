@@ -117,7 +117,7 @@ export class TorboxApiClient {
     }
 
     if (listingTruncated && found.size < hashes.size) {
-      throw new ServiceUnavailableException('TorBox has more torrents than BookOrbit can search in one bounded lookup');
+      throw new ServiceUnavailableException('TorBox has more torrents than TLS Library can search in one bounded lookup');
     }
 
     return found;

@@ -110,7 +110,7 @@
           "label": "Styl",
           "hint": "Ogólny wygląd aplikacji. Tryb, akcent, narożniki i tło zachowują swoje ustawienia.",
           "bookorbit": {
-            "label": "BookOrbit"
+            "label": "TLS Library"
           }
         },
         "colorScheme": {
@@ -765,8 +765,8 @@
       "test": {
         "connected": "Połączono - {issuer}",
         "connectionFailed": "Połączenie nie powiodło się",
-        "privateIssuerAddress": "Adres URL wystawcy wskazuje na adres z prywatnej lub lokalnej sieci, dlatego serwer odmówił połączenia. Aby na to zezwolić, ustaw zmienną OIDC_ALLOW_LOCAL_ISSUERS=true na serwerze BookOrbit.",
-        "tlsCertificateUntrusted": "BookOrbit nie mógł zweryfikować certyfikatu TLS dostawcy OIDC. Jeśli dostawca korzysta z prywatnego urzędu certyfikacji, zamontuj plik PEM zawierający certyfikaty CA, ustaw zmienną NODE_EXTRA_CA_CERTS na ścieżkę do tego pliku wewnątrz kontenera, a następnie uruchom ponownie BookOrbit.",
+        "privateIssuerAddress": "Adres URL wystawcy wskazuje na adres z prywatnej lub lokalnej sieci, dlatego serwer odmówił połączenia. Aby na to zezwolić, ustaw zmienną OIDC_ALLOW_LOCAL_ISSUERS=true na serwerze TLS Library.",
+        "tlsCertificateUntrusted": "TLS Library nie mógł zweryfikować certyfikatu TLS dostawcy OIDC. Jeśli dostawca korzysta z prywatnego urzędu certyfikacji, zamontuj plik PEM zawierający certyfikaty CA, ustaw zmienną NODE_EXTRA_CA_CERTS na ścieżkę do tego pliku wewnątrz kontenera, a następnie uruchom ponownie TLS Library.",
         "hide": "Ukryj",
         "details": "Szczegóły",
         "supported": "obsługiwane",
@@ -774,7 +774,7 @@
       },
       "groupMappings": {
         "title": "Mapowania grupowe",
-        "description": "Mapuj claimy grup OIDC na uprawnienia BookOrbit. Są synchronizowane przy każdym logowaniu.",
+        "description": "Mapuj claimy grup OIDC na uprawnienia TLS Library. Są synchronizowane przy każdym logowaniu.",
         "noPermission": "Brak pozwolenia",
         "empty": "Nie skonfigurowano mapowań grupowych.",
         "addMapping": "Dodaj mapowanie",
@@ -1008,7 +1008,7 @@
         "targetUser": "Użytkownik docelowy",
         "doNotImport": "Nie importuj tego użytkownika",
         "noSourceUsersLoaded": "Nie załadowano jeszcze żadnych użytkowników źródłowych.",
-        "noActiveTargetUsers": "Nie znaleziono aktywnych użytkowników docelowych. Utwórz lub ponownie włącz użytkownika BookOrbit przed mapowaniem.",
+        "noActiveTargetUsers": "Nie znaleziono aktywnych użytkowników docelowych. Utwórz lub ponownie włącz użytkownika TLS Library przed mapowaniem.",
         "pathPrefixMappings": "Mapowania prefiksów ścieżek",
         "addMapping": "Dodaj mapowanie",
         "pathMappingsHelp1": "Mapowania ścieżek tłumaczą ścieżki plików źródłowych na ścieżki docelowe, dzięki czemu książki można dopasowywać na podstawie lokalizacji pliku. Na przykład, jeśli Twoja biblioteka Booklore przechowuje pliki w formacie",
@@ -1276,7 +1276,7 @@
         "confirmReset": "Potwierdź reset",
         "resetDialog": {
           "title": "Czy zresetować wszystkie wartości wag do ustawień domyślnych?",
-          "description": "Wszystkie 24 pola przywracają domyślne wagi dostarczone wraz z BookOrbit. Żadne zmiany nie zostaną zapisane, dopóki nie wybierzesz opcji „Zapisz i przelicz”."
+          "description": "Wszystkie 24 pola przywracają domyślne wagi dostarczone wraz z TLS Library. Żadne zmiany nie zostaną zapisane, dopóki nie wybierzesz opcji „Zapisz i przelicz”."
         },
         "reset": "Zresetuj",
         "recalculate": "Przelicz",
@@ -2173,11 +2173,11 @@
         "syncUrlCopyFailed": "Nie udało się skopiować synchronizacji URL",
         "syncPreferences": "Preferencje synchronizacji",
         "twoWaySync": "Dwukierunkowa synchronizacja postępu",
-        "twoWaySyncHint": "Zsynchronizuj pozycję czytania pomiędzy BookOrbit i Kobo. Wymaga dostawy KEPUB w celu uzyskania precyzyjnych lokalizacji i niezawodnego przywracania stron.",
-        "syncHighlights": "Synchronizuj najważniejsze momenty BookOrbit z Kobo",
-        "syncHighlightsHint": "Wyślij najważniejsze momenty wykonane w BookOrbit lub KOReader do swojego Kobo. Kobo wyróżnienia są importowane do BookOrbit nawet wtedy, gdy ta opcja jest wyłączona. Połączone adnotacje synchronizują zmiany i usuwają je w obie strony. Wymaga dostawy KEPUB; książka na Kobo musi być KEPUB-em pobranym z BookOrbit.",
+        "twoWaySyncHint": "Zsynchronizuj pozycję czytania pomiędzy TLS Library i Kobo. Wymaga dostawy KEPUB w celu uzyskania precyzyjnych lokalizacji i niezawodnego przywracania stron.",
+        "syncHighlights": "Synchronizuj najważniejsze momenty TLS Library z Kobo",
+        "syncHighlightsHint": "Wyślij najważniejsze momenty wykonane w TLS Library lub KOReader do swojego Kobo. Kobo wyróżnienia są importowane do TLS Library nawet wtedy, gdy ta opcja jest wyłączona. Połączone adnotacje synchronizują zmiany i usuwają je w obie strony. Wymaga dostawy KEPUB; książka na Kobo musi być KEPUB-em pobranym z TLS Library.",
         "convertKepub": "Konwertuj na KEPUB",
-        "convertKepubHint": "Wyślij kwalifikujące się pliki EPUB jako KEPUB. Pozostaje włączona, gdy włączona jest synchronizacja postępu lub podświetlanie BookOrbit-do-Kobo. Podczas następnej synchronizacji Kobo książki, których to dotyczy, będą ponownie oferowane jako pliki do pobrania KEPUB; usuń całą starą kopię EPUB, jeśli Kobo ciągle ją otwiera.",
+        "convertKepubHint": "Wyślij kwalifikujące się pliki EPUB jako KEPUB. Pozostaje włączona, gdy włączona jest synchronizacja postępu lub podświetlanie TLS Library-do-Kobo. Podczas następnej synchronizacji Kobo książki, których to dotyczy, będą ponownie oferowane jako pliki do pobrania KEPUB; usuń całą starą kopię EPUB, jeśli Kobo ciągle ją otwiera.",
         "forceHyphenation": "Wymuś dzielenie wyrazów",
         "forceHyphenationHint": "Zapewnia spójne justowanie tekstu. Spowoduje to zregenerowanie buforowanych KEPUB-ów.",
         "progressThresholds": "Progi postępu",
@@ -2187,7 +2187,7 @@
         "markAsFinished": "Oznacz jako gotowe",
         "markAsFinishedHint": "Procentowy próg oznaczania książki jako „Gotowej”.",
         "kepubLimit": "Limit konwersji KEPUB",
-        "kepubLimitHint": "Książki przekraczające ten limit są wysyłane jako zwykłe pliki EPUB, więc BookOrbit nie będzie synchronizować pozycji czytelnika z powrotem z Kobo.",
+        "kepubLimitHint": "Książki przekraczające ten limit są wysyłane jako zwykłe pliki EPUB, więc TLS Library nie będzie synchronizować pozycji czytelnika z powrotem z Kobo.",
         "changesMustBeSaved": "Zmiany muszą zostać zapisane, aby zaczęły obowiązywać.",
         "saving": "Zapisywanie...",
         "saveSyncSettings": "Zapisz ustawienia synchronizacji",
@@ -2249,8 +2249,8 @@
           "readingPositionSynced": "Pozycja czytania zsynchronizowana",
           "labelWithTitle": "{label}: {title}",
           "updateCount": "{count, plural, one {# aktualizacja} other {# aktualizacje} few {# aktualizacje} many {# aktualizacji}}",
-          "directionToKobo": "BookOrbit -> Kobo",
-          "directionToBookOrbit": "Kobo -> BookOrbit",
+          "directionToKobo": "TLS Library -> Kobo",
+          "directionToBookOrbit": "Kobo -> TLS Library",
           "twoWaySyncEnabled": "Włączono synchronizację dwukierunkową",
           "deviceProgressSaved": "Postęp urządzenia został zapisany",
           "summary": {
@@ -2282,7 +2282,7 @@
           "filterFailures": "Awarie",
           "refresh": "Odśwież",
           "loadingActivity": "Ładowanie aktywności Kobo...",
-          "noActivityHint": "Ostatnia aktywność synchronizacji pojawi się po sparowanych Kobo kontaktach BookOrbit.",
+          "noActivityHint": "Ostatnia aktywność synchronizacji pojawi się po sparowanych Kobo kontaktach TLS Library.",
           "error": "Błąd",
           "loading": "Ładowanie...",
           "loadMore": "Załaduj więcej aktywności"
@@ -2294,7 +2294,7 @@
         "nextSteps": {
           "title": "Następne kroki",
           "step1": "1. Skonfiguruj swoje urządzenie Kobo do synchronizacji z synchronizacją URL powyżej.",
-          "step2": "2. W BookOrbit przejdź do dowolnej kolekcji z paska bocznego, kliknij ikonę Edytuj i włącz {syncToKobo}. Na Twoje urządzenie zostaną pobrane tylko książki znajdujące się w kolekcjach z włączoną synchronizacją."
+          "step2": "2. W TLS Library przejdź do dowolnej kolekcji z paska bocznego, kliknij ikonę Edytuj i włącz {syncToKobo}. Na Twoje urządzenie zostaną pobrane tylko książki znajdujące się w kolekcjach z włączoną synchronizacją."
         },
         "syncToKobo": "Synchronizuj z Kobo",
         "tabs": {
@@ -2304,14 +2304,14 @@
       },
       "koreader": {
         "title": "KOReader Synchronizacja",
-        "subtitle": "Przeglądaj swój katalog BookOrbit w KOReader i synchronizuj postępy, aktywność związaną z czytaniem, wyróżnienia i zmiany w adnotacjach.",
+        "subtitle": "Przeglądaj swój katalog TLS Library w KOReader i synchronizuj postępy, aktywność związaną z czytaniem, wyróżnienia i zmiany w adnotacjach.",
         "tabs": {
           "sync": "Synchronizuj ustawienia",
           "fileNaming": "Nazewnictwo plików"
         },
         "fileNaming": {
           "accountTitle": "Domyślny wzór konta KOReader",
-          "accountDescription": "Ustawia domyślny folder względny i nazwę pliku używane przez wtyczki BookOrbit do pobrania dla Twojego konta KOReader. Reguły specyficzne dla urządzenia mogą zastąpić poniższe reguły.",
+          "accountDescription": "Ustawia domyślny folder względny i nazwę pliku używane przez wtyczki TLS Library do pobrania dla Twojego konta KOReader. Reguły specyficzne dla urządzenia mogą zastąpić poniższe reguły.",
           "defaultPattern": "Domyślny wzór ścieżki książki",
           "accountHelp": "Twoje konto jest domyślnym ustawieniem pobierania wtyczek KOReader, chyba że urządzenie ma niestandardową regułę.",
           "accountHint": "Używany przez Twoje urządzenia KOReader, które nie mają niestandardowego zastąpienia.",
@@ -2319,7 +2319,7 @@
           "saveAccount": "Zapisz konto domyślne",
           "deviceTitle": "KOReader zastąpienie urządzenia",
           "deviceDescription": "Dostosuj dowolną kombinację ścieżek domyślnych, serii i samodzielnych. Puste wiersze dotyczące konkretnego urządzenia dziedziczą ustawienia domyślne urządzenia, które z kolei mogą dziedziczyć domyślny wzorzec konta KOReader.",
-          "noDevices": "Urządzenia pojawiają się tutaj po synchronizacji z BookOrbit.",
+          "noDevices": "Urządzenia pojawiają się tutaj po synchronizacji z TLS Library.",
           "customOrganization": "Organizacja niestandardowa",
           "usingAccountDefault": "Używanie domyślnego konta",
           "deviceDefaultHelp": "Rozwiązanie zastępcze dla tego urządzenia. Pozostaw tę wartość równą wartości domyślnej konta, aby automatycznie dziedziczyć przyszłe zmiany.",
@@ -2353,10 +2353,10 @@
         "latestPlugin": "Najnowsza wtyczka: v{version}",
         "latestPluginUnavailable": "Najnowsza wtyczka niedostępna",
         "notConfigured": "KOReader synchronizacja nie jest skonfigurowana",
-        "notConfiguredHint": "Utwórz jeden zestaw poświadczeń synchronizacji, a następnie używaj ich z wtyczką BookOrbit KOReader do przeglądania, pobierania, postępu, czytania wydarzeń, wyróżnień i usuwania.",
+        "notConfiguredHint": "Utwórz jeden zestaw poświadczeń synchronizacji, a następnie używaj ich z wtyczką TLS Library KOReader do przeglądania, pobierania, postępu, czytania wydarzeń, wyróżnień i usuwania.",
         "createCredentials": "Utwórz poświadczenia",
         "createFormTitle": "Utwórz KOReader dane uwierzytelniające synchronizacji",
-        "createFormHint": "Te dane uwierzytelniają Twoje urządzenia KOReader za pomocą BookOrbit.",
+        "createFormHint": "Te dane uwierzytelniają Twoje urządzenia KOReader za pomocą TLS Library.",
         "username": "Nazwa użytkownika",
         "usernamePlaceholder": "np. mójczytnik",
         "password": "Hasło",
@@ -2368,7 +2368,7 @@
         "status": "KOReader Stan",
         "refresh": "Odśwież",
         "progressSync": "Synchronizacja postępu",
-        "progressSyncHint": "Zezwól urządzeniom KOReader na synchronizację postępu, aktywności związanej z czytaniem, wyróżnień i usuwania adnotacji za pomocą BookOrbit.",
+        "progressSyncHint": "Zezwól urządzeniom KOReader na synchronizację postępu, aktywności związanej z czytaniem, wyróżnień i usuwania adnotacji za pomocą TLS Library.",
         "lastSync": "Ostatnia synchronizacja",
         "syncedBooks": "Zsynchronizowane książki",
         "bookCount": "{count, plural, =0 {żadnych książek} one {# książka} other {# książki} few {# książki} many {# książek}}",
@@ -2379,14 +2379,14 @@
         "pluginServerUrl": "Serwer wtyczek URL",
         "copied": "Skopiowano",
         "copyUrl": "Skopiuj URL",
-        "preconfiguredPlugin": "Wstępnie skonfigurowana wtyczka BookOrbit",
+        "preconfiguredPlugin": "Wstępnie skonfigurowana wtyczka TLS Library",
         "preconfiguredPluginHintPrefix": "Pobierz plik zip z serwerem URL i loginem do synchronizacji, który jest już skonfigurowany. Wtyczka umożliwia przeglądanie i synchronizację katalogu. Skopiuj folder do",
         "preconfiguredPluginHintSuffix": "i uruchom ponownie KOReader.",
-        "latestPluginNote": "{label}. Aktualizacje urządzeń są uruchamiane z menu BookOrbit w KOReader.",
+        "latestPluginNote": "{label}. Aktualizacje urządzeń są uruchamiane z menu TLS Library w KOReader.",
         "preparing": "Przygotowanie...",
         "downloadPlugin": "Pobierz wtyczkę",
         "noDevicesSynced": "Żadne urządzenia nie zostały jeszcze zsynchronizowane",
-        "noDevicesSyncedHint": "Zainstaluj wtyczkę BookOrbit, aby uzyskać pełną synchronizację, lub skonfiguruj synchronizację postępu akcji KOReader dla aktualizacji zawierających tylko postęp.",
+        "noDevicesSyncedHint": "Zainstaluj wtyczkę TLS Library, aby uzyskać pełną synchronizację, lub skonfiguruj synchronizację postępu akcji KOReader dla aktualizacji zawierających tylko postęp.",
         "lastSyncLabel": "Ostatnia synchronizacja:",
         "lastBookLabel": "Ostatnia książka:",
         "noneYet": "Jeszcze żaden",
@@ -2403,8 +2403,8 @@
         "failedPositions": "{count, plural, =0 {żadne podświetlone pozycje nie wymagają uwagi.} one {# podświetlona pozycja wymaga uwagi.} other {# najważniejsze pozycje wymagają uwagi.} few {# najważniejsze pozycje wymagają uwagi.} many {# najważniejszych pozycji wymaga uwagi.}}",
         "setupGuide": "Przewodnik konfiguracji",
         "setupSteps": "KOReader kroki konfiguracji",
-        "setupStepsHint": "Użyj wtyczki BookOrbit do przeglądania katalogów, pobierania, postępu, czytania wydarzeń i najważniejszych wydarzeń. Użyj wtyczki giełdowej tylko do postępu.",
-        "pluginGuideTitle": "Wtyczka BookOrbit",
+        "setupStepsHint": "Użyj wtyczki TLS Library do przeglądania katalogów, pobierania, postępu, czytania wydarzeń i najważniejszych wydarzeń. Użyj wtyczki giełdowej tylko do postępu.",
+        "pluginGuideTitle": "Wtyczka TLS Library",
         "pluginStep1": "Pobierz wstępnie skonfigurowaną wtyczkę powyżej.",
         "pluginStep2Prefix": "Rozpakuj i skopiuj",
         "pluginStep2Middle": "do",
@@ -2417,7 +2417,7 @@
         "stockStep1Suffix": ".",
         "stockStep2": "Ustaw niestandardowy serwer synchronizacji na URL pokazany powyżej.",
         "stockStep3": "Wprowadź utworzoną nazwę użytkownika i hasło, a następnie dotknij opcji Zaloguj.",
-        "locationNote": "BookOrbit zapisuje lokalizacje KOReader kompatybilne z EPUB z czytnika internetowego. Przywrócenie powinno wylądować blisko tej samej pozycji, chociaż dokładne rozmieszczenie linii może się różnić w zależności od czytnika i układu EPUB.",
+        "locationNote": "TLS Library zapisuje lokalizacje KOReader kompatybilne z EPUB z czytnika internetowego. Przywrócenie powinno wylądować blisko tej samej pozycji, chociaż dokładne rozmieszczenie linii może się różnić w zależności od czytnika i układu EPUB.",
         "dangerZone": "Strefa zagrożenia",
         "deleteCredentials": "Usuń poświadczenia KOReader",
         "deleteCredentialsHint": "Usuń dane uwierzytelniające synchronizacji i odłącz wszystkie urządzenia. Dane dotyczące postępu zostaną zachowane.",
@@ -2458,7 +2458,7 @@
           "unknownFile": "Nieznany KOReader plik {hash}",
           "unknownAuthor": "Nieznany autor",
           "noTitleOrAuthor": "Nie podano tytułu ani autora",
-          "bookNumber": "BookOrbit książka #{id}",
+          "bookNumber": "TLS Library książka #{id}",
           "toast": {
             "unmatchedRefreshed": "Odświeżono książki bez dopasowania",
             "unmatchedRefreshFailed": "Nie udało się odświeżyć niedopasowanych książek",
@@ -2477,8 +2477,8 @@
           "modal": {
             "linkTitle": "Link do książki KOReader",
             "changeTitle": "Zmień link KOReader",
-            "bookOrbitBook": "BookOrbit książka",
-            "searchPlaceholder": "Przeszukaj swoją bibliotekę BookOrbit",
+            "bookOrbitBook": "TLS Library książka",
+            "searchPlaceholder": "Przeszukaj swoją bibliotekę TLS Library",
             "minChars": "Wpisz co najmniej 2 znaki.",
             "searching": "Wyszukiwanie...",
             "noBooksFound": "Nie znaleziono książek.",
@@ -2488,14 +2488,14 @@
             "loadMore": "Załaduj więcej",
             "confirmTitle": "Potwierdź link KOReader",
             "koreader": "KOReader",
-            "bookOrbit": "BookOrbit",
+            "bookOrbit": "TLS Library",
             "bookId": "Identyfikator książki: {id}",
-            "syncedStatsNote": "Już zsynchronizowane statystyki pozostaną w ich bieżącej książce BookOrbit.",
+            "syncedStatsNote": "Już zsynchronizowane statystyki pozostaną w ich bieżącej książce TLS Library.",
             "chooseDifferent": "Wybierz inny",
             "saving": "Zapisywanie...",
             "confirmLink": "Potwierdź link",
             "unlinkTitle": "Odłączyć książkę KOReader?",
-            "unlinkBody": "Przyszłe synchronizacje tego skrótu przestaną być rozpoznawane na {title}, dopóki nie zostanie ponownie połączone. Już zsynchronizowane statystyki pozostaną w ich bieżącej książce BookOrbit.",
+            "unlinkBody": "Przyszłe synchronizacje tego skrótu przestaną być rozpoznawane na {title}, dopóki nie zostanie ponownie połączone. Już zsynchronizowane statystyki pozostaną w ich bieżącej książce TLS Library.",
             "unlinking": "Odłączanie..."
           },
           "dismiss": "Odrzuć",
@@ -2503,15 +2503,15 @@
           "dismissing": "Odrzucenie...",
           "unlinking": "Odłączanie...",
           "unlinkConfirmTitle": "Odłączyć książkę KOReader?",
-          "unlinkConfirmBody": "Przyszłe synchronizacje tego skrótu przestaną być rozpoznawane na {title}, dopóki nie zostanie ponownie połączone. Już zsynchronizowane statystyki pozostaną w ich bieżącej książce BookOrbit.",
+          "unlinkConfirmBody": "Przyszłe synchronizacje tego skrótu przestaną być rozpoznawane na {title}, dopóki nie zostanie ponownie połączone. Już zsynchronizowane statystyki pozostaną w ich bieżącej książce TLS Library.",
           "dismissConfirmTitle": "Odrzucić {title}?",
           "dismissConfirmBody": "Spowoduje to usunięcie jej z listy niedopasowanych książek. Jeśli jakiekolwiek urządzenie ponownie zgłosi ten skrót, pojawi się on ponownie jako nowy wpis.",
           "dismissAllConfirmTitle": "{count, plural, =0 {Odrzucić wszystkie książki bez dopasowania?} one {Odrzucić # książkę bez dopasowania?} other {Odrzucić # książki bez dopasowania?} few {Odrzucić # książki bez dopasowania?} many {Odrzucić # książek bez dopasowania?}}",
           "dismissAllConfirmBody": "Spowoduje to wyczyszczenie całej listy niedopasowanych książek, a nie tylko bieżącej strony. Jeśli jakiekolwiek urządzenie ponownie zgłosi jeden z tych skrótów, pojawi się on ponownie jako nowy wpis.",
           "changeLinkTitle": "Zmień link KOReader",
           "linkBookTitle": "Link do książki KOReader",
-          "bookOrbitBook": "BookOrbit książka",
-          "searchLibraryPlaceholder": "Przeszukaj swoją bibliotekę BookOrbit",
+          "bookOrbitBook": "TLS Library książka",
+          "searchLibraryPlaceholder": "Przeszukaj swoją bibliotekę TLS Library",
           "enterMinChars": "Wpisz co najmniej 2 znaki.",
           "searching": "Wyszukiwanie...",
           "noBooksFound": "Nie znaleziono książek.",
@@ -2522,7 +2522,7 @@
           "loadingMore": "Ładowanie...",
           "confirmLinkTitle": "Potwierdź link KOReader",
           "bookId": "Identyfikator książki: {id}",
-          "syncedStatsNote": "Już zsynchronizowane statystyki pozostaną w ich bieżącej książce BookOrbit.",
+          "syncedStatsNote": "Już zsynchronizowane statystyki pozostaną w ich bieżącej książce TLS Library.",
           "chooseDifferent": "Wybierz inny",
           "saving": "Zapisywanie...",
           "confirmLink": "Potwierdź link"
@@ -4737,9 +4737,9 @@
       "changePassword": "Zmień hasło",
       "signOut": "Wyloguj się",
       "githubStar": {
-        "title": "Podoba Ci się BookOrbit?",
-        "body": "Jeśli BookOrbit pomaga w Twojej bibliotece, rozważ opublikowanie projektu w serwisie GitHub. Pomaga większej liczbie osób odkryć aplikację i wspiera ciągły rozwój.",
-        "cta": "Oznacz gwiazdką BookOrbit w GitHubie"
+        "title": "Podoba Ci się TLS Library?",
+        "body": "Jeśli TLS Library pomaga w Twojej bibliotece, rozważ opublikowanie projektu w serwisie GitHub. Pomaga większej liczbie osób odkryć aplikację i wspiera ciągły rozwój.",
+        "cta": "Oznacz gwiazdką TLS Library w GitHubie"
       },
       "surfaceOpacity": "Krycie powierzchni",
       "surfaceOpacityValue": "{value}%"
@@ -5273,7 +5273,7 @@
     }
   },
   "errors": {
-    "network": "Could not reach BookOrbit. Check your connection, then try again."
+    "network": "Could not reach TLS Library. Check your connection, then try again."
   },
   "hardcover": {
     "settings": {
@@ -5319,7 +5319,7 @@
       },
       "syncOnProgress": {
         "title": "Synchronizuj przy aktualizacji postępu",
-        "description": "Prześlij postęp czytania i daty, gdy postęp BookOrbit lub KOReader ulegnie zmianie."
+        "description": "Prześlij postęp czytania i daty, gdy postęp TLS Library lub KOReader ulegnie zmianie."
       },
       "syncOnRating": {
         "title": "Synchronizuj po zmianie oceny",
@@ -5373,7 +5373,7 @@
     },
     "import": {
       "title": "Wyciągnij status odczytu",
-      "description": "Podgląd dopasowań Hardcover przed wypełnieniem pustych statusów BookOrbit.",
+      "description": "Podgląd dopasowań Hardcover przed wypełnieniem pustych statusów TLS Library.",
       "clear": "Wyczyść",
       "preview": "Podgląd",
       "importProgress": "Postęp importu",
@@ -5832,7 +5832,7 @@
       "sourceUser": "Użytkownik źródłowy",
       "targetUser": "Użytkownik docelowy",
       "noSourceUsersLoaded": "Nie załadowano jeszcze żadnych użytkowników źródłowych.",
-      "noActiveTargetUsers": "Nie znaleziono aktywnych użytkowników docelowych. Utwórz lub ponownie włącz użytkownika BookOrbit przed mapowaniem.",
+      "noActiveTargetUsers": "Nie znaleziono aktywnych użytkowników docelowych. Utwórz lub ponownie włącz użytkownika TLS Library przed mapowaniem.",
       "pathPrefixMappings": "Mapowania prefiksów ścieżek",
       "addMapping": "Dodaj mapowanie",
       "pathMappingsExplanation": "Mapowania ścieżek tłumaczą ścieżki plików źródłowych na ścieżki docelowe, dzięki czemu książki można dopasowywać na podstawie lokalizacji pliku. Książki są również dopasowywane za pomocą ISBN, skrótu pliku i tytułu/autora, niezależnie od mapowania ścieżek.",
@@ -6666,7 +6666,7 @@
       },
       "confirmDialog": {
         "title": "{count, plural, few {Zmienić nazwę # pliki na dysku?} many {Zmienić nazwę # pliku na dysku?} one {Zmienić nazwę # pliku na dysku?} other {Zmienić nazwę # plików na dysku?}}",
-        "body": "Ta operacja przenosi rzeczywiste pliki wewnątrz {library}. BookOrbit rejestruje każde przeniesienie, ale cofnięcie oznacza ponowne zmienienie nazw."
+        "body": "Ta operacja przenosi rzeczywiste pliki wewnątrz {library}. TLS Library rejestruje każde przeniesienie, ale cofnięcie oznacza ponowne zmienienie nazw."
       }
     },
     "bookDuplicates": {

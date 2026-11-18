@@ -141,7 +141,7 @@ end
 
 function CatalogLists:listSavePage(query, body)
     local ok, err = pcall(ListCache.put, ListCache.key(cacheAccount(self), query), body)
-    if not ok then logger.warn("BookOrbit: saving a list page failed", err) end
+    if not ok then logger.warn("TLS Library: saving a list page failed", err) end
 end
 
 -- The saved page for a request the server did not answer. A status code means
@@ -149,7 +149,7 @@ end
 function CatalogLists:listSavedPage(query, err)
     if type(err) == "number" then return nil end
     local ok, saved = pcall(ListCache.get, ListCache.key(cacheAccount(self), query))
-    if ok and saved then logger.warn("BookOrbit: server unreachable, showing the saved list page", err) end
+    if ok and saved then logger.warn("TLS Library: server unreachable, showing the saved list page", err) end
     return ok and saved or nil
 end
 
@@ -850,7 +850,7 @@ function CatalogLists:listRun(action, region, hold)
         if context.list_offline then
             local path = self:onDeviceBookPath(action.book)
             if type(path) == "string" and path ~= "" then return self:openDownloadedFile(path) end
-            require("bookorbit_toast").error(_("This book is not on this device. Connect to BookOrbit to download it."))
+            require("bookorbit_toast").error(_("This book is not on this device. Connect to TLS Library to download it."))
             return
         end
         local list = nil
@@ -1090,7 +1090,7 @@ function CatalogLists:listEmptyModel(kind, context)
     end
     if kind == "authors" then return { icon = "feather", title = _("No authors yet"), body = _("Authors appear here as books are added to your libraries.") } end
     if kind == "series" then return { icon = "layers-2", title = _("No series yet"), body = _("Series appear here as books that belong to one are added.") } end
-    return { icon = "book", title = _("No books here yet"), body = _("Books you add to BookOrbit appear here.") }
+    return { icon = "book", title = _("No books here yet"), body = _("Books you add to TLS Library appear here.") }
 end
 
 local SORT_SHORT = {
@@ -1413,7 +1413,7 @@ function CatalogLists:updateListPage(select_number, no_recalculate_dimen)
         sheet = self:listSheetBuilder(kind, context, m),
     })
     if not ok then
-        logger.err("BookOrbit: list page failed", screen)
+        logger.err("TLS Library: list page failed", screen)
         self:finishCustomUpdate(old_dimen, select_number)
         return
     end

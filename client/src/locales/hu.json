@@ -111,7 +111,7 @@
           "label": "Stílus",
           "hint": "Az alkalmazás általános megjelenése. A mód, a kiemelőszín, a sarkok lekerekítése és a háttér megőrzik a beállításaikat.",
           "bookorbit": {
-            "label": "BookOrbit",
+            "label": "TLS Library",
             "description": "Színezett felületek, üveghatású panelek és talpas címsorok."
           },
           "nostalgia": {
@@ -843,8 +843,8 @@
       "test": {
         "connected": "Csatlakoztatva - {issuer}",
         "connectionFailed": "Csatlakozás sikertelen",
-        "privateIssuerAddress": "A Kibocsátó URL-címe privát vagy helyi hálózati címre mutat, ezért a szerver megtagadta a kapcsolódást. Az engedélyezéshez állítsd az OIDC_ALLOW_LOCAL_ISSUERS=true értéket a BookOrbit szerveren.",
-        "tlsCertificateUntrusted": "A BookOrbit nem tudta ellenőrizni az OIDC-szolgáltató TLS-tanúsítványát. Ha a szolgáltató privát tanúsítványkiadót használ, csatold annak PEM CA-tanúsítványcsomagját, állítsd a NODE_EXTRA_CA_CERTS változót a csomag konténeren belüli elérési útjára, majd indítsd újra a BookOrbitot.",
+        "privateIssuerAddress": "A Kibocsátó URL-címe privát vagy helyi hálózati címre mutat, ezért a szerver megtagadta a kapcsolódást. Az engedélyezéshez állítsd az OIDC_ALLOW_LOCAL_ISSUERS=true értéket a TLS Library szerveren.",
+        "tlsCertificateUntrusted": "A TLS Library nem tudta ellenőrizni az OIDC-szolgáltató TLS-tanúsítványát. Ha a szolgáltató privát tanúsítványkiadót használ, csatold annak PEM CA-tanúsítványcsomagját, állítsd a NODE_EXTRA_CA_CERTS változót a csomag konténeren belüli elérési útjára, majd indítsd újra a TLS Library.",
         "hide": "Elrejtés",
         "details": "Részletek",
         "supported": "támogatott",
@@ -1084,7 +1084,7 @@
         "targetUser": "Célfelhasználó",
         "doNotImport": "Ne importálja ezt a felhasználót",
         "noSourceUsersLoaded": "Még nincsenek betöltve forrásfelhasználók.",
-        "noActiveTargetUsers": "Nem találhatók aktív célfelhasználók. Hozz létre vagy engedélyezz újra egy BookOrbit-felhasználót a hozzárendelés előtt.",
+        "noActiveTargetUsers": "Nem találhatók aktív célfelhasználók. Hozz létre vagy engedélyezz újra egy TLS Library-felhasználót a hozzárendelés előtt.",
         "pathPrefixMappings": "Elérésiút-előtagok hozzárendelései",
         "addMapping": "Hozzárendelés hozzáadása",
         "pathMappingsHelp1": "Az elérésiút-hozzárendelések lefordítják a forrásfájlok elérési útjait a célútvonalakra, így a könyvek a fájl helye alapján is egyeztethetők. Például, ha a Booklore-könyvtárad a következő helyen tárolta a fájlokat",
@@ -1427,7 +1427,7 @@
         "confirmReset": "Visszaállítás megerősítése",
         "resetDialog": {
           "title": "Minden súlyt visszaállítasz az alapértelmezett értékre?",
-          "description": "Mind a 24 mező visszaáll a BookOrbit alapértelmezett súlyaira. Semmi sem kerül mentésre, amíg a Mentés és újrapontozás lehetőséget nem választod."
+          "description": "Mind a 24 mező visszaáll a TLS Library alapértelmezett súlyaira. Semmi sem kerül mentésre, amíg a Mentés és újrapontozás lehetőséget nem választod."
         },
         "reset": "Visszaállítás",
         "recalculate": "Újraszámolás",
@@ -2063,7 +2063,7 @@
       },
       "providerDirectory": {
         "title": "Telepíthető",
-        "hint": "Mindegyik egy kis konténerként fut a BookOrbit mellett. Másold a Compose-szolgáltatását a BookOrbitot futtató fájlba, indítsd el a docker compose up -d paranccsal, majd válaszd a Hozzáadás lehetőséget.",
+        "hint": "Mindegyik egy kis konténerként fut a TLS Library mellett. Másold a Compose-szolgáltatását a TLS Library futtató fájlba, indítsd el a docker compose up -d paranccsal, majd válaszd a Hozzáadás lehetőséget.",
         "updated": "Frissítve {time}",
         "bundled": "A verzióba foglalt lista",
         "loadFailed": "Az előre elkészített szolgáltatók listáját nem sikerült betölteni. Ettől függetlenül bármilyen szolgáltatót hozzáadhatsz a címe alapján.",
@@ -2098,11 +2098,11 @@
         "title": "Néhány forrás már nem beépített",
         "description": "Az ezeket a forrásokat tartalmazó mezőszabályok egyelőre kihagyják őket. A könyveiden már meglévő azonosítók és hivatkozások megmaradnak.",
         "run": "A(z) {name} mostantól saját szolgáltatóként fut: az {image} futtatását követően add hozzá a Külső szolgáltatók résznél.",
-        "closed": "A(z) {name} megszüntette a BookOrbit által használt szolgáltatást, így nem adható hozzá újra. Távolítsd el a mezőszabályaidból."
+        "closed": "A(z) {name} megszüntette a TLS Library által használt szolgáltatást, így nem adható hozzá újra. Távolítsd el a mezőszabályaidból."
       },
       "externalProviders": {
         "title": "Külső szolgáltatók",
-        "description": "A BookOrbiton kívül futó metaadat-szolgáltatások, például egy mellette futó konténer vagy egy hosztolt szolgáltatás. Adj hozzá egyet a címe alapján; engedélyezés után ugyanúgy megjelenik a keresésben, a KönyvDokkban és a mezőszabályokban, mint bármelyik másik forrás.",
+        "description": "A TLS Library kívül futó metaadat-szolgáltatások, például egy mellette futó konténer vagy egy hosztolt szolgáltatás. Adj hozzá egyet a címe alapján; engedélyezés után ugyanúgy megjelenik a keresésben, a KönyvDokkban és a mezőszabályokban, mint bármelyik másik forrás.",
         "yourProviders": "Saját szolgáltatók",
         "emptyWithDirectory": "Még nincs semmi hozzáadva. Válassz egy előre elkészített szolgáltatót alább, vagy adj hozzá egyet a címe alapján.",
         "add": "Szolgáltató hozzáadása",
@@ -2128,7 +2128,7 @@
         "authorizationUnreadableHint": "A mentett hitelesítési fejlécet nem sikerült visszafejteni, így ez a szolgáltató nem vesz részt a keresésben. Add meg újra a fejlécet.",
         "sheet": {
           "createTitle": "Külső szolgáltató hozzáadása",
-          "description": "Egy HTTP-szolgáltatás, amely támogatja a book-metadata-provider specifikációt. A BookOrbit metaadatokat kér tőle; soha nem futtatja a szolgáltató kódját.",
+          "description": "Egy HTTP-szolgáltatás, amely támogatja a book-metadata-provider specifikációt. A TLS Library metaadatokat kér tőle; soha nem futtatja a szolgáltató kódját.",
           "identity": "Kulcs {key} · verzió {version}",
           "test": "Tesztelés",
           "testing": "Tesztelés...",
@@ -2147,7 +2147,7 @@
           "authorizationSaved": "Egy fejléc már el van mentve. Adj meg egy újat a lecseréléséhez.",
           "clearAuthorization": "Az elmentett fejléc eltávolítása",
           "allowPrivate": "Privát cím engedélyezése",
-          "allowPrivateHint": "Saját hálózaton lévő vagy a BookOrbit mellett futó konténeres szolgáltatóhoz szükséges. Internetes szolgáltató esetén hagyd kikapcsolva.",
+          "allowPrivateHint": "Saját hálózaton lévő vagy a TLS Library mellett futó konténeres szolgáltatóhoz szükséges. Internetes szolgáltató esetén hagyd kikapcsolva.",
           "timeout": "Időtúllépés (másodperc)",
           "timeoutHint": "{min} és {max} másodperc között.",
           "privacy": "A szolgáltató megkapja a lekérdezett könyvek címét, szerzőjét és ISBN-számát."
@@ -2159,7 +2159,7 @@
         },
         "errors": {
           "privateAddress": "Ez a cím egy magánhálózaton található. Kapcsold be a Privát cím engedélyezése opciót az ott lévő szolgáltató eléréséhez.",
-          "unreachable": "A BookOrbit nem érte el a szolgáltatót ezen a címen.",
+          "unreachable": "A TLS Library nem érte el a szolgáltatót ezen a címen.",
           "unauthorized": "A szolgáltató elutasította a hitelesítési fejlécet.",
           "invalidInfo": "Ez a cím válaszolt, de nem használható szolgáltatói adatokkal.",
           "invalidUrl": "Add meg a szolgáltató címét teljes http vagy https URL-ként, hitelesítő adatok nélkül.",
@@ -2594,7 +2594,7 @@
           "reorderFailed": "Nem sikerült menteni az új sorrendet"
         },
         "empty": {
-          "body": "Kövesd nyomon azt, amire a BookOrbitban nincs külön mező, például hogy hol található a könyv a polcodon, vagy ki kölcsönözte ki. A mezők megjelennek a Metaadatok szerkesztése felületen, a táblázatoszlopokban és a szűrőkben.",
+          "body": "Kövesd nyomon azt, amire a TLS Library nincs külön mező, például hogy hol található a könyv a polcodon, vagy ki kölcsönözte ki. A mezők megjelennek a Metaadatok szerkesztése felületen, a táblázatoszlopokban és a szűrőkben.",
           "examples": "Kiindulás egy példából",
           "shelfNumber": "Polc száma",
           "acquiredOn": "Beszerzés dátuma",
@@ -3270,15 +3270,15 @@
         "syncUrlCopyFailed": "A szinkronizálási URL másolása sikertelen",
         "syncPreferences": "Szinkronizálási beállítások",
         "twoWaySync": "Kétirányú haladásszinkronizálás",
-        "twoWaySyncHint": "Olvasási pozíció szinkronizálása a BookOrbit és a Kobo között. A pontos helymeghatározáshoz és a megbízható oldal-visszaállításhoz KEPUB-formátumú küldés szükséges.",
-        "syncHighlights": "A BookOrbit kiemeléseinek szinkronizálása a Kobóra",
-        "syncHighlightsHint": "A BookOrbitban vagy KOReaderben készített kiemelések elküldése a Kobóra. A Kobo-kiemelések akkor is importálásra kerülnek a BookOrbitba, ha ez a funkció ki van kapcsolva. Az összekapcsolt annotációk mindkét irányban szinkronizálják a szerkesztéseket és a törléseket. KEPUB-formátumú küldés szükséges; a Kobón lévő könyvnek a BookOrbitból letöltött KEPUB-fájlnak kell lennie.",
+        "twoWaySyncHint": "Olvasási pozíció szinkronizálása a TLS Library és a Kobo között. A pontos helymeghatározáshoz és a megbízható oldal-visszaállításhoz KEPUB-formátumú küldés szükséges.",
+        "syncHighlights": "A TLS Library kiemeléseinek szinkronizálása a Kobóra",
+        "syncHighlightsHint": "A TLS Library vagy KOReaderben készített kiemelések elküldése a Kobóra. A Kobo-kiemelések akkor is importálásra kerülnek a TLS Library, ha ez a funkció ki van kapcsolva. Az összekapcsolt annotációk mindkét irányban szinkronizálják a szerkesztéseket és a törléseket. KEPUB-formátumú küldés szükséges; a Kobón lévő könyvnek a TLS Library letöltött KEPUB-fájlnak kell lennie.",
         "storeSync": "A Kobo áruház könyveinek belefoglalása",
-        "storeSyncHint": "A BookOrbit-könyvtárad mellett a Kobo-fiókodban lévő könyveket is elküldi – beleértve a Kobo Plus-tartalmakat és a vásárlásokat is. Enélkül csak a BookOrbitban lévő könyvek érnek el az eszközre. Az áruházi könyvek közvetlenül a Kobóról töltődnek le, és nem adódnak hozzá a BookOrbit-könyvtáradhoz.",
+        "storeSyncHint": "A TLS Library-könyvtárad mellett a Kobo-fiókodban lévő könyveket is elküldi – beleértve a Kobo Plus-tartalmakat és a vásárlásokat is. Enélkül csak a TLS Library lévő könyvek érnek el az eszközre. Az áruházi könyvek közvetlenül a Kobóról töltődnek le, és nem adódnak hozzá a TLS Library-könyvtáradhoz.",
         "fullSizeCovers": "Teljes méretű borítók",
         "fullSizeCoversHint": "Minden borítót a Kobo képernyőfelbontásában küld el, így az elalvási képernyők és a teljes képernyős borítók élesek maradnak. Kapcsold ki ezt a funkciót, ha kisebb méretű borítókat szeretnél küldeni a gyorsabb szinkronizálás érdekében. A Kobón már meglévő borító csak akkor változik meg, ha a könyv borítója módosul.",
         "convertKepub": "Konvertálás KEPUB-ra",
-        "convertKepubHint": "A megfelelő EPUB-fájlok elküldése KEPUB-ként. Ez a funkció bekapcsolva marad, ha az olvasási pozíció szinkronizálása vagy a BookOrbit-kiemelések Kobóra küldése engedélyezve van. A következő Kobo-szinkronizáláskor az érintett könyvek újból fel lesznek ajánlva KEPUB-letöltésként; távolítsd el a régi EPUB-példányt, ha a Kobo továbbra is azt nyitná meg.",
+        "convertKepubHint": "A megfelelő EPUB-fájlok elküldése KEPUB-ként. Ez a funkció bekapcsolva marad, ha az olvasási pozíció szinkronizálása vagy a TLS Library-kiemelések Kobóra küldése engedélyezve van. A következő Kobo-szinkronizáláskor az érintett könyvek újból fel lesznek ajánlva KEPUB-letöltésként; távolítsd el a régi EPUB-példányt, ha a Kobo továbbra is azt nyitná meg.",
         "forceHyphenation": "Elválasztás kényszerítése",
         "forceHyphenationHint": "Biztosítja a szöveg egységes igazítását. Ez újragenerálja a gyorsítótárazott KEPUB-fájlokat.",
         "progressThresholds": "Haladási küszöbértékek",
@@ -3288,7 +3288,7 @@
         "markAsFinished": "Megjelölés befejezettként",
         "markAsFinishedHint": "Százalékos küszöbérték a könyv „Befejezett” állapotúra jelöléséhez.",
         "kepubLimit": "KEPUB-konvertálási korlát",
-        "kepubLimitHint": "Az ezen korlát feletti könyvek normál EPUB-ként lesznek elküldve, így a BookOrbit nem fogja szinkronizálni az olvasási pozíciójukat a Kobóra.",
+        "kepubLimitHint": "Az ezen korlát feletti könyvek normál EPUB-ként lesznek elküldve, így a TLS Library nem fogja szinkronizálni az olvasási pozíciójukat a Kobóra.",
         "changesMustBeSaved": "A módosításokat menteni kell, hogy érvénybe lépjenek.",
         "saving": "Mentés...",
         "saveSyncSettings": "Szinkronizálási beállítások mentése",
@@ -3350,8 +3350,8 @@
           "readingPositionSynced": "Olvasási pozíció szinkronizálva",
           "labelWithTitle": "{label}: {title}",
           "updateCount": "{count, plural, one {# frissítés} other {# frissítés}}",
-          "directionToKobo": "BookOrbit -> Kobo",
-          "directionToBookOrbit": "Kobo -> BookOrbit",
+          "directionToKobo": "TLS Library -> Kobo",
+          "directionToBookOrbit": "Kobo -> TLS Library",
           "twoWaySyncEnabled": "Kétirányú szinkronizálás engedélyezve",
           "deviceProgressSaved": "Eszköz állapota elmentve",
           "summary": {
@@ -3383,7 +3383,7 @@
           "filterFailures": "Sikertelen",
           "refresh": "Frissítés",
           "loadingActivity": "Kobo tevékenység betöltése...",
-          "noActivityHint": "A legutóbbi szinkronizálási tevékenységek akkor jelennek meg, miután a párosított Kobo kapcsolatba lépett a BookOrbittal.",
+          "noActivityHint": "A legutóbbi szinkronizálási tevékenységek akkor jelennek meg, miután a párosított Kobo kapcsolatba lépett a TLS Library.",
           "error": "Hiba",
           "loading": "Betöltés...",
           "loadMore": "További tevékenységek betöltése"
@@ -3395,7 +3395,7 @@
         "nextSteps": {
           "title": "Következő lépések",
           "step1": "1. Konfiguráld Kobo eszközödet a fenti szinkronizálási URL-címmel való szinkronizáláshoz.",
-          "step2": "2. A BookOrbitban lépj bármelyik gyűjteményre az oldalsávon, kattints a Szerkesztés ikonra, és engedélyezd a {syncToKobo} funkciót. Csak az engedélyezett szinkronizálással rendelkező gyűjteményekben található könyvek töltődnek le az eszközödre."
+          "step2": "2. A TLS Library lépj bármelyik gyűjteményre az oldalsávon, kattints a Szerkesztés ikonra, és engedélyezd a {syncToKobo} funkciót. Csak az engedélyezett szinkronizálással rendelkező gyűjteményekben található könyvek töltődnek le az eszközödre."
         },
         "syncToKobo": "Szinkronizálás a Kobóval",
         "tabs": {
@@ -3405,14 +3405,14 @@
       },
       "koreader": {
         "title": "KOReader-szinkronizálás",
-        "subtitle": "Böngészd a BookOrbit katalógusodat a KOReaderben, és szinkronizáld az olvasási haladást, a kiemeléseket és az annotációk változásait.",
+        "subtitle": "Böngészd a TLS Library katalógusodat a KOReaderben, és szinkronizáld az olvasási haladást, a kiemeléseket és az annotációk változásait.",
         "tabs": {
           "sync": "Szinkronizálási beállítások",
           "fileNaming": "Fájlnevezés"
         },
         "fileNaming": {
           "accountTitle": "Fiók alapértelmezett KOReader mintája",
-          "accountDescription": "Beállítja a BookOrbit bővítmény letöltései által a KOReader fiókodhoz használt alapértelmezett relatív mappát és fájlnevet. Az eszközspecifikus szabályok felülbírálhatják ezt az alábbiakban.",
+          "accountDescription": "Beállítja a TLS Library bővítmény letöltései által a KOReader fiókodhoz használt alapértelmezett relatív mappát és fájlnevet. Az eszközspecifikus szabályok felülbírálhatják ezt az alábbiakban.",
           "defaultPattern": "Alapértelmezett könyvútvonal-minta",
           "accountHelp": "A fiókod alapértelmezettje a KOReader bővítmény letöltéseihez, kivéve, ha az eszközhöz egyéni szabály tartozik.",
           "accountHint": "Az egyéni felülírással nem rendelkező KOReader eszközök használják.",
@@ -3420,7 +3420,7 @@
           "saveAccount": "Mentés fiók alapértelmezettjeként",
           "deviceTitle": "KOReader eszköz felülbírálások",
           "deviceDescription": "Az alapértelmezett, sorozat- és önálló elérési utak bármilyen kombinációjának testreszabása. Az üres, eszközspecifikus sorok öröklik az eszköz alapértelmezéseit, amely maga is örökölheti a fiók alapértelmezett KOReader mintáját.",
-          "noDevices": "Az eszközök itt jelennek meg, miután szinkronizálódtak a BookOrbittal.",
+          "noDevices": "Az eszközök itt jelennek meg, miután szinkronizálódtak a TLS Library.",
           "customOrganization": "Egyéni rendezés",
           "usingAccountDefault": "A fiók alapértelmezéseinek használata",
           "deviceDefaultHelp": "Tartalék beállítás ehhez az eszközhöz. Hagyd a fiók alapértelmezett értékével megegyezően, hogy a jövőbeni módosítások automatikusan öröklődjenek.",
@@ -3456,10 +3456,10 @@
         "latestPlugin": "Legújabb bővítmény: v{version}",
         "latestPluginUnavailable": "Legújabb bővítmény nem érhető el",
         "notConfigured": "A KOReader szinkronizálása nincs konfigurálva",
-        "notConfiguredHint": "Hozz létre egy szinkronizációs hitelesítő adatkészletet, majd használd azokat a BookOrbit KOReader bővítménnyel böngészéshez, letöltésekhez, haladáshoz, olvasási eseményekhez, kiemelésekhez és törlésekhez.",
+        "notConfiguredHint": "Hozz létre egy szinkronizációs hitelesítő adatkészletet, majd használd azokat a TLS Library KOReader bővítménnyel böngészéshez, letöltésekhez, haladáshoz, olvasási eseményekhez, kiemelésekhez és törlésekhez.",
         "createCredentials": "Hitelesítő adatok létrehozása",
         "createFormTitle": "KOReader szinkronizálási hitelesítő adatok létrehozása",
-        "createFormHint": "Ezek a hitelesítő adatok hitelesítik a KOReader eszközeidet a BookOrbittal.",
+        "createFormHint": "Ezek a hitelesítő adatok hitelesítik a KOReader eszközeidet a TLS Library.",
         "username": "Felhasználónév",
         "usernamePlaceholder": "pl. myreader",
         "password": "Jelszó",
@@ -3467,7 +3467,7 @@
         "changeCredentials": {
           "action": "Hitelesítő adatok módosítása",
           "title": "KOReader hitelesítő adatok módosítása",
-          "description": "Minden BookOrbit fiókhoz egy KOReader hitelesítő adat tartozik. Módosítsd itt a szinkronizált adatok törlése nélkül.",
+          "description": "Minden TLS Library fiókhoz egy KOReader hitelesítő adat tartozik. Módosítsd itt a szinkronizált adatok törlése nélkül.",
           "newPassword": "Új jelszó",
           "usernameInvalid": "A felhasználónévnek 3 és 100 karakter között kell lennie.",
           "passwordPlaceholder": "Hagyd üresen a jelenlegi jelszó megtartásához",
@@ -3488,7 +3488,7 @@
         "status": "KOReader állapota",
         "refresh": "Frissítés",
         "progressSync": "Haladás szinkronizálás",
-        "progressSyncHint": "Engedélyezi a KOReader eszközök számára a haladás, az olvasási tevékenység, a kiemelések és a annotációtörlések szinkronizálását a BookOrbittal.",
+        "progressSyncHint": "Engedélyezi a KOReader eszközök számára a haladás, az olvasási tevékenység, a kiemelések és a annotációtörlések szinkronizálását a TLS Library.",
         "lastSync": "Utolsó szinkronizálás",
         "syncedBooks": "Szinkronizált könyv",
         "bookCount": "{count, plural, =0 {nincs könyv} one {# könyv} other {# könyv}}",
@@ -3498,17 +3498,17 @@
         "setup": "Beállítás",
         "pluginServerUrl": "Bővítményszerver URL-címe",
         "syncUrl": "KOReader-szinkronizálási URL",
-        "syncUrlHint": "Működik a BookOrbit bővítménnyel és a KOReader beépített folyamatszinkronizációjával.",
+        "syncUrlHint": "Működik a TLS Library bővítménnyel és a KOReader beépített folyamatszinkronizációjával.",
         "copied": "Másolva",
         "copyUrl": "URL másolása",
-        "preconfiguredPlugin": "Előre konfigurált BookOrbit bővítmény",
+        "preconfiguredPlugin": "Előre konfigurált TLS Library bővítmény",
         "preconfiguredPluginHintPrefix": "Tölts le egy zip fájlt, amely tartalmazza a szerver URL-címét és a szinkronizálási bejelentkezési adatait. A bővítmény tartalmazza a katalógusböngészést és a szinkronizálást. Másold át a mappát ide",
         "preconfiguredPluginHintSuffix": "és indítsd újra a KOReader-t.",
-        "latestPluginNote": "{label}. Az eszközfrissítések a KOReader BookOrbit menüjéből futtathatók.",
+        "latestPluginNote": "{label}. Az eszközfrissítések a KOReader TLS Library menüjéből futtathatók.",
         "preparing": "Előkészítés...",
         "downloadPlugin": "Bővítmény letöltése",
         "noDevicesSynced": "Még nincsenek eszközök szinkronizálva",
-        "noDevicesSyncedHint": "Telepítsd a BookOrbit bővítményt a teljes szinkronizáláshoz, vagy konfiguráld a KOReader készletfolyamat-szinkronizálását csak a folyamatfrissítésekhez.",
+        "noDevicesSyncedHint": "Telepítsd a TLS Library bővítményt a teljes szinkronizáláshoz, vagy konfiguráld a KOReader készletfolyamat-szinkronizálását csak a folyamatfrissítésekhez.",
         "lastSyncLabel": "Utolsó szinkronizálás:",
         "lastBookLabel": "Utolsó könyv:",
         "noneYet": "Még nincs",
@@ -3525,8 +3525,8 @@
         "failedPositions": "{count, plural, =0 {nincs figyelmet igénylő megjelölt hely.} one {# figyelmet igénylő megjelölt hely.} other {# figyelmet igénylő megjelölt hely.}}",
         "setupGuide": "Beállítási útmutató",
         "setupSteps": "KOReader beállítási lépések",
-        "setupStepsHint": "Használd a BookOrbit bővítményt katalógusböngészéshez, letöltésekhez, haladáskövetéshez, olvasási eseményekhez és kiemelésekhez. Használd az alap bővítményt csak a haladáskövetéshez.",
-        "pluginGuideTitle": "BookOrbit bővítmény",
+        "setupStepsHint": "Használd a TLS Library bővítményt katalógusböngészéshez, letöltésekhez, haladáskövetéshez, olvasási eseményekhez és kiemelésekhez. Használd az alap bővítményt csak a haladáskövetéshez.",
+        "pluginGuideTitle": "TLS Library bővítmény",
         "pluginStep1": "Töltsd le a fenti előre konfigurált bővítményt.",
         "pluginStep2Prefix": "Csomagold ki és másold",
         "pluginStep2Middle": "ide",
@@ -3540,7 +3540,7 @@
         "stockStep2": "Állítsd be az egyéni szinkronizálási szervert a fent látható URL-címre.",
         "stockStep2InlineUrl": "Állítsd be az egyéni szinkronizálási szervert a következő URL-címre:",
         "stockStep3": "Add meg a létrehozott felhasználónevet és jelszót, majd koppints a Bejelentkezés gombra.",
-        "locationNote": "A BookOrbit a webes olvasóból menti a KOReader-kompatibilis EPUB helyeket. A visszaállításnak nagyjából ugyanarra a pozícióra kell érkeznie, bár a pontos sorelhelyezés olvasónként és EPUB elrendezésenként változhat.",
+        "locationNote": "A TLS Library a webes olvasóból menti a KOReader-kompatibilis EPUB helyeket. A visszaállításnak nagyjából ugyanarra a pozícióra kell érkeznie, bár a pontos sorelhelyezés olvasónként és EPUB elrendezésenként változhat.",
         "dangerZone": "Veszélyzóna",
         "deleteCredentials": "KOReader hitelesítő adatok törlése",
         "deleteCredentialsHint": "Eltávolítja a szinkronizálási hitelesítő adatokat, és leválasztja az összes eszközt. A haladási adatok megmaradnak.",
@@ -3587,7 +3587,7 @@
           "unknownFile": "Ismeretlen KOReader fájl {hash}",
           "unknownAuthor": "Ismeretlen szerző",
           "noTitleOrAuthor": "Nincs jelentett cím vagy szerző",
-          "bookNumber": "BookOrbit könyv #{id}",
+          "bookNumber": "TLS Library könyv #{id}",
           "toast": {
             "unmatchedRefreshed": "Párosítatlan könyvek frissítve",
             "unmatchedRefreshFailed": "Nem sikerült frissíteni a párosítatlan könyveket",
@@ -3615,8 +3615,8 @@
           "modal": {
             "linkTitle": "KOReader könyv összekapcsolása",
             "changeTitle": "KOReader kapcsolat módosítása",
-            "bookOrbitBook": "BookOrbit könyv",
-            "searchPlaceholder": "Keresés a BookOrbit könyvtáradban",
+            "bookOrbitBook": "TLS Library könyv",
+            "searchPlaceholder": "Keresés a TLS Library könyvtáradban",
             "minChars": "Írj be legalább 2 karaktert.",
             "searching": "Keresés...",
             "noBooksFound": "Nem találhatók könyvek.",
@@ -3626,14 +3626,14 @@
             "loadMore": "Több betöltése",
             "confirmTitle": "KOReader kapcsolat megerősítése",
             "koreader": "KOReader",
-            "bookOrbit": "BookOrbit",
+            "bookOrbit": "TLS Library",
             "bookId": "Könyvazonosító: {id}",
-            "syncedStatsNote": "A már szinkronizált statisztikák megmaradnak az aktuális BookOrbit könyvben.",
+            "syncedStatsNote": "A már szinkronizált statisztikák megmaradnak az aktuális TLS Library könyvben.",
             "chooseDifferent": "Válassz másikat",
             "saving": "Mentés...",
             "confirmLink": "Kapcsolat megerősítése",
             "unlinkTitle": "Leválasztod a KOReader könyvet?",
-            "unlinkBody": "Ezen hash jövőbeli szinkronizálásai nem fognak a(z) {title} címhez vezetni, amíg újra össze nem lesznek kapcsolva. A már szinkronizált statisztikák a jelenlegi BookOrbit könyvön maradnak.",
+            "unlinkBody": "Ezen hash jövőbeli szinkronizálásai nem fognak a(z) {title} címhez vezetni, amíg újra össze nem lesznek kapcsolva. A már szinkronizált statisztikák a jelenlegi TLS Library könyvön maradnak.",
             "unlinking": "Leválasztás..."
           },
           "dismiss": "Elvetés",
@@ -3641,15 +3641,15 @@
           "dismissing": "Elvetés...",
           "unlinking": "Leválasztás...",
           "unlinkConfirmTitle": "Leválasztod a KOReader könyvet?",
-          "unlinkConfirmBody": "Ezen hash jövőbeli szinkronizálásai nem fognak a(z) {title} címhez vezetni, amíg újra össze nem lesznek kapcsolva. A már szinkronizált statisztikák a jelenlegi BookOrbit könyvön maradnak.",
+          "unlinkConfirmBody": "Ezen hash jövőbeli szinkronizálásai nem fognak a(z) {title} címhez vezetni, amíg újra össze nem lesznek kapcsolva. A már szinkronizált statisztikák a jelenlegi TLS Library könyvön maradnak.",
           "dismissConfirmTitle": "Elveted ezt: {title}?",
           "dismissConfirmBody": "Ez eltávolítja a párosítatlan könyvek listájáról. Ha bármelyik eszköz ismét jelenti ezt a hash-t, akkor új bejegyzésként jelenik meg.",
           "dismissAllConfirmTitle": "{count, plural, =0 {nincs párosítatlan könyv} one {# párosítatlan könyv elvetése?} other {# párosítatlan könyv elvetése?}}",
           "dismissAllConfirmBody": "Ez törli az összes párosítatlan könyvek listát, nem csak az aktuális oldalt. Ha bármelyik eszköz ismét jelzi ezen hashek valamelyikét, az új bejegyzésként jelenik meg.",
           "changeLinkTitle": "KOReader kapcsolat módosítása",
           "linkBookTitle": "KOReader könyv kapcsolása",
-          "bookOrbitBook": "BookOrbit könyv",
-          "searchLibraryPlaceholder": "Keresés a BookOrbit könyvtáradban",
+          "bookOrbitBook": "TLS Library könyv",
+          "searchLibraryPlaceholder": "Keresés a TLS Library könyvtáradban",
           "enterMinChars": "Írj be legalább 2 karaktert.",
           "searching": "Keresés...",
           "noBooksFound": "Nem találhatók könyvek.",
@@ -3660,7 +3660,7 @@
           "loadingMore": "Betöltés...",
           "confirmLinkTitle": "KOReader kapcsolat megerősítése",
           "bookId": "Könyvazonosító: {id}",
-          "syncedStatsNote": "A már szinkronizált statisztikák megmaradnak az aktuális BookOrbit könyvben.",
+          "syncedStatsNote": "A már szinkronizált statisztikák megmaradnak az aktuális TLS Library könyvben.",
           "chooseDifferent": "Válassz másikat",
           "saving": "Mentés...",
           "confirmLink": "Kapcsolat megerősítése",
@@ -3668,12 +3668,12 @@
           "reviewHint": "Az automatikus találat nélküli és a leválasztott könyvek itt jelennek meg. A leválasztott könyvek tovább szinkronizálódhatnak az automatikus párosítással. Kapcsolj össze egy könyvet a találat felülbírálásához, vagy vesd el, hogy eltávolítsd erről a listáról.",
           "loadingReview": "Ellenőrzendő könyvek betöltése...",
           "noReview": "Nincsenek ellenőrzendő KOReader-könyvek.",
-          "manualUnlinkConfirmBody": "Távolítsd el a(z) {title} kézi összekapcsolását, és tedd vissza ezt a könyvet az ellenőrzendők listájára. A jövőbeli szinkronizálások automatikus párosítást fognak használni, ha létezik ilyen. A már szinkronizált statisztikák a jelenlegi BookOrbit könyvön maradnak.",
+          "manualUnlinkConfirmBody": "Távolítsd el a(z) {title} kézi összekapcsolását, és tedd vissza ezt a könyvet az ellenőrzendők listájára. A jövőbeli szinkronizálások automatikus párosítást fognak használni, ha létezik ilyen. A már szinkronizált statisztikák a jelenlegi TLS Library könyvön maradnak.",
           "reviewDismissConfirmBody": "Ez eltávolítja a könyvet az ellenőrzendő könyvek közül. Az automatikus párosítás és a meglévő szinkronizálási adatok megmaradnak. Ha egy eszköz találat nélkül jelenti újra ezt a hasht, a könyv újra megjelenhet.",
           "reviewDismissAllConfirmTitle": "{count, plural, =0 {Nincs ellenőrzendő könyv} one {Elveted mind a(z) # ellenőrzendő könyvet?} other {Elveted mind a(z) # ellenőrzendő könyvet?}}",
           "reviewDismissAllConfirmBody": "Ez kiüríti a teljes ellenőrzendő könyvek listáját, beleértve a többi oldalon szereplő elemeket is. Az automatikus párosítás és a meglévő szinkronizálási adatok megmaradnak. Ha egy eszköz találat nélkül jelenti újra a hasht, a könyv újra megjelenhet.",
-          "copyNote": "Ez a KOReader-példány egy másik fájl, mint ami a BookOrbitban van. Az olvasási állapot, az értékelés, az olvasási idő és a haladás (százalékban) szinkronizálódik. A kiemelések és a könyvjelzők viszont nem. Mindezek szinkronizálásához töltsd le a könyvet a BookOrbitból a KOReaderre.",
-          "differentCopyHint": "A BookOrbitban lévőtől eltérő fájl: a haladás százalékban szinkronizálódik, a kiemelések és könyvjelzők viszont nem.",
+          "copyNote": "Ez a KOReader-példány egy másik fájl, mint ami a TLS Library van. Az olvasási állapot, az értékelés, az olvasási idő és a haladás (százalékban) szinkronizálódik. A kiemelések és a könyvjelzők viszont nem. Mindezek szinkronizálásához töltsd le a könyvet a TLS Library a KOReaderre.",
+          "differentCopyHint": "A TLS Library lévőtől eltérő fájl: a haladás százalékban szinkronizálódik, a kiemelések és könyvjelzők viszont nem.",
           "suggestedMatch": "Ajánlott találat",
           "possibleMatches": "{count, plural, one {# lehetséges találat} other {# lehetséges találat}}",
           "morePossibleMatches": "{count, plural, one {Több mint # lehetséges találat} other {Több mint # lehetséges találat}}",
@@ -3792,7 +3792,7 @@
         "deleteClient": "{name} törlése",
         "clientsEmpty": {
           "title": "Még nincsenek letöltőkliensek",
-          "body": "A közvetlen HTTP-letöltéshez nincs szükség kliensre. Csatlakoztass egyet, hogy a BookOrbit a torrenten vagy Useneten keresztül közzétett kiadásokat is le tudja kérni.",
+          "body": "A közvetlen HTTP-letöltéshez nincs szükség kliensre. Csatlakoztass egyet, hogy a TLS Library a torrenten vagy Useneten keresztül közzétett kiadásokat is le tudja kérni.",
           "note": "qBittorrent, Transmission, Deluge, NZBGet és SABnzbd támogatott."
         },
         "summary": "{type} - kategória {category}, prioritás {priority}",
@@ -3833,7 +3833,7 @@
           "passwordWillClear": "A tárolt jelszó mentéskor törlődik",
           "apiKeyWillClear": "A tárolt API-kulcs mentéskor törlődik",
           "category": "Kategória",
-          "categoryHint": "Címkével látja el a BookOrbit által hozzáadott letöltéseket, így a rendszer kizárólag a sajátjaival végez műveleteket.",
+          "categoryHint": "Címkével látja el a TLS Library által hozzáadott letöltéseket, így a rendszer kizárólag a sajátjaival végez műveleteket.",
           "priority": "Prioritás",
           "enabled": "Engedélyezve",
           "useHardlinks": "Hardlinkek használata",
@@ -3845,12 +3845,12 @@
         },
         "mappings": {
           "title": "Útvonal-leképezések",
-          "hint": "Lefordítja a kliens által jelentett elérési utakat a BookOrbit által megnyitható elérési utakká. Akkor szükséges, ha a kettő külön konténerben fut.",
+          "hint": "Lefordítja a kliens által jelentett elérési utakat a TLS Library által megnyitható elérési utakká. Akkor szükséges, ha a kettő külön konténerben fut.",
           "add": "Leképzés hozzáadása",
           "remove": "Leképzés eltávolítása",
           "remotePath": "Kliens útvonal",
-          "localPath": "BookOrbit útvonal",
-          "brief": "Kötelező. Deklarálja azt a könyvtárat, ahonnan a BookOrbit importálhat; amikor az ügyfél ugyanazokat a fájlokat látja ugyanazon az elérési úton, a letöltési könyvtárat saját magára képezi le.",
+          "localPath": "TLS Library útvonal",
+          "brief": "Kötelező. Deklarálja azt a könyvtárat, ahonnan a TLS Library importálhat; amikor az ügyfél ugyanazokat a fájlokat látja ugyanazon az elérési úton, a letöltési könyvtárat saját magára képezi le.",
           "identityExample": "Ugyanaz a fájlrendszer? Használd ugyanazt az elérési utat mindkét oldalon, például /downloads a bal oldalon és /downloads a jobb oldalon."
         },
         "hardlink": {
@@ -3859,16 +3859,16 @@
           "works": "A hardlinkek itt működnek: az importálás nem fogja kétszer használni a lemezt.",
           "unavailable": "A hardlinkek itt nem érhetők el: az importálások másolásra kerülnek, a helyet kétszer használva.",
           "link_refused": "Ez a fájlrendszer elutasította az összekapcsolást ({code}): az importált elemek másolásra kerülnek és dupla helyet foglalnak.",
-          "download_dir_unwritable": "A BookOrbit nem tud írni a letöltési könyvtárba ({code}), ezért a hardlinkelést nem lehetett tesztelni.",
-          "localMissing": "A BookOrbit nem látja az útvonalat.",
+          "download_dir_unwritable": "A TLS Library nem tud írni a letöltési könyvtárba ({code}), ezért a hardlinkelést nem lehetett tesztelni.",
+          "localMissing": "A TLS Library nem látja az útvonalat.",
           "dockMissing": "A KönyvDokk mappa nem olvasható."
         },
         "reconciliation": {
           "action": "Egyeztetés",
-          "clean": "Minden saját klienselem megfelel egy megtartott BookOrbit letöltési kísérletnek.",
-          "unsupported": "Ez a kliens nem tudja felsorolni az elemeket a BookOrbit tulajdonjogi jelölője alapján. Deluge esetén engedélyezze a Label bővítményt; Transmission esetén konfiguráljon egy kategóriamappát.",
+          "clean": "Minden saját klienselem megfelel egy megtartott TLS Library letöltési kísérletnek.",
+          "unsupported": "Ez a kliens nem tudja felsorolni az elemeket a TLS Library tulajdonjogi jelölője alapján. Deluge esetén engedélyezze a Label bővítményt; Transmission esetén konfiguráljon egy kategóriamappát.",
           "truncated": "A kliens több mint 1000 tulajdonodban lévő tételt adott vissza. Oldd fel a látható bejegyzéseket, majd egyeztesd újra.",
-          "orphan": "Nincsenek megtartott BookOrbit kísérletek, amelyek ezt az ügyfélelemet birtokolnák.",
+          "orphan": "Nincsenek megtartott TLS Library kísérletek, amelyek ezt az ügyfélelemet birtokolnák.",
           "failedAttempt": "Az ügyfél még mindig birtokolja ezt az elemet, de a(z) „{title}” típusú keresési kísérlete sikertelenként van megjelölve.",
           "missing": "Ez a {status} kísérlet már nem szerepel a letöltő kliensben.",
           "adopt": "Csatolás ehhez: {title}",
@@ -3877,7 +3877,7 @@
           "removed": "Gazdátlan ügyfélelem eltávolítva",
           "removeTitle": "Eltávolítod a gazdátlan ügyfélelemet?",
           "removeDescription": "{name} eltávolítva a letöltőkliensből. A letöltött fájlok megmaradtak.",
-          "notOrphan": "Az adott klienselem továbbra is egy BookOrbit letöltési kísérlethez van csatolva.",
+          "notOrphan": "Az adott klienselem továbbra is egy TLS Library letöltési kísérlethez van csatolva.",
           "notAdoptable": "Az ügyfélelem vagy a sikertelen kísérlet megváltozott, és már nem csatolható. Egyeztesd újra."
         },
         "errors": {
@@ -3893,8 +3893,8 @@
           "encryptionKeyChanged": "A tárolt ügyfél-hitelesítő adat beolvasása sikertelen. Lehetséges, hogy a BOOK_REQUEST_ENCRYPTION_KEY megváltozott az elmentése óta.",
           "pathNotAbsolute": "Az útvonal-leképezéseknek mindkét oldalon abszolút útvonalakat kell használniuk",
           "nameRequired": "Adj nevet ennek a kliensnek.",
-          "urlRequired": "Add meg azt a címet, amelyen a BookOrbitnak el kell érnie ezt a klienst.",
-          "mappingRequired": "Adj hozzá legalább egy elérési út leképezést, hogy a BookOrbit tudja, melyik könyvtárból importálhat.",
+          "urlRequired": "Add meg azt a címet, amelyen a TLS Library el kell érnie ezt a klienst.",
+          "mappingRequired": "Adj hozzá legalább egy elérési út leképezést, hogy a TLS Library tudja, melyik könyvtárból importálhat.",
           "apiKeyRequired": "Add meg a SABnzbd API-kulcsát a Beállítások > Általános menüpontból."
         },
         "encryptionKeyMissing": "A BOOK_REQUEST_ENCRYPTION_KEY nincs beállítva, így ügyfél-hitelesítő adat nem menthető el. Kulcsot a következő paranccsal generálhatsz: openssl rand -hex 32",
@@ -3910,14 +3910,14 @@
           "loading": "Indexelők betöltése...",
           "empty": {
             "title": "Még nincsenek források",
-            "body": "A BookOrbit nem tartalmaz saját forrásokat, így a keresés nem talál semmit, amíg hozzá nem adsz egyet. Válaszd ki az indexelőidnek megfelelő konfigurációt.",
-            "bodyOneWay": "A BookOrbit nem tartalmaz saját forrásokat, így a keresési kérések semmit sem találnak, amíg hozzá nem adsz egyet.",
+            "body": "A TLS Library nem tartalmaz saját forrásokat, így a keresés nem talál semmit, amíg hozzá nem adsz egyet. Válaszd ki az indexelőidnek megfelelő konfigurációt.",
+            "bodyOneWay": "A TLS Library nem tartalmaz saját forrásokat, így a keresési kérések semmit sem találnak, amíg hozzá nem adsz egyet.",
             "responsibility": "Az, hogy milyen forrásból adsz hozzá indexeket, a te felelősséged.",
             "prowlarrTitle": "Prowlarr csatlakoztatása",
             "prowlarrBody": "Kezelj több torrent- és Usenet-indexelőt egyetlen kapcsolaton keresztül.",
             "recommended": "Ajánlott",
             "pluginTitle": "Bővítmény telepítése",
-            "pluginBody": "Egy fájl, ami megtanítja a BookOrbitnak, hogy egy adott oldalon keressen. Megadod, majd kitöltöd a beállításait.",
+            "pluginBody": "Egy fájl, ami megtanítja a TLS Library, hogy egy adott oldalon keressen. Megadod, majd kitöltöd a beállításait.",
             "torznabTitle": "Torznab indexelő hozzáadása",
             "torznabBody": "Egy Prowlarr, Jackett vagy NZBHydra hírfolyamra mutat, amit már futtatsz. Hírfolyamonként egy.",
             "builtInTitle": "Indexelő hozzáadása",
@@ -3942,7 +3942,7 @@
           "pluginFailed": "A(z) „{directory}” könyvtárban található bővítmény nem töltődött be: {reason}",
           "sources": {
             "title": "Források",
-            "hint": "Minden, amiben a BookOrbit keresni tud, kapcsolatok szerint csoportosítva.",
+            "hint": "Minden, amiben a TLS Library keresni tud, kapcsolatok szerint csoportosítva.",
             "add": "Forrás hozzáadása",
             "prowlarr": "Prowlarr csatlakoztatása",
             "prowlarrHint": "Kezelj egyszerre több torrent- és Usenet-indexelő szolgáltatást.",
@@ -4058,12 +4058,12 @@
             "credentialRequired": "Az indexelő használatához hitelesítő adatokra van szükség",
             "invalidSettings": "Egy vagy több forrásbeállítás érvénytelen. Tekintsd át a rendelkezésre álló lehetőségeket.",
             "nameRequired": "Adj nevet ennek az indexelőnek.",
-            "urlRequired": "Add meg azt a címet, ahol a BookOrbitnak keresnie kell."
+            "urlRequired": "Add meg azt a címet, ahol a TLS Library keresnie kell."
           },
           "editName": "{name} szerkesztése",
           "editorDescription": "Az indexelő beállításai.",
           "chooseType": "Válassz egy indexelő típust",
-          "chooseTypeHint": "Válaszd ki, hogy a BookOrbit hol keressen. Az űrlap ezután csak azt kérdezi, amire az adott forrásnak szüksége van.",
+          "chooseTypeHint": "Válaszd ki, hogy a TLS Library hol keressen. Az űrlap ezután csak azt kérdezi, amire az adott forrásnak szüksége van.",
           "builtIn": "Beépített",
           "plugin": "Bővítmény",
           "typeDescriptions": {
@@ -4072,7 +4072,7 @@
           },
           "plugins": {
             "title": "Bővítmények",
-            "hint": "Egy BookOrbit által kereshető oldal, amely egyetlen bővítményfájlként adható hozzá.",
+            "hint": "Egy TLS Library által kereshető oldal, amely egyetlen bővítményfájlként adható hozzá.",
             "directoryLink": "Nyílt könyvtári bővítmények böngészése",
             "none": "Nincs telepített bővítmény. Telepíts egyet olyan oldalak kereséséhez, amelyeket a beépített protokollok nem fednek le.",
             "install": "Bővítmény telepítése",
@@ -4084,7 +4084,7 @@
             "removeFailed": "A bővítményt nem lehetett törölni.",
             "confirmRemove": "Törlöd ezt a bővítményt: {label}?",
             "replaces": "Ez lecseréli a már telepített {type} bővítményt.",
-            "restartRequired": "Indítsd újra a BookOrbitot, hogy a bővítmény módosítása érvénybe lépjen.",
+            "restartRequired": "Indítsd újra a TLS Library, hogy a bővítmény módosítása érvénybe lépjen.",
             "confirmInstall": "Bővítmény telepítése",
             "configure": "Beállítás",
             "notSetUp": "Még nincs beállítva",
@@ -4131,11 +4131,11 @@
             "credential": "Hitelesítés",
             "credentialRequired": "Kötelező",
             "credentialNone": "Nincs",
-            "trustWarning": "A bővítmény a BookOrbiton belül fut, így hozzáfér az adatbázisodhoz, a könyvtárfájljaidhoz és a titkosítási kulcsodhoz. Kizárólag olyan forrásból telepíts bővítményt, amelyben megbízol, és előtte olvasd el a kódját.",
+            "trustWarning": "A bővítmény a TLS Library belül fut, így hozzáfér az adatbázisodhoz, a könyvtárfájljaidhoz és a titkosítási kulcsodhoz. Kizárólag olyan forrásból telepíts bővítményt, amelyben megbízol, és előtte olvasd el a kódját.",
             "sectionTitle": "Bővítmények",
             "removeUnusedWarning": "A bővítmény véglegesen törlődik a szerverről."
           },
-          "posture": "A BookOrbit nem biztosít és nem támogat indexelőforrásokat. Minden itt szereplő forrást te konfiguráltál, és te vagy a felelős azért, amit azon keresztül keresel és letöltesz."
+          "posture": "A TLS Library nem biztosít és nem támogat indexelőforrásokat. Minden itt szereplő forrást te konfiguráltál, és te vagy a felelős azért, amit azon keresztül keresel és letöltesz."
         },
         "managers": {
           "add": "Prowlarr hozzáadása",
@@ -4156,7 +4156,7 @@
           "toggleSource": "Keresés ezzel: {name}",
           "changeColor": "{name} színének megváltoztatása",
           "sourceColor": "Forrás színe",
-          "sourceColorHint": "Megjelöli a(z) {name} által visszaadott kiadásokat a BookOrbit egészében.",
+          "sourceColorHint": "Megjelöli a(z) {name} által visszaadott kiadásokat a TLS Library egészében.",
           "noSources": "Nem találhatók kompatibilis torrent- vagy Usenet-indexelők. Végezz szinkronizálást, miután hozzáadtál egyet a Prowlarr felületén.",
           "unknown": "Ismeretlen",
           "editorDescription": "Csatlakozási és forrásszinkronizálási beállítások a Prowlarrhoz.",
@@ -4172,9 +4172,9 @@
             "syncNew": "Újonnan felfedezett források engedélyezése",
             "syncNewHint": "Az új Prowlarr-indexelők azonnal kereshetővé válnak. Az itt kikapcsolt források a későbbi szinkronizálások után is kikapcsolva maradnak.",
             "autoExpand": "Újrapróbálás kategóriaszűrők nélkül",
-            "autoExpandHint": "Ha egy indexelő sikeres választ ad találat nélkül, próbálja meg újra egyszer a BookOrbit könyvkategória-szűrője nélkül.",
+            "autoExpandHint": "Ha egy indexelő sikeres választ ad találat nélkül, próbálja meg újra egyszer a TLS Library könyvkategória-szűrője nélkül.",
             "inheritSeedLimits": "Prowlarr visszatöltési korlátok használata",
-            "inheritSeedLimitsHint": "Alkalmazza az egyes torrent-indexelők beállított visszatöltési arányát és visszatöltési idejét a jövőbeli letöltésekre, ha nem létezik BookOrbit-felülbírálás.",
+            "inheritSeedLimitsHint": "Alkalmazza az egyes torrent-indexelők beállított visszatöltési arányát és visszatöltési idejét a jövőbeli letöltésekre, ha nem létezik TLS Library-felülbírálás.",
             "perIndexerTimeout": "Indexelő időtúllépése (másodperc)",
             "perIndexerTimeoutHint": "Mennyi ideig tarthat egyetlen forrás szinkronizálása. A lassú, FlareSolverr-alapú indexelőknek több időre lehet szükségük.",
             "overallBudget": "Prowlarr-időkeret (másodperc)",
@@ -4222,12 +4222,12 @@
           "minScoreHint": "Az ennél alacsonyabb pontszámú kiadások letöltése soha nem történik meg automatikusan. A pontszámok 100-ig futnak, és a cím és a szerző egyezésének mértéke nagyjából egyet tesz ki, a formátummal, a fájlmérettel, a feltöltőkkel és a forrás prioritásával együtt. Ha semmi nem ér el elég magas pontszámot, a kérés megvárja, hogy valaki manuálisan válasszon ki egy kiadást, és közli, hogy miért állt le.",
           "minScoreHintV2": "Az ennél alacsonyabb pontszámot elérő kiadásokat a rendszer soha nem tölti le automatikusan. A pontszámok maximuma 100 pont. Legnagyobb mértékben a cím és a szerző relevanciája számít, ezt követi a formátum és az ésszerű fájlméret, valamint a swarm állapota és a freeleech jelzés, ha a forrás biztosítja azokat. Ha egyik kiadás sem ér el elég magas pontszámot, az igénylés várakozó állapotba kerül, amíg valaki kézzel ki nem választ egy kiadást, a rendszer pedig megjelöli a leállás okát.",
           "autoRetry": "Hiba után próbálja ki a következő kiadást",
-          "autoRetryHint": "Amikor egy automatikus letöltés sikertelen, a rendszer a feladás helyett a következő legjobb verziót próbálja ki. Ez vonatkozik arra az esetre, ha a forrás nem hajlandó átadni a fájlt, vagy ha a letöltés félbeszakad. Ez csak azokra a verziókra vonatkozik, amelyeket a BookOrbit maga választott ki: a jóváhagyó által kézzel kiválasztott verziók sikertelenek maradnak, és várnak rájuk.",
+          "autoRetryHint": "Amikor egy automatikus letöltés sikertelen, a rendszer a feladás helyett a következő legjobb verziót próbálja ki. Ez vonatkozik arra az esetre, ha a forrás nem hajlandó átadni a fájlt, vagy ha a letöltés félbeszakad. Ez csak azokra a verziókra vonatkozik, amelyeket a TLS Library maga választott ki: a jóváhagyó által kézzel kiválasztott verziók sikertelenek maradnak, és várnak rájuk.",
           "maxAttempts": "Próbálkozások száma kérésenként",
-          "maxAttemptsHint": "Minden egyes letöltés, amit a BookOrbit küld a letöltőkliensnek ehhez a kéréshez, beleszámít ebbe a korlátba: az első automatikus kísérlet, minden, amire egy forrás elutasítása után került sor, és minden, amire egy sikertelen letöltés után került sor. Állítsd 1-re, ha az első kísérlet után le szeretnéd állítani.",
+          "maxAttemptsHint": "Minden egyes letöltés, amit a TLS Library küld a letöltőkliensnek ehhez a kéréshez, beleszámít ebbe a korlátba: az első automatikus kísérlet, minden, amire egy forrás elutasítása után került sor, és minden, amire egy sikertelen letöltés után került sor. Állítsd 1-re, ha az első kísérlet után le szeretnéd állítani.",
           "autoSearch": "Keressen tovább olyan kéréseket, amire nincs találat",
           "autoSearchShort": "Egy eredménytelen jóváhagyott keresés esetén a rendszer később újra keres.",
-          "autoSearchHint": "Egy kérést egyszer keres a rendszer jóváhagyást követően. Ha nincs elég jó találat, vagy a könyv még nem jelent meg, a kérés jóváhagyásra vár, és nincs újbóli keresés. Kapcsold be ezt, és a BookOrbit automatikusan ellenőrzi a könyvet, így a következő hónapban közzétett kiadás is megtalálható lesz. Csak akkor fut, ha az automatikus letöltések be vannak kapcsolva, mivel egy olyan keresés, amelynek semmi köze a találatokhoz, csak a források forgalmát csökkenti.",
+          "autoSearchHint": "Egy kérést egyszer keres a rendszer jóváhagyást követően. Ha nincs elég jó találat, vagy a könyv még nem jelent meg, a kérés jóváhagyásra vár, és nincs újbóli keresés. Kapcsold be ezt, és a TLS Library automatikusan ellenőrzi a könyvet, így a következő hónapban közzétett kiadás is megtalálható lesz. Csak akkor fut, ha az automatikus letöltések be vannak kapcsolva, mivel egy olyan keresés, amelynek semmi köze a találatokhoz, csak a források forgalmát csökkenti.",
           "autoSearchEnabledToast": "A kérések újrakeresésre kerülnek",
           "autoSearchDisabledToast": "A kérések csak jóváhagyás után kerülnek újrakeresésre",
           "autoSearchInterval": "Újrakeresés ennyi idő után",
@@ -4319,14 +4319,14 @@
         "external": "Külső",
         "editorDescription": "Beállítások ehhez a letöltőklienshez.",
         "chooseClientType": "Válassz kliens típust",
-        "chooseClientTypeHint": "Válaszd ki, melyik programnak adja át a BookOrbit a letöltéseket.",
+        "chooseClientTypeHint": "Válaszd ki, melyik programnak adja át a TLS Library a letöltéseket.",
         "clientTypeDescriptions": {
           "qbittorrent": "A te qBittorrented. Szükség van egy címre és egy fiókra.",
           "transmission": "A te Transmissionöd. Nincsenek kategóriái, így a kategória a letöltési mappa egy almappájává válik.",
           "deluge": "A te Deluge-od. Jelentkezz be a webes felhasználói felület jelszavával; a kategóriához be kell kapcsolni a Címke bővítményt.",
           "rtorrent": "Saját rTorrent XML-RPC-n keresztül. A kategória lesz a letöltés címkéje; a fájlok helyéről maga az rTorrent saját beállításai döntenek.",
-          "nzbget": "A saját NZBGet-szervered. A BookOrbit JSON-RPC API-n keresztül küldi el az NZB-fájlokat.",
-          "sabnzbd": "A saját SABnzbd-szervered. A BookOrbit az API-kulcs használatával küldi el az NZB-fájlokat."
+          "nzbget": "A saját NZBGet-szervered. A TLS Library JSON-RPC API-n keresztül küldi el az NZB-fájlokat.",
+          "sabnzbd": "A saját SABnzbd-szervered. A TLS Library az API-kulcs használatával küldi el az NZB-fájlokat."
         },
         "searchHealth": {
           "failingOnce": "Utolsó keresés sikertelen",
@@ -4367,7 +4367,7 @@
         "readerAudio": "Lejátszási sebesség, ugrási intervallumok és elalváskapcsoló.",
         "readerFonts": "Olvasás közben elérhető betűtípusok.",
         "readerGeneral": "Minden olvasási mód által megosztott alapértelmezett értékek.",
-        "notifications": "Mit és hol mond rólad a BookOrbit.",
+        "notifications": "Mit és hol mond rólad a TLS Library.",
         "privacy": "Olvasási statisztikák, megosztott linkek és tevékenységek láthatósága.",
         "restrictions": "Korbesorolás és rejtett tartalom ehhez a fiókhoz.",
         "libraries": "Elérési utak, figyelt mappák és betöltési szabályok.",
@@ -4397,14 +4397,14 @@
         "appearance-icons": "Tölts fel saját ikonokat a gyári készlet mellé a könyvtárakhoz, az OkosTávcsövekhez és a gyűjteményekhez.",
         "appearance-layout": "A könyvtárrács borítóméretei és térközei, az összevont sorozatoknál megjelenített borító, valamint a szerzői rács elrendezése.",
         "appearance-behavior": "Mi történik egy könyv rácsból vagy listából való megnyitásakor, összevonódnak-e a sorozatok egyetlen kártyává, és megjelenjenek-e a Könyvkérések ebben a fiókban.",
-        "appearance-language": "A BookOrbit által a menükhöz, feliratokhoz és üzenetekhez használt nyelv, valamint a dátumok és számok területi formátumai.",
+        "appearance-language": "A TLS Library által a menükhöz, feliratokhoz és üzenetekhez használt nyelv, valamint a dátumok és számok területi formátumai.",
         "reader-ebook": "Az e-könyv-olvasó alapértelmezései: az új könyvek a te beállításaiddal induljanak-e, a lapfolyam és a hasábok, a téma, valamint a tipográfia, mint például a betűtípus, a méret és a térközök.",
         "reader-pdf": "A PDF-ek megnyitási módja: oldalanként vagy folyamatos görgetéssel, melyik oldal indítsa a kétoldalas nézetet, valamint az alapértelmezett nagyítási illeszkedés.",
         "reader-comics": "A képregények olvasási módja: az olvasási mód és irány, az egy- vagy kétoldalas nézet, az illeszkedés, a széles oldalak kezelése, valamint a sorozat következő könyvére való továbblépés.",
         "reader-audio": "Az új hangoskönyvek kezdeti sebessége és hangereje, valamint a visszaugrás és előreugrás gombok ugrási időköze.",
         "reader-fonts": "Tölts fel saját betűtípusokat az olvasóhoz, és válaszd ki, hogy a szerveradminisztrátorod által megosztott betűtípusok közül melyek jelenjenek meg benne.",
         "reader-general": "Az olvasói beállításaid mentési helye, valamint az összes olvasási mód által közösen használt alapértelmezések.",
-        "tts": "Az alapértelmezett hangod és sebességed, amikor a BookOrbit hangosan felolvas egy könyvet.",
+        "tts": "Az alapértelmezett hangod és sebességed, amikor a TLS Library hangosan felolvas egy könyvet.",
         "notifications": "Válaszd ki, mely eseményekről kérsz értesítést, a befejezett beolvasásoktól és metaadat-lekérésektől kezdve a fájlátnevezéseken és importálásokon át a KönyvDokk eredményekig.",
         "privacy": "Döntsd el, hogy az olvasási tevékenységedből mennyit láthatnak az adminisztrátorok, tekintsd meg a megosztott profilod előnézetét, és ellenőrizd, ki látta azt.",
         "restrictions": "Ezen a fiókon beállított tartalomkorlátok, például korhatár-besorolások és elrejtett tartalmak, valamint az, hogy mit zárnak ki a könyvtáraidból.",
@@ -4418,7 +4418,7 @@
         "metadata-search-cache": "Őrizd meg a szolgáltatók válaszait, hogy az ismételt keresések gyorsak legyenek és a szolgáltató leállása esetén is működjenek, valamint szabályozd a tárolás időtartamát és mértékét.",
         "metadata-genre-blocklist": "Az itt felsorolt zsánerértékek törlődnek a szolgáltatói találatokból a metaadatok beírása előtt, így az olyan címkék, mint a Hangoskönyv, kimaradnak a könyveidből.",
         "metadata-reminders": "Válaszd ki, hogy mely hiányzó mezők jelenjenek meg a könyvemlékeztetőkben. Ez csak az emlékeztetőket módosítja, a kitöltöttségi pontszámokat nem.",
-        "file-naming": "A BookOrbit által a könyvek lemezen történő átnevezésekor használt mappa- és fájlnévminták, az eredmény előnézetével, valamint azzal, hogy mi történik, ha egy érték hiányzik.",
+        "file-naming": "A TLS Library által a könyvek lemezen történő átnevezésekor használt mappa- és fájlnévminták, az eredmény előnézetével, valamint azzal, hogy mi történik, ha egy érték hiányzik.",
         "maintenance": "Szerverkarbantartás: a feltöltési méretkorlát, a korábbi importálások, az ajánlások újraépítése, a trófeák utólagos frissítése és a frissítések ellenőrzése.",
         "kobo": "Csatlakoztasd a Kobo e-olvasókat, válaszd ki a könyvek, polcok és az olvasási folyamat szinkronizálásának módját, és kövesd az egyes eszközök legutóbbi szinkronizálási tevékenységét.",
         "koreader": "Szinkronizáld az olvasási folyamatot, a tevékenységet és a kiemeléseket a KOReaderrel, kérd le a szinkronizációs URL-t és a bővítményt, valamint kezeld a csatlakozó eszközöket.",
@@ -4431,7 +4431,7 @@
         "account-activity": "Kövesd nyomon, mikor volt utoljára aktív az egyes fiókok mindegyike és hogyan jelentkezik be, valamint nyisd meg a felhasználónkénti olvasási és alkalom-elemzéseket.",
         "magic-links": "Hozz létre olyan megosztható linkeket, amelyek jelszó nélkül léptetnek be valakit, és vond vissza őket, ha már nincs rájuk szükség.",
         "oidc": "Csatlakoztass egy egységes bejelentkezési szolgáltatót, például a Keycloakot, képezd le az attribútumait, és döntsd el, hogyan jöjjenek létre az új fiókok.",
-        "requests": "Hol keressen a BookOrbit a kért könyvek után, mely letöltőkliensek kérjék le őket, és mi történik a letöltés befejezése után.",
+        "requests": "Hol keressen a TLS Library a kért könyvek után, mely letöltőkliensek kérjék le őket, és mi történik a letöltés befejezése után.",
         "admin-tts": "A szövegfelolvasó motorok, amelyeket az olvasók a hangos felolvasáshoz használhatnak, az egyes motorok által kínált hangok, valamint a megjelenési sorrendjük.",
         "book-dock": "A KönyvDokk beérkezési mappája, az új fájlok automatikus metaadat-lekérése, valamint az a pontszám, amelynél a fájlok önállóan véglegesítésre kerülnek.",
         "server-fonts": "Tölts fel betűtípusokat egyszerre a szerveren lévő összes olvasó számára. Ettől függetlenül minden olvasó elrejtheti bármelyiket közülük.",
@@ -5300,7 +5300,7 @@
     },
     "sources": {
       "web": "Web",
-      "bookorbit": "BookOrbit",
+      "bookorbit": "TLS Library",
       "koreader": "KOReader",
       "kobo": "Kobo"
     },
@@ -5894,7 +5894,7 @@
     },
     "reconnect": {
       "heading": "Várakozás a szerverre",
-      "description": "A BookOrbit jelenleg nem éri el a szervert. Ez az oldal magától folytatódik, amint a szerver válaszol.",
+      "description": "A TLS Library jelenleg nem éri el a szervert. Ez az oldal magától folytatódik, amint a szerver válaszol.",
       "retry": "Újrapróbálás most",
       "retrying": "Újrapróbálás..."
     }
@@ -7315,7 +7315,7 @@
               "keepHint": "Az új felolvasás egy másik fájlként adódik hozzá.",
               "replaceHint": "A régi fájl cseréje csak azután történik meg, hogy az új sikeresen átment az ellenőrzéseken, az olvasási pozíciók pedig átvitelre kerülnek.",
               "replaceNotPermitted": "A felolvasás lecseréléséhez könyvtörlési jogosultság szükséges, így az új egy másik fájlként adódik hozzá.",
-              "generated": "A BookOrbit által készítve",
+              "generated": "A TLS Library által készítve",
               "imported": "Importálva"
             },
             "audio": "Hangoskönyv",
@@ -7760,7 +7760,7 @@
           "tracks": "Hangfájlonként egy fejezet, nincs elmentve",
           "provider": "Lekért metaadatokból",
           "migration": "Audiobookshelfből importálva",
-          "manual": "BookOrbitban szerkesztve",
+          "manual": "TLS Library szerkesztve",
           "manualBy": "{name} szerkesztette ekkor: {when}",
           "readAlong": "Az EPUB felolvasós narrációjából, csak megtekintésre",
           "none": "Még nincsenek fejezetek"
@@ -7824,7 +7824,7 @@
         "revert": {
           "action": "Visszaállítás a fájlok fejezeteire",
           "title": "Visszaállítod a fájlokban lévő fejezeteket?",
-          "description": "A BookOrbit újra beolvassa a hangfájlokba ágyazott fejezeteket, és megszünteti a védelmüket az újraolvasásokkal szemben. A nem mentett módosítások elvesznek. A jelenlegi lista megmarad az előzményekben.",
+          "description": "A TLS Library újra beolvassa a hangfájlokba ágyazott fejezeteket, és megszünteti a védelmüket az újraolvasásokkal szemben. A nem mentett módosítások elvesznek. A jelenlegi lista megmarad az előzményekben.",
           "confirm": "Visszaállít",
           "done": "A fejezetek visszaállítva a hangfájlok alapján"
         },
@@ -8364,13 +8364,13 @@
         },
         "emptyStage": {
           "title": "Még nincsenek naplózott adatok ehhez a könyvhöz",
-          "description": "Az olvasási napló alkalmakból áll össze. A BookOrbit minden alkalommal rögzít egyet, amikor a webes olvasóban olvas, a többit pedig a szinkronizált készülékekről veszi át.",
+          "description": "Az olvasási napló alkalmakból áll össze. A TLS Library minden alkalommal rögzít egyet, amikor a webes olvasóban olvas, a többit pedig a szinkronizált készülékekről veszi át.",
           "readerTitle": "Olvasás itt",
-          "readerBody": "A BookOrbit olvasójában eltöltött minden perc naplózása automatikusan történik.",
+          "readerBody": "A TLS Library olvasójában eltöltött minden perc naplózása automatikusan történik.",
           "koreaderTitle": "KOReader szinkronizálása",
           "koreaderBody": "A bővítmény minden olvasási alkalmat visszaküld a rendszerbe, az elért oldallal együtt.",
           "koboTitle": "Egy Kobo szinkronizálása",
-          "koboBody": "Csatlakoztasd a készüléket, és a BookOrbit beolvassa a saját olvasásiidő-számlálódat.",
+          "koboBody": "Csatlakoztasd a készüléket, és a TLS Library beolvassa a saját olvasásiidő-számlálódat.",
           "addSession": "Munkamenet kézi hozzáadása",
           "recordPast": "Múltbeli olvasás rögzítése"
         },
@@ -8898,7 +8898,7 @@
         "BOTH_HAVE_AUDIO": "Ezen könyvek közül több is rendelkezik hangoskönyvvel. Két hanganyag egy mappában egyetlen hosszú felvételként fog lejátszódni.",
         "NO_DESTINATION_FOLDER": "Ezen könyvek egyike sem rendelkezik saját mappával az egyesített fájlok befogadására.",
         "LEGACY_VIRTUAL_FOLDER": "Az egyik könyv elavult mappa-elrendezést használ. Előbb olvastasd újra a könyvtárat.",
-        "FOLDER_NOT_WRITABLE": "A BookOrbit nem tud írni az egyik érintett mappába.",
+        "FOLDER_NOT_WRITABLE": "A TLS Library nem tud írni az egyik érintett mappába.",
         "LIBRARY_BUSY": "Ebben a könyvtárban jelenleg beolvasás, áthelyezés, átnevezés vagy egy másik egyesítés zajlik. Próbáld meg újra, ha befejeződött.",
         "BOOK_BUSY": "Az egyik könyvön jelenleg egy másik folyamat zajlik, például felolvasás, fejezetek összeállítása vagy metaadatok lekérése. Próbáld meg újra, ha befejeződött.",
         "PATH_CONFLICT": "Az egyik fájl olyan mentési útvonalra kerülne, amelyet egy másik könyv már használ.",
@@ -8935,8 +8935,8 @@
           "detailed": "{count, plural, one {# másik olvasó is rendelkezik olvasási adatokkal ezeknél a könyveknél. Ezek szintén átkerülnek a megtartott könyvhöz.} other {# másik olvasó is rendelkezik olvasási adatokkal ezeknél a könyveknél. Ezek szintén átkerülnek a megtartott könyvhöz.}}"
         },
         "LEFTOVER_FILES": {
-          "message": "Néhány olyan fájl, amelyet a BookOrbit nem követ, a régi mappákban marad.",
-          "detailed": "{count, plural, one {# olyan fájl, amelyet a BookOrbit nem követ, egy régi mappában marad.} other {# olyan fájl, amelyet a BookOrbit nem követ, egy régi mappában marad.}}"
+          "message": "Néhány olyan fájl, amelyet a TLS Library nem követ, a régi mappákban marad.",
+          "detailed": "{count, plural, one {# olyan fájl, amelyet a TLS Library nem követ, egy régi mappában marad.} other {# olyan fájl, amelyet a TLS Library nem követ, egy régi mappában marad.}}"
         },
         "DESTINATION_MOVES_TARGET": {
           "message": "A megtartott könyv saját fájljai is átköltöznek, mivel minden egy másik könyv mappájában lesz tárolva."
@@ -9058,7 +9058,7 @@
         },
         "leftBehind": {
           "heading": "Meghagyva itt: {library}",
-          "untracked": "Ezek a fájlok a régi mappájukban maradnak. A BookOrbit a továbbiakban nem követi őket."
+          "untracked": "Ezek a fájlok a régi mappájukban maradnak. A TLS Library a továbbiakban nem követi őket."
         },
         "access": {
           "acknowledge": "{count, plural, one {Tudomásul veszem, hogy # olvasó elveszíti a hozzáférését ehhez a könyvhöz és az olvasási adataihoz, amíg hozzáférést nem kap a következő könyvtárhoz: {library}} other {Tudomásul veszem, hogy # olvasó elveszíti a hozzáférését ehhez a könyvhöz és az olvasási adataihoz, amíg hozzáférést nem kap a következő könyvtárhoz: {library}}}",
@@ -9290,7 +9290,7 @@
         "noExtension": "A fájl nem rendelkezik kiterjesztéssel, így a formátuma ismeretlen",
         "tooLarge": "Nagyobb, mint a(z) {limit} feltöltési korlát",
         "tooLargeServer": "Nagyobb, mint a szerver feltöltési korlátja",
-        "tooLargeProxy": "Elutasítva mint túl nagy, még mielőtt elérte volna a BookOrbitot – valószínűleg egy fordított proxy által",
+        "tooLargeProxy": "Elutasítva mint túl nagy, még mielőtt elérte volna a TLS Library – valószínűleg egy fordított proxy által",
         "storageFull": "A szerver tárhelye megtelt",
         "network": "A szerver elérése sikertelen",
         "status": "A feltöltés sikertelen (HTTP {status})"
@@ -9558,22 +9558,22 @@
         "notProvided": "Nem ismert",
         "searchScope": "Válassz egyet a(z) {count, plural, one {# ISBN} other {# ISBN}} közül a kereséshez, vagy keress cím és szerző szerint.",
         "searchScopeLimited": "Válassz ki egy ISBN-t a kereséshez.",
-        "titleAuthorOnly": "Nincs megadva ISBN. A BookOrbit egyszeri keresést indít cím és szerző szerint.",
+        "titleAuthorOnly": "Nincs megadva ISBN. A TLS Library egyszeri keresést indít cím és szerző szerint.",
         "chooseSearch": "Válassz ki egy változatot a kereséshez",
         "searchByEdition": "Kiadás keresése egy változathoz",
         "findRelease": "Kiadás keresése",
         "primaryIsbn": "ISBN {isbn}",
         "primaryTitleAuthor": "Cím és szerző",
         "recommended": "Ajánlott",
-        "recommendationHelpLabel": "Hogyan választja ki a BookOrbit az ajánlott ISBN-t",
+        "recommendationHelpLabel": "Hogyan választja ki a TLS Library az ajánlott ISBN-t",
         "recommendationTitle": "Hogyan áll össze az ajánlott keresés",
         "recommendationLanguage": "Elsőbbséget élvez a kért nyelv, majd az ismeretlen nyelv, megelőzve az igazoltan nem egyező nyelvet.",
         "recommendationAgreement": "Elsőbbséget élvez több független metaadat-szolgáltató által megerősített ISBN.",
-        "recommendationProvider": "A BookOrbit stabil metaadat-szolgáltatói prioritásának használata.",
+        "recommendationProvider": "A TLS Library stabil metaadat-szolgáltatói prioritásának használata.",
         "recommendationRelevance": "Használd a változat helyezését az adott szolgáltató találatai között.",
         "recommendationYear": "Elsőbbséget élvez a mű legkorábbi ismert kiadási évéhez legközelebbi változat.",
         "recommendationStable": "Használd magát az ISBN-t végső, stabil holtverseny-eldöntőként.",
-        "recommendationFallback": "Ha nem áll rendelkezésre érvényes ISBN, a BookOrbit egyszeri keresést indít cím és szerző szerint. Egy változat kiválasztása a menüből mindig felülírja ezt az ajánlást.",
+        "recommendationFallback": "Ha nem áll rendelkezésre érvényes ISBN, a TLS Library egyszeri keresést indít cím és szerző szerint. Egy változat kiválasztása a menüből mindig felülírja ezt az ajánlást.",
         "withoutIsbn": "Keresés cím és szerző alapján",
         "action": "Művelet"
       },
@@ -9809,7 +9809,7 @@
         "fileTooLarge": "Ez a fájl nagyobb, mint {limit}, így ez nem egy .torrent fájl",
         "fileUnreadable": "A fájl nem olvasható"
       },
-      "noClientList": "A BookOrbit a legmagasabb prioritású engedélyezett letöltőklienst fogja használni."
+      "noClientList": "A TLS Library a legmagasabb prioritású engedélyezett letöltőklienst fogja használni."
     },
     "attempts": {
       "title": "Korábbi próbálkozások",
@@ -9957,7 +9957,7 @@
       "manifest": {
         "ready": "{count, plural, one {Ez a kiadás # fájlt tartalmaz. A támogatott könyvfájl importálható.} other {Ez a kiadás # fájlt tartalmaz. A támogatott könyvfájl importálható.}}",
         "noSupported": "Ez a kiadás nem tartalmaz közvetlenül támogatott könyvfájlt, így nem küldhető el.",
-        "contentsUnknown": "Ez a kiadás archívumként (RAR, ZIP vagy 7z) van csomagolva. A BookOrbit a letöltés után kibontja, így a tartalma még nem ismert.",
+        "contentsUnknown": "Ez a kiadás archívumként (RAR, ZIP vagy 7z) van csomagolva. A TLS Library a letöltés után kibontja, így a tartalma még nem ismert.",
         "multipleBooks": "Ez a kiadás {count} különálló könyvet tartalmaz. A letöltés után a rendszer megkérdezi, melyiket szeretnéd importálni.",
         "multiPartBook": "{count, plural, one {Ez a kiadás egyetlen könyv, amely # fájlból áll.} other {Ez a kiadás egyetlen könyv, amely # fájlból áll, és ezek együttesen, egyetlen könyvként importálódnak.}}",
         "metadataUnavailable": "Ez egy mágnes-link. A fájllista nem érhető el mindaddig, amíg egy torrentkliens le nem kéri a metaadatokat a swarmból.",
@@ -10083,7 +10083,7 @@
     },
     "seed": {
       "title": "Letöltőkliens",
-      "automated": "A BookOrbit automatikusan választotta ki ezt a kiadást.",
+      "automated": "A TLS Library automatikusan választotta ki ezt a kiadást.",
       "loading": "Letöltőkliens beolvasása...",
       "loadFailed": "A letöltőkliens nem érhető el ehhez a kéréshez.",
       "notInClient": "Ez a torrent már nem szerepel a letöltőkliensben.",
@@ -10098,7 +10098,7 @@
       "ofGoal": "{value}/{goal}",
       "deleteFiles": "A letöltött fájlokat is törölje",
       "remove": "Eltávolítás a kliensből",
-      "removeHint": "A BookOrbit magától soha nem állítja le a megosztást. Az importált könyv mindkét esetben a könyvtáradban marad.",
+      "removeHint": "A TLS Library magától soha nem állítja le a megosztást. Az importált könyv mindkét esetben a könyvtáradban marad.",
       "confirm": {
         "title": "Eltávolítod ezt a torrentet?",
         "description": "A torrent megosztása leállításra kerül. A letöltött fájlok megmaradnak a lemezen.",
@@ -10425,9 +10425,9 @@
       "changePassword": "Jelszó módosítása",
       "signOut": "Kijelentkezés",
       "githubStar": {
-        "title": "Tetszik a BookOrbit?",
-        "body": "Ha a BookOrbit segít a könyvtárad kezelésében, kérjük, fontold meg a projekt csillagozását GitHubon. Ez segít, hogy még több ember fedezhesse fel az alkalmazást, és támogatja a folyamatos fejlesztést is.",
-        "cta": "BookOrbit csillagozása a GitHubon"
+        "title": "Tetszik a TLS Library?",
+        "body": "Ha a TLS Library segít a könyvtárad kezelésében, kérjük, fontold meg a projekt csillagozását GitHubon. Ez segít, hogy még több ember fedezhesse fel az alkalmazást, és támogatja a folyamatos fejlesztést is.",
+        "cta": "TLS Library csillagozása a GitHubon"
       },
       "surfaceOpacity": "Felület átlátszósága",
       "surfaceOpacityValue": "{value}%",
@@ -10727,10 +10727,10 @@
       "collectionsEmptyHint": "A gyűjtemények a manuálisan kiválasztott könyveket csoportosítják."
     },
     "legalNotices": {
-      "about": "BookOrbit névjegye",
+      "about": "TLS Library névjegye",
       "trigger": "Jogi nyilatkozatok",
-      "title": "BookOrbit névjegye",
-      "description": "A BookOrbit közreműködői, licencfeltételei és forráskódja.",
+      "title": "TLS Library névjegye",
+      "description": "A TLS Library közreműködői, licencfeltételei és forráskódja.",
       "poweredBy": "A BookOrbit támogatásával",
       "originalDevelopment": "Ez a szoftver eredetileg a BookOrbit részeként kifejlesztett anyagokat tartalmaz.",
       "copyright": "Copyright (C) 2025-2026 neon.",
@@ -10809,7 +10809,7 @@
     },
     "libraryLoad": {
       "errorTitle": "Nem sikerült betölteni a könyvtáraidat",
-      "errorDescription": "A BookOrbit nem tudta lekérni a könyvtáraidat. A könyvtáradatai nem törlődtek."
+      "errorDescription": "A TLS Library nem tudta lekérni a könyvtáraidat. A könyvtáradatai nem törlődtek."
     },
     "scroller": {
       "failedToLoad": "Betöltés sikertelen.",
@@ -11225,7 +11225,7 @@
       "serversEmptyTitle": "Még nincs levelezőszerver",
       "serversEmptyBody": "A könyvek egy SMTP-fiókon keresztül mennek ki. A Gmail, az Outlook, az iCloud és a Fastmail egy kattintással elérhető; bármilyen más szerver is működik.",
       "needServerTitle": "Küldés előtt adj meg egy levelezőszervert",
-      "needServerBody": "A BookOrbit egy saját tulajdonú SMTP-fiókon keresztül küldi a könyveket, mint például a Gmail egy alkalmazásjelszóval.",
+      "needServerBody": "A TLS Library egy saját tulajdonú SMTP-fiókon keresztül küldi a könyveket, mint például a Gmail egy alkalmazásjelszóval.",
       "needServerAsk": "Kérj meg egy adminisztrátort, hogy osszon meg veled egy levelezőszervert.",
       "goToServers": "Ugrás a levelezőszerverekhez",
       "noEncryption": "Nincs titkosítás"
@@ -11255,7 +11255,7 @@
       "unreachable": "A(z) {server} nem válaszolt.",
       "unconfirmed": "A kapcsolat megszakadt az üzenet átadása után, így lehet, hogy megérkezett.",
       "unconfirmedFix": "Újbóli küldés előtt ellenőrizd a bejövő fiókot, különben lehet, hogy kétszer érkezik meg.",
-      "interrupted": "A BookOrbit újraindult az e-mail kiküldése közben.",
+      "interrupted": "A TLS Library újraindult az e-mail kiküldése közben.",
       "interruptedFix": "Újbóli küldés előtt ellenőrizd a bejövő fiókot.",
       "preparation": "A fájl előkészítése a küldésre sikertelen.",
       "other": "A levelezőszerver elutasította azt.",
@@ -11379,8 +11379,8 @@
         "approveNoServer": "Először adj hozzá egy levelezőszervert, hogy lásd a Kindle által jóváhagyandó címet.",
         "lastSent": "Legutóbbi elküldött könyv {time}",
         "sendTest": "Teszt email küldése",
-        "testSubject": "BookOrbit teszt email",
-        "testBody": "Ez egy teszt a BookOrbit alkalmazásból. Ha ezt olvasod, a(z) {name} részére küldött könyvek is megérkeznek ide.",
+        "testSubject": "TLS Library teszt email",
+        "testBody": "Ez egy teszt a TLS Library alkalmazásból. Ha ezt olvasod, a(z) {name} részére küldött könyvek is megérkeznek ide.",
         "testSent": "Teszt email elküldve ide: {name}",
         "testFailed": "A teszt email küldése sikertelen: {error}",
         "makeDefault": "Beállítás gyors küldési címzettként",
@@ -11425,7 +11425,7 @@
         "share": "Megosztás mindenkivel",
         "shareHint": "Más felhasználók is küldhetnek könyveket ezen a szerveren keresztül a jelszó láthatósága nélkül.",
         "system": "Jelszó-visszaállítások és bejelentkezési linkek küldése",
-        "systemHint": "Az a szerver, amelyet maga a BookOrbit használ. Ezt kizárólag szuperfelhasználó módosíthatja.",
+        "systemHint": "Az a szerver, amelyet maga a TLS Library használ. Ezt kizárólag szuperfelhasználó módosíthatja.",
         "verifyTls": "A szervertanúsítvány ellenőrzése",
         "verifyTlsHint": "Kizárólag a saját hálózatodon lévő, saját aláírású tanúsítvánnyal rendelkező szervereknél kapcsold ki.",
         "test": "Kapcsolat tesztelése",
@@ -11484,7 +11484,7 @@
     }
   },
   "errors": {
-    "network": "A BookOrbit nem érhető el. Ellenőrizd a kapcsolatot, majd próbáld újra.",
+    "network": "A TLS Library nem érhető el. Ellenőrizd a kapcsolatot, majd próbáld újra.",
     "codes": {
       "CHAPTERS_STALE": "Valaki más módosította ezeket a fejezeteket. Az új verzió megtekintéséhez töltsd újra az oldalt.",
       "CHAPTERS_EMPTY_TITLE": "Minden fejezetnek kell egy cím.",
@@ -11554,7 +11554,7 @@
       },
       "syncOnProgress": {
         "title": "Szinkronizálás a haladás frissítésekor",
-        "description": "Az olvasási haladás és a dátumok elküldése, amikor a BookOrbit vagy a KOReader felületén változik a haladás."
+        "description": "Az olvasási haladás és a dátumok elküldése, amikor a TLS Library vagy a KOReader felületén változik a haladás."
       },
       "syncOnRating": {
         "title": "Szinkronizálás az értékelés változásakor",
@@ -11608,7 +11608,7 @@
     },
     "import": {
       "title": "Olvasási állapot lekérése",
-      "description": "A Hardcover-találatok előnézetének megtekintése az üres BookOrbit-állapotok kitöltése előtt.",
+      "description": "A Hardcover-találatok előnézetének megtekintése az üres TLS Library-állapotok kitöltése előtt.",
       "clear": "Törlés",
       "preview": "Előnézet",
       "importProgress": "Haladás importálása",
@@ -11865,7 +11865,7 @@
           "options": {
             "imported": {
               "title": "Az importálás időpontja",
-              "hint": "Az a dátum, amikor a BookOrbit legelőször importálta a könyvet. Ez az alapértelmezett beállítás."
+              "hint": "Az a dátum, amikor a TLS Library legelőször importálta a könyvet. Ez az alapértelmezett beállítás."
             },
             "file_modified": {
               "title": "A fájl módosítási időpontja",
@@ -11989,7 +11989,7 @@
           "opfTitle": "metadata.opf fájl",
           "opfHint": "A Calibre által a könyv mellé elmentve",
           "swap": "Sorrend megcserélése",
-          "hint": "A BookOrbit a könyvhöz tartozó legelsőt használja, a többit pedig mellőzi. A Calibre-könyvtáraknál általában a metadata.opf fájlt érdemes az első helyre tenni."
+          "hint": "A TLS Library a könyvhöz tartozó legelsőt használja, a többit pedig mellőzi. A Calibre-könyvtáraknál általában a metadata.opf fájlt érdemes az első helyre tenni."
         },
         "regex": {
           "title": "Regex-metaadatok beállítása",
@@ -12263,7 +12263,7 @@
           "metadata": "Melyik fájl legyen az elsődleges, ha egy könyv több fájlból áll, és honnan származzanak a részletes adatai.",
           "reading": "Amikor egy könyv státusza az olvasatlanból az olvasás alatt állón át a befejezettbe vált.",
           "schedule": "A könyvtár naprakészen tartása a Beolvasás gomb megnyomása nélkül.",
-          "fileWrite": "Opcionális módosítások, amelyeket a BookOrbit hajthat végre a lemezen lévő fájlokon.",
+          "fileWrite": "Opcionális módosítások, amelyeket a TLS Library hajthat végre a lemezen lévő fájlokon.",
           "access": "Ki láthatja még ezt a könyvtárat, és ki dolgozhat vele."
         }
       },
@@ -12376,7 +12376,7 @@
         "noCompletion": "A(z) {path} útvonalon egyetlen mappa sem kezdődik ezzel. A(z) {key} gombbal a beírt formában próbálhatod megnyitni az útvonalat.",
         "pathMissing": "A(z) {path} útvonal nem létezik a szerveren.",
         "pathMissingSuggest": "A(z) {path} útvonal nem létezik a szerveren. Erre gondoltál: {suggestion}?",
-        "pathBlocked": "A BookOrbit sosem nyitja meg a(z) {path} útvonalat: ez egy rendszermappa.",
+        "pathBlocked": "A TLS Library sosem nyitja meg a(z) {path} útvonalat: ez egy rendszermappa.",
         "findSummary": "{count, plural, one {# egyező mappa} other {# egyező mappa}} erre: “{query}”, a {count, plural, one {körülötte} other {körülöttük}} lévő mappákkal együtt mutatva.",
         "findEnter": "{key} ugrás a legelsőre.",
         "findTruncated": "A legelső {count} találat megjelenítése.",
@@ -12403,7 +12403,7 @@
           "empty": "Add meg a mappa nevét.",
           "invalid": "Egyetlen mappanevet használj, perjelek és kezdő pont nélkül.",
           "exists": "A(z) {name} már létezik itt.",
-          "denied": "A BookOrbit nem tud írni ide.",
+          "denied": "A TLS Library nem tud írni ide.",
           "failed": "A mappát nem sikerült létrehozni."
         }
       },
@@ -12416,13 +12416,13 @@
         "thisLibrary": "Ez a könyvtár",
         "librariesInside": "{names} {count, plural, one {beolvashat egy belső mappát} other {beolvashat belső mappákat}}",
         "inside": "{count} belső",
-        "appData": "BookOrbit-adatok",
+        "appData": "TLS Library-adatok",
         "noAccess": "Nincs hozzáférés",
         "loading": "Mappák betöltése",
         "systemHidden": "{count, plural, one {# rendszermappa} other {# rendszermappa}} elrejtve itt: {path}",
         "moreFolders": "Csak az első {count} mappa látható itt. A többi eléréséhez keress név alapján, vagy gépelj be egy útvonalat.",
-        "unreadable": "A BookOrbit nem tudja beolvasni a(z) {path} útvonalat.",
-        "placesFailed": "A BookOrbitnak nem sikerült betölteni a szervermappákat.",
+        "unreadable": "A TLS Library nem tudja beolvasni a(z) {path} útvonalat.",
+        "placesFailed": "A TLS Library nem sikerült betölteni a szervermappákat.",
         "retry": "Újrapróbálás"
       },
       "count": {
@@ -12488,8 +12488,8 @@
         }
       },
       "reason": {
-        "denied": "A BookOrbit nem tudja beolvasni ezt a mappát. Adj olvasási jogot annak a felhasználónak, akinek a nevében a BookOrbit fut, majd nyisd meg újra.",
-        "appData": "A BookOrbit itt tárolja a borítókat, a gyorsítótárat és a bővítményeket. Ehelyett azt a mappát válaszd ki, amelyik a könyveidet tartalmazza.",
+        "denied": "A TLS Library nem tudja beolvasni ezt a mappát. Adj olvasási jogot annak a felhasználónak, akinek a nevében a TLS Library fut, majd nyisd meg újra.",
+        "appData": "A TLS Library itt tárolja a borítókat, a gyorsítótárat és a bővítményeket. Ehelyett azt a mappát válaszd ki, amelyik a könyveidet tartalmazza.",
         "own": "A(z) {name} már szerepel ebben a könyvtárban.",
         "ownCovered": "Ez a könyvtár már beolvassa a(z) {path} útvonalat, amely tartalmazza ezt a mappát.",
         "included": "Beemelve, mivel kiválasztottad a(z) {path} útvonalat."
@@ -12753,7 +12753,7 @@
       },
       "cwa": {
         "snapshotTitle": "Pillanatkép-mód leállítva",
-        "stoppedWarning": "A két adatbázis másolása előtt állítsd le az Automatizált Calibre-Webet. A BookOrbit nem tudja ellenőrizni, hogy a két pillanatkép pontosan ugyanabban a pillanatban lett-e átmásolva.",
+        "stoppedWarning": "A két adatbázis másolása előtt állítsd le az Automatizált Calibre-Webet. A TLS Library nem tudja ellenőrizni, hogy a két pillanatkép pontosan ugyanabban a pillanatban lett-e átmásolva.",
         "importRootGuidance": "Mindkét pillanatkép-fájlnak olvasható szerverútvonalnak kell lennie a beállított MIGRATION_IMPORT_ROOT könyvtáron belül.",
         "logicalRootGuidance": "A könyv-útvonalak hozzárendelése az app.db fájlban tárolt logikai Calibre könyvtárgyökeret használja, nem pedig azt a kiszolgáló-mappát, amely ezeket az adatbázis-pillanatképeket tartalmazza.",
         "compatibilityNote": "A sémaműködés ellenőrzése az Automatizált Calibre-Web v4.0.6-os verziójával történt. Az adatbázisai nem tesznek elérhetővé megbízható alkalmazáskiadási verziót."
@@ -12785,7 +12785,7 @@
       "targetUser": "Célfelhasználó",
       "doNotImport": "Ne importálja ezt a felhasználót",
       "noSourceUsersLoaded": "Még nincsenek betöltve forrásfelhasználók.",
-      "noActiveTargetUsers": "Nem találhatók aktív célfelhasználók. Hozzon létre vagy engedélyezzen újra egy BookOrbit felhasználót a leképezés előtt.",
+      "noActiveTargetUsers": "Nem találhatók aktív célfelhasználók. Hozzon létre vagy engedélyezzen újra egy TLS Library felhasználót a leképezés előtt.",
       "pathPrefixMappings": "Útvonal-előtag-megfeleltetések",
       "addMapping": "Megfeleltetés hozzáadása",
       "pathMappingsExplanation": "Az útvonal-megfeleltetések a forrásfájlok elérési útjait fordítják le célútvonalakra, hogy a könyveket a fájl helye alapján lehessen párosítani. A könyvek párosítása – az útvonal-megfeleltetésektől függetlenül – ISBN-szám, fájlhash, valamint cím és szerző alapján is megtörténik.",
@@ -13697,7 +13697,7 @@
     },
     "share": {
       "title": "Kép megosztása",
-      "description": "Egy kép az olvasásaidról, amit posztolhatsz vagy elküldhetsz. Semmi sem hagyja el a BookOrbitot, amíg el nem mented vagy le nem másolod.",
+      "description": "Egy kép az olvasásaidról, amit posztolhatsz vagy elküldhetsz. Semmi sem hagyja el a TLS Library, amíg el nem mented vagy le nem másolod.",
       "close": "Bezárás",
       "loading": "A borítóid összegyűjtése",
       "loadFailed": "A képet nem sikerült elkészíteni. Zárd be ezt az ablakot, és próbáld újra.",
@@ -14268,7 +14268,7 @@
       },
       "confirmDialog": {
         "title": "{count, plural, one {# fájl átnevezése a lemezen?} other {# fájl átnevezése a lemezen?}}",
-        "body": "Ez valódi fájlokat mozgat a(z) {library} könyvtárban. A BookOrbit minden mozgatást rögzít, de a visszavonás az eredeti névre való visszanevezést jelenti.",
+        "body": "Ez valódi fájlokat mozgat a(z) {library} könyvtárban. A TLS Library minden mozgatást rögzít, de a visszavonás az eredeti névre való visszanevezést jelenti.",
         "willRename": "Át lesz nevezve",
         "skippedByYou": "Általad kihagyva",
         "heldBack": "Ütközések miatt visszatartva",
@@ -15240,7 +15240,7 @@
       "offer": "Kizárólag az eszközpéldány került eltávolításra; a csere felkínálása",
       "confirm": "A csere telepítésre került",
       "cancel": "Csere megszakítása",
-      "replacementHint": "Először készítsd elő és vizsgáld felül. Az eszközpéldány eltávolítása nem törli a könyvtárban lévő könyvet. A készüléken lévő helyi jegyzeteket magadnak kell elmentened. A BookOrbit megőrzi a kanonikus haladást és a szerveroldali annotációkat. A késleltetett események korlátozhatják a pontos szinkronizálást.",
+      "replacementHint": "Először készítsd elő és vizsgáld felül. Az eszközpéldány eltávolítása nem törli a könyvtárban lévő könyvet. A készüléken lévő helyi jegyzeteket magadnak kell elmentened. A TLS Library megőrzi a kanonikus haladást és a szerveroldali annotációkat. A késleltetett események korlátozhatják a pontos szinkronizálást.",
       "prepared": "Csere előkészítve: {format}, {size}. Távolítsd el ezt a könyvet kizárólag a kiválasztott eszközről, majd ajánld fel az előkészített cserét és szinkronizálj.",
       "offered": "Csere felkínálva. Szinkronizálj és töltsd le az eszközön, majd igazold vissza a telepítést. A befejezett HTTP-átvitel nem bizonyítja a telepítést.",
       "cancelled": "Csere megszakítva. A megszakítás nem állítja vissza az eltávolított vagy részben lecserélt eszközpéldányt. Válaszd ki ugyanazt a könyvet a helyreállítási letöltés előkészítéséhez.",

@@ -40,8 +40,8 @@ function handleConfirm() {
           <div class="min-w-0">
             <DialogTitle class="text-base font-semibold text-foreground">Reset reading state?</DialogTitle>
             <p class="mt-1.5 text-sm leading-6 text-muted-foreground">
-              This clears BookOrbit and synced Kobo/KOReader progress, reading sessions, and reading dates for this book. Highlights, notes, and book
-              files are kept.
+              This clears TLS Library and synced Kobo/KOReader progress, reading sessions, and reading dates for this book. Highlights, notes, and
+              book files are kept.
             </p>
           </div>
         </div>

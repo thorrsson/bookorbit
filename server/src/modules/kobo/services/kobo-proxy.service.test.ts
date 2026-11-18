@@ -200,7 +200,7 @@ describe('KoboProxyService', () => {
   });
 
   describe('over-the-device-borrow flow', () => {
-    it('forwards the Kobo userkey and decodes the BookOrbit composite sync token before proxying a borrow', async () => {
+    it('forwards the Kobo userkey and decodes the TLS Library composite sync token before proxying a borrow', async () => {
       const service = new KoboProxyService();
       const upstream = {
         status: 200,
@@ -313,12 +313,12 @@ describe('KoboProxyService', () => {
 
     // These routes sit on the BookOrbit origin, so a browser carrying a session reaches them with
     // our auth cookies attached. Kobo must never receive those; cookies it set itself still ride.
-    it('strips the BookOrbit session cookies while keeping the rest of the jar', async () => {
+    it('strips the TLS Library session cookies while keeping the rest of the jar', async () => {
       const headers = await sentHeaders({ cookie: 'access_token=secret; kobo_session=keep-me; refresh_token=secret; wsid=abc' });
       expect(headers.cookie).toBe('kobo_session=keep-me; wsid=abc');
     });
 
-    it('sends no cookie header at all when only BookOrbit cookies were present', async () => {
+    it('sends no cookie header at all when only TLS Library cookies were present', async () => {
       expect(await sentHeaders({ cookie: 'access_token=secret; refresh_token=secret' })).not.toHaveProperty('cookie');
     });
 

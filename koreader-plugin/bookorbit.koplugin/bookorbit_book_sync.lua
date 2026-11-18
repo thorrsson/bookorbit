@@ -110,7 +110,7 @@ function BookOrbitBookSync.capture(plugin)
             table.insert(stats_ids, id)
         end
     end
-    logger.dbg(string.format("BookOrbit: lifecycle capture identity=%s elapsedMs=%.1f",
+    logger.dbg(string.format("TLS Library: lifecycle capture identity=%s elapsedMs=%.1f",
         cached and "cached" or "uncached", elapsedMs(started_ms)))
     return {
         digest = digest,
@@ -206,20 +206,20 @@ local function finish(ctx, err)
 
     if err == "auth" then
         if not ctx.quiet then
-            Toast.error(_("BookOrbit sign-in failed. Check your account"))
+            Toast.error(_("TLS Library sign-in failed. Check your account"))
         end
     elseif err == "network" then
         if ctx.interactive and not ctx.quiet then
-            Toast.error(_("BookOrbit server not reachable"))
+            Toast.error(_("TLS Library server not reachable"))
         end
-        logger.dbg("BookOrbit: book sync aborted, server not reachable")
+        logger.dbg("TLS Library: book sync aborted, server not reachable")
     elseif err == "unmatched" then
         if ctx.interactive and not ctx.quiet then
-            Toast.show(_("This book is not in your BookOrbit library"), { icon = "info" })
+            Toast.show(_("This book is not in your TLS Library library"), { icon = "info" })
         end
-        logger.dbg("BookOrbit: book sync skipped, book unmatched:", ctx.snap.digest)
+        logger.dbg("TLS Library: book sync skipped, book unmatched:", ctx.snap.digest)
     elseif err == "outbox" then
-        logger.err("BookOrbit: lifecycle sync stopped because its durable state could not be updated")
+        logger.err("TLS Library: lifecycle sync stopped because its durable state could not be updated")
     else
         if ctx.interactive and not ctx.quiet then
             local text = T(_("%1 reading events."), ctx.counts.page_stats)
@@ -230,7 +230,7 @@ local function finish(ctx, err)
                     ctx.counts.annotations, ctx.counts.ann_applied or 0, ctx.counts.ann_deleted or 0)
             end
             if ctx.highlight_unsupported then
-                text = text .. "\n" .. _("BookOrbit server needs an update for two-way highlights.")
+                text = text .. "\n" .. _("TLS Library server needs an update for two-way highlights.")
             end
             if ctx.highlight_disabled_reported then
                 text = text .. "\n" .. _("Two-way highlight and bookmark sync is disabled.")
@@ -244,7 +244,7 @@ local function finish(ctx, err)
             require("bookorbit_dialog_ui").notice{ title = _("Book synced"), text = text }
         end
         logger.info(string.format(
-            "BookOrbit: book sync done reason=%s pageStats=%d annotations=%d applied=%d deleted=%d errors=%s",
+            "TLS Library: book sync done reason=%s pageStats=%d annotations=%d applied=%d deleted=%d errors=%s",
             ctx.reason, ctx.counts.page_stats, ctx.counts.annotations,
             ctx.counts.ann_applied or 0, ctx.counts.ann_deleted or 0, tostring(ctx.had_errors)))
     end
@@ -263,7 +263,7 @@ local function acknowledge(ctx, phase, state_changed)
     local ok, result = pcall(ctx.on_phase_ack, phase)
     if not ok or result == false then
         ctx.had_errors = true
-        logger.err("BookOrbit: could not persist lifecycle phase acknowledgement:", phase, result)
+        logger.err("TLS Library: could not persist lifecycle phase acknowledgement:", phase, result)
         finish(ctx, "outbox")
         return false
     end
@@ -275,7 +275,7 @@ local function step(ctx, fn)
         Trapper:wrap(function()
             local ok, err = pcall(fn, ctx)
             if not ok then
-                logger.err("BookOrbit: book sync step failed:", err)
+                logger.err("TLS Library: book sync step failed:", err)
                 ctx.had_errors = true
                 finish(ctx)
             end
@@ -313,7 +313,7 @@ stepMatch = function(ctx)
             and not ctx.snap.stats_row_ambiguous
             and BookOrbitState.isMatchFresh(book, ctx.state.global) then
         bindStatsRow(ctx, book)
-        logger.dbg("BookOrbit: book sync match skipped, verified match still fresh")
+        logger.dbg("TLS Library: book sync match skipped, verified match still fresh")
         if not acknowledge(ctx, "match", false) then return end
         return step(ctx, stepStats)
     end
@@ -395,7 +395,7 @@ stepStats = function(ctx)
         if isAuthError(err) then return finish(ctx, "auth") end
         ctx.had_errors = true
         if isTransportError(err) then return finish(ctx, "network") end
-        logger.dbg("BookOrbit: book sync page stats upload failed:", err)
+        logger.dbg("TLS Library: book sync page stats upload failed:", err)
         return step(ctx, stepAnnotations)
     end
     if isUnmatched(body, ctx.snap.digest) then
@@ -494,7 +494,7 @@ stepAnnotations = function(ctx)
     local pending = ctx.remote_pending and ctx.remote_pending.annotations
     if not pending and not ctx.interactive
             and BookOrbitAnnotations.canSkipExchange(book, ctx.snap.ann_signature) then
-        logger.dbg("BookOrbit: book sync annotation exchange skipped, local set unchanged")
+        logger.dbg("TLS Library: book sync annotation exchange skipped, local set unchanged")
         if not acknowledge(ctx, "annotations", false) then return end
         return step(ctx, stepBookmarks)
     end
@@ -624,7 +624,7 @@ stepAnnotationsLegacy = function(ctx)
         ctx.ann_cursor = #ctx.ann_delta + 1
         ctx.highlight_summary = BookOrbitHighlightSummary.add(ctx.highlight_summary, { had_errors = true })
         if isTransportError(err) then return finish(ctx, "network") end
-        logger.dbg("BookOrbit: book sync annotations upload failed:", err)
+        logger.dbg("TLS Library: book sync annotations upload failed:", err)
         return step(ctx, stepBookmarks)
     end
     if isUnmatched(body, ctx.snap.digest) then
@@ -660,7 +660,7 @@ stepBookmarks = function(ctx)
     local pending = ctx.remote_pending and ctx.remote_pending.bookmarks
     if not pending and not ctx.interactive
             and BookOrbitBookmarks.canSkipExchange(book, ctx.snap.bm_signature) then
-        logger.dbg("BookOrbit: book sync bookmark exchange skipped, local set unchanged")
+        logger.dbg("TLS Library: book sync bookmark exchange skipped, local set unchanged")
         ctx.sidecar_bm_done = true
         return step(ctx, stepState)
     end
@@ -784,7 +784,7 @@ stepState = function(ctx)
         if isAuthError(err) then return finish(ctx, "auth") end
         ctx.had_errors = true
         if isTransportError(err) then return finish(ctx, "network") end
-        logger.dbg("BookOrbit: book sync state upload failed:", err)
+        logger.dbg("TLS Library: book sync state upload failed:", err)
         return step(ctx, stepProgress)
     end
     if isUnmatched(body, ctx.snap.digest) then
@@ -861,7 +861,7 @@ stepProgress = function(ctx)
     end
     if not body then
         if isAuthError(err) then return finish(ctx, "auth") end
-        logger.dbg("BookOrbit: book sync progress push failed:", err)
+        logger.dbg("TLS Library: book sync progress push failed:", err)
         ctx.had_errors = true
         return finish(ctx)
     end
@@ -874,7 +874,7 @@ end
 function BookOrbitBookSync.run(opts)
     if BookOrbitBookSync.running or BookOrbitSweep.isRunning() then
         if opts.interactive then
-            Toast.show(_("BookOrbit sync is already running"), { icon = "hourglass" })
+            Toast.show(_("TLS Library sync is already running"), { icon = "hourglass" })
         end
         return false
     end
@@ -885,7 +885,7 @@ function BookOrbitBookSync.run(opts)
     local client = BookOrbitApi.new(opts.api)
     if not client:isConfigured() then
         if opts.interactive then
-            Toast.error(_("Sign in to BookOrbit first"))
+            Toast.error(_("Sign in to TLS Library first"))
         end
         return false
     end
@@ -923,7 +923,7 @@ function BookOrbitBookSync.run(opts)
     }
 
     ctx.state:rememberFile(snap.file, snap.digest)
-    logger.dbg("BookOrbit: book sync started, reason:", ctx.reason)
+    logger.dbg("TLS Library: book sync started, reason:", ctx.reason)
 
     step(ctx, stepMatch)
     return true

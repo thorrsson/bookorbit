@@ -23,7 +23,7 @@ local SyncSheet = {}
 local function progressBody(page, w)
     local p = page.progress or {}
     local items = {
-        DialogUI.titleRow(w, page.recheck and _("Rechecking books") or _("Syncing your library"), _("BookOrbit"), { close = false }),
+        DialogUI.titleRow(w, page.recheck and _("Rechecking books") or _("Syncing your library"), _("TLS Library"), { close = false }),
     }
     local pct = (p.total and p.total > 0) and math.floor((p.done or 0) * 100 / p.total) or nil
     table.insert(items, vstack({ w = w }, {

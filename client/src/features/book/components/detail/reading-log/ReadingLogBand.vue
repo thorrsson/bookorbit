@@ -60,7 +60,7 @@ const subtitle = computed(() => {
 const legend = computed(() =>
   view.value === 'trace'
     ? [
-        { key: 'bookorbit', label: 'BookOrbit', color: 'var(--pill-web)', shape: 'block' as const },
+        { key: 'bookorbit', label: 'TLS Library', color: 'var(--pill-web)', shape: 'block' as const },
         { key: 'koreader', label: 'KOReader', color: 'var(--pill-koreader)', shape: 'block' as const },
         { key: 'kobo', label: 'Kobo', color: 'var(--pill-kobo)', shape: 'block' as const },
         { key: 'backtrack', label: t('book.detail.readingLog.band.legendBacktrack'), color: 'var(--pill-warning)', shape: 'block' as const },

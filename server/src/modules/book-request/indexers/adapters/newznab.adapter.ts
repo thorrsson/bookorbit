@@ -160,7 +160,7 @@ export class NewznabAdapter implements IndexerAdapter {
     if (response.status === 401 || response.status === 403) throw new IndexerSearchException('unauthorized', `${config.name} rejected the API key`);
     if (!response.ok) throw new IndexerSearchException('error', `${config.name} answered ${response.status}`);
 
-    const body = (await readBounded(response, MAX_XML_RESPONSE_BYTES, `${config.name} answered with more XML than BookOrbit will read`)).toString(
+    const body = (await readBounded(response, MAX_XML_RESPONSE_BYTES, `${config.name} answered with more XML than TLS Library will read`)).toString(
       'utf8',
     );
     const error = readErrorElement(body);

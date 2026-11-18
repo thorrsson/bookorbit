@@ -442,7 +442,7 @@ describe('RequestSearchPanel provider sources', () => {
 
     expect(wrapper.findAll('button').find((button) => button.text() === 'Choose release')).toBeDefined()
 
-    await wrapper.get('button[aria-label="How BookOrbit chooses the recommended ISBN"]').trigger('click')
+    await wrapper.get('button[aria-label="How TLS Library chooses the recommended ISBN"]').trigger('click')
     await wrapper.vm.$nextTick()
 
     expect(document.body.textContent).toContain('How the recommended search is chosen')
@@ -487,7 +487,7 @@ describe('RequestSearchPanel provider sources', () => {
     expect(automatic.classes()).toEqual(expect.arrayContaining(['bg-primary', 'text-primary-foreground']))
     expect(choose.attributes('aria-pressed')).toBe('false')
     expect(choose.classes()).toEqual(expect.arrayContaining(['text-foreground', 'hover:bg-accent']))
-    expect(wrapper.find('button[aria-label="How BookOrbit chooses the recommended ISBN"]').exists()).toBe(false)
+    expect(wrapper.find('button[aria-label="How TLS Library chooses the recommended ISBN"]').exists()).toBe(false)
 
     await wrapper
       .findAll('button')
@@ -519,7 +519,7 @@ describe('RequestSearchPanel provider sources', () => {
     expect(automatic.classes()).toEqual(expect.arrayContaining(['text-foreground', 'hover:bg-accent']))
     expect(choose.attributes('aria-pressed')).toBe('true')
     expect(choose.classes()).toEqual(expect.arrayContaining(['bg-primary', 'text-primary-foreground']))
-    expect(wrapper.find('button[aria-label="How BookOrbit chooses the recommended ISBN"]').exists()).toBe(true)
+    expect(wrapper.find('button[aria-label="How TLS Library chooses the recommended ISBN"]').exists()).toBe(true)
 
     await wrapper
       .findAll('button')

@@ -94,7 +94,7 @@ export class AuthenticationPolicyService implements OnApplicationBootstrap {
     });
     if (!ready) {
       throw new Error(
-        'DISABLE_LOCAL_AUTH requires at least one active superuser linked to an enabled OIDC provider. Set DISABLE_LOCAL_AUTH=false, restart BookOrbit, configure and link OIDC, then enable it again.',
+        'DISABLE_LOCAL_AUTH requires at least one active superuser linked to an enabled OIDC provider. Set DISABLE_LOCAL_AUTH=false, restart TLS Library, configure and link OIDC, then enable it again.',
       );
     }
   }

@@ -545,7 +545,7 @@ describe('RequestIndexersPanel', () => {
       clickInSheet('Install plugin')
       await flushPromises()
 
-      expect(wrapper.text()).not.toContain('Restart BookOrbit')
+      expect(wrapper.text()).not.toContain('Restart TLS Library')
     })
 
     /** The file landed but would not load here, which is the one case a restart can still fix. */
@@ -557,7 +557,7 @@ describe('RequestIndexersPanel', () => {
       clickInSheet('Install plugin')
       await flushPromises()
 
-      expect(wrapper.text()).toContain('Restart BookOrbit')
+      expect(wrapper.text()).toContain('Restart TLS Library')
     })
 
     it('installs nothing when the file is refused', async () => {

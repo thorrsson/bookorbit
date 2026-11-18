@@ -1,6 +1,6 @@
-# Contributing to BookOrbit
+# Contributing to TLS Library
 
-Thanks for your interest in contributing to BookOrbit. Whether you are fixing a typo or building a major feature, this guide walks you through the process from start to finish.
+Thanks for your interest in contributing to TLS Library. Whether you are fixing a typo or building a major feature, this guide walks you through the process from start to finish.
 
 **Companion docs:**
 
@@ -126,7 +126,7 @@ Refer to [DEVELOPMENT.md](docs/DEVELOPMENT.md) for architecture details, project
 
 #### Localizing User-Facing Text
 
-BookOrbit uses Vue I18n, with English as the complete source catalog and Crowdin as the source of truth for every other language.
+TLS Library uses Vue I18n, with English as the complete source catalog and Crowdin as the source of truth for every other language.
 
 - Add every new user-facing message, including accessibility labels and transient states, to `client/src/locales/en.json` and reference it through Vue I18n.
 - Do not add the key or an English fallback to any non-English catalog. Target catalogs are intentionally sparse, and missing messages fall back to English at runtime.
@@ -268,7 +268,7 @@ Do not add dependencies without prior discussion in the linked issue. If proposi
 
 ### Breaking Changes and Self-Hosted Upgrades
 
-BookOrbit is self-hosted. Any change that can break existing deployments must include a clear upgrade path before merge.
+TLS Library is self-hosted. Any change that can break existing deployments must include a clear upgrade path before merge.
 
 If your PR introduces a breaking change (schema, API contract, environment variable, config format):
 

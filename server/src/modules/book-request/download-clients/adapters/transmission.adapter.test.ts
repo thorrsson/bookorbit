@@ -175,7 +175,7 @@ describe('TransmissionAdapter', () => {
       });
     });
 
-    it('sets the seed ratio goal so the client, not BookOrbit, enforces it', async () => {
+    it('sets the seed ratio goal so the client, not TLS Library, enforces it', async () => {
       const { calls, handlers } = mockRpc();
       handlers.set('torrent-add', () => success({ 'torrent-added': { hashString: INFO_HASH } }));
 

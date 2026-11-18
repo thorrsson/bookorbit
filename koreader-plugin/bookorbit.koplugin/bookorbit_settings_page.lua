@@ -61,7 +61,7 @@ end
 
 local function openingSummary(page)
     local mode = Settings.openMode(page.plugin.settings)
-    local first = mode == 3 and _("BookOrbit is home") or mode == 2 and _("At startup") or _("File browser first")
+    local first = mode == 3 and _("TLS Library is home") or mode == 2 and _("At startup") or _("File browser first")
     return first .. " · " .. shortcutLabel(page)
 end
 
@@ -91,7 +91,7 @@ local function folderName(path)
 end
 
 local CATEGORIES = {
-    { id = "opening", icon = "door-open", label = function() return _("Opening BookOrbit") end, sub = function(page) return openingSummary(page) end },
+    { id = "opening", icon = "door-open", label = function() return _("Opening TLS Library") end, sub = function(page) return openingSummary(page) end },
     { id = "sync", icon = "refresh-cw", label = function() return _("Sync") end, sub = function(page) return syncSummary(page.plugin.settings) end },
     { id = "home", icon = "layout-grid", label = function() return _("Home") end, sub = function(page) return homeSummary(page.plugin.settings) end },
     { id = "downloads", icon = "download", label = function() return _("Downloads") end, sub = function() return folderName(downloadDir()) end },
@@ -203,9 +203,9 @@ local function openingBody(page, w, embedded)
     local iw = MenuUI.rowsIn(w)
     local mode = Settings.openMode(settings)
     local choices = {
-        { _("Show the file browser"), _("Open BookOrbit from the menu bar or your shortcut"), "off" },
-        { _("Open BookOrbit"), _("Once, when KOReader starts"), "filemanager" },
-        { _("Make BookOrbit home"), _("At startup, and whenever you close a book"), "home" },
+        { _("Show the file browser"), _("Open TLS Library from the menu bar or your shortcut"), "off" },
+        { _("Open TLS Library"), _("Once, when KOReader starts"), "filemanager" },
+        { _("Make TLS Library home"), _("At startup, and whenever you close a book"), "home" },
     }
     local radios = {}
     for index, c in ipairs(choices) do
@@ -214,13 +214,13 @@ local function openingBody(page, w, embedded)
 
     local shortcut_card
     if not Device:isTouchDevice() then
-        shortcut_card = MenuUI.card(w, { space(nil, px(12)), text(_("This device has no touchscreen. KOReader's keyboard shortcuts can open BookOrbit: its action is \"BookOrbit: open\"."), { s = 14, w = iw, lines = 3 }), space(nil, px(12)) })
+        shortcut_card = MenuUI.card(w, { space(nil, px(12)), text(_("This device has no touchscreen. KOReader's keyboard shortcuts can open TLS Library: its action is \"TLS Library: open\"."), { s = 14, w = iw, lines = 3 }), space(nil, px(12)) })
     else
         local g = Shortcut.find(Shortcut.current(page.gestures_data))
         local pill = MenuUI.pill(g and _("Change") or _("Pick one"), { kind = "outline", h = 36, s = 14, pad_x = 14, action = { kind = "view", view = "shortcut" } })
         local illus = MenuUI.gesture(g and g.kind or "none", px(44))
         local mid_w = iw - illus:getSize().w - pill:getSize().w - 2 * px(14)
-        local sub = g and (g.reader_only and _("Opens BookOrbit from any book") or _("Opens BookOrbit from the file browser and from any book")) or _("Pick a gesture to open BookOrbit")
+        local sub = g and (g.reader_only and _("Opens TLS Library from any book") or _("Opens TLS Library from the file browser and from any book")) or _("Pick a gesture to open TLS Library")
         -- A narrow column gives the note a third line and the row the height.
         local sub_lines = math.max(2, math.min(3, require("bookorbit_text_pages").linesNeeded(sub, { s = 13 }, mid_w)))
         local mid = vstack({ w = mid_w }, {
@@ -236,12 +236,12 @@ local function openingBody(page, w, embedded)
     local bar_card = MenuUI.card(w, {
         space(nil, px(4)),
         menuBarStrip(page, iw),
-        MenuUI.row(iw, { icon = MenuUI.tabIcon(px(24), page.plugin:menuBarIconPath()), label = _("BookOrbit in the menu bar"),
+        MenuUI.row(iw, { icon = MenuUI.tabIcon(px(24), page.plugin:menuBarIconPath()), label = _("TLS Library in the menu bar"),
             sub = enabled and _("One tap from KOReader's top menu") or _("Only under Tools in KOReader's menu"), toggle = enabled, action = { kind = "menu-bar" } }),
     })
 
     return {
-        embedded and text(_("Opening BookOrbit"), { s = 18, b = true, w = w }) or false,
+        embedded and text(_("Opening TLS Library"), { s = 18, b = true, w = w }) or false,
         embedded and space(nil, px(12)) or false,
         MenuUI.section(w, _("When KOReader starts"), MenuUI.group(w, radios, { inset = 0 })),
         space(nil, px(16)),
@@ -269,12 +269,12 @@ local function syncBody(page, w, avail, embedded)
     if embedded and avail < px(640) and iw >= px(360) then
         local half = math.floor((iw - px(24)) / 2)
         differ = MenuUI.card(w, { hstack({ w = iw, gap = px(24), valign = "top" }, {
-            segRow(half, _("BookOrbit is ahead"), _("Read further elsewhere"), options, fwd, act("sync_forward")),
-            segRow(iw - half - px(24), _("BookOrbit is behind"), _("This device read further"), options, back, act("sync_backward")),
+            segRow(half, _("TLS Library is ahead"), _("Read further elsewhere"), options, fwd, act("sync_forward")),
+            segRow(iw - half - px(24), _("TLS Library is behind"), _("This device read further"), options, back, act("sync_backward")),
         }) })
     else
-        local a = segRow(iw, _("BookOrbit is further ahead"), _("Read further on another device"), options, fwd, act("sync_forward"))
-        local b = segRow(iw, _("BookOrbit is further behind"), _("This device read further"), options, back, act("sync_backward"))
+        local a = segRow(iw, _("TLS Library is further ahead"), _("Read further on another device"), options, fwd, act("sync_forward"))
+        local b = segRow(iw, _("TLS Library is further behind"), _("This device read further"), options, back, act("sync_backward"))
         a._no_icon, b._no_icon = true, true
         differ = MenuUI.group(w, { a, b }, { inset = 0 })
     end
@@ -331,7 +331,7 @@ local function homeBody(page, w, embedded)
     local pair_colour = colour_labels ~= nil and not page.compact and pairsWithTiles(look_half)
     local b = segRow(pair_colour and look_half or iw, _("Tile style"), nil, tile_labels, indexOf(TILES, state.tiles, 1),
         function(index) return { kind = "tiles", value = TILES[index] } end)
-    local c = segRow(iw, _("Interface size"), _("Text and controls across BookOrbit"), scale_labels,
+    local c = segRow(iw, _("Interface size"), _("Text and controls across TLS Library"), scale_labels,
         indexOf(BoardMetrics.UI_SCALES, BoardMetrics.normalizeUserScale(settings.ui_scale), 1),
         function(index) return { kind = "ui-scale", value = BoardMetrics.UI_SCALES[index] } end)
     a._no_icon, b._no_icon, c._no_icon = true, true, true
@@ -396,7 +396,7 @@ local function downloadsBody(page, w, embedded)
             MenuUI.row(iw, { icon = "download", label = _("Download folder"), sub = dir, sub_data = true, sublines = 2, chevron = true, action = { kind = "download-dir" } }),
         }),
         space(nil, px(12)),
-        MenuUI.card(w, { space(nil, px(12)), text(_("Books you download from BookOrbit are saved here. KOReader uses the same folder for its own downloads."), { s = 13, col = INK.g4, w = iw, lines = 3, bg = INK.ge }), space(nil, px(12)) }, { fill = true }),
+        MenuUI.card(w, { space(nil, px(12)), text(_("Books you download from TLS Library are saved here. KOReader uses the same folder for its own downloads."), { s = 13, col = INK.g4, w = iw, lines = 3, bg = INK.ge }), space(nil, px(12)) }, { fill = true }),
     }
 end
 
@@ -459,7 +459,7 @@ local function aboutBody(page, w, embedded)
         MenuUI.card(w, {
             hstack({ w = iw, h = px(76), gap = px(12) }, {
                 vstack({ w = mid_w }, {
-                    text(_("BookOrbit for KOReader"), { s = 16, b = true, w = mid_w }),
+                    text(_("TLS Library for KOReader"), { s = 16, b = true, w = mid_w }),
                     text(update and T(_("Version %1 is ready, you have %2"), update, plugin.PLUGIN_VERSION) or T(_("Version %1"), plugin.PLUGIN_VERSION), { s = 13, col = INK.g4, w = mid_w }),
                 }),
                 pill,
@@ -727,7 +727,7 @@ local function build(page, sw, sh)
     local view = page.stack[#page.stack]
     local items
     if view == "shortcut" then
-        local header = MenuUI.pageHeader(w, _("Shortcut"), { sub = _("Choose where to open BookOrbit") })
+        local header = MenuUI.pageHeader(w, _("Shortcut"), { sub = _("Choose where to open TLS Library") })
         items = { header, space(nil, px(8)) }
         for _i, item in ipairs(shortcutBody(page, w, avail - header:getSize().h - px(8))) do table.insert(items, item) end
     elseif two_pane then
@@ -748,8 +748,8 @@ local function build(page, sw, sh)
             }),
         }
     elseif view == "root" then
-        local header = MenuUI.pageHeader(w, _("Settings"), { sub = _("BookOrbit") })
-        local footer = text(T(_("BookOrbit for KOReader %1"), page.plugin.PLUGIN_VERSION), { s = 13, col = INK.g4, w = w, align = "center" })
+        local header = MenuUI.pageHeader(w, _("Settings"), { sub = _("TLS Library") })
+        local footer = text(T(_("TLS Library for KOReader %1"), page.plugin.PLUGIN_VERSION), { s = 13, col = INK.g4, w = w, align = "center" })
         items = { header, space(nil, px(8)) }
         local total = header:getSize().h + px(8) + px(8) + footer:getSize().h
         for _i, item in ipairs(settingsList(page, w, false)) do
@@ -886,7 +886,7 @@ local function onAction(page, action)
     elseif kind == "test" then
         plugin:startPageTest(page, function() page:refresh() end)
     elseif kind == "sign-out" then
-        confirm(_("Sign out of BookOrbit?"), _("This device stops syncing until you sign in again. Books already downloaded stay on it."), _("Sign out"), function()
+        confirm(_("Sign out of TLS Library?"), _("This device stops syncing until you sign in again. Books already downloaded stay on it."), _("Sign out"), function()
             page:close()
             plugin:signOut(catalog)
         end, "log-out")
@@ -906,7 +906,7 @@ local function onAction(page, action)
             page:refresh()
         end
         if action.replaces then
-            confirm(_("Use this gesture for BookOrbit?"), T(_("%1."), action.replaces), _("Use it"), apply)
+            confirm(_("Use this gesture for TLS Library?"), T(_("%1."), action.replaces), _("Use it"), apply)
         else
             apply()
         end

@@ -1,5 +1,5 @@
 name: Question / Help
-description: Ask about setup, configuration, troubleshooting, or using BookOrbit
+description: Ask about setup, configuration, troubleshooting, or using TLS Library
 title: "[Help] "
 labels: ["support", "needs-triage"]
 body:
@@ -40,7 +40,7 @@ body:
       label: Your setup (optional)
       description: Include the details relevant to your question.
       placeholder: |
-        - BookOrbit version/image tag:
+        - TLS Library version/image tag:
         - Deployment: Docker / manual
         - OS:
         - Client: web browser / iOS / Kobo / KOReader / other

@@ -959,7 +959,7 @@ local function otherFilesRow(other, w, first)
     local sub = firstFitting(DetailData.otherFilesSubs(other), { s = 12 }, tw)
     local body = hstack({ w = w, h = row_h - (first and 0 or hair()), gap = px(12) }, {
         chip_row,
-        vstack({ w = tw }, { text(_("Also in BookOrbit"), { s = 14, b = true, col = INK.g3, w = tw }), text(sub, { s = 12, col = INK.g4, w = tw }) }),
+        vstack({ w = tw }, { text(_("Also in TLS Library"), { s = 14, b = true, col = INK.g3, w = tw }), text(sub, { s = 12, col = INK.g4, w = tw }) }),
     })
     if first then return body end
     return vstack({ w = w }, { rule(w), body })

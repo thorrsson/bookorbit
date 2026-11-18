@@ -390,7 +390,7 @@ function handleTestCurrent() {
     </div>
 
     <!--
-      Said once, above the list rather than on any row. BookOrbit bundles no source: every row here
+      Said once, above the list rather than on any row. TLS Library bundles no source: every row here
       is an address, a Prowlarr connection or a plugin somebody added, and the page that names
       Prowlarr is the one place where whose responsibility that is has to be stated plainly.
     -->

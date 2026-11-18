@@ -24,7 +24,7 @@ describe('StylePicker', () => {
     const wrapper = mount(StylePicker)
     const buttons = wrapper.findAll('button')
 
-    expect(buttons.map((button) => button.text())).toEqual(['BookOrbit', 'Nostalgia'])
+    expect(buttons.map((button) => button.text())).toEqual(['TLS Library', 'Nostalgia'])
     expect(buttons.map((button) => button.attributes('aria-pressed'))).toEqual(['true', 'false'])
   })
 

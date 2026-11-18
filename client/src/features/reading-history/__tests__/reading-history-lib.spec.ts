@@ -110,7 +110,7 @@ describe('reading history export', () => {
     expect(csv[0]).toBe(
       'finished_on,started_on,title,authors,read_number,outcome,format,pages,minutes_read,sessions,rating,where,highlights,journal_entries,book_id,removed_from_library',
     )
-    expect(csv[1]).toBe('2026-10-19,2026-10-14,"Commas, ""quotes""","Vaillant, John",1,completed,epub,567,4,4,4,BookOrbit; KOReader,0,0,10,')
+    expect(csv[1]).toBe('2026-10-19,2026-10-14,"Commas, ""quotes""","Vaillant, John",1,completed,epub,567,4,4,4,TLS Library; KOReader,0,0,10,')
   })
 
   it('names the file after the period, safe on every platform', () => {

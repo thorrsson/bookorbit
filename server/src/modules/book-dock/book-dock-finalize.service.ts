@@ -133,7 +133,7 @@ const MAX_PUBLISHED_YEAR = 2200;
 const PUBLISHED_YEAR_RANGE_CONSTRAINT = 'book_metadata_published_year_range_chk';
 const INVALID_PUBLISHED_YEAR_MESSAGE = `Invalid metadata: published year must be between ${MIN_PUBLISHED_YEAR} and ${MAX_PUBLISHED_YEAR}.`;
 const INVALID_METADATA_MESSAGE = 'Invalid metadata values for this file. Review metadata fields and try again.';
-const INTERNAL_FAILURE_MESSAGE = 'Filing this book failed inside BookOrbit. Check the server log for the cause.';
+const INTERNAL_FAILURE_MESSAGE = 'Filing this book failed inside TLS Library. Check the server log for the cause.';
 
 type NormalizedFinalizeMetadata = {
   title: string | null;

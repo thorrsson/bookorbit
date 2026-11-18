@@ -1,6 +1,6 @@
 # Localization
 
-BookOrbit uses Vue I18n catalogs under `client/src/locales/`. English is the source language, and Crowdin is the source of truth for every other catalog listed below.
+TLS Library uses Vue I18n catalogs under `client/src/locales/`. English is the source language, and Crowdin is the source of truth for every other catalog listed below.
 
 ## Supported Catalogs
 
@@ -32,7 +32,7 @@ BookOrbit uses Vue I18n catalogs under `client/src/locales/`. English is the sou
 | Simplified Chinese   | `zh-CN`             | `zh.json`      |
 | Traditional Chinese  | `zh-TW`             | `zh-Hant.json` |
 
-Crowdin's `%two_letters_code%` placeholder reduces the regional IDs above to BookOrbit's application locale and filename: `es-ES` to `es`, `pt-BR` to `pt`, `sv-SE` to `sv`, and `zh-CN` to `zh`.
+Crowdin's `%two_letters_code%` placeholder reduces the regional IDs above to TLS Library's application locale and filename: `es-ES` to `es`, `pt-BR` to `pt`, `sv-SE` to `sv`, and `zh-CN` to `zh`.
 
 Verify every ID against Crowdin's language list rather than assuming the two-letter form exists. Several languages have no bare two-letter ID at all: Swedish is `sv-SE`, and `sv-FI` reduces to the same `sv.json`, so enabling both would collide.
 

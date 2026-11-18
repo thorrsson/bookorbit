@@ -64,7 +64,7 @@ function HighlightDiagnostics.openHighlightsText(ctx)
     local pending = ctx.scheduler_status
     local matched = ctx.matched == true
     if matched and ctx.position_incompatible == true then
-        return _("not synced: this copy differs from BookOrbit's file")
+        return _("not synced: this copy differs from TLS Library's file")
     end
     if type(pending) == "table" then
         if matched then

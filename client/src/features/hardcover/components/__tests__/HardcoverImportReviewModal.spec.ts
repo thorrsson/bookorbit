@@ -205,10 +205,10 @@ describe('HardcoverImportReviewModal', () => {
           confidence: null,
           outcome: 'conflict',
           progressOutcome: 'conflict',
-          progressReason: 'BookOrbit already has reading progress',
+          progressReason: 'TLS Library already has reading progress',
           importedProgressPercent: 12.34,
           localProgressPercent: 4.5,
-          reason: 'BookOrbit already has a read status',
+          reason: 'TLS Library already has a read status',
         }),
         makeRow({
           hardcoverUserBookId: 1001,
@@ -220,10 +220,10 @@ describe('HardcoverImportReviewModal', () => {
           confidence: null,
           outcome: 'unmatched',
           progressOutcome: 'skipped',
-          progressReason: 'No matching BookOrbit book found',
+          progressReason: 'No matching TLS Library book found',
           importedProgressPercent: null,
           localProgressPercent: null,
-          reason: 'No matching BookOrbit book found',
+          reason: 'No matching TLS Library book found',
         }),
         makeRow({
           hardcoverUserBookId: 1002,
@@ -246,7 +246,7 @@ describe('HardcoverImportReviewModal', () => {
     expect(wrapper.text()).toContain('Hardcover ID / -')
     expect(wrapper.text()).toContain('Title + author')
     expect(wrapper.text()).toContain('12.3% Hardcover')
-    expect(wrapper.text()).toContain('4.5% BookOrbit')
+    expect(wrapper.text()).toContain('4.5% TLS Library')
     expect(wrapper.text()).toContain('Conflict')
     expect(wrapper.text()).toContain('Unmatched')
     expect(wrapper.text()).toContain('Skipped')

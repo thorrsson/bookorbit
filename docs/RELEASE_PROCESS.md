@@ -6,7 +6,7 @@ This document covers how releases are created, what triggers Docker image publis
 
 ## Overview
 
-BookOrbit uses [semantic-release](https://github.com/semantic-release/semantic-release) for automated versioning and GitHub Release creation. Releases are triggered manually via `workflow_dispatch` and produce:
+TLS Library uses [semantic-release](https://github.com/semantic-release/semantic-release) for automated versioning and GitHub Release creation. Releases are triggered manually via `workflow_dispatch` and produce:
 
 - A Git tag (`vX.Y.Z`)
 - A GitHub Release with auto-generated release notes

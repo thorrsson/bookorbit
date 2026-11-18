@@ -79,9 +79,9 @@ local function build(page, sw, sh)
     local function serverPart(iw, gap)
         local status
         if s.test == "found" then
-            status = outcome(iw, "circle-check", _("BookOrbit found"))
+            status = outcome(iw, "circle-check", _("TLS Library found"))
         elseif s.test == "failed" then
-            status = outcome(iw, "triangle-alert", s.test_message or _("No BookOrbit server answered there"))
+            status = outcome(iw, "triangle-alert", s.test_message or _("No TLS Library server answered there"))
         end
         return vstack({ w = iw, pad = { gap, 0, gap, 0 } }, {
             text(_("Server"), { s = 13, b = true }),
@@ -99,8 +99,8 @@ local function build(page, sw, sh)
         local help = vstack({ w = help_w }, {
             text(_("No KOReader login yet?"), { s = 14, b = true, w = help_w }),
             space(nil, px(2)),
-            text(code and _("Scan to create one in BookOrbit on your phone, or open Settings, KOReader on the web.")
-                or _("Create one in BookOrbit on the web: Settings, KOReader."), { s = 13, col = INK.g4, lines = 3, w = help_w }),
+            text(code and _("Scan to create one in TLS Library on your phone, or open Settings, KOReader on the web.")
+                or _("Create one in TLS Library on the web: Settings, KOReader."), { s = 13, col = INK.g4, lines = 3, w = help_w }),
         })
         return code and hstack({ w = iw, gap = px(14) }, { help, code }) or help
     end
@@ -150,11 +150,11 @@ local function build(page, sw, sh)
         return hstack({ gap = col_gap, valign = "top" }, { left, vstack({ w = col_w }, right_items) })
     end
 
-    local header = MenuUI.pageHeader(w, _("Sign in to BookOrbit"), {
+    local header = MenuUI.pageHeader(w, _("Sign in to TLS Library"), {
         back = false, sub = _("Sync progress and highlights, and browse your library"),
         right = MenuUI.iconButton("x", { kind = "close" }), right_inset = MenuUI.tapInset(24),
     })
-    local footer = text(_("The BookOrbit icon stays in KOReader's menu bar, so you can sign in later."), { s = 13, col = INK.g4, w = w, lines = 2, align = "center" })
+    local footer = text(_("The TLS Library icon stays in KOReader's menu bar, so you can sign in later."), { s = 13, col = INK.g4, w = w, lines = 2, align = "center" })
     -- On a short screen the note under the page goes first, then the help
     -- beside the QR code; a wide one then sets the login beside the server,
     -- tightening its gaps last. The fields and Sign in always stay.
@@ -209,9 +209,9 @@ local function edit(page, name)
     local s = page.form
     local fields = {
         server = { title = _("Server address"), icon = "globe", hint = "https://books.example.com",
-            note = _("The address you open BookOrbit at in a browser.") },
+            note = _("The address you open TLS Library at in a browser.") },
         username = { title = _("Username"), icon = "circle-user-round",
-            note = _("Your KOReader login, made in BookOrbit on the web: Settings, KOReader.") },
+            note = _("Your KOReader login, made in TLS Library on the web: Settings, KOReader.") },
         password = { title = _("Password"), icon = "key-round", password = true },
     }
     local f = fields[name]
@@ -281,12 +281,12 @@ local function test(page, then_fn)
     NetworkMgr:runWhenConnected(function()
         local opts = page.plugin:apiOpts(false)
         opts.server_url, opts.username, opts.userkey = normalized, nil, nil
-        local body, err = busy(_("Looking for BookOrbit…"), function() return BookOrbitApi.new(opts):auth() end)
+        local body, err = busy(_("Looking for TLS Library…"), function() return BookOrbitApi.new(opts):auth() end)
         if body or err == 401 or err == 403 then
             s.test, s.test_message = "found", nil
         else
             s.test = "failed"
-            s.test_message = err == 404 and _("That address is not a BookOrbit server") or T(_("Could not reach it: %1"), page.plugin:errorLabel(err))
+            s.test_message = err == 404 and _("That address is not a TLS Library server") or T(_("Could not reach it: %1"), page.plugin:errorLabel(err))
         end
         page:refresh()
         if then_fn and s.test == "found" then then_fn() end
@@ -314,9 +314,9 @@ signIn = function(page)
             if page.on_signed_in then page.on_signed_in() end
             return
         elseif err == 401 or err == 403 then
-            s.error = _("That username and password were not accepted. Check your KOReader login in BookOrbit on the web: Settings, KOReader.")
+            s.error = _("That username and password were not accepted. Check your KOReader login in TLS Library on the web: Settings, KOReader.")
         else
-            s.error = T(_("Could not reach the BookOrbit server: %1"), plugin:errorLabel(err))
+            s.error = T(_("Could not reach the TLS Library server: %1"), plugin:errorLabel(err))
         end
         page:refresh()
     end)

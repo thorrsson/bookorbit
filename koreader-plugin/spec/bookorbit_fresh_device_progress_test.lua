@@ -88,13 +88,13 @@ end
 -- Sync now from the cover asks before anything moves, and pushes nothing.
 local plugin = makePlugin(PHONE)
 syncNow(plugin)
-assertEqual(#prompts, 1, "a further place on BookOrbit is offered, not overwritten")
+assertEqual(#prompts, 1, "a further place on TLS Library is offered, not overwritten")
 assertEqual(prompts[1].newer, true, "and it is offered as the newer place")
 assertEqual(#plugin.pushes, 0, "nothing is pushed while the question is open")
 
 -- Taking it moves the reader there before the position goes up.
 prompts[1].on_jump()
-assertEqual(plugin.moves[1].name, "GotoXPointer", "Jump moves the reader to BookOrbit's place")
+assertEqual(plugin.moves[1].name, "GotoXPointer", "Jump moves the reader to TLS Library's place")
 assertEqual(#plugin.pushes, 1, "then the position is pushed")
 
 -- Staying pushes nothing; it settles the question, so reading on from here
@@ -126,7 +126,7 @@ assertEqual(#prompts, 1, "another book's comparison does not date this place")
 -- A place behind this device is still kept and pushed without a question.
 plugin = makePlugin({ percentage = 0.1, progress = "/body/DocFragment[5]/body", device = "iPhone", device_id = "phone", timestamp = 20000 }, 0.3)
 syncNow(plugin)
-assertEqual(#prompts, 0, "BookOrbit behind this device asks nothing")
+assertEqual(#prompts, 0, "TLS Library behind this device asks nothing")
 assertEqual(#plugin.pushes, 1, "and this device's further place is pushed")
 
 -- A pull after a page turn offers the further place instead of dropping it.
@@ -139,7 +139,7 @@ assertEqual(plugin:progressComparedSinceOpen(), true, "staying settles the quest
 
 -- The This book sheet's chip agrees.
 plugin = makePlugin(PHONE)
-assertEqual(plugin:remoteProgressIsNewer(PHONE, 0.008), true, "the sheet shows BookOrbit ahead before weighing")
+assertEqual(plugin:remoteProgressIsNewer(PHONE, 0.008), true, "the sheet shows TLS Library ahead before weighing")
 plugin:noteProgressCompared(DIGEST)
 assertEqual(plugin:remoteProgressIsNewer(PHONE, 0.008), false, "and page-turn times once weighed")
 

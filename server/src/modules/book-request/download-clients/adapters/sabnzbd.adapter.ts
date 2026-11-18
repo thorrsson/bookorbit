@@ -139,7 +139,7 @@ export class SabnzbdAdapter implements DownloadClientAdapter {
     // carries the job's name. Sorting can file a job into a folder it shares with others.
     if (!remoteFolderName(storage).startsWith(ownedPrefix(config.id, key))) {
       throw new BadRequestException(
-        'SABnzbd filed this download into a folder that is not its own, so BookOrbit will not delete it. Nothing was removed.',
+        'SABnzbd filed this download into a folder that is not its own, so TLS Library will not delete it. Nothing was removed.',
       );
     }
     return this.contentRemoval.planFolder(config.id, storage);

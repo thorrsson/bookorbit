@@ -111,7 +111,7 @@
           "label": "スタイル",
           "hint": "アプリの全体的な外観。モード、アクセント、コーナー、背景は設定を保持します。",
           "bookorbit": {
-            "label": "BookOrbit",
+            "label": "TLS Library",
             "description": "表面の色合い、ガラスパネル、セリフの見出し。"
           },
           "nostalgia": {
@@ -810,8 +810,8 @@
       "test": {
         "connected": "接続 - {issuer}",
         "connectionFailed": "接続に失敗しました",
-        "privateIssuerAddress": "発行者の URL はプライベートまたはローカルのネットワークアドレスに解決されるため、サーバーは接続を拒否しました。 BookOrbit サーバーで OIDC_ALLOW_LOCAL_ISSUERS=true を設定して許可します。",
-        "tlsCertificateUntrusted": "BookOrbitはOIDCプロバイダーのTLS証明書を検証できませんでした。 プロバイダがプライベート認証局を使用している場合は、PEM CA バンドルをマウントし、NODE_EXTRA_CA_CERTS をバンドルのコンテナパスに設定し、BookOrbit を再起動します。",
+        "privateIssuerAddress": "発行者の URL はプライベートまたはローカルのネットワークアドレスに解決されるため、サーバーは接続を拒否しました。 TLS Library サーバーで OIDC_ALLOW_LOCAL_ISSUERS=true を設定して許可します。",
+        "tlsCertificateUntrusted": "TLS LibraryはOIDCプロバイダーのTLS証明書を検証できませんでした。 プロバイダがプライベート認証局を使用している場合は、PEM CA バンドルをマウントし、NODE_EXTRA_CA_CERTS をバンドルのコンテナパスに設定し、TLS Library を再起動します。",
         "hide": "非表示",
         "details": "詳細",
         "supported": "supported",
@@ -819,7 +819,7 @@
       },
       "groupMappings": {
         "title": "グループマッピング",
-        "description": "OIDCグループはBookOrbitの権限を要求します。すべてのログインで同期されます。",
+        "description": "OIDCグループはTLS Libraryの権限を要求します。すべてのログインで同期されます。",
         "noPermission": "権限がありません",
         "empty": "グループマッピングが設定されていません。",
         "addMapping": "マッピングを追加",
@@ -1053,7 +1053,7 @@
         "targetUser": "ターゲットユーザー",
         "doNotImport": "この利用者をインポートしない",
         "noSourceUsersLoaded": "ソースユーザーはまだ読み込まれていません。",
-        "noActiveTargetUsers": "アクティブなターゲットユーザーが見つかりませんでした。マッピングする前にBookOrbitユーザーを作成または再び有効化してください。",
+        "noActiveTargetUsers": "アクティブなターゲットユーザーが見つかりませんでした。マッピングする前にTLS Libraryユーザーを作成または再び有効化してください。",
         "pathPrefixMappings": "パスプレフィックスマッピング",
         "addMapping": "マッピングを追加",
         "pathMappingsHelp1": "パスマッピングは、ソースファイルのパスをターゲットパスに変換し、ブックをファイルの場所にマッチさせることができます。 たとえば、あなたのBookloreライブラリが以下のファイルを格納している場合、",
@@ -1396,7 +1396,7 @@
         "confirmReset": "リセットを確認",
         "resetDialog": {
           "title": "すべての重量をデフォルトにリセットしますか？",
-          "description": "24 のすべてのフィールドは、重みの BookOrbit に戻ります。保存と再コアを選択するまで何も保存されません。"
+          "description": "24 のすべてのフィールドは、重みの TLS Library に戻ります。保存と再コアを選択するまで何も保存されません。"
         },
         "reset": "Reset",
         "recalculate": "再計算",
@@ -2447,7 +2447,7 @@
           "reorderFailed": "新しい注文を保存できませんでした"
         },
         "empty": {
-          "body": "BookOrbitにフィールドがないものを追跡します。たとえば、本が棚にある場所や、借りた人などです。 項目は、メタデータの編集、表の列およびフィルターに表示されます。",
+          "body": "TLS Libraryにフィールドがないものを追跡します。たとえば、本が棚にある場所や、借りた人などです。 項目は、メタデータの編集、表の列およびフィルターに表示されます。",
           "examples": "サンプルから開始",
           "shelfNumber": "棚番号",
           "acquiredOn": "取得日",
@@ -3123,15 +3123,15 @@
         "syncUrlCopyFailed": "同期URLのコピーに失敗しました",
         "syncPreferences": "同期設定",
         "twoWaySync": "双方向進行の同期",
-        "twoWaySyncHint": "BookOrbitとKoboとの間で読み取り位置を同期します。正確な場所と信頼性の高いページの復元にはKEPUBの配信が必要です。",
-        "syncHighlights": "BookOrbitのハイライトをKoboに同期",
-        "syncHighlightsHint": "BookOrbitやKOReaderで作られたハイライトをKoboに送信すると、これがオフの場合でも、KoboのハイライトはBookOrbitにインポートされます。 リンクされた注釈は、両方の方法で編集を同期し、削除します。KEPUBデリバリが必要です。Koboの本はBookOrbitからダウンロードされたKEPUBでなければなりません。",
+        "twoWaySyncHint": "TLS LibraryとKoboとの間で読み取り位置を同期します。正確な場所と信頼性の高いページの復元にはKEPUBの配信が必要です。",
+        "syncHighlights": "TLS LibraryのハイライトをKoboに同期",
+        "syncHighlightsHint": "TLS LibraryやKOReaderで作られたハイライトをKoboに送信すると、これがオフの場合でも、KoboのハイライトはTLS Libraryにインポートされます。 リンクされた注釈は、両方の方法で編集を同期し、削除します。KEPUBデリバリが必要です。Koboの本はTLS LibraryからダウンロードされたKEPUBでなければなりません。",
         "storeSync": "弘法ストアのタイトルを含める",
-        "storeSyncHint": "また、あなたのBookOrbitライブラリと並んで、Kobo Plusや購入などの弘法アカウントから書籍をお届けします。 これがなければ、BookOrbitのブックだけがデバイスにアクセスします。ストアタイトルは直接Koboからダウンロードされ、BookOrbitライブラリには追加されません。",
+        "storeSyncHint": "また、あなたのTLS Libraryライブラリと並んで、Kobo Plusや購入などの弘法アカウントから書籍をお届けします。 これがなければ、TLS Libraryのブックだけがデバイスにアクセスします。ストアタイトルは直接Koboからダウンロードされ、TLS Libraryライブラリには追加されません。",
         "fullSizeCovers": "フルサイズカバー",
         "fullSizeCoversHint": "Koboの画面解像度でそれぞれカバーを送信するので、スリープスクリーンとフルスクリーンのカバーがシャープになります。 これをオフにすると、より早く同期するカバーを小さくすることができます。本のカバーが変更された場合にのみ、工房のカバーは変更されます。",
         "convertKepub": "KEPUBに変換",
-        "convertKepubHint": "適切なEPUBをKEPUBとして送信します。これは進行状況の同期またはBookOrbit-Koboハイライトが有効になっている場合に有効です。 次回の弘法同期では、影響を受ける書籍はKEPUBがダウンロードされ、古いEPUBコピーはKoboが開き続けると削除されます。",
+        "convertKepubHint": "適切なEPUBをKEPUBとして送信します。これは進行状況の同期またはTLS Library-Koboハイライトが有効になっている場合に有効です。 次回の弘法同期では、影響を受ける書籍はKEPUBがダウンロードされ、古いEPUBコピーはKoboが開き続けると削除されます。",
         "forceHyphenation": "強制ハイフネーション",
         "forceHyphenationHint": "一貫したテキストの正当化を保証します。これによりキャッシュされたKEPUBが再生成されます。",
         "progressThresholds": "進行状況のしきい値",
@@ -3141,7 +3141,7 @@
         "markAsFinished": "完了としてマーク",
         "markAsFinishedHint": "ブックを「完了」としてマークするパーセンテージしきい値。",
         "kepubLimit": "KEPUBの変換制限",
-        "kepubLimitHint": "この制限を超える本は通常のEPUBとして送信されるため、BookOrbitはリーダーの位置をKoboに戻すことはありません。",
+        "kepubLimitHint": "この制限を超える本は通常のEPUBとして送信されるため、TLS Libraryはリーダーの位置をKoboに戻すことはありません。",
         "changesMustBeSaved": "有効にするには変更を保存する必要があります。",
         "saving": "保存中...",
         "saveSyncSettings": "同期設定を保存",
@@ -3203,8 +3203,8 @@
           "readingPositionSynced": "読み取り位置が同期されました",
           "labelWithTitle": "{label}: {title}",
           "updateCount": "{count, plural, one {# update} other {# updates}}",
-          "directionToKobo": "BookOrbit -> Kobo",
-          "directionToBookOrbit": "弘法->BookOrbit",
+          "directionToKobo": "TLS Library -> Kobo",
+          "directionToBookOrbit": "弘法->TLS Library",
           "twoWaySyncEnabled": "双方向同期を有効にする",
           "deviceProgressSaved": "デバイスの進行状況を保存しました",
           "summary": {
@@ -3236,7 +3236,7 @@
           "filterFailures": "失敗",
           "refresh": "更新",
           "loadingActivity": "Kobo アクティビティを読み込んでいます...",
-          "noActivityHint": "ペアの Kobo 連絡先 BookOrbit の後に、最近の同期が表示されます。",
+          "noActivityHint": "ペアの Kobo 連絡先 TLS Library の後に、最近の同期が表示されます。",
           "error": "エラー",
           "loading": "読み込み中...",
           "loadMore": "さらにアクティビティを読み込む"
@@ -3248,7 +3248,7 @@
         "nextSteps": {
           "title": "次のステップ",
           "step1": "1. 上記の同期URLと同期するように、Koboデバイスを設定します。",
-          "step2": "2. BookOrbitでは、サイドバーから任意のコレクションに移動し、編集アイコンをクリックし、 {syncToKobo}を有効にします。 同期可能なコレクション内のブックのみが、お使いのデバイスにダウンロードされます。"
+          "step2": "2. TLS Libraryでは、サイドバーから任意のコレクションに移動し、編集アイコンをクリックし、 {syncToKobo}を有効にします。 同期可能なコレクション内のブックのみが、お使いのデバイスにダウンロードされます。"
         },
         "syncToKobo": "工房に同期",
         "tabs": {
@@ -3258,14 +3258,14 @@
       },
       "koreader": {
         "title": "KOReader 同期",
-        "subtitle": "KOReader で BookOrbit カタログを参照し、同期の進行、読み取りアクティビティ、ハイライト、注釈の変更を行います。",
+        "subtitle": "KOReader で TLS Library カタログを参照し、同期の進行、読み取りアクティビティ、ハイライト、注釈の変更を行います。",
         "tabs": {
           "sync": "同期設定",
           "fileNaming": "ファイル名"
         },
         "fileNaming": {
           "accountTitle": "アカウントのデフォルト KOReader パターン",
-          "accountDescription": "KOReader アカウントの BookOrbit プラグインのダウンロードで使用されるデフォルトの相対フォルダとファイル名を設定します。端末固有のルールは以下でオーバーライドできます。",
+          "accountDescription": "KOReader アカウントの TLS Library プラグインのダウンロードで使用されるデフォルトの相対フォルダとファイル名を設定します。端末固有のルールは以下でオーバーライドできます。",
           "defaultPattern": "既定の本のパスパターン",
           "accountHelp": "デバイスにカスタムルールがない限り、KOReader プラグインがダウンロードされます。",
           "accountHint": "カスタムオーバーライドのないKOReaderデバイスで使用されます。",
@@ -3273,7 +3273,7 @@
           "saveAccount": "アカウントのデフォルトを保存",
           "deviceTitle": "KOReader デバイスの上書き",
           "deviceDescription": "デフォルト、シリーズ、スタンドアロンパスの任意の組み合わせをカスタマイズします。空のデバイス固有の行は、デバイスのデフォルトを継承し、それ自体がアカウントのデフォルトの KOReader パターンを継承できます。",
-          "noDevices": "デバイスは BookOrbit と同期するとここに表示されます。",
+          "noDevices": "デバイスは TLS Library と同期するとここに表示されます。",
           "customOrganization": "カスタム組織",
           "usingAccountDefault": "アカウントのデフォルトを使用",
           "deviceDefaultHelp": "この端末のフォールバックです。アカウントの既定のままにすると、今後の変更が自動的に継承されます。",
@@ -3309,10 +3309,10 @@
         "latestPlugin": "最終プラグイン: v{version}",
         "latestPluginUnavailable": "最新のプラグインが利用できません",
         "notConfigured": "KOReader 同期が設定されていません",
-        "notConfiguredHint": "同期資格情報のセットを作成し、BookOrbit KOReaderプラグインを使用してブラウジング、ダウンロード、進行、イベントの読み取り、ハイライト、削除を行います。",
+        "notConfiguredHint": "同期資格情報のセットを作成し、TLS Library KOReaderプラグインを使用してブラウジング、ダウンロード、進行、イベントの読み取り、ハイライト、削除を行います。",
         "createCredentials": "資格情報を作成",
         "createFormTitle": "KOReader の同期資格情報を作成",
-        "createFormHint": "これらの資格情報は BookOrbit でKOReader デバイスを認証します。",
+        "createFormHint": "これらの資格情報は TLS Library でKOReader デバイスを認証します。",
         "username": "ユーザー名",
         "usernamePlaceholder": "例: myreader",
         "password": "パスワード",
@@ -3320,7 +3320,7 @@
         "changeCredentials": {
           "action": "資格情報の変更",
           "title": "KOReader 資格情報を変更する",
-          "description": "各BookOrbitアカウントには1つのKOReader資格情報セットがあります。同期データを削除せずに、ここで変更してください。",
+          "description": "各TLS Libraryアカウントには1つのKOReader資格情報セットがあります。同期データを削除せずに、ここで変更してください。",
           "newPassword": "新しいパスワード",
           "usernameInvalid": "ユーザー名は3文字以上100文字以下で入力してください。",
           "passwordPlaceholder": "現在のパスワードを維持するには空白のままにしてください",
@@ -3341,7 +3341,7 @@
         "status": "KOReader ステータス",
         "refresh": "更新",
         "progressSync": "進行状況の同期",
-        "progressSyncHint": "KOReader デバイスが BookOrbit で進行、読み取りアクティビティ、ハイライト、および注釈を同期させることを許可します。",
+        "progressSyncHint": "KOReader デバイスが TLS Library で進行、読み取りアクティビティ、ハイライト、および注釈を同期させることを許可します。",
         "lastSync": "最終同期",
         "syncedBooks": "同期した本",
         "bookCount": "{count, plural, =0 {本はありません} one {# 本} other {# 本}}",
@@ -3351,17 +3351,17 @@
         "setup": "セットアップ",
         "pluginServerUrl": "プラグインサーバーの URL",
         "syncUrl": "KOReader 同期URL",
-        "syncUrlHint": "BookOrbitプラグインとKOReaderの組み込みの進行状況同期で動作します。",
+        "syncUrlHint": "TLS LibraryプラグインとKOReaderの組み込みの進行状況同期で動作します。",
         "copied": "コピーしました",
         "copyUrl": "URLをコピー",
-        "preconfiguredPlugin": "事前設定された BookOrbit プラグイン",
+        "preconfiguredPlugin": "事前設定された TLS Library プラグイン",
         "preconfiguredPluginHintPrefix": "サーバーのURLと同期ログインがすでに設定されているzipファイルをダウンロードします。プラグインにはカタログ参照と同期が含まれています。フォルダをコピーします。",
         "preconfiguredPluginHintSuffix": "をクリックしてKOReaderを再起動します。",
-        "latestPluginNote": "{label}. デバイスのアップデートはKOReaderのBookOrbitメニューから実行されます。",
+        "latestPluginNote": "{label}. デバイスのアップデートはKOReaderのTLS Libraryメニューから実行されます。",
         "preparing": "準備中...",
         "downloadPlugin": "プラグインをダウンロード",
         "noDevicesSynced": "デバイスはまだ同期されていません",
-        "noDevicesSyncedHint": "まったく同期するためにBookOrbitプラグインをインストールするか、プログレスのみのアップデートのためにKOReaderのストック進行状況同期を設定してください。",
+        "noDevicesSyncedHint": "まったく同期するためにTLS Libraryプラグインをインストールするか、プログレスのみのアップデートのためにKOReaderのストック進行状況同期を設定してください。",
         "lastSyncLabel": "前回の同期:",
         "lastBookLabel": "最後の本:",
         "noneYet": "まだありません",
@@ -3378,8 +3378,8 @@
         "failedPositions": "{count,plural,one{# ハイライト位置に注意が必要です} other{# ハイライト位置には注意が必要です} =0{ハイライトの位置に注意を必要としません}}",
         "setupGuide": "セットアップガイド",
         "setupSteps": "KOReader の設定手順",
-        "setupStepsHint": "カタログの閲覧、ダウンロード、進行状況、イベントの読み取り、ハイライトにBookOrbitプラグインを使用します。進行状況のみにストックプラグインを使用します。",
-        "pluginGuideTitle": "BookOrbit プラグイン",
+        "setupStepsHint": "カタログの閲覧、ダウンロード、進行状況、イベントの読み取り、ハイライトにTLS Libraryプラグインを使用します。進行状況のみにストックプラグインを使用します。",
+        "pluginGuideTitle": "TLS Library プラグイン",
         "pluginStep1": "上記の事前設定されたプラグインをダウンロードします。",
         "pluginStep2Prefix": "解凍してコピー",
         "pluginStep2Middle": "to",
@@ -3393,7 +3393,7 @@
         "stockStep2": "上記のURLにカスタム同期サーバーを設定します。",
         "stockStep2InlineUrl": "カスタム同期サーバーを次のURLに設定します。",
         "stockStep3": "作成したユーザー名とパスワードを入力し、ログインをタップします。",
-        "locationNote": "BookOrbitはKOReader対応のEPUBの場所をWebリーダーから保存します。 正確なライン配置はリーダとEPUBレイアウトによって異なりますが、復元は同じ位置に近づく必要があります。",
+        "locationNote": "TLS LibraryはKOReader対応のEPUBの場所をWebリーダーから保存します。 正確なライン配置はリーダとEPUBレイアウトによって異なりますが、復元は同じ位置に近づく必要があります。",
         "dangerZone": "危険ゾーン",
         "deleteCredentials": "KOReader 資格情報を削除",
         "deleteCredentialsHint": "同期資格情報を削除し、すべてのデバイスを切断します。進行状況のデータは保持されます。",
@@ -3434,7 +3434,7 @@
           "unknownFile": "不明なKOReaderファイル {hash}",
           "unknownAuthor": "不明な作成者",
           "noTitleOrAuthor": "タイトルまたは著者が報告されていません",
-          "bookNumber": "BookOrbit book #{id}",
+          "bookNumber": "TLS Library book #{id}",
           "toast": {
             "unmatchedRefreshed": "マッチしない本が更新されました",
             "unmatchedRefreshFailed": "マッチしない本を更新できませんでした",
@@ -3459,8 +3459,8 @@
           "modal": {
             "linkTitle": "KOReader の本をリンク",
             "changeTitle": "KOReader リンクを変更",
-            "bookOrbitBook": "BookOrbit ブック",
-            "searchPlaceholder": "BookOrbit ライブラリを検索",
+            "bookOrbitBook": "TLS Library ブック",
+            "searchPlaceholder": "TLS Library ライブラリを検索",
             "minChars": "少なくとも 2 文字を入力してください。",
             "searching": "検索中...",
             "noBooksFound": "本は見つかりません。",
@@ -3470,14 +3470,14 @@
             "loadMore": "さらに読み込む",
             "confirmTitle": "KOReader リンクを確認する",
             "koreader": "KOReader",
-            "bookOrbit": "BookOrbit",
+            "bookOrbit": "TLS Library",
             "bookId": "ブックID: {id}",
-            "syncedStatsNote": "すでに同期された統計は現在の BookOrbit ブックに表示されます。",
+            "syncedStatsNote": "すでに同期された統計は現在の TLS Library ブックに表示されます。",
             "chooseDifferent": "別のものを選択",
             "saving": "保存中...",
             "confirmLink": "リンクを確認",
             "unlinkTitle": "KOReader の本のリンクを解除しますか？",
-            "unlinkBody": "このハッシュの将来の同期は、再びリンクされるまで {title} への解決を停止します。すでに同期された統計は現在のBookOrbitブックに表示されます。",
+            "unlinkBody": "このハッシュの将来の同期は、再びリンクされるまで {title} への解決を停止します。すでに同期された統計は現在のTLS Libraryブックに表示されます。",
             "unlinking": "リンクを解除中..."
           },
           "dismiss": "却下する",
@@ -3485,15 +3485,15 @@
           "dismissing": "削除中...",
           "unlinking": "リンクを解除中...",
           "unlinkConfirmTitle": "KOReader の本のリンクを解除しますか？",
-          "unlinkConfirmBody": "このハッシュの将来の同期は、再びリンクされるまで {title} への解決を停止します。すでに同期された統計は現在のBookOrbitブックに表示されます。",
+          "unlinkConfirmBody": "このハッシュの将来の同期は、再びリンクされるまで {title} への解決を停止します。すでに同期された統計は現在のTLS Libraryブックに表示されます。",
           "dismissConfirmTitle": "{title} を却下しますか？",
           "dismissConfirmBody": "一致しないブックリストから削除します。いずれかのデバイスがこのハッシュを再度報告すると、新しいエントリとして再表示されます。",
           "dismissAllConfirmTitle": "{count,plural,one{すべて解除 # 比類のない本?} other{すべて解除 # 比類のない本?} =0{比類のない本はありません}}",
           "dismissAllConfirmBody": "これにより、現在のページだけでなく、一致しない書籍リスト全体がクリアされます。 いずれかのデバイスがこれらのハッシュのいずれかを再度報告すると、新しいエントリとして再び表示されます。",
           "changeLinkTitle": "KOReader リンクを変更",
           "linkBookTitle": "KOReader の本をリンク",
-          "bookOrbitBook": "BookOrbit ブック",
-          "searchLibraryPlaceholder": "BookOrbit ライブラリを検索",
+          "bookOrbitBook": "TLS Library ブック",
+          "searchLibraryPlaceholder": "TLS Library ライブラリを検索",
           "enterMinChars": "少なくとも 2 文字を入力してください。",
           "searching": "検索中...",
           "noBooksFound": "本は見つかりません。",
@@ -3504,7 +3504,7 @@
           "loadingMore": "読み込み中...",
           "confirmLinkTitle": "KOReader リンクを確認する",
           "bookId": "ブックID: {id}",
-          "syncedStatsNote": "すでに同期された統計は現在の BookOrbit ブックに表示されます。",
+          "syncedStatsNote": "すでに同期された統計は現在の TLS Library ブックに表示されます。",
           "chooseDifferent": "別のものを選択",
           "saving": "保存中...",
           "confirmLink": "リンクを確認",
@@ -3512,7 +3512,7 @@
           "reviewHint": "自動一致のないブックとリンクされていないブックがここに表示されます。リンクされていないブックは自動一致で同期されます。 ブックをリンクしてそのマッチを上書きするか、このリストから削除するためにそれを消去します。",
           "loadingReview": "本を読み込んでいます...",
           "noReview": "見直すKOReaderの本はありません。",
-          "manualUnlinkConfirmBody": "{title} へのマニュアルリンクを削除し、この本をレビュー一覧に戻します。 今後の同期は自動一致が存在する場合に使用されます。すでに同期された統計は現在のBookOrbitブックに残ります。",
+          "manualUnlinkConfirmBody": "{title} へのマニュアルリンクを削除し、この本をレビュー一覧に戻します。 今後の同期は自動一致が存在する場合に使用されます。すでに同期された統計は現在のTLS Libraryブックに残ります。",
           "reviewDismissConfirmBody": "これにより、ブックからそれを削除してレビューします。自動マッチングと既存の同期データは保持されます。 デバイスが一致せずに再度ハッシュを報告すると、再び表示される可能性があります。",
           "reviewDismissAllConfirmTitle": "{count,plural,one{すべて解除 # 本を読む?} other{すべて解除 # レビューする本?} =0{レビューする本がありません}}",
           "reviewDismissAllConfirmBody": "これにより、他のページのエントリを含めて、ブック全体をレビューすることができます。 自動一致と既存の同期データは保持されます。デバイスが一致しない場合、再びハッシュを報告することができます。"
@@ -3622,7 +3622,7 @@
         "deleteClient": "{name} を削除",
         "clientsEmpty": {
           "title": "まだダウンロードクライアントがありません",
-          "body": "直接HTTPダウンロードはクライアントを必要としません。BookOrbitはトレントやUsenetによって配信されるリリースをフェッチすることができます。",
+          "body": "直接HTTPダウンロードはクライアントを必要としません。TLS LibraryはトレントやUsenetによって配信されるリリースをフェッチすることができます。",
           "note": "qBittorrent, Transmission, Deluge, NZBGet, SABnzbd がサポートされています。"
         },
         "summary": "{type} - カテゴリ {category}, 優先順位 {priority}",
@@ -3661,7 +3661,7 @@
           "passwordWillClear": "保存時に保存されたパスワードは削除されます",
           "apiKeyWillClear": "保存時に保存された API キーが削除されます",
           "category": "カテゴリ",
-          "categoryHint": "タグは、ダウンロードBookOrbitが追加されますので、独自に動作するだけです。",
+          "categoryHint": "タグは、ダウンロードTLS Libraryが追加されますので、独自に動作するだけです。",
           "priority": "優先度",
           "enabled": "有効",
           "useHardlinks": "ハードリンクを使用",
@@ -3673,12 +3673,12 @@
         },
         "mappings": {
           "title": "パスマッピング",
-          "hint": "クライアントが報告するパスをBookOrbitが開くことができるパスに変換します。2つの実行が別々のコンテナで行われる場合に必要です。",
+          "hint": "クライアントが報告するパスをTLS Libraryが開くことができるパスに変換します。2つの実行が別々のコンテナで行われる場合に必要です。",
           "add": "マッピングを追加",
           "remove": "マッピングを削除",
           "remotePath": "クライアントのパス",
-          "localPath": "BookOrbit のパス",
-          "brief": "必要なディレクトリを宣言する BookOrbit はインポートすることができます; クライアントが同じパスで同じファイルを見た場合、ダウンロードディレクトリを自分自身にマップします。",
+          "localPath": "TLS Library のパス",
+          "brief": "必要なディレクトリを宣言する TLS Library はインポートすることができます; クライアントが同じパスで同じファイルを見た場合、ダウンロードディレクトリを自分自身にマップします。",
           "identityExample": "同じファイルシステムですか? 左側の /downloads、右側の /downloadsなど、両側で同じパスを使用します。"
         },
         "hardlink": {
@@ -3687,14 +3687,14 @@
           "works": "ハードリンクはここで動作します: importはディスクを2回使用しません。",
           "unavailable": "ハードリンクはここでは使用できません: import はスペースを2回使用してコピーします。",
           "link_refused": "このファイルシステムはリンク ({code}) を拒否しました: import は空白を 2 回使ってコピーします。",
-          "download_dir_unwritable": "BookOrbitはダウンロードディレクトリ({code})に書き込めないため、ハードリンクをテストできませんでした。",
-          "localMissing": "BookOrbit はそのパスを見ることができません。",
+          "download_dir_unwritable": "TLS Libraryはダウンロードディレクトリ({code})に書き込めないため、ハードリンクをテストできませんでした。",
+          "localMissing": "TLS Library はそのパスを見ることができません。",
           "dockMissing": "ブックドックフォルダは読み取りできません。"
         },
         "reconciliation": {
           "action": "リコンキュール",
-          "clean": "所有しているすべてのクライアントアイテムは、保持された BookOrbit のダウンロードの試行と一致します。",
-          "unsupported": "このクライアントは、BookOrbitの所有権マーカーでアイテムを列挙できません。Delugeの場合、ラベルプラグインを有効にしてください。Transmissionの場合、カテゴリフォルダを設定してください。",
+          "clean": "所有しているすべてのクライアントアイテムは、保持された TLS Library のダウンロードの試行と一致します。",
+          "unsupported": "このクライアントは、TLS Libraryの所有権マーカーでアイテムを列挙できません。Delugeの場合、ラベルプラグインを有効にしてください。Transmissionの場合、カテゴリフォルダを設定してください。",
           "truncated": "クライアントは1,000を超える所有アイテムを返しました。表示されるエントリを解決し、再びリコンシイルします。",
           "orphan": "このクライアントアイテムは保持されていません。",
           "failedAttempt": "クライアントはこのアイテムを保持していますが、\"{title}\" の試みに失敗しました。",
@@ -3705,7 +3705,7 @@
           "removed": "孤立したクライアント項目を削除しました",
           "removeTitle": "この孤立したクライアントアイテムを削除しますか？",
           "removeDescription": "{name} はダウンロードクライアントから削除されます。ダウンロードしたファイルは保持されます。",
-          "notOrphan": "そのクライアント・アイテムは BookOrbit のダウンロードの試みにまだ添付されています。",
+          "notOrphan": "そのクライアント・アイテムは TLS Library のダウンロードの試みにまだ添付されています。",
           "notAdoptable": "そのクライアント・アイテムまたは失敗した試みが変更され、もはやアタッチすることはできません。"
         },
         "errors": {
@@ -3721,8 +3721,8 @@
           "encryptionKeyChanged": "ストアされたクライアントの資格情報を読み取ることができませんでした。BOOK_REQUEST_ENCRYPTION_KEY は保存されてから変更された可能性があります。",
           "pathNotAbsolute": "パスマッピングは両側に絶対パスを使用する必要があります",
           "nameRequired": "このクライアントに名前を付けてください。",
-          "urlRequired": "BookOrbitがこのクライアントに到達するアドレスを入力してください。",
-          "mappingRequired": "少なくとも 1 つのパスマッピングを追加します。そのため、BookOrbit はインポートできるディレクトリを知っています。",
+          "urlRequired": "TLS Libraryがこのクライアントに到達するアドレスを入力してください。",
+          "mappingRequired": "少なくとも 1 つのパスマッピングを追加します。そのため、TLS Library はインポートできるディレクトリを知っています。",
           "apiKeyRequired": "Config > GeneralからSABnzbd APIキーを入力してください。"
         },
         "encryptionKeyMissing": "BOOK_REQUEST_ENCRYPTION_KEY が設定されていないため、クライアントの資格情報を保存できません。次の条件で生成します: openssl rand -hex 32",
@@ -3738,14 +3738,14 @@
           "loading": "インデックスを読み込み中...",
           "empty": {
             "title": "ソースはまだありません",
-            "body": "BookOrbitはソースを束ねていませんので、追加するまでリクエスト検索では何も見つかりません。インデックスに合ったセットアップを選択してください。",
-            "bodyOneWay": "BookOrbitは独自のソースをバンドルしていないため、リクエスト検索では追加するまで何も見つかりません。",
+            "body": "TLS Libraryはソースを束ねていませんので、追加するまでリクエスト検索では何も見つかりません。インデックスに合ったセットアップを選択してください。",
+            "bodyOneWay": "TLS Libraryは独自のソースをバンドルしていないため、リクエスト検索では追加するまで何も見つかりません。",
             "responsibility": "インデックスを追加するソースはあなたの責任です。",
             "prowlarrTitle": "Prowlarrに接続",
             "prowlarrBody": "1つの接続を介して複数のトレントとUsenetインデックスを管理します。",
             "recommended": "Recommended",
             "pluginTitle": "プラグインをインストール",
-            "pluginBody": "特定のサイトを検索するためにBookOrbitを教える一つのファイル. あなたはそれを提供し、その設定を入力します.",
+            "pluginBody": "特定のサイトを検索するためにTLS Libraryを教える一つのファイル. あなたはそれを提供し、その設定を入力します.",
             "torznabTitle": "Torznabインデックスを追加",
             "torznabBody": "Prowlarr、Jackett、NZBHydraフィードで既に実行されています。フィードあたり1つ。",
             "builtInTitle": "インデクサを追加",
@@ -3770,7 +3770,7 @@
           "pluginFailed": "\"{directory}\" のプラグインが読み込まれませんでした: {reason}",
           "sources": {
             "title": "ソース",
-            "hint": "すべてのBookOrbitは、接続ごとにグループ化された検索ができます。",
+            "hint": "すべてのTLS Libraryは、接続ごとにグループ化された検索ができます。",
             "add": "ソースを追加",
             "prowlarr": "Prowlarrに接続",
             "prowlarrHint": "複数のトレントとUsenetインデックスを一緒に管理します。",
@@ -3886,12 +3886,12 @@
             "credentialRequired": "そのインデクサーは使用する前に資格情報が必要です",
             "invalidSettings": "1 つ以上のソース設定が無効です。使用可能な選択を確認してください。",
             "nameRequired": "このインデクサーに名前を付けてください。",
-            "urlRequired": "BookOrbitで検索するアドレスを入力します。"
+            "urlRequired": "TLS Libraryで検索するアドレスを入力します。"
           },
           "editName": "{name} を編集",
           "editorDescription": "このインデクサーの設定",
           "chooseType": "インデクサの種類を選択",
-          "chooseTypeHint": "BookOrbitを検索する必要がある場所を選択します。フォームはそのソースが必要とするものだけを要求します。",
+          "chooseTypeHint": "TLS Libraryを検索する必要がある場所を選択します。フォームはそのソースが必要とするものだけを要求します。",
           "builtIn": "建てられた",
           "plugin": "プラグイン",
           "typeDescriptions": {
@@ -3900,7 +3900,7 @@
           },
           "plugins": {
             "title": "プラグイン",
-            "hint": "サイトBookOrbitは、単一のプラグインファイルとして追加された検索が可能です。",
+            "hint": "サイトTLS Libraryは、単一のプラグインファイルとして追加された検索が可能です。",
             "directoryLink": "オープンなライブラリプラグインを参照する",
             "none": "プラグインがインストールされていません。組み込みプロトコルがカバーされていないサイトを検索するためにインストールします。",
             "install": "プラグインをインストール",
@@ -3912,7 +3912,7 @@
             "removeFailed": "そのプラグインを削除できませんでした。",
             "confirmRemove": "{label} プラグインを削除しますか？",
             "replaces": "既にインストールされている {type} プラグインを置き換えます。",
-            "restartRequired": "プラグインの変更を有効にするには BookOrbit を再起動します。",
+            "restartRequired": "プラグインの変更を有効にするには TLS Library を再起動します。",
             "confirmInstall": "プラグインをインストール",
             "configure": "設定",
             "notSetUp": "設定されていません",
@@ -3959,11 +3959,11 @@
             "credential": "資格情報",
             "credentialRequired": "必須",
             "credentialNone": "なし",
-            "trustWarning": "プラグインは BookOrbit 内で実行され、データベース、ライブラリファイル、暗号化キーにアクセスできます。 信頼できるソースからのみインストールし、最初に読んでください。",
+            "trustWarning": "プラグインは TLS Library 内で実行され、データベース、ライブラリファイル、暗号化キーにアクセスできます。 信頼できるソースからのみインストールし、最初に読んでください。",
             "sectionTitle": "プラグイン",
             "removeUnusedWarning": "プラグインはサーバーから完全に削除されます。"
           },
-          "posture": "BookOrbitはインデクサソースを提供または推奨しません。 ここにあるすべてのソースはあなたが設定したものであり、あなたはそれを介してあなたが何を検索し、ダウンロードするかについて責任があります。"
+          "posture": "TLS Libraryはインデクサソースを提供または推奨しません。 ここにあるすべてのソースはあなたが設定したものであり、あなたはそれを介してあなたが何を検索し、ダウンロードするかについて責任があります。"
         },
         "managers": {
           "add": "Prowlarrを追加",
@@ -3984,7 +3984,7 @@
           "toggleSource": "{name} で検索",
           "changeColor": "{name} の色を変更",
           "sourceColor": "ソースカラー",
-          "sourceColorHint": "BookOrbit 全体で {name} によって返されたマークのリリース。",
+          "sourceColorHint": "TLS Library 全体で {name} によって返されたマークのリリース。",
           "noSources": "互換性のあるトレントやUsenetインデックスが見つかりませんでした。Prowlarrに追加した後に同期します。",
           "unknown": "不明",
           "editorDescription": "Prowlarrの接続とソースの同期設定。",
@@ -4000,9 +4000,9 @@
             "syncNew": "新しく発見されたソースを有効にする",
             "syncNewHint": "新しいProwlarrインデクサーはすぐに検索可能です。後で同期した後はオフにしてください。",
             "autoExpand": "カテゴリフィルタなしで再試行する",
-            "autoExpandHint": "インデクサが結果がないときは、BookOrbitのブックカテゴリフィルタなしで一度再試行してください。",
+            "autoExpandHint": "インデクサが結果がないときは、TLS Libraryのブックカテゴリフィルタなしで一度再試行してください。",
             "inheritSeedLimits": "Prowlarrシードの上限を使用する",
-            "inheritSeedLimitsHint": "BookOrbitのオーバーライドが存在しない場合、今後のダウンロードに各トレントインデクサの設定されたシード比とシード時間を適用します。",
+            "inheritSeedLimitsHint": "TLS Libraryのオーバーライドが存在しない場合、今後のダウンロードに各トレントインデクサの設定されたシード比とシード時間を適用します。",
             "perIndexerTimeout": "インデクサのタイムアウト（秒）",
             "perIndexerTimeoutHint": "同期されたソースがどれくらいかかるか。遅いFlareSolver-background-indexersはより多くの時間を必要とするかもしれません。",
             "overallBudget": "Prowlarr予算（秒）",
@@ -4050,12 +4050,12 @@
           "minScoreHint": "以下のリリースのスコアは自動的にダウンロードされません。 スコアは100まで実行され、タイトルと著者の一致がどれくらいの割合で構成されているか。 書式、ファイルサイズ、シード、ソースの優先順位を持っています。 十分に高いスコアがない場合, リクエストは誰かが手でリリースを選択し、なぜそれが停止したかを言うために待っています.",
           "minScoreHintV2": "以下のスコアは自動的にダウンロードされません。スコアは100まで実行されます。 タイトルと著者の関連性は、ソースがそれらを提供するときに使用される群れの健康およびfreeech との形式および妥当なファイルサイズが続く最も貢献する。 十分に高いスコアがない場合, リクエストは誰かが手でリリースを選択し、なぜそれが停止したかを言うために待っています.",
           "autoRetry": "失敗したら次のリリースをお試しください",
-          "autoRetryHint": "自動ダウンロードに失敗すると、次の最高のリリースがあきらめずに試されます。 これはファイルを渡すことを拒否するソースと途中で死ぬダウンロードをカバーします。 BookOrbitが選んだリリースにのみ適用されます。手作業で選んだ承認者は失敗し、それらを待ちます。",
+          "autoRetryHint": "自動ダウンロードに失敗すると、次の最高のリリースがあきらめずに試されます。 これはファイルを渡すことを拒否するソースと途中で死ぬダウンロードをカバーします。 TLS Libraryが選んだリリースにのみ適用されます。手作業で選んだ承認者は失敗し、それらを待ちます。",
           "maxAttempts": "リクエストごとの試行",
-          "maxAttemptsHint": "すべてのリリースBookOrbitは、このリクエストのためにダウンロードクライアントに送信されますこの制限にカウントされます:最初の自動試行。 1つのソースがダウンした後に試みた何かがダウンロードに失敗した後に試みた。 最初の試行後に停止するには1に設定してください。",
+          "maxAttemptsHint": "すべてのリリースTLS Libraryは、このリクエストのためにダウンロードクライアントに送信されますこの制限にカウントされます:最初の自動試行。 1つのソースがダウンした後に試みた何かがダウンロードに失敗した後に試みた。 最初の試行後に停止するには1に設定してください。",
           "autoSearch": "リクエストを探し続けます。何も見つかりませんでした：",
           "autoSearchShort": "承認されたリクエストは後で再び検索されません。",
-          "autoSearchHint": "リクエストは承認されると一度検索されます。 十分に良いものがない場合、または本がまだリリースされていない場合、その要求は承認されるのを待って、何も再びそれを探しません。 これをオンにすると、BookOrbitは独自にチェックを続けるため、来月投稿されたリリースがまだ見つかります。 自動ダウンロードがオンになっている間だけ、それが唯一のあなたのソースのトラフィックを要するものを見つけるものとは何の関係もないので、それは実行します。",
+          "autoSearchHint": "リクエストは承認されると一度検索されます。 十分に良いものがない場合、または本がまだリリースされていない場合、その要求は承認されるのを待って、何も再びそれを探しません。 これをオンにすると、TLS Libraryは独自にチェックを続けるため、来月投稿されたリリースがまだ見つかります。 自動ダウンロードがオンになっている間だけ、それが唯一のあなたのソースのトラフィックを要するものを見つけるものとは何の関係もないので、それは実行します。",
           "autoSearchEnabledToast": "リクエストは再度検索されます",
           "autoSearchDisabledToast": "リクエストは承認された場合にのみ検索されます",
           "autoSearchInterval": "次の後に検索する",
@@ -4147,13 +4147,13 @@
         "external": "外部",
         "editorDescription": "このダウンロードクライアントの設定。",
         "chooseClientType": "クライアントの種類を選択",
-        "chooseClientTypeHint": "BookOrbitの手にダウンロードするプログラムを選択します。",
+        "chooseClientTypeHint": "TLS Libraryの手にダウンロードするプログラムを選択します。",
         "clientTypeDescriptions": {
           "qbittorrent": "あなた自身のqBittorrentです。アドレスとアカウントが必要です。",
           "transmission": "独自の送信. カテゴリがないため、カテゴリはダウンロードディレクトリのサブフォルダになります。",
           "deluge": "独自のDeluge。Web UIパスワードでサインインします。カテゴリにはLabelプラグインがオンになっている必要があります。",
-          "nzbget": "BookOrbitは、NZBファイルをJSON-RPC API経由で送信します。",
-          "sabnzbd": "あなた自身のSABnzbd.BookOrbitは、そのAPIキーを使用してNZBファイルを送信します。"
+          "nzbget": "TLS Libraryは、NZBファイルをJSON-RPC API経由で送信します。",
+          "sabnzbd": "あなた自身のSABnzbd.TLS Libraryは、そのAPIキーを使用してNZBファイルを送信します。"
         },
         "searchHealth": {
           "failingOnce": "最後の検索に失敗しました",
@@ -4194,7 +4194,7 @@
         "readerAudio": "再生速度、スキップ間隔、およびスリープタイマー。",
         "readerFonts": "読み取り中に使用可能なフォント。",
         "readerGeneral": "デフォルトはすべての読書モードで共有されます。",
-        "notifications": "BookOrbitが教えてくれること、そして場所。",
+        "notifications": "TLS Libraryが教えてくれること、そして場所。",
         "privacy": "インサイト、共有リンク、アクティビティの可視性を読む。",
         "restrictions": "このアカウントの年齢評価と非表示のコンテンツ。",
         "libraries": "パス、監視フォルダ、および取り込みルールをスキャンします。",
@@ -4224,14 +4224,14 @@
         "appearance-icons": "ライブラリ、スマートスコープ、コレクションに組み込まれたセットと一緒に使用する独自のアイコンをアップロードします。",
         "appearance-layout": "ライブラリグリッドのカバーサイズと間隔、折りたたまれたシリーズのカバー、および著者グリッドのレイアウト方法。",
         "appearance-behavior": "グリッドまたはリストから本を開くことは、シリーズが一つのカードに崩壊するかどうか、そしてブックリクエストがこのアカウントに表示されるかどうかにかかわらず、何をします。",
-        "appearance-language": "BookOrbit言語は、メニュー、ラベルとメッセージ、日付と数字の地域フォーマットに使用されます。",
+        "appearance-language": "TLS Library言語は、メニュー、ラベルとメッセージ、日付と数字の地域フォーマットに使用されます。",
         "reader-ebook": "eBook リーダーのデフォルト: 新しい本が設定、ページフローおよび列、テーマ、フォント、サイズ、スペースなどの組版で始まるかどうか。",
         "reader-pdf": "PDF の開き方: ページごとまたはスクロールを1つずつ続けるページで、ページは2ページの拡散を開始し、デフォルトではズームフィットします。",
         "reader-comics": "漫画の読み取り方法:読書モードと方向、単一または2ページの広がり、フィット、ワイドページ処理、シリーズの次の本への移行。",
         "reader-audio": "新しいオーディオブックの開始速度と音量、およびスキップバックとスキップボタンがジャンプします。",
         "reader-fonts": "読者用に独自のフォントをアップロードし、サーバー管理者が共有するフォントを選択します。",
         "reader-general": "読者の好みが保存され、デフォルトはすべての読書モードで共有されます。",
-        "tts": "BookOrbitが本を読み上げたときのデフォルトの音声とスピード。",
+        "tts": "TLS Libraryが本を読み上げたときのデフォルトの音声とスピード。",
         "notifications": "完了したスキャンとメタデータフェッチから、ファイル名、import、Book Dockの結果に通知するイベントを選択します。",
         "privacy": "閲覧アクティビティ管理者の表示量、共有プロファイルのプレビュー、および閲覧者の確認を決定します。",
         "restrictions": "このアカウントに設定されているコンテンツ制限は、年齢評価や非表示のコンテンツ、ライブラリから遠ざける内容などです。",
@@ -4245,7 +4245,7 @@
         "metadata-search-cache": "プロバイダの回答を保持するので、繰り返し検索は高速であり、プロバイダがダウンしているときにも動作し、どのくらい保持されるかを制御します。",
         "metadata-genre-blocklist": "ここに記載されているジャンルの値は、メタデータが書き込まれる前にプロバイダの結果から取り除かれるため、Audiobook のようなラベルは本から外れます。",
         "metadata-reminders": "ブックのリマインダーに表示される不足している項目を選択します。これにより、リマインダーのみが変更され、メタデータの得点は変更されません。",
-        "file-naming": "BookOrbitがディスク上のブック名を変更する際に使用するフォルダとファイル名パターン 結果のプレビューと値が欠落した場合の動作を示しています",
+        "file-naming": "TLS Libraryがディスク上のブック名を変更する際に使用するフォルダとファイル名パターン 結果のプレビューと値が欠落した場合の動作を示しています",
         "maintenance": "サーバーのハウスキーピング: アップロードサイズの制限、過去のインポート、再構築の推奨事項、実績のバックフィル、更新の確認。",
         "kobo": "Kobo e-リーダーを接続し、書籍、棚、読み取り進行状況の同期方法を選択し、各デバイスの最近の同期アクティビティに従ってください。",
         "koreader": "進行状況を同期し、アクティビティとハイライトをKOReaderで読み取り、同期URLとプラグインを取得し、接続するデバイスを管理します。",
@@ -4258,7 +4258,7 @@
         "account-activity": "各アカウントが最後にアクティブになり、どのようにサインインし、ユーザーごとの読み取りとセッションの洞察を開きます。",
         "magic-links": "パスワードなしで誰かにサインインする共有可能なリンクを作成し、不要になったときにそれらを取り消します。",
         "oidc": "Keycloakなどのシングルサインオンプロバイダを接続し、その要求をマップし、新しいアカウントの作成方法を決定します。",
-        "requests": "BookOrbitは、クライアントがそれらを取得し、ダウンロードが完了したら何が起こるかを、要求された本を検索します。",
+        "requests": "TLS Libraryは、クライアントがそれらを取得し、ダウンロードが完了したら何が起こるかを、要求された本を検索します。",
         "admin-tts": "テキスト読み上げエンジンは読み上げに使用できます, それぞれから提供される声, そして、彼らが表示される順序.",
         "book-dock": "Book Dock dropフォルダ、新しいファイルの自動フェッチのメタデータ、およびファイルが独自に最終化されるスコア。",
         "server-fonts": "このサーバー上のすべてのリーダーに一度フォントをアップロードします。各リーダーはそれらのいずれかを非表示にできます。",
@@ -7398,13 +7398,13 @@
         },
         "emptyStage": {
           "title": "この本の記録はまだありません",
-          "description": "読み取りログはセッションから構築されます。 BookOrbitは、Webリーダーで読むたびに1つを記録し、同期したデバイスから残りをピックアップします。",
+          "description": "読み取りログはセッションから構築されます。 TLS Libraryは、Webリーダーで読むたびに1つを記録し、同期したデバイスから残りをピックアップします。",
           "readerTitle": "こちらをご覧ください",
-          "readerBody": "BookOrbitリーダーの毎分が自動的にログに記録されます。",
+          "readerBody": "TLS Libraryリーダーの毎分が自動的にログに記録されます。",
           "koreaderTitle": "KOReader を同期",
           "koreaderBody": "プラグインは、あなたが到達したページで、それぞれの座ってプッシュバックします。",
           "koboTitle": "Sync a Kobo",
-          "koboBody": "デバイスを差し込み、BookOrbitは独自の読み取りタイムカウンタを読み込みます。",
+          "koboBody": "デバイスを差し込み、TLS Libraryは独自の読み取りタイムカウンタを読み込みます。",
           "addSession": "手でセッションを追加",
           "recordPast": "過去の読書を記録"
         },
@@ -7871,7 +7871,7 @@
         "noExtension": "ファイルに拡張子がないため、その形式は不明です",
         "tooLarge": "{limit} のアップロード制限より大きい",
         "tooLargeServer": "サーバーのアップロード制限より大きい",
-        "tooLargeProxy": "BookOrbitに達する前に大きすぎると拒否されました。おそらくリバースプロキシによります。",
+        "tooLargeProxy": "TLS Libraryに達する前に大きすぎると拒否されました。おそらくリバースプロキシによります。",
         "storageFull": "サーバーのストレージ容量が足りません",
         "network": "サーバーにアクセスできませんでした",
         "status": "アップロードに失敗しました (HTTP {status})"
@@ -8099,22 +8099,22 @@
         "notProvided": "提供されていません",
         "searchScope": "いずれかの {count, plural, one {# ISBN} other {# ISBNs}} を選択するか、タイトルと作者で検索します。",
         "searchScopeLimited": "検索するISBNを一つ選択してください。",
-        "titleAuthorOnly": "ISBNは提供されませんでした。BookOrbitはタイトルと著者で一度検索します。",
+        "titleAuthorOnly": "ISBNは提供されませんでした。TLS Libraryはタイトルと著者で一度検索します。",
         "chooseSearch": "検索するエディションを選択",
         "searchByEdition": "版のリリースを見つける",
         "findRelease": "リリースを探す",
         "primaryIsbn": "ISBN {isbn}",
         "primaryTitleAuthor": "タイトルと作成者",
         "recommended": "Recommended",
-        "recommendationHelpLabel": "BookOrbitが推奨するISBNの選択",
+        "recommendationHelpLabel": "TLS Libraryが推奨するISBNの選択",
         "recommendationTitle": "おすすめの検索方法を選択",
         "recommendationLanguage": "既知の不一致の前に、要求された言語、そして未知の言語を優先します。",
         "recommendationAgreement": "より独立したメタデータプロバイダによって確認されたISBNを好みます。",
-        "recommendationProvider": "BookOrbitの安定したメタデータプロバイダの優先順位を使用します。",
+        "recommendationProvider": "TLS Libraryの安定したメタデータプロバイダの優先順位を使用します。",
         "recommendationRelevance": "そのプロバイダの結果でエディションの位置を使用します。",
         "recommendationYear": "最も早く知られている年に最も近い版年を好む。",
         "recommendationStable": "ISBN自体を最終的な安定したタイブレーカーとして使用してください。",
-        "recommendationFallback": "有効なISBNがない場合、BookOrbitはタイトルと著者によって一度検索されます。メニューからエディションを選択すると、常にこの推奨事項が上書きされます。",
+        "recommendationFallback": "有効なISBNがない場合、TLS Libraryはタイトルと著者によって一度検索されます。メニューからエディションを選択すると、常にこの推奨事項が上書きされます。",
         "withoutIsbn": "タイトルと著者で検索",
         "action": "アクション"
       },
@@ -8350,7 +8350,7 @@
         "fileTooLarge": "そのファイルは {limit}より大きいので、.Torrent ファイルではありません",
         "fileUnreadable": "そのファイルは読み込めませんでした"
       },
-      "noClientList": "BookOrbitは、最も優先度の高い有効化されたダウンロードクライアントを使用します。"
+      "noClientList": "TLS Libraryは、最も優先度の高い有効化されたダウンロードクライアントを使用します。"
     },
     "attempts": {
       "title": "以前の試行",
@@ -8487,7 +8487,7 @@
       "manifest": {
         "ready": "{count, plural, one {このリリースには # ファイルが含まれています。サポートされているブックファイルをインポートできます。} other {このリリースには # ファイルが含まれています。サポートされているブックファイルをインポートすることができます。}}",
         "noSupported": "このリリースには直接サポートされているブックファイルがないため、送信できません。",
-        "contentsUnknown": "このリリースはアーカイブ(RAR、ZIP、または7z)としてパッケージ化されています。BookOrbitはダウンロード後に解凍されるため、その内容はまだ分かっていません。",
+        "contentsUnknown": "このリリースはアーカイブ(RAR、ZIP、または7z)としてパッケージ化されています。TLS Libraryはダウンロード後に解凍されるため、その内容はまだ分かっていません。",
         "multipleBooks": "このリリースには {count} 個別の本が含まれています。ダウンロード後は、どの本をインポートするかを尋ねられます。",
         "multiPartBook": "{count,plural,one{このリリースは1冊の本で構成されています # ファイルを選択します。} other{このリリースは1冊の本で構成されています # ファイルを単一の本としてインポートします。}}",
         "metadataUnavailable": "これはマグネットリンクです。Torrentクライアントがswarmからメタデータを取得するまで、ファイル一覧は利用できません。",
@@ -8613,7 +8613,7 @@
     },
     "seed": {
       "title": "クライアントをダウンロード",
-      "automated": "BookOrbitはこのリリースを自動的に選択しました。",
+      "automated": "TLS Libraryはこのリリースを自動的に選択しました。",
       "loading": "ダウンロードクライアントを読んでいます...",
       "loadFailed": "このリクエストのダウンロードクライアントにアクセスできませんでした。",
       "notInClient": "ダウンロードクライアントにはこのトレントがありません。",
@@ -8628,7 +8628,7 @@
       "ofGoal": "{value} / {goal}",
       "deleteFiles": "ダウンロードしたファイルも削除する",
       "remove": "クライアントから削除",
-      "removeHint": "BookOrbitは単独でシードを停止することはありません。インポートされた本はどちらの方法でもライブラリに残ります。",
+      "removeHint": "TLS Libraryは単独でシードを停止することはありません。インポートされた本はどちらの方法でもライブラリに残ります。",
       "confirm": {
         "title": "このトレントを削除しますか？",
         "description": "Torrent はシードを停止します。ダウンロードしたファイルはディスクに残ります。",
@@ -8936,9 +8936,9 @@
       "changePassword": "パスワードの変更",
       "signOut": "サインアウト",
       "githubStar": {
-        "title": "BookOrbitを楽しんでいますか？",
-        "body": "BookOrbitがライブラリをサポートしている場合は、GitHubでプロジェクトを主演することを検討してください。より多くの人がアプリを発見し、継続的な開発をサポートするのに役立ちます。",
-        "cta": "GitHub のStar BookOrbit"
+        "title": "TLS Libraryを楽しんでいますか？",
+        "body": "TLS Libraryがライブラリをサポートしている場合は、GitHubでプロジェクトを主演することを検討してください。より多くの人がアプリを発見し、継続的な開発をサポートするのに役立ちます。",
+        "cta": "GitHub のStar TLS Library"
       },
       "surfaceOpacity": "表面の透明度",
       "surfaceOpacityValue": "{value}%",
@@ -9224,10 +9224,10 @@
       "collectionsEmptyHint": "コレクションは、手で選ぶグループの本。"
     },
     "legalNotices": {
-      "about": "BookOrbitについて",
+      "about": "TLS Libraryについて",
       "trigger": "法的通知",
-      "title": "BookOrbitについて",
-      "description": "BookOrbitのアトリビューション、ライセンス、およびソースコード。",
+      "title": "TLS Libraryについて",
+      "description": "TLS Libraryのアトリビューション、ライセンス、およびソースコード。",
       "poweredBy": "Powered by BookOrbit",
       "originalDevelopment": "このソフトウェアは、もともとBookOrbitとして開発された材料が含まれています。",
       "copyright": "Copyright (C) 2025-2026 neon.",
@@ -9306,7 +9306,7 @@
     },
     "libraryLoad": {
       "errorTitle": "ライブラリを読み込むことができません",
-      "errorDescription": "BookOrbitはライブラリを取得できませんでした。ライブラリデータが削除されませんでした。"
+      "errorDescription": "TLS Libraryはライブラリを取得できませんでした。ライブラリデータが削除されませんでした。"
     },
     "scroller": {
       "failedToLoad": "読み込みに失敗しました。",
@@ -9722,7 +9722,7 @@
       "serversEmptyTitle": "メールサーバーがありません",
       "serversEmptyBody": "Gmail、Outlook、iCloud、Fastmailはワンクリックで、他のサーバーも動作します。",
       "needServerTitle": "送信する前にメールサーバーを追加する",
-      "needServerBody": "BookOrbitは、Gmailなどの独自のSMTPアカウントを介して、アプリのパスワードを持つ本を送信します。",
+      "needServerBody": "TLS Libraryは、Gmailなどの独自のSMTPアカウントを介して、アプリのパスワードを持つ本を送信します。",
       "needServerAsk": "管理者にメールサーバーを共有するよう依頼してください。",
       "goToServers": "メールサーバーに移動",
       "noEncryption": "暗号化なし"
@@ -9752,7 +9752,7 @@
       "unreachable": "{server} は応答していません。",
       "unconfirmed": "メッセージが引き渡された後、接続が切断されたので、到着した可能性があります。",
       "unconfirmedFix": "再送信する前に受信トレイをチェックするか、二度到着する可能性があります。",
-      "interrupted": "このメールが出ている間にBookOrbitが再起動しました。",
+      "interrupted": "このメールが出ている間にTLS Libraryが再起動しました。",
       "interruptedFix": "再送信する前に受信トレイをチェックしてください。",
       "preparation": "ファイルを送信できませんでした。",
       "other": "メールサーバーはそれを拒否しました。",
@@ -9876,8 +9876,8 @@
         "approveNoServer": "Kindleが承認しなければならないアドレスを確認するには、メールサーバーを最初に追加してください。",
         "lastSent": "前回 {time}を送信しました",
         "sendTest": "テストメールを送信",
-        "testSubject": "BookOrbit テストメール",
-        "testBody": "これはBookOrbitのテストです。読むことができれば、 {name} に送られた本もここに届きます。",
+        "testSubject": "TLS Library テストメール",
+        "testBody": "これはTLS Libraryのテストです。読むことができれば、 {name} に送られた本もここに届きます。",
         "testSent": "テストメールを {name} に送信しました",
         "testFailed": "テストメールが送信されませんでした: {error}",
         "makeDefault": "クイック送信の受信者に設定",
@@ -9922,7 +9922,7 @@
         "share": "全員と共有",
         "shareHint": "他の人はパスワードを見ずにこのサーバーを通じて本を送ることができます。",
         "system": "パスワードリセットとサインインリンクを送信",
-        "systemHint": "一つのサーバー BookOrbit 自体が使用しています。スーパーユーザーのみがこれを変更できます。",
+        "systemHint": "一つのサーバー TLS Library 自体が使用しています。スーパーユーザーのみがこれを変更できます。",
         "verifyTls": "サーバー証明書を確認する",
         "verifyTlsHint": "自己署名証明書を使用して、独自のネットワーク上のサーバーのみをオフにします。",
         "test": "接続をテスト",
@@ -9981,7 +9981,7 @@
     }
   },
   "errors": {
-    "network": "BookOrbitに到達できませんでした。接続を確認してから、もう一度お試しください。"
+    "network": "TLS Libraryに到達できませんでした。接続を確認してから、もう一度お試しください。"
   },
   "hardcover": {
     "settings": {
@@ -10027,7 +10027,7 @@
       },
       "syncOnProgress": {
         "title": "進行状況の更新時に同期",
-        "description": "BookOrbitまたはKOReaderの進行状況が変更されたときに読み込みの進行状況と日付をプッシュします。"
+        "description": "TLS LibraryまたはKOReaderの進行状況が変更されたときに読み込みの進行状況と日付をプッシュします。"
       },
       "syncOnRating": {
         "title": "評価変更時に同期",
@@ -10081,7 +10081,7 @@
     },
     "import": {
       "title": "Pull read status",
-      "description": "空白の BookOrbit の状態を埋める前にハードカバーの一致をプレビューします。",
+      "description": "空白の TLS Library の状態を埋める前にハードカバーの一致をプレビューします。",
       "clear": "クリア",
       "preview": "プレビュー",
       "importProgress": "進行状況をインポート",
@@ -10328,7 +10328,7 @@
           "options": {
             "imported": {
               "title": "インポートされた時",
-              "hint": "BookOrbitが最初にブックをインポートした日付です。これはデフォルトです。"
+              "hint": "TLS Libraryが最初にブックをインポートした日付です。これはデフォルトです。"
             },
             "file_modified": {
               "title": "ファイルの変更時間",
@@ -10440,7 +10440,7 @@
           "opfTitle": "metadata.opf ファイル",
           "opfHint": "キャリバーによって本の横に保存されました",
           "swap": "注文を入れ替え",
-          "hint": "BookOrbitは、本が持つ最初のものを使用し、他のものを無視します。 キャリバーライブラリは通常、最初にmetadata.opfを必要とします。"
+          "hint": "TLS Libraryは、本が持つ最初のものを使用し、他のものを無視します。 キャリバーライブラリは通常、最初にmetadata.opfを必要とします。"
         },
         "regex": {
           "title": "正規表現のメタデータを構成",
@@ -10680,7 +10680,7 @@
           "metadata": "どのファイルは、本がいくつかあるとき、そしてその詳細がどこから来るかにつながります。",
           "reading": "本が未読から読むことに動くとき。",
           "schedule": "Scan を押さずにライブラリの電流を維持します。",
-          "fileWrite": "オプションの変更 BookOrbitはディスク上のファイルになります。",
+          "fileWrite": "オプションの変更 TLS Libraryはディスク上のファイルになります。",
           "access": "他に誰が見ることができ、このライブラリで動作します。"
         }
       },
@@ -10995,7 +10995,7 @@
       },
       "cwa": {
         "snapshotTitle": "スナップショットモードを停止しました",
-        "stoppedWarning": "Calibre-Web 両方のデータベースをコピーする前に自動化を停止します。BookOrbitは、2つのスナップショットがまったく同じ瞬間にコピーされたことを確認できません。",
+        "stoppedWarning": "Calibre-Web 両方のデータベースをコピーする前に自動化を停止します。TLS Libraryは、2つのスナップショットがまったく同じ瞬間にコピーされたことを確認できません。",
         "importRootGuidance": "どちらのスナップショットファイルも、設定されたMGRATION_IMPORT_ROOTディレクトリの下のサーバーパスでなければなりません。",
         "logicalRootGuidance": "Book path マッピングは、これらのデータベース スナップショットを含むホスト フォルダーではなく、app.db に格納されている論理的な Calibre ライブラリ ルートを使用します。",
         "compatibilityNote": "Calibre-Web Automated v4.0.6 に対してスキーマの動作が検証されます。データベースは信頼性の高いアプリケーションリリースバージョンを公開しません。"
@@ -11027,7 +11027,7 @@
       "targetUser": "ターゲットユーザー",
       "doNotImport": "この利用者をインポートしない",
       "noSourceUsersLoaded": "ソースユーザーはまだ読み込まれていません。",
-      "noActiveTargetUsers": "アクティブなターゲットユーザーが見つかりませんでした。マッピングする前にBookOrbitユーザーを作成または再び有効化してください。",
+      "noActiveTargetUsers": "アクティブなターゲットユーザーが見つかりませんでした。マッピングする前にTLS Libraryユーザーを作成または再び有効化してください。",
       "pathPrefixMappings": "パスプレフィックスマッピング",
       "addMapping": "マッピングを追加",
       "pathMappingsExplanation": "パスマッピングは、ソースファイルのパスをターゲットパスに変換し、ブックをファイルの場所にマッチさせることができます。 本は、パスマッピングに関係なく、ISBN、ファイルハッシュ、タイトル/著者によっても一致します。",
@@ -12228,7 +12228,7 @@
       },
       "confirmDialog": {
         "title": "{count, plural, other {ディスク上の # 個のファイルの名前を変更しますか？}}",
-        "body": "{library} 内の実際のファイルを移動します。BookOrbit は各移動を記録しますが、元に戻すには再度名前を変更する必要があります。",
+        "body": "{library} 内の実際のファイルを移動します。TLS Library は各移動を記録しますが、元に戻すには再度名前を変更する必要があります。",
         "willRename": "名前を変更します",
         "skippedByYou": "あなたにスキップされました",
         "heldBack": "競合として保留されます",
@@ -13023,7 +13023,7 @@
       "offer": "デバイスのコピーのみを削除しました。交換を申し出てください",
       "confirm": "交換をインストールしました",
       "cancel": "置換をキャンセル",
-      "replacementHint": "準備とレビューを最初に行います。デバイスコピーを削除してもライブラリブックは削除されません。自分でデバイスローカルノートをバックアップしてください。 BookOrbitは正規の進行状況とサーバー注釈を保持します。遅延イベントは正確な同期を制限する可能性があります。",
+      "replacementHint": "準備とレビューを最初に行います。デバイスコピーを削除してもライブラリブックは削除されません。自分でデバイスローカルノートをバックアップしてください。 TLS Libraryは正規の進行状況とサーバー注釈を保持します。遅延イベントは正確な同期を制限する可能性があります。",
       "prepared": "交換準備: {format}, {size}. 選択されたデバイスからのみこの本を削除し、準備された交換と同期を提供します。",
       "offered": "置き換えが提供されています。デバイス上で同期してダウンロードし、インストールを確認します。完了したHTTP転送はインストールを証明しません。",
       "cancelled": "交換はキャンセルされました。キャンセルは削除または部分的に交換されたデバイスのコピーを復元しません。リカバリのダウンロードを準備するには、同じ本を選択してください。",

@@ -106,7 +106,7 @@ export class ProwlarrClient {
         try {
           return JSON.parse(await readBoundedText(response, MAX_JSON_BYTES));
         } catch (error) {
-          if (error instanceof ResponseTooLargeError) throw new BadGatewayException('Prowlarr returned more data than BookOrbit will read');
+          if (error instanceof ResponseTooLargeError) throw new BadGatewayException('Prowlarr returned more data than TLS Library will read');
           if (error instanceof SyntaxError) throw new BadGatewayException('Prowlarr returned invalid JSON');
           throw error;
         }

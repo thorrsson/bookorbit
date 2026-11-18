@@ -10,7 +10,7 @@ async function readPluginFile(name: string): Promise<string> {
 }
 
 describe('KOReader plugin update source wiring', () => {
-  it("opens BookOrbit from KOReader's menu bar and keeps Tools to two rows", async () => {
+  it("opens TLS Library from KOReader's menu bar and keeps Tools to two rows", async () => {
     const menu = await readPluginFile('bookorbit_main_menu.lua');
     const pin = await readPluginFile('bookorbit_menu_pin.lua');
     const updater = await readPluginFile('bookorbit_updater.lua');
@@ -20,7 +20,7 @@ describe('KOReader plugin update source wiring', () => {
     );
 
     expect(toolsBlock).toContain('id = "open_dashboard"');
-    expect(toolsBlock).toContain('text = _("Open BookOrbit")');
+    expect(toolsBlock).toContain('text = _("Open TLS Library")');
     expect(toolsBlock).toContain('id = "this_book"');
     expect(toolsBlock).toContain('id = "settings"');
     expect(toolsBlock).toContain('sorting_hint = "tools"');
@@ -49,7 +49,7 @@ describe('KOReader plugin update source wiring', () => {
     expect(updater).not.toContain('return T(_("Installed plugin: v%1"), PLUGIN_VERSION)');
   });
 
-  it("keeps every setting one level deep on BookOrbit's own settings page", async () => {
+  it("keeps every setting one level deep on TLS Library's own settings page", async () => {
     const settings = await readPluginFile('bookorbit_settings_page.lua');
     const sheet = await readPluginFile('bookorbit_menu_sheet.lua');
     const menu = await readPluginFile('bookorbit_main_menu.lua');
@@ -79,7 +79,7 @@ describe('KOReader plugin update source wiring', () => {
     expect(sheet).toContain('plugin:onBookOrbitToggleAutoSync(nil, true, true)');
     expect(sheet).toContain('plugin:syncToProgress(remote.progress, remote.percentage)');
     expect(main).toContain('event = "BookOrbitThisBook"');
-    expect(main).toContain('title = _("BookOrbit: open")');
+    expect(main).toContain('title = _("TLS Library: open")');
     expect(progress).toContain('function ProgressSync:fetchRemoteProgress(digest, on_done, force)');
     expect(progress).toContain('self:rememberRemoteProgress(digest, body)');
   });
@@ -190,7 +190,7 @@ describe('KOReader plugin update source wiring', () => {
     const sheet = await readPluginFile('bookorbit_update_sheet.lua');
 
     expect(updater).toContain('local server_ver = tostring(body.serverVersion or "unknown"):gsub("^v", "")');
-    expect(updater).toContain('BookOrbit is up to date, v%1"), tostring(PLUGIN_VERSION):gsub("^v", "")');
+    expect(updater).toContain('TLS Library is up to date, v%1"), tostring(PLUGIN_VERSION):gsub("^v", "")');
     expect(updater).toContain(
       'require("bookorbit_update_sheet").open(self, { current = PLUGIN_VERSION, latest = plugin_latest, server = server_ver })',
     );
@@ -261,7 +261,7 @@ describe('KOReader plugin update source wiring', () => {
     expect(refreshTapBlock).not.toContain('self:bulkClearSelectedBooks(true)');
     expect(catalog).toContain('self:showBookActionSheetForEntry(item)');
     expect(detail).toContain('allow_select = item.kind == "book" and self:bookMode()');
-    expect(catalog).toContain('text = _("Close BookOrbit")');
+    expect(catalog).toContain('text = _("Close TLS Library")');
     expect(catalog).not.toContain('"appbar.download"');
     expect(catalog).not.toContain('close_callback = function() self:onClose() end');
 
@@ -289,7 +289,7 @@ describe('KOReader plugin update source wiring', () => {
     expect(download).toContain('elseif self.updateItems and on_catalog_page then');
     expect(download).toContain('local Transfer = require("bookorbit_download_transfer")');
 
-    expect(sheet).toContain('_("Close BookOrbit")');
+    expect(sheet).toContain('_("Close TLS Library")');
     expect(menu).toContain('catalog:onCloseAllMenus()');
     expect(main).toContain('path = self.path');
     expect(main).toContain('catalog_mosaic_show_titles = false');
@@ -386,7 +386,7 @@ describe('KOReader plugin update source wiring', () => {
     expect(sweep).toContain('%1 books need to be opened and synced once to recover their reading history.');
   });
 
-  it('takes account fields and list filters in the BookOrbit text panel', async () => {
+  it('takes account fields and list filters in the TLS Library text panel', async () => {
     const signIn = await readPluginFile('bookorbit_signin_page.lua');
     const menu = await readPluginFile('bookorbit_main_menu.lua');
     const catalog = await readPluginFile('bookorbit_catalog.lua');

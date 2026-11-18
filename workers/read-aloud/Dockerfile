@@ -70,8 +70,8 @@ USER node
 EXPOSE 8787
 ENTRYPOINT ["/usr/bin/tini", "--", "/app/entrypoint.sh"]
 
-LABEL org.opencontainers.image.title="BookOrbit Read-Aloud Worker" \
-      org.opencontainers.image.description="Read-aloud EPUB generation worker for BookOrbit" \
+LABEL org.opencontainers.image.title="TLS Library Read-Aloud Worker" \
+      org.opencontainers.image.description="Read-aloud EPUB generation worker for TLS Library" \
       org.opencontainers.image.url="https://bookorbit.app" \
       org.opencontainers.image.documentation="https://github.com/thorrsson/bookorbit/blob/main/docs/READ_ALOUD.md" \
       org.opencontainers.image.source="https://github.com/thorrsson/bookorbit" \

@@ -206,7 +206,7 @@ describe('ReadAloudDialog', () => {
     expect(events[1]![0].audioFileIds).toEqual([102, 103, 104])
   })
 
-  it('defaults to replacing a read-along BookOrbit made', async () => {
+  it('defaults to replacing a read-along TLS Library made', async () => {
     const dialog = mountDialog({
       capability: makeCapability({
         existingReadAlongs: [{ fileId: 300, filename: 'book.readaloud.epub', sizeBytes: 900, generatedByJobId: 'job-1' }],

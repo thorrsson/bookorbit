@@ -40,8 +40,8 @@ export default defineConfig({
         'maskable-icon-512x512.png',
       ],
       manifest: {
-        name: 'BookOrbit',
-        short_name: 'BookOrbit',
+        name: 'TLS Library',
+        short_name: 'TLS Library',
         description: 'Your personal book library and reading space',
         theme_color: '#1e1e18',
         background_color: '#fafaf8',

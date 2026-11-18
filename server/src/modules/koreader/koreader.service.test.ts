@@ -1363,7 +1363,7 @@ describe('KoreaderService', () => {
       expect(mockPositionConverter.cfiPointToXpointer).not.toHaveBeenCalled();
     });
 
-    it.each(['pdf', 'cbz', 'cbr', 'cb7'])('serves the stored page to KOReader for a %s written by a BookOrbit client', async (format) => {
+    it.each(['pdf', 'cbz', 'cbr', 'cb7'])('serves the stored page to KOReader for a %s written by a TLS Library client', async (format) => {
       const readerTime = new Date('2026-02-01T11:00:00.000Z');
       mockRepo.resolveBookFileByHash.mockResolvedValue({ id: 10, format });
       mockRepo.getLatestDeviceProgress.mockResolvedValue(null);

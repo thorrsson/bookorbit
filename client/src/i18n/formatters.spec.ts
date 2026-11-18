@@ -8,7 +8,7 @@ describe('locale formatters', () => {
     await setI18nLocale('en')
   })
 
-  it('formats numbers with the active BookOrbit locale', async () => {
+  it('formats numbers with the active TLS Library locale', async () => {
     await setI18nLocale('en')
     expect(formatNumber(1234.5)).toBe('1,234.5')
 
@@ -28,7 +28,7 @@ describe('locale formatters', () => {
     expect(formatCompactNumber(1234)).toBe('1,2K')
   })
 
-  it('formats dates with the active BookOrbit locale', async () => {
+  it('formats dates with the active TLS Library locale', async () => {
     const date = new Date('2026-01-15T12:00:00Z')
 
     await setI18nLocale('en')

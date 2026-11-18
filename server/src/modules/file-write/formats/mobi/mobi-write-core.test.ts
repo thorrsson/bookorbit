@@ -17,7 +17,7 @@ const PAYLOAD: BookWritePayload = {
     { name: 'Ada Lovelace', sortName: 'Lovelace, Ada' },
     { name: 'Grace Hopper', sortName: 'Hopper, Grace' },
   ],
-  publisher: 'BookOrbit Press',
+  publisher: 'TLS Library Press',
   description: 'A rewritten description.',
   publishedDate: '2019-03-04T00:00:00+00:00',
   language: 'fr',
@@ -53,7 +53,7 @@ describe('writeMobiMetadata: field mapping', () => {
 
     expect(parsed.title).toBe('Written Title');
     expect(parsed.authors).toEqual(['Ada Lovelace', 'Grace Hopper']);
-    expect(parsed.publisher).toBe('BookOrbit Press');
+    expect(parsed.publisher).toBe('TLS Library Press');
     expect(parsed.description).toBe('A rewritten description.');
     expect(parsed.publishedDate).toBe('2019-03-04T00:00:00+00:00');
     expect(parsed.language).toBe('fr');
@@ -152,7 +152,7 @@ describe('writeMobiMetadata: field mask', () => {
 
     expect(fieldsWritten.sort()).toEqual(['publisher', 'title']);
     expect(parsed.title).toBe('Written Title');
-    expect(parsed.publisher).toBe('BookOrbit Press');
+    expect(parsed.publisher).toBe('TLS Library Press');
     expect(parsed.authors).toEqual([]);
   });
 

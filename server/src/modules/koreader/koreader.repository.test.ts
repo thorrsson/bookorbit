@@ -656,13 +656,13 @@ describe('KoreaderRepository', () => {
       await expect(repo.getUnmatchedBook(7, 'a'.repeat(32))).resolves.toBeNull();
     });
 
-    it('lists manual hash links with aggregated BookOrbit authors', async () => {
+    it('lists manual hash links with aggregated TLS Library authors', async () => {
       const linkRows = [
         {
           hash: 'a'.repeat(32),
           bookFileId: 44,
           bookId: 55,
-          bookTitle: 'BookOrbit Title',
+          bookTitle: 'TLS Library Title',
           koreaderTitle: 'KOReader Title',
           koreaderAuthors: 'KOReader Author',
           koreaderLastOpen: 100,
@@ -670,9 +670,9 @@ describe('KoreaderRepository', () => {
           updatedAt: new Date('2026-06-02T10:00:00.000Z'),
         },
       ];
-      db.select.mockReturnValueOnce(makeQueryChain(linkRows)).mockReturnValueOnce(makeQueryChain([{ bookId: 55, name: 'BookOrbit Author' }]));
+      db.select.mockReturnValueOnce(makeQueryChain(linkRows)).mockReturnValueOnce(makeQueryChain([{ bookId: 55, name: 'TLS Library Author' }]));
 
-      await expect(repo.listBookHashLinks(7, 25, [1])).resolves.toEqual([{ ...linkRows[0], bookAuthors: ['BookOrbit Author'] }]);
+      await expect(repo.listBookHashLinks(7, 25, [1])).resolves.toEqual([{ ...linkRows[0], bookAuthors: ['TLS Library Author'] }]);
       expect(db.select).toHaveBeenCalledTimes(2);
     });
 

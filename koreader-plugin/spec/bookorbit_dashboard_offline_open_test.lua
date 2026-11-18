@@ -101,7 +101,7 @@ local function openDashboardMenuItem()
     for _, item in ipairs(menu_items.bookorbit.sub_item_table) do
         if item.id == "open_dashboard" then return item end
     end
-    error("the BookOrbit menu has an Open BookOrbit item")
+    error("the TLS Library menu has an Open TLS Library item")
 end
 
 -- Tools > BookOrbit > Open BookOrbit while offline.

@@ -6,7 +6,7 @@ describe('normalizeSwaggerDocument', () => {
   it('uses operation-level security so public routes do not inherit bearer auth', () => {
     const document = {
       openapi: '3.0.0',
-      info: { title: 'BookOrbit API', version: 'test' },
+      info: { title: 'TLS Library API', version: 'test' },
       paths: {
         '/api/v1/auth/login': {
           post: {
@@ -33,7 +33,7 @@ describe('normalizeSwaggerDocument', () => {
   it('offers only a session on routes an API key cannot call', () => {
     const document = {
       openapi: '3.0.0',
-      info: { title: 'BookOrbit API', version: 'test' },
+      info: { title: 'TLS Library API', version: 'test' },
       paths: {
         '/api/v1/auth/sessions': { get: { 'x-api-key': 'interactive', responses: { '200': { description: '' } } } },
         '/api/v1/auth/me': { get: { 'x-api-key': 'allowed', responses: { '200': { description: '' } } } },

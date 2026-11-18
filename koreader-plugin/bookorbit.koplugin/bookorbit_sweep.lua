@@ -183,7 +183,7 @@ local function finish(ctx, err)
     -- handler; the counts below still describe what the server accepted.
     local flushed, flush_err = pcall(ctx.state.flush, ctx.state)
     if not flushed then
-        logger.err("BookOrbit: sweep state flush failed:", flush_err)
+        logger.err("TLS Library: sweep state flush failed:", flush_err)
         ctx.had_errors = true
     end
 
@@ -192,7 +192,7 @@ local function finish(ctx, err)
             report(ctx, { error = true, title = _("Sync stopped"), sub = _("What synced so far is kept. The rest syncs next time.") })
         end
         logger.info(string.format(
-            "BookOrbit: sweep cancelled reason=%s matched=%d pageStats=%d annotations=%d %s",
+            "TLS Library: sweep cancelled reason=%s matched=%d pageStats=%d annotations=%d %s",
             tostring(ctx.cancel_reason or "user"), ctx.counts.books_matched, ctx.counts.page_stats,
             ctx.counts.annotations, chunkSummary(ctx)))
         if ctx.on_finish then
@@ -230,9 +230,9 @@ local function finish(ctx, err)
 
     if err == "auth" then
         if ctx.interactive and not ctx.quiet then
-            report(ctx, { error = true, title = _("Sign-in failed"), sub = _("Check your KOReader login in BookOrbit: Settings, KOReader.") })
+            report(ctx, { error = true, title = _("Sign-in failed"), sub = _("Check your KOReader login in TLS Library: Settings, KOReader.") })
         elseif not ctx.quiet then
-            require("bookorbit_toast").error(_("BookOrbit sign-in failed"))
+            require("bookorbit_toast").error(_("TLS Library sign-in failed"))
         end
         if ctx.on_finish then
             pcall(ctx.on_finish, err)
@@ -242,9 +242,9 @@ local function finish(ctx, err)
 
     if err == "network" then
         if ctx.interactive and not ctx.quiet then
-            report(ctx, { error = true, title = _("BookOrbit is not reachable"), sub = _("Check the connection and try again.") })
+            report(ctx, { error = true, title = _("TLS Library is not reachable"), sub = _("Check the connection and try again.") })
         end
-        logger.dbg("BookOrbit: sweep aborted, server not reachable")
+        logger.dbg("TLS Library: sweep aborted, server not reachable")
         if ctx.on_finish then
             pcall(ctx.on_finish, err)
         end
@@ -255,7 +255,7 @@ local function finish(ctx, err)
         if ctx.interactive and not ctx.quiet then
             report(ctx, { error = true, title = _("The server could not finish the sync"), sub = _("Try again in a moment.") })
         end
-        logger.warn("BookOrbit: sweep aborted, server request failed")
+        logger.warn("TLS Library: sweep aborted, server request failed")
         if ctx.on_finish then
             pcall(ctx.on_finish, err)
         end
@@ -269,7 +269,7 @@ local function finish(ctx, err)
                 ctx.highlight_summary.applied, ctx.highlight_summary.deleted, ctx.highlight_summary.touched_books))
         end
         if ctx.highlight_unsupported then
-            table.insert(notes, _("BookOrbit server needs an update for two-way highlights."))
+            table.insert(notes, _("TLS Library server needs an update for two-way highlights."))
         end
         if ctx.highlight_disabled_reported then
             table.insert(notes, _("Two-way highlight and bookmark sync is disabled."))
@@ -292,7 +292,7 @@ local function finish(ctx, err)
         })
     end
     logger.info(string.format(
-        "BookOrbit: sweep done matched=%d pageStats=%d annotations=%d applied=%d deleted=%d %s errors=%s",
+        "TLS Library: sweep done matched=%d pageStats=%d annotations=%d applied=%d deleted=%d %s errors=%s",
         ctx.counts.books_matched, ctx.counts.page_stats, ctx.counts.annotations,
         ctx.counts.ann_applied or 0, ctx.counts.ann_deleted or 0, chunkSummary(ctx),
         tostring(ctx.had_errors)))
@@ -329,7 +329,7 @@ local function guardedRun(ctx, fn)
     if aborted(ctx) then return end
     local ok, err = pcall(fn, ctx)
     if not ok then
-        logger.err("BookOrbit: sweep step failed:", err)
+        logger.err("TLS Library: sweep step failed:", err)
         ctx.had_errors = true
         finish(ctx)
     end
@@ -424,7 +424,7 @@ local function stepEnumerateStats(ctx)
         if #rows < ENUM_PAGE then
             return step(ctx, ctx.steps.enumerateCandidates)
         end
-        setProgress(ctx, T(_("BookOrbit sync: reading local library (%1)"), rows_read), nil, _("Reading library"))
+        setProgress(ctx, T(_("TLS Library sync: reading local library (%1)"), rows_read), nil, _("Reading library"))
         chunk(ctx, pump)
     end
 
@@ -673,7 +673,7 @@ local function stepMatchNext(ctx)
         return
     end
 
-    setProgress(ctx, _("BookOrbit sync: matching books..."), nil, _("Matching books"))
+    setProgress(ctx, _("TLS Library sync: matching books..."), nil, _("Matching books"))
     local body, err = ctx.client:matchCheck(batch, ctx.candidates)
     if aborted(ctx) then return end
     if not body then
@@ -715,7 +715,7 @@ local function stepStatsNext(ctx)
 
     local total = ctx.stats_queue:total()
     if total > 0 then
-        setProgress(ctx, T(_("BookOrbit sync: uploading reading data (%1/%2)"),
+        setProgress(ctx, T(_("TLS Library sync: uploading reading data (%1/%2)"),
             ctx.stats_queue:done(), total), nil, T(_("Reading data %1/%2"), ctx.stats_queue:done(), total), ctx.stats_queue:done(), total)
     end
 
@@ -741,7 +741,7 @@ local function stepStatsNext(ctx)
     if aborted(ctx) then return end
     if not body then
         if isAuthError(err) then return finish(ctx, "auth") end
-        logger.dbg("BookOrbit: page stats upload failed for", item.md5, err)
+        logger.dbg("TLS Library: page stats upload failed for", item.md5, err)
         ctx.had_errors = true
         step(ctx, ctx.steps.statsNext)
         return
@@ -804,7 +804,7 @@ local function fetchServerPending(ctx)
         local body, err = ctx.client:annotationPendingBooks(chunk)
         if not body then
             if err == 404 then BookOrbitCapabilities.markUnsupported(ctx.client, "annotationPendingBooks") end
-            logger.dbg("BookOrbit: pending annotation books unavailable:", err)
+            logger.dbg("TLS Library: pending annotation books unavailable:", err)
             return
         end
         for _, md5 in ipairs(body.pending or {}) do
@@ -933,7 +933,7 @@ local function stepSidecars(ctx)
         items = SIDECAR_CHUNK_ITEMS,
         elapsed_key = "sidecar_ms",
         progress = function(progress_ctx, done, total)
-            setProgress(progress_ctx, T(_("BookOrbit sync: checking books (%1/%2)"), done, total), nil, T(_("Checking %1/%2"), done, total), done, total)
+            setProgress(progress_ctx, T(_("TLS Library sync: checking books (%1/%2)"), done, total), nil, T(_("Checking %1/%2"), done, total), done, total)
         end,
     }, function()
         step(ctx, ctx.steps.annotationsNext)
@@ -976,7 +976,7 @@ local function exchangeBookmarksForEntry(ctx, entry, apply_mode, pending)
         ctx.had_errors = true
         if pending then pending.failed = true end
         ctx.highlight_summary = BookOrbitHighlightSummary.addBookmarks(ctx.highlight_summary, { had_errors = true })
-        logger.dbg("BookOrbit: bookmark exchange failed for", entry.md5, err)
+        logger.dbg("TLS Library: bookmark exchange failed for", entry.md5, err)
         return false
     end
     if result.had_errors then
@@ -1004,7 +1004,7 @@ local function stepAnnotationsNext(ctx)
 
     local total = ctx.ann_queue:total()
     if total > 0 then
-        setProgress(ctx, T(_("BookOrbit sync: syncing highlights (%1/%2)"),
+        setProgress(ctx, T(_("TLS Library sync: syncing highlights (%1/%2)"),
             ctx.ann_queue:done(), total), nil, T(_("Highlights %1/%2"), ctx.ann_queue:done(), total), ctx.ann_queue:done(), total)
     end
 
@@ -1044,7 +1044,7 @@ local function stepAnnotationsNext(ctx)
         ctx.had_errors = true
         if pending then pending.failed = true end
         ctx.highlight_summary = BookOrbitHighlightSummary.add(ctx.highlight_summary, { had_errors = true })
-        logger.dbg("BookOrbit: annotation exchange failed for", entry.md5, err)
+        logger.dbg("TLS Library: annotation exchange failed for", entry.md5, err)
         return step(ctx, ctx.steps.annotationsNext)
     end
 
@@ -1122,7 +1122,7 @@ local function stepAnnotationsLegacyNext(ctx)
     if aborted(ctx) then return end
     if not body then
         if isAuthError(err) then return finish(ctx, "auth") end
-        logger.dbg("BookOrbit: annotations upload failed:", err)
+        logger.dbg("TLS Library: annotations upload failed:", err)
         ctx.had_errors = true
         ctx.highlight_summary = BookOrbitHighlightSummary.add(ctx.highlight_summary, { had_errors = true })
         for _, book in ipairs(books) do
@@ -1173,7 +1173,7 @@ local function stepStatesNext(ctx)
     if aborted(ctx) then return end
     if not body then
         if isAuthError(err) then return finish(ctx, "auth") end
-        logger.dbg("BookOrbit: book states upload failed:", err)
+        logger.dbg("TLS Library: book states upload failed:", err)
         ctx.had_errors = true
         for _, item in ipairs(batch) do
             local pending = ctx.pending_books[item.hash]
@@ -1243,7 +1243,7 @@ local function stepProgressNext(ctx)
     if aborted(ctx) then return end
     if not body then
         if isAuthError(err) then return finish(ctx, "auth") end
-        logger.dbg("BookOrbit: bulk progress upload failed:", err)
+        logger.dbg("TLS Library: bulk progress upload failed:", err)
         ctx.had_errors = true
         for _, item in ipairs(batch) do
             local pending = ctx.pending_books[item.hash]
@@ -1349,7 +1349,7 @@ function BookOrbitSweep.run(opts)
     local client = BookOrbitApi.new(opts.api)
     if not client:isConfigured() then
         if opts.interactive then
-            require("bookorbit_toast").error(_("Sign in to BookOrbit first."))
+            require("bookorbit_toast").error(_("Sign in to TLS Library first."))
         end
         return false
     end
@@ -1410,10 +1410,10 @@ function BookOrbitSweep.run(opts)
     active_ctx = ctx
 
     setProgress(ctx, ctx.full_recheck
-        and _("Rechecking every book against BookOrbit. This may take a while.")
-        or _("Syncing to BookOrbit. This may take a while on first run."), true,
+        and _("Rechecking every book against TLS Library. This may take a while.")
+        or _("Syncing to TLS Library. This may take a while on first run."), true,
         ctx.full_recheck and _("Rechecking") or _("Starting"))
-    logger.info("BookOrbit: sweep started, interactive:", ctx.interactive,
+    logger.info("TLS Library: sweep started, interactive:", ctx.interactive,
         "full recheck:", ctx.full_recheck)
 
     step(ctx, ctx.steps.enumerateStats)

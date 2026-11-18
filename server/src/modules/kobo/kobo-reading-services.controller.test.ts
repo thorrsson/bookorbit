@@ -112,7 +112,7 @@ describe('KoboReadingServicesController', () => {
     expect(reply.send).not.toHaveBeenCalled();
   });
 
-  it('does not record a failure when a pulled content id is not a BookOrbit book', async () => {
+  it('does not record a failure when a pulled content id is not a TLS Library book', async () => {
     exchangeService.getContentAnnotations.mockRejectedValueOnce(new KoboContentNotFoundException('1894971763'));
     const reply = makeReply();
 
@@ -159,7 +159,7 @@ describe('KoboReadingServicesController', () => {
     expect(historyService.recordFailure).toHaveBeenCalledWith(expect.objectContaining({ userId: 8, deviceId: 5, event: 'annotations_push' }), error);
   });
 
-  it('does not record a failure when a pushed content id is not a BookOrbit book', async () => {
+  it('does not record a failure when a pushed content id is not a TLS Library book', async () => {
     exchangeService.patchContentAnnotations.mockRejectedValueOnce(new KoboContentNotFoundException('1894971763'));
 
     await expect(controller.patchAnnotations('1894971763', {}, { id: 8 } as never, { deviceId: 5 } as never)).rejects.toThrow(

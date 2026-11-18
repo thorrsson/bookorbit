@@ -416,7 +416,7 @@ function normalizeSearch(value: string): string {
               </div>
 
               <div class="min-w-0 text-xs">
-                <p class="font-medium text-muted-foreground">BookOrbit</p>
+                <p class="font-medium text-muted-foreground">TLS Library</p>
                 <p class="truncate">{{ localStatusLabel(row) }}</p>
                 <p class="truncate text-muted-foreground">{{ matchMethodLabel(row) }} / {{ confidenceLabel(row) }}</p>
               </div>
@@ -424,7 +424,7 @@ function normalizeSearch(value: string): string {
               <div class="min-w-0 text-xs">
                 <p class="font-medium text-muted-foreground">{{ t('hardcover.review.column.progress') }}</p>
                 <p class="truncate">{{ progressLabel(row.importedProgressPercent) }} Hardcover</p>
-                <p class="truncate text-muted-foreground">{{ progressLabel(row.localProgressPercent) }} BookOrbit</p>
+                <p class="truncate text-muted-foreground">{{ progressLabel(row.localProgressPercent) }} TLS Library</p>
                 <p class="truncate" :class="progressOutcomeClass(row)">{{ progressOutcomeLabel(row) }}</p>
               </div>
 

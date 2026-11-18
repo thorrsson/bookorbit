@@ -811,7 +811,7 @@ function BoardData.build(catalog, context, now)
         if fn then
             local ok, v = pcall(fn)
             if not ok then
-                require("logger").warn("BookOrbit: board data", k, "failed:", v)
+                require("logger").warn("TLS Library: board data", k, "failed:", v)
                 v = nil
             end
             v = v or false

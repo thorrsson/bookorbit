@@ -28,7 +28,7 @@ describe('EmailRecipientTestService', () => {
     port: 587,
     username: 'u',
     password: 'p',
-    fromName: 'BookOrbit',
+    fromName: 'TLS Library',
     fromAddress: 'books@example.com',
     auth: true,
     ssl: false,
@@ -53,14 +53,14 @@ describe('EmailRecipientTestService', () => {
   });
 
   it('sends the given text from the default server and reports success', async () => {
-    const result = await service.send(6, 'BookOrbit test', 'It works.', user);
+    const result = await service.send(6, 'TLS Library test', 'It works.', user);
 
     expect(recipientService.getOwnedById).toHaveBeenCalledWith(6, user);
     expect(resolver.resolve).toHaveBeenCalledWith(user, null);
     expect(sendMail).toHaveBeenCalledWith({
-      from: 'BookOrbit <books@example.com>',
+      from: 'TLS Library <books@example.com>',
       to: 'inbox@example.com',
-      subject: 'BookOrbit test',
+      subject: 'TLS Library test',
       text: 'It works.',
     });
     expect(result).toEqual({ success: true });

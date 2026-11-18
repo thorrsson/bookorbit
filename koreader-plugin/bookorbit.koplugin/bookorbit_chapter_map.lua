@@ -95,13 +95,13 @@ function ChapterMap.remember(ui, md5)
     if not validMd5(md5) then return end
     local ok, map = pcall(ChapterMap.capture, ui)
     if not ok then
-        logger().dbg("BookOrbit: chapters not captured:", map)
+        logger().dbg("TLS Library: chapters not captured:", map)
         return
     end
     if not map then return end
     require("ui/uimanager"):nextTick(function()
         local saved, err = pcall(ChapterMap.save, md5, map)
-        if not saved then logger().warn("BookOrbit: chapters not saved:", err) end
+        if not saved then logger().warn("TLS Library: chapters not saved:", err) end
     end)
 end
 

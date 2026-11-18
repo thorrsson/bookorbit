@@ -398,7 +398,7 @@ describe('KoreaderHashLinkService', () => {
   });
 
   describe('listManualHashLinks', () => {
-    it('lists manual hash links with BookOrbit and KOReader metadata', async () => {
+    it('lists manual hash links with TLS Library and KOReader metadata', async () => {
       const createdAt = new Date('2026-06-01T10:00:00.000Z');
       const updatedAt = new Date('2026-06-02T11:00:00.000Z');
       mockRepo.listBookHashLinks.mockResolvedValue([
@@ -406,8 +406,8 @@ describe('KoreaderHashLinkService', () => {
           hash: HASH_A,
           bookId: 55,
           bookFileId: 44,
-          bookTitle: 'BookOrbit Title',
-          bookAuthors: ['BookOrbit Author'],
+          bookTitle: 'TLS Library Title',
+          bookAuthors: ['TLS Library Author'],
           koreaderTitle: 'KOReader Title',
           koreaderAuthors: 'KOReader Author',
           koreaderLastOpen: 100,
@@ -422,8 +422,8 @@ describe('KoreaderHashLinkService', () => {
           hash: HASH_A,
           bookId: 55,
           bookFileId: 44,
-          bookTitle: 'BookOrbit Title',
-          bookAuthors: ['BookOrbit Author'],
+          bookTitle: 'TLS Library Title',
+          bookAuthors: ['TLS Library Author'],
           koreaderTitle: 'KOReader Title',
           koreaderAuthors: 'KOReader Author',
           koreaderLastOpen: 100,

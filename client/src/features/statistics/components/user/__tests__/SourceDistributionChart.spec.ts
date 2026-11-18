@@ -85,15 +85,15 @@ describe('SourceDistributionChart', () => {
       tooltip: { formatter: (p: { name: string; value: number; percent: number; color: string }) => string }
     }
     const data = option.series[0]!.data
-    expect(data.map((d) => d.name)).toEqual(['BookOrbit', 'iOS app', 'Apple Watch', 'Kobo'])
+    expect(data.map((d) => d.name)).toEqual(['TLS Library', 'iOS app', 'Apple Watch', 'Kobo'])
     expect(data.map((d) => d.value)).toEqual([3600, 600, 600, 1200])
 
     // The tooltip formatter exercises the duration helper across all 3 branches.
     const fmt = option.tooltip.formatter
-    expect(fmt({ name: 'BookOrbit', value: 3661, percent: 75, color: '#abc' })).toContain('1h 1m')
+    expect(fmt({ name: 'TLS Library', value: 3661, percent: 75, color: '#abc' })).toContain('1h 1m')
     expect(fmt({ name: 'Kobo', value: 120, percent: 20, color: '#def' })).toContain('2m')
     expect(fmt({ name: 'Kobo', value: 30, percent: 5, color: '#def' })).toContain('30s')
-    expect(fmt({ name: 'BookOrbit', value: 3661, percent: 75, color: '#abc' })).toContain('75%')
+    expect(fmt({ name: 'TLS Library', value: 3661, percent: 75, color: '#abc' })).toContain('75%')
   })
 
   it('uses the desktop legend and centre layout at >= md width', async () => {

@@ -382,7 +382,7 @@ export class HardcoverImportService {
 
     const localStatus = match.book.status;
     if (localStatus && localStatus !== 'unread') {
-      return this.toPreviewRow(base, match.book, match.method, match.confidence, 'conflict', 'BookOrbit already has a read status');
+      return this.toPreviewRow(base, match.book, match.method, match.confidence, 'conflict', 'TLS Library already has a read status');
     }
 
     if (match.method === 'title_author') {
@@ -438,13 +438,13 @@ export class HardcoverImportService {
     indexes: LocalIndexes,
   ): Promise<MatchResult | MatchFailure> {
     const byHardcoverId = uniqueCandidate(indexes.byHardcoverId.get(hardcoverBook.book_id));
-    if (byHardcoverId === 'ambiguous') return { outcome: 'skipped', reason: 'Multiple BookOrbit books match this Hardcover ID' };
+    if (byHardcoverId === 'ambiguous') return { outcome: 'skipped', reason: 'Multiple TLS Library books match this Hardcover ID' };
     if (byHardcoverId) return { book: byHardcoverId, method: 'hardcover_id', confidence: 100 };
 
     const slug = hardcoverBook.book?.slug ? normalizeSlug(hardcoverBook.book.slug) : null;
     if (slug) {
       const bySlug = uniqueCandidate(indexes.byHardcoverSlug.get(slug));
-      if (bySlug === 'ambiguous') return { outcome: 'skipped', reason: 'Multiple BookOrbit books match this Hardcover slug' };
+      if (bySlug === 'ambiguous') return { outcome: 'skipped', reason: 'Multiple TLS Library books match this Hardcover slug' };
       if (bySlug) return { book: bySlug, method: 'hardcover_id', confidence: 100 };
     }
 
@@ -453,14 +453,14 @@ export class HardcoverImportService {
       .filter((isbn): isbn is string => Boolean(isbn));
     for (const isbn of isbnCandidates) {
       const byIsbn = uniqueCandidate(indexes.byIsbn.get(isbn));
-      if (byIsbn === 'ambiguous') return { outcome: 'skipped', reason: 'Multiple BookOrbit books match this ISBN' };
+      if (byIsbn === 'ambiguous') return { outcome: 'skipped', reason: 'Multiple TLS Library books match this ISBN' };
       if (byIsbn) return { book: byIsbn, method: 'isbn', confidence: 100 };
     }
 
     const titleMatch = await indexes.fuzzy.findMatch(hardcoverBook.book?.title ?? null, hardcoverAuthors);
     if (titleMatch) return { ...titleMatch, method: 'title_author' };
 
-    return { outcome: 'unmatched', reason: 'No matching BookOrbit book found' };
+    return { outcome: 'unmatched', reason: 'No matching TLS Library book found' };
   }
 
   private async applyProgressIfRequested(
@@ -548,16 +548,16 @@ function buildProgressPreview(
   outcome: HardcoverImportPreviewOutcome,
 ): Pick<HardcoverImportPreviewRow, 'progressOutcome' | 'progressReason'> {
   if (importedProgressPercent == null) return { progressOutcome: 'skipped', progressReason: 'No Hardcover progress to import' };
-  if (!local) return { progressOutcome: 'skipped', progressReason: 'No matching BookOrbit book found' };
+  if (!local) return { progressOutcome: 'skipped', progressReason: 'No matching TLS Library book found' };
   if (outcome !== 'will_update' && outcome !== 'needs_review') {
     return { progressOutcome: 'skipped', progressReason: 'Read status import is not available for this row' };
   }
-  if (local.primaryFileId == null) return { progressOutcome: 'skipped', progressReason: 'BookOrbit book has no primary file' };
+  if (local.primaryFileId == null) return { progressOutcome: 'skipped', progressReason: 'TLS Library book has no primary file' };
   if (local.primaryFileFormat && isAudioFormat(local.primaryFileFormat)) {
     return { progressOutcome: 'skipped', progressReason: 'Audiobook progress import is not supported yet' };
   }
   if (local.progress != null && local.progress > 0) {
-    return { progressOutcome: 'conflict', progressReason: 'BookOrbit already has reading progress' };
+    return { progressOutcome: 'conflict', progressReason: 'TLS Library already has reading progress' };
   }
   return { progressOutcome: 'will_update', progressReason: 'Ready to import progress' };
 }

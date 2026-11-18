@@ -252,7 +252,7 @@ describe('NzbgetAdapter', () => {
     ]);
   });
 
-  it('lists only items carrying both BookOrbit ownership and the configured category', async () => {
+  it('lists only items carrying both TLS Library ownership and the configured category', async () => {
     mockRpc({
       listgroups: [
         { NZBID: 1, NZBName: 'owned', Category: 'bookorbit', DupeKey: `bookorbit:9:${CLIENT_KEY}`, Status: 'QUEUED' },
@@ -406,7 +406,7 @@ describe('NzbgetAdapter', () => {
     });
   });
 
-  it('ignores history entries without BookOrbit ownership', async () => {
+  it('ignores history entries without TLS Library ownership', async () => {
     const calls = mockRpc({ listgroups: [], history: [{ NZBID: 4, DupeKey: `bookorbit:9:${CLIENT_KEY}` }], editqueue: true });
 
     await new NzbgetAdapter(contentRemoval()).remove('b'.repeat(64), config(), { deleteFiles: false });
