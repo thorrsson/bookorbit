@@ -7,6 +7,8 @@
 
 A self-hosted library and reading platform for ebooks, PDFs, audiobooks, and comics.
 
+> **This is a modified version of BookOrbit and is not an official BookOrbit release.** It is maintained at [thorrsson/bookorbit](https://github.com/thorrsson/bookorbit). The original project is [bookorbit/bookorbit](https://github.com/bookorbit/bookorbit). See [NOTICE](NOTICE) for modification details and dates.
+
 [![Latest release](https://img.shields.io/github/v/release/thorrsson/bookorbit?label=latest&style=flat-square)](https://github.com/thorrsson/bookorbit/releases)
 [![Stars](https://img.shields.io/github/stars/thorrsson/bookorbit?style=flat-square&color=FFC72C)](https://github.com/thorrsson/bookorbit/stargazers)
 [![GHCR Pulls](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fghcr-badge.elias.eu.org%2Fapi%2Fthorrsson%2Fbookorbit%2Fbookorbit&query=downloadCount&label=Docker%20Pulls&logo=docker&style=flat-square&color=2496ed)](https://github.com/thorrsson/bookorbit/pkgs/container/bookorbit)

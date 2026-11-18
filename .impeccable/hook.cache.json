@@ -11,18 +11,22 @@
       }
     },
     "d00873ab-5b94-49f2-b9f2-513ddd34d432": {
-      "updatedAt": 1795033225964,
+      "updatedAt": 1795033695033,
       "files": {
         "/Users/tim/workspace/copilot-worktrees/bookorbit/thorrsson-super-broccoli/release.config.js": {
           "editCount": 2,
           "findings": ["broken-image:67"]
         },
         "/Users/tim/workspace/copilot-worktrees/bookorbit/thorrsson-super-broccoli/client/src/components/legal/LegalNotices.vue": {
-          "editCount": 2,
+          "editCount": 4,
           "findings": [],
           "cleanAcked": true
         },
         "/Users/tim/workspace/copilot-worktrees/bookorbit/thorrsson-super-broccoli/client/src/components/legal/LegalNotices.spec.ts": {
+          "editCount": 2,
+          "findings": []
+        },
+        "/Users/tim/workspace/copilot-worktrees/bookorbit/thorrsson-super-broccoli/client/vite.config.ts": {
           "editCount": 1,
           "findings": []
         }

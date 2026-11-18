@@ -13,6 +13,7 @@ const PROJECT_URL = 'https://github.com/bookorbit/bookorbit'
 const SOURCE_URL = 'https://github.com/thorrsson/bookorbit'
 const LICENSE_URL = `${SOURCE_URL}/blob/main/LICENSE`
 const ADDITIONAL_TERMS_URL = `${SOURCE_URL}/blob/main/ADDITIONAL_TERMS.md`
+const MODIFIED_DATE = __BUILD_DATE__
 </script>
 
 <template>
@@ -52,6 +53,11 @@ const ADDITIONAL_TERMS_URL = `${SOURCE_URL}/blob/main/ADDITIONAL_TERMS.md`
             {{ t('components.legalNotices.poweredBy') }}
             <ExternalLink :size="14" aria-hidden="true" />
           </a>
+
+          <div class="space-y-1 rounded-md border border-border bg-muted p-3 text-foreground">
+            <p class="font-semibold">{{ t('components.legalNotices.modifiedVersion') }}</p>
+            <p class="text-muted-foreground">{{ t('components.legalNotices.modifiedDate', { date: MODIFIED_DATE }) }}</p>
+          </div>
 
           <div class="space-y-1 text-foreground">
             <p>{{ t('components.legalNotices.originalDevelopment') }}</p>
