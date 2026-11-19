@@ -151,7 +151,7 @@ async function onLibrarySaved(library: Library) {
             <LibraryIcon :size="21" class="text-primary-foreground" />
           </div>
           <span class="truncate font-serif text-[18px] font-semibold leading-none text-sidebar-foreground group-data-[collapsible=icon]:hidden">
-            Book<span class="text-primary"> Orbit</span>
+            TLS<span class="text-primary"> Library</span>
           </span>
         </RouterLink>
         <SidebarTrigger
