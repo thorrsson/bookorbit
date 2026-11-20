@@ -7,8 +7,8 @@ export type SidebarVersionUi = {
   updateHref: string
 }
 
-const GITHUB_RELEASES_BASE = 'https://github.com/bookorbit/bookorbit/releases'
-const GITHUB_COMMIT_BASE = 'https://github.com/bookorbit/bookorbit/commit'
+const GITHUB_RELEASES_BASE = 'https://github.com/thorrsson/bookorbit/releases'
+const GITHUB_COMMIT_BASE = 'https://github.com/thorrsson/bookorbit/commit'
 
 function isVersionTag(value: string): boolean {
   return /^v\d+\.\d+\.\d+$/.test(value)

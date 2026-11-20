@@ -72,7 +72,7 @@ end
 local function openConn()
     local ok, conn = pcall(SQ3.open, dbPath(), "ro")
     if not ok or not conn then
-        logger.dbg("BookOrbit: cannot open statistics.sqlite3:", conn)
+        logger.dbg("TLS Library: cannot open statistics.sqlite3:", conn)
         return nil
     end
     pcall(conn.set_busy_timeout, conn, BUSY_TIMEOUT_MS)
@@ -136,11 +136,11 @@ function Session:select(sql, params)
     if not self.conn then return nil, "closed" end
     local ok, res = pcall(self._select, self, sql, params)
     if ok then return res end
-    logger.dbg("BookOrbit: statistics query failed, reopening:", res)
+    logger.dbg("TLS Library: statistics query failed, reopening:", res)
     if not self:_reopen() then return nil, "open_failed" end
     local retried, retry_res = pcall(self._select, self, sql, params)
     if retried then return retry_res end
-    logger.dbg("BookOrbit: statistics query failed:", retry_res)
+    logger.dbg("TLS Library: statistics query failed:", retry_res)
     return nil, "query_failed"
 end
 
@@ -446,7 +446,7 @@ local function withSession(fn)
     local ok, result = pcall(fn, session)
     session:close()
     if not ok then
-        logger.dbg("BookOrbit: statistics query failed:", result)
+        logger.dbg("TLS Library: statistics query failed:", result)
         return nil, "query_failed"
     end
     return result

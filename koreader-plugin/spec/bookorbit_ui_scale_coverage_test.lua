@@ -7,7 +7,7 @@ end
 
 local function assertAbsent(source, pattern, label)
     if source:find(pattern, 1, true) then
-        error(label .. " bypasses BookOrbit interface scaling")
+        error(label .. " bypasses TLS Library interface scaling")
     end
 end
 

@@ -198,7 +198,7 @@ function MenuSheet.body(d, w, o)
         or tile(tw, th, "house", _("Home"), _("Your board"), { kind = "home" })
     local last_w = w - 2 * tw - 2 * gap
     local third = d.book and tile(last_w, th, "book-open", _("Back to book"), d.book, { kind = "exit" }, true)
-        or tile(last_w, th, "folder-open", _("Files"), _("Close BookOrbit"), { kind = "exit" })
+        or tile(last_w, th, "folder-open", _("Files"), _("Close TLS Library"), { kind = "exit" })
     local tiles = hstack({ w = w, gap = gap }, { first, second, third })
     local file_browser = d.book and MenuUI.group(w, {
         MenuUI.row(MenuUI.rowsIn(w), {
@@ -245,7 +245,7 @@ function MenuSheet.body(d, w, o)
             hstack({ w = bw, gap = px(12) }, {
                 icon("download", px(22), { sw = 2 }),
                 vstack({ w = mid_w }, {
-                    text(T(_("BookOrbit %1 is ready"), d.update), { s = 15, b = true, w = mid_w }),
+                    text(T(_("TLS Library %1 is ready"), d.update), { s = 15, b = true, w = mid_w }),
                     text(_("Takes a few seconds, then KOReader restarts"), { s = 13, col = INK.g4, w = mid_w, lines = 2, bg = INK.ge }),
                 }),
                 pill,

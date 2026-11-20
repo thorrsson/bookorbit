@@ -111,7 +111,7 @@
           "label": "主题风格",
           "hint": "应用程序的总体外观。模式、音调、角和背景保持其设置。",
           "bookorbit": {
-            "label": "BookOrbit",
+            "label": "TLS Library",
             "description": "薄膜表面、玻璃板和系列标题。"
           },
           "nostalgia": {
@@ -810,8 +810,8 @@
       "test": {
         "connected": "已连接 - {issuer}",
         "connectionFailed": "连接失败",
-        "privateIssuerAddress": "发行者的 URL 解析为私有或本地网络地址，因此服务器拒绝连接。 在 BookOrbit 服务器设置OIDC_ALLOW_LOCAL_ISSUERS=true 以允许它。",
-        "tlsCertificateUntrusted": "BookOrbit无法验证 OIDC 提供商的 TLS 证书。 如果提供商使用私人证书权威，将其PEM CA 包挂起，设置NODE_EXTRA_CA_CERTS 到该包的容器内路径，并重启BookOrbit。",
+        "privateIssuerAddress": "发行者的 URL 解析为私有或本地网络地址，因此服务器拒绝连接。 在 TLS Library 服务器设置OIDC_ALLOW_LOCAL_ISSUERS=true 以允许它。",
+        "tlsCertificateUntrusted": "TLS Library无法验证 OIDC 提供商的 TLS 证书。 如果提供商使用私人证书权威，将其PEM CA 包挂起，设置NODE_EXTRA_CA_CERTS 到该包的容器内路径，并重启TLS Library。",
         "hide": "隐藏",
         "details": "详细信息",
         "supported": "支持的",
@@ -819,7 +819,7 @@
       },
       "groupMappings": {
         "title": "群组映射",
-        "description": "将 OIDC 群组声明映射到 BookOrbit 权限。每次登录时同步。",
+        "description": "将 OIDC 群组声明映射到 TLS Library 权限。每次登录时同步。",
         "noPermission": "无权限",
         "empty": "未配置组映射。",
         "addMapping": "添加映射",
@@ -1053,7 +1053,7 @@
         "targetUser": "目标用户",
         "doNotImport": "不导入此用户",
         "noSourceUsersLoaded": "尚未加载源用户。",
-        "noActiveTargetUsers": "未找到活跃的目标用户。请在映射前创建或重新启用 BookOrbit 用户。",
+        "noActiveTargetUsers": "未找到活跃的目标用户。请在映射前创建或重新启用 TLS Library 用户。",
         "pathPrefixMappings": "路径前缀映射",
         "addMapping": "添加映射",
         "pathMappingsHelp1": "路径映射会将源文件路径转换为目标路径，系统可依据文件位置匹配图书；例如：若你的 Booklore 书库文件存放于",
@@ -1396,7 +1396,7 @@
         "confirmReset": "确认重置",
         "resetDialog": {
           "title": "确认将所有项重置为默认值？",
-          "description": "所有字段（共计24个）都将恢复为 BookOrbit 自带的默认权重。在确认“保存并重新评分”之前，不会保存任何内容。"
+          "description": "所有字段（共计24个）都将恢复为 TLS Library 自带的默认权重。在确认“保存并重新评分”之前，不会保存任何内容。"
         },
         "reset": "重置",
         "recalculate": "重新计算",
@@ -2449,7 +2449,7 @@
           "reorderFailed": "无法保存新订单"
         },
         "empty": {
-          "body": "跟踪什么没有字段的 BookOrbit ，比如某一书在您的书架上的位置或者谁借了它。 字段出现在编辑元数据、表格列和过滤器中。",
+          "body": "跟踪什么没有字段的 TLS Library ，比如某一书在您的书架上的位置或者谁借了它。 字段出现在编辑元数据、表格列和过滤器中。",
           "examples": "从示例开始",
           "shelfNumber": "书架号",
           "acquiredOn": "获得于",
@@ -3125,15 +3125,15 @@
         "syncUrlCopyFailed": "复制同步URL失败",
         "syncPreferences": "同步首选项",
         "twoWaySync": "双向进度同步",
-        "twoWaySyncHint": "同步BookOrbit 和 Kobo之间的阅读位置。需要KEPUB 送货以获取准确的位置和可靠的页面恢复。",
-        "syncHighlights": "同步 BookOrbit 划线到 Kobo",
-        "syncHighlightsHint": "将在 BookOrbit 或 KOReader 中制作的划线发送到您的 Kobo。即使此功能关闭，Kobo 划线也会导入 BookOrbit。已关联的批注会双向同步编辑和删除。需要 KEPUB 交付；Kobo 上的书必须是从 BookOrbit 下载的 KEPUB。",
+        "twoWaySyncHint": "同步TLS Library 和 Kobo之间的阅读位置。需要KEPUB 送货以获取准确的位置和可靠的页面恢复。",
+        "syncHighlights": "同步 TLS Library 划线到 Kobo",
+        "syncHighlightsHint": "将在 TLS Library 或 KOReader 中制作的划线发送到您的 Kobo。即使此功能关闭，Kobo 划线也会导入 TLS Library。已关联的批注会双向同步编辑和删除。需要 KEPUB 交付；Kobo 上的书必须是从 TLS Library 下载的 KEPUB。",
         "storeSync": "包含 Kobo Store标题",
-        "storeSyncHint": "此功能还会将您 Kobo 账户中的书籍（包括 Kobo Plus 订阅和已购书籍）与您的 BookOrbit 书库一并投送到设备上。若未启用此功能，则只有 BookOrbit 的书籍会同步到设备。商店中的书籍直接从 Kobo 下载，不会添加到您的 BookOrbit 书库中。",
+        "storeSyncHint": "此功能还会将您 Kobo 账户中的书籍（包括 Kobo Plus 订阅和已购书籍）与您的 TLS Library 书库一并投送到设备上。若未启用此功能，则只有 TLS Library 的书籍会同步到设备。商店中的书籍直接从 Kobo 下载，不会添加到您的 TLS Library 书库中。",
         "fullSizeCovers": "全尺寸盖子",
         "fullSizeCoversHint": "在您的 Kobo 屏幕分辨率上发送每张封面，所以睡眠屏幕和全屏幕封面保持锐化。 关闭此功能以便更快地发送较小的封面。只有当书封面变化时，Kobo上的封面才会改变。",
         "convertKepub": "转换为 KEPUB",
-        "convertKepubHint": "以 KEPUB 发送合格的 EPUB。当进度同步或 BookOrbit到 Kobo 划线启用时，此操作将保持不变。 在下一个 Kobo 同步时，受影响的书籍将再次以 KEPUB 下载的形式提供；如果Kobo 继续打开，则删除任何旧的 EPUB 副本。",
+        "convertKepubHint": "以 KEPUB 发送合格的 EPUB。当进度同步或 TLS Library到 Kobo 划线启用时，此操作将保持不变。 在下一个 Kobo 同步时，受影响的书籍将再次以 KEPUB 下载的形式提供；如果Kobo 继续打开，则删除任何旧的 EPUB 副本。",
         "forceHyphenation": "强制连线",
         "forceHyphenationHint": "确保文本说明一致。这将重新生成缓存的 KEPUBs。",
         "progressThresholds": "进度阈值",
@@ -3143,7 +3143,7 @@
         "markAsFinished": "标记为已完成",
         "markAsFinishedHint": "将一本书标记为“已完成”的百分比阈值。",
         "kepubLimit": "KEPUB 转换限制",
-        "kepubLimitHint": "超过此限制的书本将作为常规的 EPUBs发送，所以BookOrbit 将不会将其阅读器位置同步到 Kobo。",
+        "kepubLimitHint": "超过此限制的书本将作为常规的 EPUBs发送，所以TLS Library 将不会将其阅读器位置同步到 Kobo。",
         "changesMustBeSaved": "更改必须保存才能生效。",
         "saving": "正在保存……",
         "saveSyncSettings": "保存同步设置",
@@ -3205,8 +3205,8 @@
           "readingPositionSynced": "已同步阅读位置",
           "labelWithTitle": "{label}：{title}",
           "updateCount": "{count, plural, other {# 更新}}",
-          "directionToKobo": "BookOrbit -> Kobo",
-          "directionToBookOrbit": "Kobo -> BookOrbit",
+          "directionToKobo": "TLS Library -> Kobo",
+          "directionToBookOrbit": "Kobo -> TLS Library",
           "twoWaySyncEnabled": "启用双向同步",
           "deviceProgressSaved": "设备进度已保存",
           "summary": {
@@ -3238,7 +3238,7 @@
           "filterFailures": "失败",
           "refresh": "刷新",
           "loadingActivity": "正在加载 Kobo 同步记录……",
-          "noActivityHint": "最近的同步活动将在配对的 Kobo 联系人 BookOrbit 后出现。",
+          "noActivityHint": "最近的同步活动将在配对的 Kobo 联系人 TLS Library 后出现。",
           "error": "错误",
           "loading": "加载中……",
           "loadMore": "加载更多活动"
@@ -3250,7 +3250,7 @@
         "nextSteps": {
           "title": "以后的步骤",
           "step1": "1. 配置您的 Kobo 设备与上面的同步 URL。",
-          "step2": "2. 在 BookOrbit 中，通过侧边栏进入任意合集、点击编辑图标并开启{syncToKobo}；仅已开启同步的合集内书籍可下载至设备。"
+          "step2": "2. 在 TLS Library 中，通过侧边栏进入任意合集、点击编辑图标并开启{syncToKobo}；仅已开启同步的合集内书籍可下载至设备。"
         },
         "syncToKobo": "同步到 Kobo",
         "tabs": {
@@ -3260,14 +3260,14 @@
       },
       "koreader": {
         "title": "KOReader 同步",
-        "subtitle": "在 KOReader 浏览您的 BookOrbit 目录并同步进度、阅读活动、划线和批注。",
+        "subtitle": "在 KOReader 浏览您的 TLS Library 目录并同步进度、阅读活动、划线和批注。",
         "tabs": {
           "sync": "同步设置",
           "fileNaming": "文件名称"
         },
         "fileNaming": {
           "accountTitle": "账户默认 KOReader 模式",
-          "accountDescription": "设置 BookOrbit 插件下载您的 KOReader 帐户的默认相对文件夹和文件名。指定规则可以在下方覆盖它。",
+          "accountDescription": "设置 TLS Library 插件下载您的 KOReader 帐户的默认相对文件夹和文件名。指定规则可以在下方覆盖它。",
           "defaultPattern": "默认书表路径模式",
           "accountHelp": "您的 KOReader 插件默认下载，除非设备有自定义规则。",
           "accountHint": "没有自定义覆盖的 KOReader 设备。",
@@ -3275,7 +3275,7 @@
           "saveAccount": "保存账户默认",
           "deviceTitle": "覆盖 KOReader 设备",
           "deviceDescription": "自定义默认、序列和独立路径的任何组合。空设备特定行继承设备默认值，它本身可以继承账户默认的 KOReader 模式。",
-          "noDevices": "设备与 BookOrbit 完成同步后，将在此处展示。",
+          "noDevices": "设备与 TLS Library 完成同步后，将在此处展示。",
           "customOrganization": "自定义组织",
           "usingAccountDefault": "使用账户默认",
           "deviceDefaultHelp": "备份此设备。自动继承未来的更改将等于账户默认值。",
@@ -3311,10 +3311,10 @@
         "latestPlugin": "最新插件版本：v {version}",
         "latestPluginUnavailable": "最新插件不可用",
         "notConfigured": "未配置 KOReader 同步",
-        "notConfiguredHint": "创建一组同步凭据，然后使用 BookOrbit KOReader 插件来浏览、下载、进度、阅读事件、划线和删除。",
+        "notConfiguredHint": "创建一组同步凭据，然后使用 TLS Library KOReader 插件来浏览、下载、进度、阅读事件、划线和删除。",
         "createCredentials": "创建凭据",
         "createFormTitle": "创建 KOReader 同步凭据",
-        "createFormHint": "这些凭据使用 BookOrbit 认证您的 KOReader 设备。",
+        "createFormHint": "这些凭据使用 TLS Library 认证您的 KOReader 设备。",
         "username": "用户名",
         "usernamePlaceholder": "例如：myreader",
         "password": "密码",
@@ -3322,7 +3322,7 @@
         "changeCredentials": {
           "action": "更改凭证",
           "title": "更改 KOReader 凭据",
-          "description": "每个BookOrbit帐户有一个KOReader凭据集。请在此更改而不删除同步数据。",
+          "description": "每个TLS Library帐户有一个KOReader凭据集。请在此更改而不删除同步数据。",
           "newPassword": "新密码",
           "usernameInvalid": "用户名必须介于 3 到 100 个字符之间。",
           "passwordPlaceholder": "留空表示保持当前密码",
@@ -3343,7 +3343,7 @@
         "status": "KO阅读器状态",
         "refresh": "刷新",
         "progressSync": "进度同步",
-        "progressSyncHint": "允许 KOReader 设备与 BookOrbit 同步阅读进度、阅读动态、划线以及批注删除记录",
+        "progressSyncHint": "允许 KOReader 设备与 TLS Library 同步阅读进度、阅读动态、划线以及批注删除记录",
         "lastSync": "上次同步",
         "syncedBooks": "同步的书",
         "bookCount": "{count, plural, =0 {没有书籍} other {# 书}}",
@@ -3353,17 +3353,17 @@
         "setup": "设置",
         "pluginServerUrl": "插件服务器 URL",
         "syncUrl": "KOReader 同步URL",
-        "syncUrlHint": "配合 BookOrbit 插件及 KOReader 内置的进度同步功能使用。",
+        "syncUrlHint": "配合 TLS Library 插件及 KOReader 内置的进度同步功能使用。",
         "copied": "已复制",
         "copyUrl": "复制 URL",
-        "preconfiguredPlugin": "预配置的 BookOrbit 插件",
+        "preconfiguredPlugin": "预配置的 TLS Library 插件",
         "preconfiguredPluginHintPrefix": "下载带有服务器URL的zip和您的同步登录已配置。插件包括目录浏览和同步。复制文件夹到",
         "preconfiguredPluginHintSuffix": "并重启 KOReader。",
-        "latestPluginNote": "{label}。设备更新请在 KOReader 内的 BookOrbit 菜单执行。",
+        "latestPluginNote": "{label}。设备更新请在 KOReader 内的 TLS Library 菜单执行。",
         "preparing": "准备中……",
         "downloadPlugin": "下载插件",
         "noDevicesSynced": "尚未同步设备",
-        "noDevicesSyncedHint": "安装完整同步的 BookOrbit 插件，或者配置 KOReader 的库存进度同步以便只进行进度更新。",
+        "noDevicesSyncedHint": "安装完整同步的 TLS Library 插件，或者配置 KOReader 的库存进度同步以便只进行进度更新。",
         "lastSyncLabel": "上次同步：",
         "lastBookLabel": "最后一本书：",
         "noneYet": "尚无",
@@ -3380,8 +3380,8 @@
         "failedPositions": "{count, plural, =0 {没有需要关注的划线位置。} one {# 个划线位置需要关注。} other {# 个划线位置需要关注。}}",
         "setupGuide": "设置指南",
         "setupSteps": "KOReader 设置步骤",
-        "setupStepsHint": "使用 BookOrbit 插件进行目录浏览、下载、进度、读取事件和划线。仅使用库存插件进行进度操作。",
-        "pluginGuideTitle": "BookOrbit 插件",
+        "setupStepsHint": "使用 TLS Library 插件进行目录浏览、下载、进度、读取事件和划线。仅使用库存插件进行进度操作。",
+        "pluginGuideTitle": "TLS Library 插件",
         "pluginStep1": "下载上面预配置的插件。",
         "pluginStep2Prefix": "解压缩并复制",
         "pluginStep2Middle": "到",
@@ -3395,7 +3395,7 @@
         "stockStep2": "设置自定义同步服务器到上面显示的 URL。",
         "stockStep2InlineUrl": "设置自定义同步服务器到以下网址：",
         "stockStep3": "输入您创建的用户名和密码，然后点击登录。",
-        "locationNote": "BookOrbit 会从网页阅读器保存与 KOReader 兼容的 EPUB 阅读位置。恢复进度时通常会回到大致相同的位置，但精确到行的位置可能因阅读器和 EPUB 排版而异。",
+        "locationNote": "TLS Library 会从网页阅读器保存与 KOReader 兼容的 EPUB 阅读位置。恢复进度时通常会回到大致相同的位置，但精确到行的位置可能因阅读器和 EPUB 排版而异。",
         "dangerZone": "危险区域",
         "deleteCredentials": "删除 KOReader 凭据",
         "deleteCredentialsHint": "删除同步凭据和断开所有设备的连接。进度数据将被保留。",
@@ -3436,7 +3436,7 @@
           "unknownFile": "未知 KOReader 文件：{hash}",
           "unknownAuthor": "未知作者",
           "noTitleOrAuthor": "没有标题或作者报告",
-          "bookNumber": "BookOrbit 书籍编号 #{id}",
+          "bookNumber": "TLS Library 书籍编号 #{id}",
           "toast": {
             "unmatchedRefreshed": "已刷新不匹配的书",
             "unmatchedRefreshFailed": "刷新不匹配的书籍失败",
@@ -3462,7 +3462,7 @@
             "linkTitle": "链接 KOReader 书",
             "changeTitle": "更改 KOReader 链接",
             "bookOrbitBook": "书架环绕书",
-            "searchPlaceholder": "搜索您的 BookOrbit 库",
+            "searchPlaceholder": "搜索您的 TLS Library 库",
             "minChars": "输入至少 2 个字符。",
             "searching": "搜索中……",
             "noBooksFound": "未找到书籍。",
@@ -3472,14 +3472,14 @@
             "loadMore": "加载更多",
             "confirmTitle": "确认 KOReader 链接",
             "koreader": "KOReader",
-            "bookOrbit": "BookOrbit",
+            "bookOrbit": "TLS Library",
             "bookId": "书籍 ID：{id}",
-            "syncedStatsNote": "已经同步的统计数据将保留在他们当前的 BookOrbit 书中。",
+            "syncedStatsNote": "已经同步的统计数据将保留在他们当前的 TLS Library 书中。",
             "chooseDifferent": "选择不同的",
             "saving": "保存中……",
             "confirmLink": "确认链接",
             "unlinkTitle": "取消链接 KOReader 簿？",
-            "unlinkBody": "解除关联后，该哈希后续同步将不再匹配 {title}；已同步完成的数据仍留存于当前 BookOrbit 书籍中。",
+            "unlinkBody": "解除关联后，该哈希后续同步将不再匹配 {title}；已同步完成的数据仍留存于当前 TLS Library 书籍中。",
             "unlinking": "正在解绑……"
           },
           "dismiss": "关闭",
@@ -3487,7 +3487,7 @@
           "dismissing": "正在丢弃……",
           "unlinking": "正在解绑……",
           "unlinkConfirmTitle": "取消链接 KOReader 簿？",
-          "unlinkConfirmBody": "解除关联后，该哈希值后续同步将不再匹配 {title}；已同步完成的数据仍留存于当前 BookOrbit 书籍中。",
+          "unlinkConfirmBody": "解除关联后，该哈希值后续同步将不再匹配 {title}；已同步完成的数据仍留存于当前 TLS Library 书籍中。",
           "dismissConfirmTitle": "是否关闭 {title}？",
           "dismissConfirmBody": "这将把它从您不匹配的书籍列表中移除。如果任何设备再次报告这个哈希，它将作为一个新条目重新出现。",
           "dismissAllConfirmTitle": "{count, plural, =0 {没有不匹配的书} other {丢弃所有# 不匹配的书？}}",
@@ -3495,7 +3495,7 @@
           "changeLinkTitle": "更改 KOReader 链接",
           "linkBookTitle": "链接 KOReader 书",
           "bookOrbitBook": "书架环绕书",
-          "searchLibraryPlaceholder": "搜索您的 BookOrbit 库",
+          "searchLibraryPlaceholder": "搜索您的 TLS Library 库",
           "enterMinChars": "输入至少 2 个字符。",
           "searching": "搜索中……",
           "noBooksFound": "未找到书籍。",
@@ -3506,7 +3506,7 @@
           "loadingMore": "加载中……",
           "confirmLinkTitle": "确认 KOReader 链接",
           "bookId": "书籍 ID：{id}",
-          "syncedStatsNote": "已经同步的统计数据将保留在他们当前的 BookOrbit 书中。",
+          "syncedStatsNote": "已经同步的统计数据将保留在他们当前的 TLS Library 书中。",
           "chooseDifferent": "选择不同的",
           "saving": "保存中……",
           "confirmLink": "确认链接",
@@ -3514,7 +3514,7 @@
           "reviewHint": "未能自动匹配的书籍和已取消关联的书籍会显示在此处。取消关联后，书籍仍可通过自动匹配进行同步。手动关联书籍可覆盖自动匹配结果，也可将其移出此列表。",
           "loadingReview": "正在加载待核对书籍…",
           "noReview": "没有待核对的 KOReader 书籍。",
-          "manualUnlinkConfirmBody": "取消与 {title} 的手动关联，并将此书移回待核对列表。如果存在自动匹配结果，后续同步将使用该结果。已同步的统计数据仍保留在当前关联的 BookOrbit 书籍中。",
+          "manualUnlinkConfirmBody": "取消与 {title} 的手动关联，并将此书移回待核对列表。如果存在自动匹配结果，后续同步将使用该结果。已同步的统计数据仍保留在当前关联的 TLS Library 书籍中。",
           "reviewDismissConfirmBody": "此操作会将该书移出待核对列表，但会保留自动匹配结果和现有同步数据。如果设备再次上报该哈希值且未找到匹配的书籍，它可能会重新出现在列表中。",
           "reviewDismissAllConfirmTitle": "{count, plural, =0 {没有待核对的书籍} one {要将全部 # 本书籍移出待核对列表吗？} other {要将全部 # 本书籍移出待核对列表吗？}}",
           "reviewDismissAllConfirmBody": "此操作会清空整个待核对书籍列表，包括其他页面上的条目，但会保留自动匹配结果和现有同步数据。如果设备再次上报某个哈希值且未找到匹配的书籍，对应书籍可能会重新出现在列表中。"
@@ -3624,7 +3624,7 @@
         "deleteClient": "删除 {name}",
         "clientsEmpty": {
           "title": "还没有下载客户端",
-          "body": "直接通过 HTTP 下载不需要客户端。连接一个客户端后，BookOrbit 也能获取通过 BT 或 Usenet 分发的发布。",
+          "body": "直接通过 HTTP 下载不需要客户端。连接一个客户端后，TLS Library 也能获取通过 BT 或 Usenet 分发的发布。",
           "note": "支持 qBittorrent、Transmission、Deluge、NZBGet 和 SABnzbd。"
         },
         "summary": "{type} - 分类 {category}，优先级 {priority}",
@@ -3663,7 +3663,7 @@
           "passwordWillClear": "保存后已存储的密码将被移除",
           "apiKeyWillClear": "保存后已存储的 API 密钥将被移除",
           "category": "分类",
-          "categoryHint": "为 BookOrbit 添加的下载打上标签，使其只处理自己添加的下载。",
+          "categoryHint": "为 TLS Library 添加的下载打上标签，使其只处理自己添加的下载。",
           "priority": "优先级",
           "enabled": "已启用",
           "useHardlinks": "使用硬链接",
@@ -3675,12 +3675,12 @@
         },
         "mappings": {
           "title": "路径映射",
-          "hint": "将客户端报告的路径转换为 BookOrbit 可以打开的路径。当两者运行在独立容器中时需要。",
+          "hint": "将客户端报告的路径转换为 TLS Library 可以打开的路径。当两者运行在独立容器中时需要。",
           "add": "添加映射",
           "remove": "移除映射",
           "remotePath": "客户端路径",
-          "localPath": "BookOrbit 路径",
-          "brief": "必填。声明 BookOrbit 可能从中导入的目录；当客户端在相同路径下看到相同的文件时，将下载目录映射到其自身。",
+          "localPath": "TLS Library 路径",
+          "brief": "必填。声明 TLS Library 可能从中导入的目录；当客户端在相同路径下看到相同的文件时，将下载目录映射到其自身。",
           "identityExample": "同一文件系统？请在两侧使用相同的路径，例如左侧 /downloads，右侧 /downloads。"
         },
         "hardlink": {
@@ -3689,16 +3689,16 @@
           "works": "此处硬链接可用：导入时不会占用双倍磁盘空间。",
           "unavailable": "此处硬链接不可用：导入时将复制文件，从而占用双倍空间。",
           "link_refused": "该文件系统拒绝了链接 ({code})：导入时将复制文件，从而占用双倍空间。",
-          "download_dir_unwritable": "BookOrbit 无法写入下载目录 ({code})，因此无法测试硬链接。",
-          "localMissing": "BookOrbit 无法看到该路径。",
+          "download_dir_unwritable": "TLS Library 无法写入下载目录 ({code})，因此无法测试硬链接。",
+          "localMissing": "TLS Library 无法看到该路径。",
           "dockMissing": "Book Dock 文件夹不可读。"
         },
         "reconciliation": {
           "action": "相匹配",
-          "clean": "每个已拥有的客户端项目都与一个保留的 BookOrbit 下载尝试相匹配。",
-          "unsupported": "此客户端无法通过 BookOrbit 的所有权标记来枚举项目。对于 Deluge，请启用标签插件；对于 Transmission，请配置分类文件夹。",
+          "clean": "每个已拥有的客户端项目都与一个保留的 TLS Library 下载尝试相匹配。",
+          "unsupported": "此客户端无法通过 TLS Library 的所有权标记来枚举项目。对于 Deluge，请启用标签插件；对于 Transmission，请配置分类文件夹。",
           "truncated": "客户端返回了超过 1,000 个已拥有的项目。请处理可见的条目，然后再次匹配。",
-          "orphan": "没有保留的 BookOrbit 下载尝试拥有此客户端项目。",
+          "orphan": "没有保留的 TLS Library 下载尝试拥有此客户端项目。",
           "failedAttempt": "客户端仍保留此项目，但其针对“{title}”的尝试已标记为失败。",
           "missing": "此 {status} 尝试已不再存在于下载客户端中。",
           "adopt": "关联到 {title}",
@@ -3707,7 +3707,7 @@
           "removed": "已移除孤立的客户端项目",
           "removeTitle": "移除此孤立的客户端项目？",
           "removeDescription": "{name} 已从下载客户端移除。其已下载的文件会保留。",
-          "notOrphan": "该客户端项目仍关联到一个 BookOrbit 下载尝试。",
+          "notOrphan": "该客户端项目仍关联到一个 TLS Library 下载尝试。",
           "notAdoptable": "该客户端项目或失败的尝试已发生变化，无法再关联。请再次匹配。"
         },
         "errors": {
@@ -3723,8 +3723,8 @@
           "encryptionKeyChanged": "无法读取已存储的客户端凭据。BOOK_REQUEST_ENCRYPTION_KEY 可能在保存后已被更改。",
           "pathNotAbsolute": "路径映射两侧都必须使用绝对路径",
           "nameRequired": "请为此客户端命名。",
-          "urlRequired": "请输入 BookOrbit 连接此客户端所用的地址。",
-          "mappingRequired": "请至少添加一个路径映射，以便 BookOrbit 知道可以从哪个目录导入。",
+          "urlRequired": "请输入 TLS Library 连接此客户端所用的地址。",
+          "mappingRequired": "请至少添加一个路径映射，以便 TLS Library 知道可以从哪个目录导入。",
           "apiKeyRequired": "请输入 SABnzbd 的 Config > General 下的 API 密钥。"
         },
         "encryptionKeyMissing": "未设置 BOOK_REQUEST_ENCRYPTION_KEY，无法保存客户端凭据。可用以下命令生成：openssl rand -hex 32",
@@ -3740,14 +3740,14 @@
           "loading": "正在加载索引器……",
           "empty": {
             "title": "尚未添加来源",
-            "body": "BookOrbit 本身不内置任何来源，因此在添加来源之前，请求搜索不会找到任何内容。请选择适合你索引器的方案。",
-            "bodyOneWay": "BookOrbit 自身不内置任何源，因此在添加源之前，请求搜索不会找到任何内容。",
+            "body": "TLS Library 本身不内置任何来源，因此在添加来源之前，请求搜索不会找到任何内容。请选择适合你索引器的方案。",
+            "bodyOneWay": "TLS Library 自身不内置任何源，因此在添加源之前，请求搜索不会找到任何内容。",
             "responsibility": "你添加的源所索引的内容由你自行负责。",
             "prowlarrTitle": "连接 Prowlarr",
             "prowlarrBody": "通过一个连接管理多个 Torrent 和 Usenet 索引器。",
             "recommended": "推荐",
             "pluginTitle": "安装插件",
-            "pluginBody": "一个文件，用于让 BookOrbit 学会搜索某个特定站点。由你提供该文件，然后填写它的设置。",
+            "pluginBody": "一个文件，用于让 TLS Library 学会搜索某个特定站点。由你提供该文件，然后填写它的设置。",
             "torznabTitle": "添加 Torznab 索引器",
             "torznabBody": "指向你已在运行的 Prowlarr、Jackett 或 NZBHydra 源。每个源添加一个。",
             "builtInTitle": "添加索引器",
@@ -3772,7 +3772,7 @@
           "pluginFailed": "“{directory}”中的插件未能加载：{reason}",
           "sources": {
             "title": "来源",
-            "hint": "BookOrbit 能搜索的所有来源，按连接分组。",
+            "hint": "TLS Library 能搜索的所有来源，按连接分组。",
             "add": "添加来源",
             "prowlarr": "连接 Prowlarr",
             "prowlarrHint": "统一管理多个 Torrent 和 Usenet 索引器。",
@@ -3888,12 +3888,12 @@
             "credentialRequired": "该索引器需要先配置凭据才能使用",
             "invalidSettings": "一个或多个源设置无效。请检查可用的选项。",
             "nameRequired": "请为该索引器命名。",
-            "urlRequired": "请输入 BookOrbit 应搜索的地址。"
+            "urlRequired": "请输入 TLS Library 应搜索的地址。"
           },
           "editName": "编辑 {name}",
           "editorDescription": "设置该索引器。",
           "chooseType": "请选择索引器类型",
-          "chooseTypeHint": "选择 BookOrbit 应在哪里搜索。表单随后只会询问该源所需的内容。",
+          "chooseTypeHint": "选择 TLS Library 应在哪里搜索。表单随后只会询问该源所需的内容。",
           "builtIn": "内置",
           "plugin": "插件",
           "typeDescriptions": {
@@ -3902,7 +3902,7 @@
           },
           "plugins": {
             "title": "插件",
-            "hint": "BookOrbit 可以搜索的网站,以单个插件文件添加。",
+            "hint": "TLS Library 可以搜索的网站,以单个插件文件添加。",
             "directoryLink": "浏览开放图书馆插件",
             "none": "尚未安装插件。安装一个即可搜索内置协议未覆盖的网站。",
             "install": "安装插件",
@@ -3914,7 +3914,7 @@
             "removeFailed": "无法删除该插件。",
             "confirmRemove": "删除 {label} 插件？",
             "replaces": "这将替换已安装的 {type} 插件。",
-            "restartRequired": "插件更改需重启 BookOrbit 后才能生效。",
+            "restartRequired": "插件更改需重启 TLS Library 后才能生效。",
             "confirmInstall": "安装插件",
             "configure": "设置",
             "notSetUp": "尚未设置",
@@ -3961,11 +3961,11 @@
             "credential": "凭据",
             "credentialRequired": "必填",
             "credentialNone": "无",
-            "trustWarning": "插件在 BookOrbit 内部运行,可以访问你的数据库、书库文件和加密密钥。只从你信任的来源安装,并先阅读其内容。",
+            "trustWarning": "插件在 TLS Library 内部运行,可以访问你的数据库、书库文件和加密密钥。只从你信任的来源安装,并先阅读其内容。",
             "sectionTitle": "插件",
             "removeUnusedWarning": "该插件将从服务器上永久删除。"
           },
-          "posture": "BookOrbit 不提供也不认可任何索引器来源。这里的每个来源都由你自己配置，你需要对自己通过它搜索和下载的内容负责。"
+          "posture": "TLS Library 不提供也不认可任何索引器来源。这里的每个来源都由你自己配置，你需要对自己通过它搜索和下载的内容负责。"
         },
         "managers": {
           "add": "添加 Prowlarr",
@@ -3986,7 +3986,7 @@
           "toggleSource": "用 {name} 搜索",
           "changeColor": "更改 {name} 的颜色",
           "sourceColor": "来源颜色",
-          "sourceColorHint": "在 BookOrbit 全局标记 {name} 返回的发布。",
+          "sourceColorHint": "在 TLS Library 全局标记 {name} 返回的发布。",
           "noSources": "未发现兼容的 Torrent 或 Usenet 索引器。在 Prowlarr 中添加后请再同步。",
           "unknown": "未知",
           "editorDescription": "Prowlarr 的连接和来源同步设置。",
@@ -4002,9 +4002,9 @@
             "syncNew": "自动启用新发现的源",
             "syncNewHint": "新发现的 Prowlarr 索引器立即可搜索。在这里关闭的源,在之后的同步中保持关闭。",
             "autoExpand": "不带类别过滤器重试",
-            "autoExpandHint": "当某个索引器成功响应但没有结果时,去掉 BookOrbit 的书籍类别过滤器重试一次。",
+            "autoExpandHint": "当某个索引器成功响应但没有结果时,去掉 TLS Library 的书籍类别过滤器重试一次。",
             "inheritSeedLimits": "使用 Prowlarr 做种限制",
-            "inheritSeedLimitsHint": "在 BookOrbit 未另行覆盖时,将每个 Torrent 索引器配置的分享率和做种时间应用到之后的下载。",
+            "inheritSeedLimitsHint": "在 TLS Library 未另行覆盖时,将每个 Torrent 索引器配置的分享率和做种时间应用到之后的下载。",
             "perIndexerTimeout": "索引器超时(秒)",
             "perIndexerTimeoutHint": "单个已同步的源允许耗用的时间。慢速的 FlareSolverr 后端索引器可能需要更长时间。",
             "overallBudget": "Prowlarr 总预算(秒)",
@@ -4052,12 +4052,12 @@
           "minScoreHint": "评分低于此值的发布永远不会被自动下载。评分最高为 100 分,书名和作者的匹配程度占大头,其后依次是格式、文件大小、做种人数和来源优先级。如果没有发布达到足够高的评分,请求会等待人工挑选发布,并说明停止的原因。",
           "minScoreHintV2": "评分低于此值的发布永远不会被自动下载。评分最高为 100 分:书名和作者的相关度贡献最大,其次是格式和合理的文件大小,来源提供时还会参考种子健康度和 Freeleech。如果没有发布达到足够高的评分,请求会等待人工挑选发布,并说明停止的原因。",
           "autoRetry": "失败后尝试下一个发布",
-          "autoRetryHint": "自动下载失败时,会改试次优发布而不是直接放弃。这涵盖来源拒绝交出文件和中途断掉的下载两种情况。它只对 BookOrbit 自己选中的发布生效:由审批者手动挑选的发布失败后仍保持失败,等待其处理。",
+          "autoRetryHint": "自动下载失败时,会改试次优发布而不是直接放弃。这涵盖来源拒绝交出文件和中途断掉的下载两种情况。它只对 TLS Library 自己选中的发布生效:由审批者手动挑选的发布失败后仍保持失败,等待其处理。",
           "maxAttempts": "每个请求尝试次数",
-          "maxAttemptsHint": "BookOrbit 为该请求发给下载客户端的每个发布都计入此限制:首次自动尝试、来源拒收后的重试、下载失败后的重试。设为 1 即在首次尝试后停止。",
+          "maxAttemptsHint": "TLS Library 为该请求发给下载客户端的每个发布都计入此限制:首次自动尝试、来源拒收后的重试、下载失败后的重试。设为 1 即在首次尝试后停止。",
           "autoSearch": "持续查找没有找到结果的请求",
           "autoSearchShort": "没有匹配到任何内容的已批准请求会在之后重新搜索。",
-          "autoSearchHint": "请求在获批时会搜索一次。如果没有找到足够好的结果,或者书尚未发布,请求会停留在已批准状态,不会再有东西去查找它。开启此项后,BookOrbit 会持续自行检查,因此下个月才发布的资源仍会被找到。它只在自动下载开启时运行,因为对搜索结果不做任何处理的搜索只会白白消耗你的来源流量。",
+          "autoSearchHint": "请求在获批时会搜索一次。如果没有找到足够好的结果,或者书尚未发布,请求会停留在已批准状态,不会再有东西去查找它。开启此项后,TLS Library 会持续自行检查,因此下个月才发布的资源仍会被找到。它只在自动下载开启时运行,因为对搜索结果不做任何处理的搜索只会白白消耗你的来源流量。",
           "autoSearchEnabledToast": "将会重新搜索请求",
           "autoSearchDisabledToast": "请求仅在获批时搜索一次",
           "autoSearchInterval": "搜索间隔",
@@ -4154,8 +4154,8 @@
           "qbittorrent": "你自己的 qBittorrent。需要地址和账号。",
           "transmission": "你自己的 Transmission。它没有分类功能,因此分类会成为其下载目录中的子文件夹。",
           "deluge": "你自己的 Deluge。使用 Web UI 密码登录;分类需要开启 Label 插件。",
-          "nzbget": "你自己的 NZBGet。BookOrbit 通过其 JSON-RPC API 发送 NZB 文件。",
-          "sabnzbd": "你自己的 SABnzbd。BookOrbit 使用其 API 密钥发送 NZB 文件。"
+          "nzbget": "你自己的 NZBGet。TLS Library 通过其 JSON-RPC API 发送 NZB 文件。",
+          "sabnzbd": "你自己的 SABnzbd。TLS Library 使用其 API 密钥发送 NZB 文件。"
         },
         "searchHealth": {
           "failingOnce": "上次搜索失败",
@@ -4196,7 +4196,7 @@
         "readerAudio": "播放速度、跳转间隔和睡眠定时器。",
         "readerFonts": "阅读时可用字体。",
         "readerGeneral": "所有阅读模式共用的默认设置。",
-        "notifications": "控制 BookOrbit 向你发送什么通知，以及发送到哪里。",
+        "notifications": "控制 TLS Library 向你发送什么通知，以及发送到哪里。",
         "privacy": "阅读统计、分享链接和活动可见性。",
         "restrictions": "此账户的内容年龄评级和已屏蔽内容。",
         "libraries": "扫描路径、监听文件夹和导入规则。",
@@ -4233,7 +4233,7 @@
         "reader-audio": "新音频书籍的起始速度和音量，以及跳过和跳过按钮跳过的距离。",
         "reader-fonts": "为读者上传您自己的字体，并选择你的服务器管理员共享的字体。",
         "reader-general": "保存您的阅读器首选项的地方，和每个阅读模式共享的默认值。",
-        "tts": "BookOrbit已读书时您的默认语音和速度。",
+        "tts": "TLS Library已读书时您的默认语音和速度。",
         "notifications": "选择通知您的事件，从完成的扫描和元数据获取到文件重命名、导入和预览结果。",
         "privacy": "决定您的阅读活动管理员能看到多少信息，预览您的共享个人资料，并检查谁查看过它。",
         "restrictions": "对此帐户设置的内容限制，例如年龄评级和隐藏内容，以及它们在您的库之外保留的内容。",
@@ -7401,13 +7401,13 @@
         },
         "emptyStage": {
           "title": "本书还没有任何记录",
-          "description": "阅读日志由会话构成。您在 BookOrbit 网页阅读器中的每次阅读都会被记录，其余部分则从您同步的设备获取。",
+          "description": "阅读日志由会话构成。您在 TLS Library 网页阅读器中的每次阅读都会被记录，其余部分则从您同步的设备获取。",
           "readerTitle": "在此阅读",
-          "readerBody": "在 BookOrbit 阅读器中的每一分钟都会自动记录。",
+          "readerBody": "在 TLS Library 阅读器中的每一分钟都会自动记录。",
           "koreaderTitle": "同步 KOReader",
           "koreaderBody": "插件会把每次阅读连同您读到的页码一并推送回来。",
           "koboTitle": "同步 Kobo",
-          "koboBody": "插入设备后，BookOrbit 会读取其自带的阅读时长计数。",
+          "koboBody": "插入设备后，TLS Library 会读取其自带的阅读时长计数。",
           "addSession": "手动添加会话",
           "recordPast": "记录过去的阅读"
         },
@@ -7874,7 +7874,7 @@
         "noExtension": "该文件没有扩展名，因此其格式未知",
         "tooLarge": "大于最大值 {limit} 上传限制",
         "tooLargeServer": "大于服务器上传限制",
-        "tooLargeProxy": "在到达BookOrbit之前被拒绝，可能被反向代理",
+        "tooLargeProxy": "在到达TLS Library之前被拒绝，可能被反向代理",
         "storageFull": "服务器存储空间不足",
         "network": "无法连接到服务器",
         "status": "上传失败 (HTTP {status})"
@@ -8102,22 +8102,22 @@
         "notProvided": "未提供",
         "searchScope": "从 {count, plural, other {# 个 ISBN}}中选择一个进行搜索,或按书名和作者搜索。",
         "searchScopeLimited": "请选择一个 ISBN 进行搜索。",
-        "titleAuthorOnly": "未提供 ISBN。BookOrbit 将按书名和作者搜索一次。",
+        "titleAuthorOnly": "未提供 ISBN。TLS Library 将按书名和作者搜索一次。",
         "chooseSearch": "选择要搜索的版次",
         "searchByEdition": "为某个版次查找发布",
         "findRelease": "查找发布",
         "primaryIsbn": "ISBN {isbn}",
         "primaryTitleAuthor": "书名和作者",
         "recommended": "推荐",
-        "recommendationHelpLabel": "BookOrbit 如何选出推荐的 ISBN",
+        "recommendationHelpLabel": "TLS Library 如何选出推荐的 ISBN",
         "recommendationTitle": "推荐的搜索方式是如何选出的",
         "recommendationLanguage": "优先请求的语言,其次未知语言,最后才是已知不匹配的语言。",
         "recommendationAgreement": "优先选择由更多独立元数据提供商确认的 ISBN。",
-        "recommendationProvider": "使用 BookOrbit 稳定的元数据提供商优先级。",
+        "recommendationProvider": "使用 TLS Library 稳定的元数据提供商优先级。",
         "recommendationRelevance": "使用该版次在提供商结果中的位置。",
         "recommendationYear": "优先选择出版年份最接近该作品最早已知年份的版次。",
         "recommendationStable": "以 ISBN 本身作为最终的稳定决胜依据。",
-        "recommendationFallback": "如果没有有效的 ISBN,BookOrbit 会按书名和作者搜索一次。从菜单中选择一个版次时,始终以你的选择为准。",
+        "recommendationFallback": "如果没有有效的 ISBN,TLS Library 会按书名和作者搜索一次。从菜单中选择一个版次时,始终以你的选择为准。",
         "withoutIsbn": "按书名和作者搜索",
         "action": "操作"
       },
@@ -8353,7 +8353,7 @@
         "fileTooLarge": "该文件大于 {limit},因此它不是 .torrent 文件",
         "fileUnreadable": "无法读取该文件"
       },
-      "noClientList": "BookOrbit 将使用优先级最高的已启用下载客户端。"
+      "noClientList": "TLS Library 将使用优先级最高的已启用下载客户端。"
     },
     "attempts": {
       "title": "更早的尝试",
@@ -8490,7 +8490,7 @@
       "manifest": {
         "ready": "{count, plural, other {此发布包含 # 个文件。支持的书籍文件可以导入。}}",
         "noSupported": "此发布没有直接支持的书籍文件，无法发送。",
-        "contentsUnknown": "该发布打包为压缩档(RAR、ZIP 或 7z)。BookOrbit 会在下载后解压,因此目前还不知道其内容。",
+        "contentsUnknown": "该发布打包为压缩档(RAR、ZIP 或 7z)。TLS Library 会在下载后解压,因此目前还不知道其内容。",
         "multipleBooks": "这个发布包含 {count} 本独立的书。下载完成后会询问你要导入哪一本。",
         "multiPartBook": "{count, plural, other {这个发布是由 # 个文件组成的一本书,将作为一本书一起导入。}}",
         "metadataUnavailable": "这是一个磁力链接。在 BT 客户端从种子群获取到元数据之前,无法知道其文件列表。",
@@ -8616,7 +8616,7 @@
     },
     "seed": {
       "title": "下载客户端",
-      "automated": "这个发布由 BookOrbit 自动挑选。",
+      "automated": "这个发布由 TLS Library 自动挑选。",
       "loading": "正在读取下载客户端……",
       "loadFailed": "无法连接到这条请求的下载客户端。",
       "notInClient": "下载客户端中已没有这个种子。",
@@ -8631,7 +8631,7 @@
       "ofGoal": "{value} / {goal}",
       "deleteFiles": "同时删除已下载的文件",
       "remove": "从客户端移除",
-      "removeHint": "BookOrbit 绝不会自行停止做种。无论如何,导入的书都会留在你的书库中。",
+      "removeHint": "TLS Library 绝不会自行停止做种。无论如何,导入的书都会留在你的书库中。",
       "confirm": {
         "title": "移除这个种子？",
         "description": "种子将停止做种。已下载的文件保留在磁盘上。",
@@ -8939,9 +8939,9 @@
       "changePassword": "更改密码",
       "signOut": "登出",
       "githubStar": {
-        "title": "喜欢BookOrbit吗？",
-        "body": "如果BookOrbit正在帮助您的库，请考虑启动GitHub上的项目。它帮助更多的人发现应用程序并支持正在进行的开发。",
-        "cta": "GitHub 上的星座BookOrbit"
+        "title": "喜欢TLS Library吗？",
+        "body": "如果TLS Library正在帮助您的库，请考虑启动GitHub上的项目。它帮助更多的人发现应用程序并支持正在进行的开发。",
+        "cta": "GitHub 上的星座TLS Library"
       },
       "surfaceOpacity": "表面不透明度",
       "surfaceOpacityValue": "{value}%",
@@ -9227,10 +9227,10 @@
       "collectionsEmptyHint": "收藏群组你手上挑选的书籍。"
     },
     "legalNotices": {
-      "about": "关于 BookOrbit",
+      "about": "关于 TLS Library",
       "trigger": "法律声明",
-      "title": "关于 BookOrbit",
-      "description": "BookOrbit 的署名、许可与源代码信息。",
+      "title": "关于 TLS Library",
+      "description": "TLS Library 的署名、许可与源代码信息。",
       "poweredBy": "由 BookOrbit 驱动",
       "originalDevelopment": "本软件包含最初以 BookOrbit 之名开发的内容。",
       "copyright": "版权所有 (C) 2025-2026 neon。",
@@ -9309,7 +9309,7 @@
     },
     "libraryLoad": {
       "errorTitle": "书库加载失败",
-      "errorDescription": "BookOrbit 无法获取你的书库信息，你的书库数据未被删除。"
+      "errorDescription": "TLS Library 无法获取你的书库信息，你的书库数据未被删除。"
     },
     "scroller": {
       "failedToLoad": "加载失败。",
@@ -9725,7 +9725,7 @@
       "serversEmptyTitle": "尚无邮件服务器",
       "serversEmptyBody": "书目通过SMTP帐户。Gmail、Outlook、iCloud和Fastmail是一个点击；任何其他服务器也可以工作。",
       "needServerTitle": "在您可以发送之前添加邮件服务器",
-      "needServerBody": "BookOrbit通过您拥有的 SMTP 帐户发送账簿，例如带有应用程序密码的 Gmail 。",
+      "needServerBody": "TLS Library通过您拥有的 SMTP 帐户发送账簿，例如带有应用程序密码的 Gmail 。",
       "needServerAsk": "请管理员与您分享邮件服务器。",
       "goToServers": "转到邮件服务器",
       "noEncryption": "无加密"
@@ -9755,7 +9755,7 @@
       "unreachable": "{server} 没有答复。",
       "unconfirmed": "连接在消息传递后就停止了，所以可能已经到达。",
       "unconfirmedFix": "复活前勾选收件箱，或两次。",
-      "interrupted": "BookOrbit在这个电子邮件正在退出时重新启动。",
+      "interrupted": "TLS Library在这个电子邮件正在退出时重新启动。",
       "interruptedFix": "重新发送前选取收件箱。",
       "preparation": "无法准备发送文件。",
       "other": "邮件服务器将其关闭。",
@@ -9880,7 +9880,7 @@
         "lastSent": "最后发送的书 {time}",
         "sendTest": "发送测试电子邮件",
         "testSubject": "书签测试邮件",
-        "testBody": "这是一个来自BookOrbit的测试。如果你可以阅读它，书籍发送至 {name} 也将来到这里。",
+        "testBody": "这是一个来自TLS Library的测试。如果你可以阅读它，书籍发送至 {name} 也将来到这里。",
         "testSent": "测试邮件发送至 {name}",
         "testFailed": "测试邮件没有退出： {error}",
         "makeDefault": "快速发送收件人",
@@ -9925,7 +9925,7 @@
         "share": "与所有人分享",
         "shareHint": "其他人可以通过此服务器发送账簿，无需看到密码。",
         "system": "发送密码重置和登录链接",
-        "systemHint": "一个服务器 BookOrbit 本身使用。只有超级用户可以更改这个。",
+        "systemHint": "一个服务器 TLS Library 本身使用。只有超级用户可以更改这个。",
         "verifyTls": "验证服务器证书",
         "verifyTlsHint": "仅为您自己的网络上拥有自签名证书的服务器关闭。",
         "test": "测试连通性",
@@ -9984,7 +9984,7 @@
     }
   },
   "errors": {
-    "network": "无法连接到 BookOrbit。请检查网络连接后重试。"
+    "network": "无法连接到 TLS Library。请检查网络连接后重试。"
   },
   "hardcover": {
     "settings": {
@@ -10030,7 +10030,7 @@
       },
       "syncOnProgress": {
         "title": "同步进度更新",
-        "description": "推送阅读进度和日期 BookOrbit 或 KOReader 进度改变。"
+        "description": "推送阅读进度和日期 TLS Library 或 KOReader 进度改变。"
       },
       "syncOnRating": {
         "title": "在评分变化时同步",
@@ -10084,7 +10084,7 @@
     },
     "import": {
       "title": "拉取已读状态",
-      "description": "在填写空白的 BookOrbit 状态之前预览Hardcover匹配。",
+      "description": "在填写空白的 TLS Library 状态之前预览Hardcover匹配。",
       "clear": "清空",
       "preview": "预览",
       "importProgress": "导入进度",
@@ -10334,7 +10334,7 @@
           "options": {
             "imported": {
               "title": "导入时",
-              "hint": "BookOrbit 首次导入该书的日期。这是默认选项。"
+              "hint": "TLS Library 首次导入该书的日期。这是默认选项。"
             },
             "file_modified": {
               "title": "文件修改时间",
@@ -10446,7 +10446,7 @@
           "opfTitle": "metadata.opf 文件",
           "opfHint": "由 Calibre 保存到书籍旁边",
           "swap": "调换顺序",
-          "hint": "BookOrbit 使用书籍拥有的第一种来源，忽略另一种。Calibre 书库通常应将 metadata.opf 放在首位。"
+          "hint": "TLS Library 使用书籍拥有的第一种来源，忽略另一种。Calibre 书库通常应将 metadata.opf 放在首位。"
         },
         "regex": {
           "title": "配置正则表达式元数据",
@@ -10688,7 +10688,7 @@
           "metadata": "一本书有多个文件时以哪个为准，以及详情来源。",
           "reading": "书籍何时从未读转为在读再到已读。",
           "schedule": "无需手动点击扫描即可保持书库最新。",
-          "fileWrite": "BookOrbit 可能对磁盘文件进行的可选更改。",
+          "fileWrite": "TLS Library 可能对磁盘文件进行的可选更改。",
           "access": "还有谁可以查看和使用此书库。"
         }
       },
@@ -11004,7 +11004,7 @@
       },
       "cwa": {
         "snapshotTitle": "停止快照模式",
-        "stoppedWarning": "在复制两个数据库之前停止校准网络自动化。BookOrbit无法验证两张快照是否在完全相同的瞬间复制过。",
+        "stoppedWarning": "在复制两个数据库之前停止校准网络自动化。TLS Library无法验证两张快照是否在完全相同的瞬间复制过。",
         "importRootGuidance": "两个快照文件都必须是可读的服务器路径在配置的MIGRATION_IMPORT_ROOT 目录下。",
         "logicalRootGuidance": "书目路径映射使用存储在应用.db中的逻辑校准库根，而不是包含这些数据库快照的主机文件夹。",
         "compatibilityNote": "Schema行为验证为 Calibre-Web 自动化v4.0.6。其数据库不会暴露可靠的应用程序发布版本。"
@@ -12241,7 +12241,7 @@
       },
       "confirmDialog": {
         "title": "{count, plural, other {重命名磁盘上的 # 个文件？}}",
-        "body": "这会移动 {library} 中的实际文件。BookOrbit 会记录每次移动，但撤销就意味着要把文件重命名回原样。",
+        "body": "这会移动 {library} 中的实际文件。TLS Library 会记录每次移动，但撤销就意味着要把文件重命名回原样。",
         "willRename": "将被重命名",
         "skippedByYou": "您已跳过",
         "heldBack": "因冲突暂缓",
@@ -13039,7 +13039,7 @@
       "offer": "我只删除了设备副本；提供替换",
       "confirm": "我安装了替换",
       "cancel": "取消替换",
-      "replacementHint": "首先准备和审查。删除设备副本不会删除库簿。请自行备份设备本地笔记。 BookOrbit 保存规范进度和服务器注释。延迟事件可能会限制精确同步.",
+      "replacementHint": "首先准备和审查。删除设备副本不会删除库簿。请自行备份设备本地笔记。 TLS Library 保存规范进度和服务器注释。延迟事件可能会限制精确同步.",
       "prepared": "已准备好替换： {format}, {size}。只从选定的设备中删除这本书，然后提供准备好的替换和同步。",
       "offered": "替换提供。在设备上同步并下载，然后确认安装。一个已完成的 HTTP 传输不会被证明是安装。",
       "cancelled": "替换已取消。取消不会还原已删除或部分替换的设备副本。选择同一本书来准备恢复下载。",

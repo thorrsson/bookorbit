@@ -61,7 +61,7 @@ export class KoreaderController {
   @Public()
   @Post('users/create')
   registerKoreader() {
-    throw new ForbiddenException('Registration disabled. Create credentials in BookOrbit settings.');
+    throw new ForbiddenException('Registration disabled. Create credentials in TLS Library settings.');
   }
 
   @Public()

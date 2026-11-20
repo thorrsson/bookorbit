@@ -376,7 +376,7 @@ export class RequestImportService implements OnApplicationBootstrap {
      */
     for (let pass = 0; plan.units.length === 0 && plan.containers.length > 0; pass++) {
       if (pass >= MAX_ARCHIVE_NESTING) {
-        throw new Error('The download is an archive nested deeper than BookOrbit will unwrap');
+        throw new Error('The download is an archive nested deeper than TLS Library will unwrap');
       }
       const target = pass === 0 ? extractionDirectory : join(extractionDirectory, `pass-${pass + 1}`);
       await this.extractContainers(contentRoot, contentContainmentRoot, plan.containers, target, budget);
@@ -416,12 +416,12 @@ export class RequestImportService implements OnApplicationBootstrap {
 
   private async holdForTruncatedRelease(download: BookRequestDownloadRow, request: BookRequestRow): Promise<void> {
     this.logger.warn(
-      `[book_request.import] [end] requestId=${request.id} downloadId=${download.id} maxDepth=${MAX_SCAN_DEPTH} maxEntries=${MAX_SCAN_ENTRIES} - the release is larger than BookOrbit reads, holding rather than importing part of it`,
+      `[book_request.import] [end] requestId=${request.id} downloadId=${download.id} maxDepth=${MAX_SCAN_DEPTH} maxEntries=${MAX_SCAN_ENTRIES} - the release is larger than TLS Library reads, holding rather than importing part of it`,
     );
     await this.fulfillment.holdForReview(
       download,
       request,
-      `this release is deeper or larger than BookOrbit reads (${MAX_SCAN_DEPTH} levels, ${MAX_SCAN_ENTRIES} entries), so importing it could take only part of the book`,
+      `this release is deeper or larger than TLS Library reads (${MAX_SCAN_DEPTH} levels, ${MAX_SCAN_ENTRIES} entries), so importing it could take only part of the book`,
     );
   }
 

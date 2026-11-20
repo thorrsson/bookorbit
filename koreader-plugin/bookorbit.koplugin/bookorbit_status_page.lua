@@ -106,7 +106,7 @@ local function stats(d, w)
     local tw = math.floor((w - 2 * gap) / 3)
     local tiles = {
         { tw, d.matched, _("books matched") },
-        { w - 2 * tw - 2 * gap, d.unmatched, _("not in BookOrbit"), d.unmatched > 0 and { kind = "unmatched" } or nil },
+        { w - 2 * tw - 2 * gap, d.unmatched, _("not in TLS Library"), d.unmatched > 0 and { kind = "unmatched" } or nil },
         { tw, d.waiting, _("waiting to send") },
     }
     -- One caption size for the row, stepped down until every caption fits
@@ -274,8 +274,8 @@ local function onAction(page, action)
         plugin:showDiagnostics()
     elseif kind == "unmatched" then
         require("bookorbit_dialog_ui").notice{
-            title = _("Books not in BookOrbit"),
-            text = _("Some books on this device are not in your BookOrbit library: files copied by hand, or edited since they were downloaded. Recheck all books to try matching them again."),
+            title = _("Books not in TLS Library"),
+            text = _("Some books on this device are not in your TLS Library library: files copied by hand, or edited since they were downloaded. Recheck all books to try matching them again."),
         }
     end
     return true

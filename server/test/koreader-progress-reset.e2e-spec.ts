@@ -309,7 +309,7 @@ describe('KOReader progress reset propagation (e2e)', { timeout: 180_000 }, () =
     expect(await storedPercentage()).toBeNull();
   });
 
-  it('lets reading in BookOrbit retire a reset the device never collected', async () => {
+  it('lets reading in TLS Library retire a reset the device never collected', async () => {
     await pushFromDevice(0.42);
     await clearProgressFromWeb();
 

@@ -79,7 +79,7 @@ assertEqual(raw.sent:match("^CONNECT books%.example:443 HTTP/1%.1"),
     "CONNECT books.example:443 HTTP/1.1", "sends tunnel request")
 assertEqual(raw.sent:find("Proxy-Authorization: Basic ", 1, true) ~= nil, true,
     "sends proxy credentials only in tunnel request")
-assertEqual(raw.sent:find("x-auth-key", 1, true), nil, "never sends BookOrbit credentials in CONNECT")
+assertEqual(raw.sent:find("x-auth-key", 1, true), nil, "never sends TLS Library credentials in CONNECT")
 assertEqual(tls.host, "books.example", "uses target host for TLS SNI")
 assertEqual(tls.timeout, 10, "sets TLS timeout")
 assertEqual(conn:receive(), "ok", "forwards socket methods to TLS")

@@ -281,7 +281,7 @@ function UpdateCheck:maybeCheckForUpdate(interactive)
         if interactive then
             Toast.error(T(_("Could not check for update: %1"), tostring(err or "network error")))
         else
-            logger.dbg("BookOrbit: plugin update check failed:", err)
+            logger.dbg("TLS Library: plugin update check failed:", err)
         end
         return
     end
@@ -336,7 +336,7 @@ function UpdateCheck:handleUpdateVersionResponse(body, interactive, prompt_allow
 
     if BookOrbitUpdater.isNewer(plugin_latest, PLUGIN_VERSION) ~= true then
         if interactive then
-            Toast.show(T(_("BookOrbit is up to date, v%1"), tostring(PLUGIN_VERSION):gsub("^v", "")))
+            Toast.show(T(_("TLS Library is up to date, v%1"), tostring(PLUGIN_VERSION):gsub("^v", "")))
         end
         return
     end

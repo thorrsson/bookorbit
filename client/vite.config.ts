@@ -20,6 +20,7 @@ export default defineConfig({
     __INTLIFY_PROD_DEVTOOLS__: false,
     __VUE_I18N_FULL_INSTALL__: true,
     __VUE_I18N_LEGACY_API__: false,
+    __BUILD_DATE__: JSON.stringify(new Date().toISOString().slice(0, 10)),
   },
   plugins: [
     vue(),
@@ -39,8 +40,8 @@ export default defineConfig({
         'maskable-icon-512x512.png',
       ],
       manifest: {
-        name: 'BookOrbit',
-        short_name: 'BookOrbit',
+        name: 'TLS Library',
+        short_name: 'TLS Library',
         description: 'Your personal book library and reading space',
         theme_color: '#1e1e18',
         background_color: '#fafaf8',

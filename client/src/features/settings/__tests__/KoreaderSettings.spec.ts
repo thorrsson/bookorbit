@@ -171,7 +171,7 @@ function makeManualHashLink(overrides: Partial<KoreaderManualHashLink> = {}): Ko
     hash: 'b'.repeat(32),
     bookId: 70,
     bookFileId: 71,
-    bookTitle: 'Linked BookOrbit Title',
+    bookTitle: 'Linked TLS Library Title',
     bookAuthors: ['Linked Author'],
     koreaderTitle: 'Linked KOReader Title',
     koreaderAuthors: 'Device Author',
@@ -204,8 +204,8 @@ function makeSuggestion(overrides: Partial<KoreaderUnmatchedBookSuggestion> = {}
 function makeBookCard(overrides: Partial<BookCard> = {}): BookCard {
   return {
     id: 55,
-    title: 'BookOrbit Title',
-    authors: ['BookOrbit Author'],
+    title: 'TLS Library Title',
+    authors: ['TLS Library Author'],
     files: [{ id: 44, format: 'epub', role: 'main', sizeBytes: 123 }],
     status: 'present',
     seriesName: null,
@@ -376,7 +376,7 @@ describe('KoreaderSettings', () => {
     expect(wrapper.text()).toContain('14 books')
     expect(wrapper.text()).toContain('1 device')
     expect(wrapper.text()).toContain('KOReader sync URL')
-    expect(wrapper.text()).toContain("Works with the BookOrbit plugin and KOReader's built-in progress sync.")
+    expect(wrapper.text()).toContain("Works with the TLS Library plugin and KOReader's built-in progress sync.")
     expect((wrapper.find('#koreader-sync-url').element as HTMLInputElement).value).toBe('https://bookorbit.example/api/v1/koreader')
     expect(wrapper.text()).toContain('Kobo Libra 2')
     expect(wrapper.text()).toContain('Project Hail Mary')
@@ -641,7 +641,7 @@ describe('KoreaderSettings', () => {
     expect(toggle.attributes('disabled')).toBeUndefined()
   })
 
-  it('opens the unmatched link dialog and submits the selected BookOrbit book', async () => {
+  it('opens the unmatched link dialog and submits the selected TLS Library book', async () => {
     const status = makeSyncStatus({ pluginTotals: { ...makeSyncStatus().pluginTotals, unmatchedBooks: 1 } })
     koreaderMock.credentials.value = status.credentials
     koreaderMock.syncStatus.value = status
@@ -654,14 +654,14 @@ describe('KoreaderSettings', () => {
     await buttonByText(wrapper, 'Link')!.trigger('click')
     expect(wrapper.text()).toContain('Link KOReader book')
     const searchInput = wrapper.find('input[type="search"]')
-    await searchInput.setValue('BookOrbit')
-    expect((searchInput.element as HTMLInputElement).value).toBe('BookOrbit')
-    expect(wrapper.text()).toContain('BookOrbit Title')
+    await searchInput.setValue('TLS Library')
+    expect((searchInput.element as HTMLInputElement).value).toBe('TLS Library')
+    expect(wrapper.text()).toContain('TLS Library Title')
 
-    const bookResult = wrapper.findAll('button').find((button) => button.text().includes('BookOrbit Title'))!
+    const bookResult = wrapper.findAll('button').find((button) => button.text().includes('TLS Library Title'))!
     await bookResult.trigger('click')
     expect(wrapper.text()).toContain('Confirm KOReader link')
-    expect(wrapper.text()).toContain('Already synced stats will stay on their current BookOrbit book.')
+    expect(wrapper.text()).toContain('Already synced stats will stay on their current TLS Library book.')
 
     await buttonByText(wrapper, 'Confirm link')!.trigger('click')
     await flushPromises()
@@ -681,10 +681,10 @@ describe('KoreaderSettings', () => {
     await buttonByText(wrapper, 'Link')!.trigger('click')
     await wrapper
       .findAll('button')
-      .find((button) => button.text().includes('BookOrbit Title'))!
+      .find((button) => button.text().includes('TLS Library Title'))!
       .trigger('click')
 
-    expect(wrapper.text()).toContain('This KOReader copy is a different file from the one in BookOrbit.')
+    expect(wrapper.text()).toContain('This KOReader copy is a different file from the one in TLS Library.')
     expect(wrapper.text()).toContain('Highlights and bookmarks will not.')
   })
 
@@ -843,7 +843,7 @@ describe('KoreaderSettings', () => {
     expect(dialog.textContent).toContain('First Library Book')
     expect(dialog.textContent).toContain('Second Library Book')
     expect(dialog.textContent).not.toContain('Ambiguous Device Book')
-    expect(dialog.textContent).toContain('This KOReader copy is a different file from the one in BookOrbit.')
+    expect(dialog.textContent).toContain('This KOReader copy is a different file from the one in TLS Library.')
 
     const confirm = [...dialog.querySelectorAll('button')].find((button) => button.textContent?.includes('Link 2 books'))!
     confirm.click()
@@ -889,7 +889,7 @@ describe('KoreaderSettings', () => {
     const wrapper = mountComponent()
     await flushPromises()
 
-    const hint = "Different file from the one in BookOrbit: progress syncs as a percentage, and highlights and bookmarks don't sync."
+    const hint = "Different file from the one in TLS Library: progress syncs as a percentage, and highlights and bookmarks don't sync."
     expect(wrapper.text().split(hint)).toHaveLength(2)
   })
 
@@ -1026,7 +1026,7 @@ describe('KoreaderSettings', () => {
     expect(wrapper.text()).toContain('clears your entire books to review list')
   })
 
-  it('loads more BookOrbit search results from the link dialog', async () => {
+  it('loads more TLS Library search results from the link dialog', async () => {
     const status = makeSyncStatus({ pluginTotals: { ...makeSyncStatus().pluginTotals, unmatchedBooks: 1 } })
     koreaderMock.credentials.value = status.credentials
     koreaderMock.syncStatus.value = status
@@ -1054,7 +1054,7 @@ describe('KoreaderSettings', () => {
     await flushPromises()
 
     expect(wrapper.text()).toContain('Linked KOReader Title')
-    expect(wrapper.text()).toContain('Linked to Linked BookOrbit Title')
+    expect(wrapper.text()).toContain('Linked to Linked TLS Library Title')
 
     await wrapper
       .findAll('button')
@@ -1083,7 +1083,7 @@ describe('KoreaderSettings', () => {
 
     expect(wrapper.text()).toContain('Unlink KOReader book?')
     expect(wrapper.text()).toContain('Future syncs will use an automatic match if one exists.')
-    expect(wrapper.text()).toContain('Already synced stats will stay on their current BookOrbit book.')
+    expect(wrapper.text()).toContain('Already synced stats will stay on their current TLS Library book.')
 
     const unlinkButtons = wrapper.findAll('button').filter((button) => button.text() === 'Unlink')
     await unlinkButtons[unlinkButtons.length - 1]!.trigger('click')
@@ -1397,7 +1397,7 @@ describe('KoreaderSettings', () => {
     await flushPromises()
 
     await buttonByText(wrapper, 'Link')!.trigger('click')
-    const bookResult = wrapper.findAll('button').find((button) => button.text().includes('BookOrbit Title'))!
+    const bookResult = wrapper.findAll('button').find((button) => button.text().includes('TLS Library Title'))!
     await bookResult.trigger('click')
     expect(wrapper.text()).toContain('Confirm KOReader link')
     expect(wrapper.text()).toContain('Book ID: 55')
@@ -1406,6 +1406,6 @@ describe('KoreaderSettings', () => {
 
     expect(wrapper.text()).not.toContain('Confirm KOReader link')
     expect(wrapper.text()).not.toContain('Book ID: 55')
-    expect(wrapper.text()).toContain('BookOrbit Title')
+    expect(wrapper.text()).toContain('TLS Library Title')
   })
 })

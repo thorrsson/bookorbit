@@ -279,7 +279,7 @@ describe('useThemeStore', () => {
       expect(store.background).toBe('aurora')
     })
 
-    it('paints BookOrbit outside the app shell and the chosen style inside it', () => {
+    it('paints TLS Library outside the app shell and the chosen style inside it', () => {
       localStorage.setItem('style', '"nostalgia"')
       window.history.replaceState(null, '', '/login')
       setActivePinia(createPinia())
@@ -354,7 +354,7 @@ describe('useThemeStore', () => {
       expect(localStorage.getItem('brightness')).toBe('20')
     })
 
-    it('keeps the stored brightness outside the app shell, where the BookOrbit style applies', () => {
+    it('keeps the stored brightness outside the app shell, where the TLS Library style applies', () => {
       localStorage.setItem('style', '"nostalgia"')
       localStorage.setItem('brightness', '50')
       window.history.replaceState(null, '', '/login')

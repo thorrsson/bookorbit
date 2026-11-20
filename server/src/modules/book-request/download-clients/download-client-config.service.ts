@@ -300,7 +300,7 @@ export class DownloadClientConfigService {
     if (normalized.length > 0 || this.adapterStagesLocally(adapterType)) return normalized;
     throw downloadClientError(
       'DOWNLOAD_CLIENT_MAPPING_REQUIRED',
-      `A download client needs at least one path mapping, so BookOrbit knows which directory it may import from. ${ADD_PATH_MAPPING_HINT}`,
+      `A download client needs at least one path mapping, so TLS Library knows which directory it may import from. ${ADD_PATH_MAPPING_HINT}`,
     );
   }
 
@@ -345,7 +345,7 @@ export class DownloadClientConfigService {
     const label = this.registry.find(adapterType)?.label ?? adapterType;
     throw downloadClientError(
       'DOWNLOAD_CLIENT_REMOVE_COMPLETED_UNSUPPORTED',
-      `${label} keeps what it downloads for seeding, so BookOrbit does not remove its downloads after import`,
+      `${label} keeps what it downloads for seeding, so TLS Library does not remove its downloads after import`,
     );
   }
 

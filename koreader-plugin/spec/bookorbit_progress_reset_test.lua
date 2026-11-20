@@ -125,7 +125,7 @@ local RESET_BODY_REFLOWABLE = {
 -- 1. The reset must not be mistaken for this device's own progress, or it is skipped outright.
 local plugin = makePlugin(RESET_BODY_REFLOWABLE)
 plugin:getProgress(false, false)
-assertEqual(#confirm_boxes, 1, "a reset from BookOrbit reaches the conflict prompt")
+assertEqual(#confirm_boxes, 1, "a reset from TLS Library reaches the conflict prompt")
 
 -- 2. Accepting it has to actually move the reader to the start.
 confirm_boxes[1].ok_callback()

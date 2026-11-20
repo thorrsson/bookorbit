@@ -245,7 +245,7 @@ describe('extractCbzMetadata', () => {
       expect(r?.title).toBe('Descriptor Comic');
     });
 
-    it('extracts RanobeDB ID from managed BookOrbit notes', async () => {
+    it('extracts RanobeDB ID from managed TLS Library notes', async () => {
       const xml = `<ComicInfo>
         <Notes>
           Manual note

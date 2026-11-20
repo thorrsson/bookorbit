@@ -545,7 +545,7 @@ describe('Email lifecycle (e2e)', { timeout: 180_000 }, () => {
     it('uses explicit templateId over recipient default and applies provider from fields', async () => {
       const providerCreateResponse = await apiAs(superManager, 'POST', '/api/v1/email/providers', {
         ...buildProviderPayload(ctx, 'sender-provider'),
-        fromName: 'BookOrbit Bot',
+        fromName: 'TLS Library Bot',
         fromAddress: 'bot@example.com',
       });
       expect(providerCreateResponse.statusCode).toBe(201);
@@ -596,7 +596,7 @@ describe('Email lifecycle (e2e)', { timeout: 180_000 }, () => {
       const [captured] = ctx.smtpSink.getMessages();
       const fromHeader = extractSmtpHeader(captured.raw, 'from');
       const subjectHeader = extractSmtpHeader(captured.raw, 'subject');
-      expect(fromHeader).toContain('BookOrbit Bot <bot@example.com>');
+      expect(fromHeader).toContain('TLS Library Bot <bot@example.com>');
       expect(subjectHeader).toBe('Override Email Lifecycle Book');
       expect(subjectHeader).not.toContain('Recipient');
 
@@ -918,11 +918,11 @@ describe('Email lifecycle (e2e)', { timeout: 180_000 }, () => {
         await apiAs(senderOnly, 'POST', '/api/v1/email/recipients', { name: 'Kindle', email: 'reader_1@kindle.com', deviceType: 'kindle' })
       ).json() as { id: number };
 
-      const sent = await apiAs(senderOnly, 'POST', `/api/v1/email/recipients/${inbox.id}/test`, { subject: 'BookOrbit test', text: 'It works.' });
+      const sent = await apiAs(senderOnly, 'POST', `/api/v1/email/recipients/${inbox.id}/test`, { subject: 'TLS Library test', text: 'It works.' });
       expect(sent.statusCode).toBe(200);
       expect(sent.json()).toEqual({ success: true });
       const [message] = await ctx.smtpSink.waitForMessages(1);
-      expect(extractSmtpHeader(message.raw, 'Subject')).toBe('BookOrbit test');
+      expect(extractSmtpHeader(message.raw, 'Subject')).toBe('TLS Library test');
 
       expectError(await apiAs(senderOnly, 'POST', `/api/v1/email/recipients/${kindle.id}/test`, { subject: 'S', text: 'T' }), 400);
       expectError(await apiAs(foreignSender, 'POST', `/api/v1/email/recipients/${inbox.id}/test`, { subject: 'S', text: 'T' }), 403);

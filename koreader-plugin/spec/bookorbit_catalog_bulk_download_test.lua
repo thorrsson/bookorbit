@@ -746,7 +746,7 @@ assertEqual(collision_ctx.completed["2"], "/downloads/Shared/Book_ One [2].epub"
 Catalog.bulkReleaseStandby = function() end
 Catalog:bulkFinish(collision_ctx)
 assertEqual(shown_widget.title:find("Saved under a new name: 2", 1, true) ~= nil, true, "completion summary keeps conflict count")
-assertEqual(shown_widget.title:find("Books whose file names clashed were saved with their BookOrbit ID added.", 1, true) ~= nil, true, "completion summary explains renaming")
+assertEqual(shown_widget.title:find("Books whose file names clashed were saved with their TLS Library ID added.", 1, true) ~= nil, true, "completion summary explains renaming")
 assertEqual(shown_widget.title:find(" -> ", 1, true), nil, "completion summary omits long path mappings")
 
 local count_skips = Catalog:bulkCountKnownSkips({ manifestBook(1, "hash1001") })

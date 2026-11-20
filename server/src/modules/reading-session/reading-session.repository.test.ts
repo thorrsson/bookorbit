@@ -587,7 +587,7 @@ describe('ReadingSessionRepository - listByBook', () => {
     await expect(repo.listByBook(1, 2, 1, 25, 'startedAt', 'asc')).resolves.toBeDefined();
   });
 
-  it('keeps native Apple sources distinct while folding legacy BookOrbit sessions', async () => {
+  it('keeps native Apple sources distinct while folding legacy TLS Library sessions', async () => {
     const { db } = makeListDb({
       count: [{ total: 5 }],
       stats: [{ totalSessions: 5, totalSeconds: 380, avgDurationSeconds: 76, firstSessionAt: null, lastSessionAt: null }],

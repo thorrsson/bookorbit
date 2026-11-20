@@ -111,7 +111,7 @@
           "label": "Stil",
           "hint": "Appens övergripande utseende. Läge, accenter, hörn och bakgrund behåller sina inställningar.",
           "bookorbit": {
-            "label": "BookOrbit"
+            "label": "TLS Library"
           },
           "nostalgia": {
             "label": "Nostalgi"
@@ -1010,7 +1010,7 @@
         "targetUser": "Mål användare",
         "doNotImport": "Importera inte den här användaren",
         "noSourceUsersLoaded": "Inga källanvändare lästa ännu.",
-        "noActiveTargetUsers": "Inga aktiva målanvändare hittade. Skapa eller återaktivera en BookOrbit-användare innan mappning.",
+        "noActiveTargetUsers": "Inga aktiva målanvändare hittade. Skapa eller återaktivera en TLS Library-användare innan mappning.",
         "pathPrefixMappings": "Sökväg Prefix Mappings",
         "addMapping": "Lägg till mappning",
         "pathMappingsHelp1": "Sökvägsmappningar översätter källfilens sökvägar till målsökvägar så att böcker kan matchas efter filens plats. Till exempel, om ditt Booklore bibliotek lagrade filer under",
@@ -2052,11 +2052,11 @@
         "syncUrlCopyFailed": "Kunde inte kopiera synknings-URL",
         "syncPreferences": "Synkronisera inställningar",
         "twoWaySync": "Synkronisering av framsteg på två sätt",
-        "twoWaySyncHint": "Synkronisera läsposition mellan BookOrbit och Kobo. Kräver KEPUB leverans för exakta platser och tillförlitlig sida återställning.",
-        "syncHighlights": "Synkronisera BookOrbit höjdpunkter till Kobo",
-        "syncHighlightsHint": "Skicka höjdpunkter gjorda i BookOrbit eller KOReader till din Kobo. Kobo höjdpunkter importeras till BookOrbit även när detta är avstängt. Länkade anteckningar synkronisera redigeringar och ta bort båda sätten. Kräver KEPUB leverans; boken på Kobo måste vara KEPUB hämtad från BookOrbit.",
+        "twoWaySyncHint": "Synkronisera läsposition mellan TLS Library och Kobo. Kräver KEPUB leverans för exakta platser och tillförlitlig sida återställning.",
+        "syncHighlights": "Synkronisera TLS Library höjdpunkter till Kobo",
+        "syncHighlightsHint": "Skicka höjdpunkter gjorda i TLS Library eller KOReader till din Kobo. Kobo höjdpunkter importeras till TLS Library även när detta är avstängt. Länkade anteckningar synkronisera redigeringar och ta bort båda sätten. Kräver KEPUB leverans; boken på Kobo måste vara KEPUB hämtad från TLS Library.",
         "convertKepub": "Konvertera till KEPUB",
-        "convertKepubHint": "Skicka kvalificerade EPUBs som KEPUB. Detta fortsätter när framsteg synkronisering eller BookOrbit-to-Kobo höjdpunkter är aktiverade. På nästa Kobo sync, drabbade böcker erbjuds igen som KEPUB nedladdningar; ta bort alla gamla EPUB kopia om Kobo fortsätter att öppna den.",
+        "convertKepubHint": "Skicka kvalificerade EPUBs som KEPUB. Detta fortsätter när framsteg synkronisering eller TLS Library-to-Kobo höjdpunkter är aktiverade. På nästa Kobo sync, drabbade böcker erbjuds igen som KEPUB nedladdningar; ta bort alla gamla EPUB kopia om Kobo fortsätter att öppna den.",
         "forceHyphenation": "Tvinga bindestreck",
         "forceHyphenationHint": "Säkerställer konsekvent textmotivering. Detta kommer att regenerera cachade KEPUBs.",
         "progressThresholds": "Tröskelvärden för framsteg",
@@ -2127,7 +2127,7 @@
           "readingPositionSynced": "Läsposition synkroniserad",
           "labelWithTitle": "{label}: {title}",
           "updateCount": "{count, plural, one {# uppdatera} other {# uppdateringar}}",
-          "directionToKobo": "BookOrbit -> Kobo",
+          "directionToKobo": "TLS Library -> Kobo",
           "directionToBookOrbit": "Kobo -> Bokbana",
           "twoWaySyncEnabled": "Tvåvägssynkronisering aktiverad",
           "deviceProgressSaved": "Enhetens framsteg har sparats",
@@ -2160,7 +2160,7 @@
           "filterFailures": "Misslyckanden",
           "refresh": "Uppdatera",
           "loadingActivity": "Laddar Kobo aktivitet...",
-          "noActivityHint": "Senaste synkronisering aktivitet kommer att visas efter en parad Kobo kontakter BookOrbit.",
+          "noActivityHint": "Senaste synkronisering aktivitet kommer att visas efter en parad Kobo kontakter TLS Library.",
           "error": "Fel",
           "loading": "Laddar...",
           "loadMore": "Ladda mer aktivitet"
@@ -2182,14 +2182,14 @@
       },
       "koreader": {
         "title": "KOReader Sync",
-        "subtitle": "Bläddra i din BookOrbit-katalog i KOReader och synkronisera framsteg, läsaktivitet, höjdpunkter och markeringsändringar.",
+        "subtitle": "Bläddra i din TLS Library-katalog i KOReader och synkronisera framsteg, läsaktivitet, höjdpunkter och markeringsändringar.",
         "tabs": {
           "sync": "Synkronisera inställningar",
           "fileNaming": "Namngivning av fil"
         },
         "fileNaming": {
           "accountTitle": "Konto standard KOReader mönster",
-          "accountDescription": "Sätter standard relativ mapp och filnamn som används av BookOrbit plugin nedladdningar för ditt KOReader konto. Enhetsspecifika regler kan åsidosätta det nedan.",
+          "accountDescription": "Sätter standard relativ mapp och filnamn som används av TLS Library plugin nedladdningar för ditt KOReader konto. Enhetsspecifika regler kan åsidosätta det nedan.",
           "defaultPattern": "Standard bokens sökvägsmönster",
           "accountHelp": "Ditt konto standard för KOReader plugin nedladdningar om inte en enhet har en egen regel.",
           "accountHint": "Används av dina KOReader enheter som inte har en anpassad override.",
@@ -2197,7 +2197,7 @@
           "saveAccount": "Spara kontostandard",
           "deviceTitle": "KOReader-enhet åsidosätter",
           "deviceDescription": "Anpassa en kombination av standard-, serie- och fristående sökvägar. Töm enhetsspecifika rader ärver enhetens standard, vilket i sig kan ärva kontots standard KOReader mönster.",
-          "noDevices": "Enheter visas här efter att de synkroniseras med BookOrbit.",
+          "noDevices": "Enheter visas här efter att de synkroniseras med TLS Library.",
           "customOrganization": "Anpassad organisation",
           "usingAccountDefault": "Använder kontostandard",
           "deviceDefaultHelp": "Fallback för den här enheten. Lämna det lika med kontostandard för att ärva framtida ändringar automatiskt.",
@@ -2231,10 +2231,10 @@
         "latestPlugin": "Senaste plugin: v{version}",
         "latestPluginUnavailable": "Senaste plugin ej tillgänglig",
         "notConfigured": "KOReader synk är inte konfigurerad",
-        "notConfiguredHint": "Skapa en uppsättning synkroniseringsuppgifter och använd dem sedan med pluginen BookOrbit KOReader för att bläddra, ladda ner, utveckla, läsa händelser, höjdpunkter och ta bort.",
+        "notConfiguredHint": "Skapa en uppsättning synkroniseringsuppgifter och använd dem sedan med pluginen TLS Library KOReader för att bläddra, ladda ner, utveckla, läsa händelser, höjdpunkter och ta bort.",
         "createCredentials": "Skapa inloggningsuppgifter",
         "createFormTitle": "Skapa KOReader Sync autentiseringsuppgifter",
-        "createFormHint": "Dessa uppgifter autentiserar dina KOReader enheter med BookOrbit.",
+        "createFormHint": "Dessa uppgifter autentiserar dina KOReader enheter med TLS Library.",
         "username": "Användarnamn",
         "usernamePlaceholder": "t.ex. myreader",
         "password": "Lösenord",
@@ -2246,7 +2246,7 @@
         "status": "KOReader Status",
         "refresh": "Uppdatera",
         "progressSync": "Synkronisering av framsteg",
-        "progressSyncHint": "Tillåt KOReader enheter att synkronisera framsteg, läsa aktivitet, markeringar och anteckning tar bort med BookOrbit.",
+        "progressSyncHint": "Tillåt KOReader enheter att synkronisera framsteg, läsa aktivitet, markeringar och anteckning tar bort med TLS Library.",
         "lastSync": "Senaste synkronisering",
         "syncedBooks": "Synkroniserade böcker",
         "bookCount": "{count, plural, =0 {inga böcker} one {# bok} other {# böcker}}",
@@ -2257,14 +2257,14 @@
         "pluginServerUrl": "Webbadress för plugin-server",
         "copied": "Kopierad",
         "copyUrl": "Kopiera URL",
-        "preconfiguredPlugin": "Förkonfigurerad BookOrbit-plugin",
+        "preconfiguredPlugin": "Förkonfigurerad TLS Library-plugin",
         "preconfiguredPluginHintPrefix": "Ladda ner en zip med serverns URL och din synkronisering inloggning redan konfigurerad. Pluginen innehåller katalog bläddra och synkronisera. Kopiera mappen till",
         "preconfiguredPluginHintSuffix": "och starta om KOReader.",
-        "latestPluginNote": "{label}. Enhetsuppdateringar körs från BookOrbit-menyn i KOReader.",
+        "latestPluginNote": "{label}. Enhetsuppdateringar körs från TLS Library-menyn i KOReader.",
         "preparing": "Förbereder...",
         "downloadPlugin": "Ladda ner plugin",
         "noDevicesSynced": "Inga enheter har synkroniserats ännu",
-        "noDevicesSyncedHint": "Installera pluginen BookOrbit för full synkronisering, eller konfigurera KOReaders lagerförlossningssynkronisering för endast pågående uppdateringar.",
+        "noDevicesSyncedHint": "Installera pluginen TLS Library för full synkronisering, eller konfigurera KOReaders lagerförlossningssynkronisering för endast pågående uppdateringar.",
         "lastSyncLabel": "Senaste synkronisering:",
         "lastBookLabel": "Senaste boken:",
         "noneYet": "Ännu inga",
@@ -2281,8 +2281,8 @@
         "failedPositions": "{count, plural, =0 {inga höjdpunkter behöver uppmärksammas.} one {# höjdpunkt behöver uppmärksammas.} other {# höjdpunkter behöver uppmärksammas.}}",
         "setupGuide": "Installationsguide",
         "setupSteps": "Konfigurationssteg för KOReader",
-        "setupStepsHint": "Använd BookOrbit plugin för att bläddra i kataloger, nedladdningar, framsteg, läshändelser och höjdpunkter. Använd endast lagerplugin för framsteg.",
-        "pluginGuideTitle": "BookOrbit plugin",
+        "setupStepsHint": "Använd TLS Library plugin för att bläddra i kataloger, nedladdningar, framsteg, läshändelser och höjdpunkter. Använd endast lagerplugin för framsteg.",
+        "pluginGuideTitle": "TLS Library plugin",
         "pluginStep1": "Ladda ner förkonfigurerad plugin ovan.",
         "pluginStep2Prefix": "Packa upp den och kopiera",
         "pluginStep2Middle": "till",
@@ -2295,7 +2295,7 @@
         "stockStep1Suffix": ".",
         "stockStep2": "Ställ in den anpassade synkroniseringsservern till den URL som visas ovan.",
         "stockStep3": "Ange det användarnamn och lösenord du skapade, tryck sedan på Logga in.",
-        "locationNote": "BookOrbit sparar KOReader-kompatibla EPUB-platser från webbläsaren. Återställning bör landa nära samma position, men exakt radplacering kan variera beroende på läsare och EPUB-layout.",
+        "locationNote": "TLS Library sparar KOReader-kompatibla EPUB-platser från webbläsaren. Återställning bör landa nära samma position, men exakt radplacering kan variera beroende på läsare och EPUB-layout.",
         "dangerZone": "Fara Zon",
         "deleteCredentials": "Ta bort KOReader uppgifter",
         "deleteCredentialsHint": "Ta bort synkroniseringsuppgifter och koppla från alla enheter. Framstegsdata kommer att behållas.",
@@ -2356,7 +2356,7 @@
             "linkTitle": "Länk KOReader bok",
             "changeTitle": "Ändra KOReader länk",
             "bookOrbitBook": "Bokomloppsbok",
-            "searchPlaceholder": "Sök i ditt BookOrbit-bibliotek",
+            "searchPlaceholder": "Sök i ditt TLS Library-bibliotek",
             "minChars": "Ange minst 2 tecken.",
             "searching": "Söker...",
             "noBooksFound": "Inga böcker hittades.",
@@ -2368,7 +2368,7 @@
             "koreader": "KOReader",
             "bookOrbit": "Bokbana",
             "bookId": "Bokens ID: {id}",
-            "syncedStatsNote": "Redan synkroniserad statistik kommer att stanna på sin nuvarande BookOrbit bok.",
+            "syncedStatsNote": "Redan synkroniserad statistik kommer att stanna på sin nuvarande TLS Library bok.",
             "chooseDifferent": "Välj annan",
             "saving": "Sparar...",
             "confirmLink": "Bekräfta länk",
@@ -2388,7 +2388,7 @@
           "changeLinkTitle": "Ändra KOReader länk",
           "linkBookTitle": "Länk KOReader bok",
           "bookOrbitBook": "Bokomloppsbok",
-          "searchLibraryPlaceholder": "Sök i ditt BookOrbit-bibliotek",
+          "searchLibraryPlaceholder": "Sök i ditt TLS Library-bibliotek",
           "enterMinChars": "Ange minst 2 tecken.",
           "searching": "Söker...",
           "noBooksFound": "Inga böcker hittades.",
@@ -2399,7 +2399,7 @@
           "loadingMore": "Laddar...",
           "confirmLinkTitle": "Bekräfta KOReader länk",
           "bookId": "Bokens ID: {id}",
-          "syncedStatsNote": "Redan synkroniserad statistik kommer att stanna på sin nuvarande BookOrbit bok.",
+          "syncedStatsNote": "Redan synkroniserad statistik kommer att stanna på sin nuvarande TLS Library bok.",
           "chooseDifferent": "Välj annan",
           "saving": "Sparar...",
           "confirmLink": "Bekräfta länk"
@@ -4640,8 +4640,8 @@
       "changePassword": "Ändra lösenord",
       "signOut": "Logga ut",
       "githubStar": {
-        "title": "Gillar du BookOrbit?",
-        "body": "Om BookOrbit hjälper till med ditt bibliotek, tänk på att ha huvudrollen i projektet på GitHub. Det hjälper fler att upptäcka appen och stödjer pågående utveckling.",
+        "title": "Gillar du TLS Library?",
+        "body": "Om TLS Library hjälper till med ditt bibliotek, tänk på att ha huvudrollen i projektet på GitHub. Det hjälper fler att upptäcka appen och stödjer pågående utveckling.",
         "cta": "Stjärna bokbana på GitHub"
       },
       "surfaceOpacity": "Ytans genomskinlighet",
@@ -5197,7 +5197,7 @@
     }
   },
   "errors": {
-    "network": "Could not reach BookOrbit. Check your connection, then try again."
+    "network": "Could not reach TLS Library. Check your connection, then try again."
   },
   "hardcover": {
     "settings": {
@@ -5243,7 +5243,7 @@
       },
       "syncOnProgress": {
         "title": "Synkronisering vid förloppsuppdatering",
-        "description": "Tryck läsa framsteg och datum när BookOrbit eller KOReader framsteg förändras."
+        "description": "Tryck läsa framsteg och datum när TLS Library eller KOReader framsteg förändras."
       },
       "syncOnRating": {
         "title": "Synkronisera vid ändring av betyg",
@@ -5297,7 +5297,7 @@
     },
     "import": {
       "title": "Status för hämtning",
-      "description": "Förhandsgranska Hardcover matchningar innan du fyller i tomma BookOrbit status.",
+      "description": "Förhandsgranska Hardcover matchningar innan du fyller i tomma TLS Library status.",
       "clear": "Rensa",
       "preview": "Förhandsgranska",
       "importProgress": "Importering framsteg",
@@ -5756,7 +5756,7 @@
       "sourceUser": "Källa användare",
       "targetUser": "Mål användare",
       "noSourceUsersLoaded": "Inga källanvändare lästa ännu.",
-      "noActiveTargetUsers": "Inga aktiva målanvändare hittade. Skapa eller återaktivera en BookOrbit-användare innan mappning.",
+      "noActiveTargetUsers": "Inga aktiva målanvändare hittade. Skapa eller återaktivera en TLS Library-användare innan mappning.",
       "pathPrefixMappings": "Sökväg Prefix Mappings",
       "addMapping": "Lägg till mappning",
       "pathMappingsExplanation": "Sökvägsmappningar översätter källfilens sökvägar till målsökvägar så att böcker kan matchas efter filens plats. Böcker matchas också av ISBN, filhash, och titel/författare oavsett sökvägsmappning.",
@@ -6590,7 +6590,7 @@
       },
       "confirmDialog": {
         "title": "{count, plural, one {Byta namn på # fil på disken?} other {Byta namn på # filer på disken?}}",
-        "body": "Detta flyttar riktiga filer i {library}. BookOrbit loggar varje flytt, men att ångra innebär att byta tillbaka namnen."
+        "body": "Detta flyttar riktiga filer i {library}. TLS Library loggar varje flytt, men att ångra innebär att byta tillbaka namnen."
       }
     },
     "bookDuplicates": {

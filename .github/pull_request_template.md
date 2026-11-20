@@ -43,7 +43,7 @@ concise.
 ## Authorship and review
 
 AI assistance is welcome on this project; unreviewed AI output is not. See the
-[AI usage policy](https://github.com/bookorbit/bookorbit/blob/main/docs/AI_POLICY.md).
+[AI usage policy](https://github.com/thorrsson/bookorbit/blob/main/docs/AI_POLICY.md).
 
 - **AI tools used:**
 - **Extent (what they wrote, and what you wrote):**

@@ -1,6 +1,6 @@
 # KOReader download matching
 
-KOReader identifies books with a partial file hash. Kobo conversion and audio removal change the bytes, so the downloaded hash can differ from the library file's hash. BookOrbit registers the hash of the same open file descriptor it streams, preserving the source hash and explicit manual links.
+KOReader identifies books with a partial file hash. Kobo conversion and audio removal change the bytes, so the downloaded hash can differ from the library file's hash. TLS Library registers the hash of the same open file descriptor it streams, preserving the source hash and explicit manual links.
 
 ## Registration and recovery
 

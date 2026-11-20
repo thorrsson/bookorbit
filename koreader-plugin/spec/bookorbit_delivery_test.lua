@@ -65,7 +65,7 @@ assert(Delivery.update(settings, central, nil) == 'audioless_epub')
 server = nil
 variant, err = Delivery.resolve(settings, central)
 assert(variant == nil and err ~= nil)
-assert(Delivery.errorText(err) == "Could not load the EPUB delivery default from BookOrbit. Reconnect and retry, or choose a variant for this download.")
+assert(Delivery.errorText(err) == "Could not load the EPUB delivery default from TLS Library. Reconnect and retry, or choose a variant for this download.")
 assert(Delivery.resolve(settings, central, 'original') == 'original')
 server = { readAloudDelivery = 'future-value', deviceConfigured = true }
 variant, err = Delivery.resolve(settings, central)

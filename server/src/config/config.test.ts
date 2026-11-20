@@ -52,7 +52,7 @@ describe('config', () => {
       appUrl: 'http://localhost:6263',
       nativeRedirectUri: 'bookorbit://oauth2-callback',
       version: 'Local build',
-      githubReleasesRepo: 'bookorbit/bookorbit',
+      githubReleasesRepo: 'thorrsson/bookorbit',
       githubReleasesToken: undefined,
       metadataProviderDirectoryUrl: 'https://raw.githubusercontent.com/bookorbit/bookorbit-metadata-providers/main/directory.json',
       oidcAllowLocalIssuers: false,

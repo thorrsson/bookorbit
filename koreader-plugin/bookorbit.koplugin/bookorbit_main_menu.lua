@@ -204,7 +204,7 @@ end
 -- result is a message.
 function MainMenu:testConnection(on_done)
     if not self.settings.server_url then
-        require("bookorbit_toast").error(_("Set the BookOrbit server address first."))
+        require("bookorbit_toast").error(_("Set the TLS Library server address first."))
         if on_done then on_done(false, _("No server address")) end
         return
     end
@@ -322,7 +322,7 @@ function MainMenu:addToMainMenu(menu_items)
         {
             -- The id predates the rename; scripts and patches look it up.
             id = "open_dashboard",
-            text = _("Open BookOrbit"),
+            text = _("Open TLS Library"),
             callback = function()
                 UIManager:tickAfterNext(function() self:openBookOrbit() end)
             end,
@@ -347,7 +347,7 @@ function MainMenu:addToMainMenu(menu_items)
         end,
     })
     menu_items.bookorbit = {
-        text = _("BookOrbit"),
+        text = _("TLS Library"),
         -- Fallback placement only: BookOrbitMenuPin normally pins this entry
         -- right below calibre on the first page of the Tools menu.
         sorting_hint = "tools",
@@ -473,7 +473,7 @@ end
 function MainMenu:syncErrorLabel(err)
     if err == "cancelled" then return _("Stopped") end
     if err == "not_started" then return _("Another sync is running") end
-    if err == "unmatched" then return _("Not in your BookOrbit library") end
+    if err == "unmatched" then return _("Not in your TLS Library library") end
     if err == "capture" or err == "changed" then return _("Could not read this book") end
     return self:errorLabel(err)
 end
@@ -640,7 +640,7 @@ function MainMenu:setServerAddress(on_done)
         end,
         below = function(_page, w)
             return {
-                DialogUI.note(w, "info", _("The address you open BookOrbit at in a browser."), { col = INK.g3 }),
+                DialogUI.note(w, "info", _("The address you open TLS Library at in a browser."), { col = INK.g3 }),
                 DialogUI.pillRow(w, {
                     { label = _("Cancel"), kind = "outline", action = { kind = "close" } },
                     { label = _("Save"), icon = "check", action = { kind = "submit" } },
@@ -672,7 +672,7 @@ function MainMenu:doLogin(username, password, menu)
         self.settings.userkey = userkey
         self:refreshActiveCatalogApi(true)
         if menu then menu:updateItems() end
-        UIManager:show(InfoMessage:new{ text = _("Logged in to BookOrbit.") })
+        UIManager:show(InfoMessage:new{ text = _("Logged in to TLS Library.") })
         UIManager:scheduleIn(1, function()
             if self.requestUpdateCheck then
                 self:requestUpdateCheck(false, "login")
@@ -682,10 +682,10 @@ function MainMenu:doLogin(username, password, menu)
         end)
     elseif err == 401 or err == 403 then
         UIManager:show(InfoMessage:new{
-            text = _("Login failed. Create or check your KOReader credentials in BookOrbit web settings."),
+            text = _("Login failed. Create or check your KOReader credentials in TLS Library web settings."),
         })
     else
-        UIManager:show(InfoMessage:new{ text = T(_("Could not reach the BookOrbit server: %1"), tostring(err)) })
+        UIManager:show(InfoMessage:new{ text = T(_("Could not reach the TLS Library server: %1"), tostring(err)) })
     end
 end
 
@@ -712,7 +712,7 @@ function MainMenu:completeSignIn(server_url, username, userkey)
     self.settings.userkey = userkey
     G_reader_settings:flush()
     self:refreshActiveCatalogApi(true)
-    require("bookorbit_toast").show(_("Signed in to BookOrbit"))
+    require("bookorbit_toast").show(_("Signed in to TLS Library"))
     UIManager:scheduleIn(1, function()
         if self.requestUpdateCheck then
             self:requestUpdateCheck(false, "login")

@@ -38,21 +38,9 @@ export interface PosterStyle {
   showRatings: boolean
 }
 
-/** Lucide's Orbit, the glyph in the sidebar's brand tile, on its 24-unit grid. */
-function orbitGlyph(): Path2D[] {
-  return [
-    new Path2D('M20.341 6.484A10 10 0 0 1 10.266 21.85'),
-    new Path2D('M3.659 17.516A10 10 0 0 1 13.74 2.152'),
-    circlePath(12, 12, 3),
-    circlePath(19, 5, 2),
-    circlePath(5, 19, 2),
-  ]
-}
-
-function circlePath(x: number, y: number, r: number): Path2D {
-  const path = new Path2D()
-  path.arc(x, y, r, 0, Math.PI * 2)
-  return path
+/** Lucide's Library, the glyph in the sidebar's brand tile, on its 24-unit grid. */
+function libraryGlyph(): Path2D[] {
+  return [new Path2D('m16 6 4 14'), new Path2D('M12 6v14'), new Path2D('M8 8v12'), new Path2D('M4 4v16')]
 }
 
 /** The accent at a given opacity. Accepts the hex and rgb()/rgba() forms `toLegacyColor` returns. */
@@ -154,7 +142,7 @@ function drawBrand(
   ctx.lineWidth = 2
   ctx.lineCap = 'round'
   ctx.lineJoin = 'round'
-  for (const path of orbitGlyph()) ctx.stroke(path)
+  for (const path of libraryGlyph()) ctx.stroke(path)
   ctx.restore()
   ctx.textBaseline = 'middle'
   ctx.fillStyle = ink

@@ -60,7 +60,7 @@ assertEqual(data.gesture_fm.hold_top_left_corner, nil, "reader-only gesture is n
 assertEqual(data.gesture_reader.hold_top_left_corner[Shortcut.ACTION], true, "bound in books")
 assertEqual(Shortcut.current(data), "hold_top_left_corner", "the bound gesture is the current one")
 text = Shortcut.describe(data, "hold_top_left_corner", name_of)
-assertEqual(text, "Opens BookOrbit", "the current gesture says so")
+assertEqual(text, "Opens TLS Library", "the current gesture says so")
 
 -- Picking a shared gesture releases the first and binds both contexts.
 Shortcut.bind(data, "tap_right_bottom_corner")

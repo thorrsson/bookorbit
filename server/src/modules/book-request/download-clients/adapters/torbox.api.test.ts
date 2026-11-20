@@ -118,7 +118,7 @@ describe('TorboxApiClient.findByHashes', () => {
     const fullPage = Array.from({ length: 1000 }, (_, index) => ({ id: index + 1, hash: 'b'.repeat(64) }));
     for (let page = 0; page < 5; page += 1) safeFetchMock.mockResolvedValueOnce(envelopeResponse(fullPage));
 
-    await expect(new TorboxApiClient().findByHashes(config(), new Set([HASH]))).rejects.toThrow('more torrents than BookOrbit can search');
+    await expect(new TorboxApiClient().findByHashes(config(), new Set([HASH]))).rejects.toThrow('more torrents than TLS Library can search');
     expect(safeFetchMock).toHaveBeenCalledTimes(5);
   });
 });

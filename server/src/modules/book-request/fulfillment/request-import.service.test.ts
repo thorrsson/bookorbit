@@ -231,7 +231,7 @@ describe('RequestImportService.importDownload', () => {
     expect(await readFile(join(harness.bookDockPath, 'request-7-dune.epub'), 'utf8')).toBe('book');
   });
 
-  it('imports a staged cloud download from BookOrbit client staging', async () => {
+  it('imports a staged cloud download from TLS Library client staging', async () => {
     const harness = await makeHarness({ stagesLocally: true });
     const stagedPath = join(harness.appDataPath, 'client-downloads', 'torbox', 'key');
     const source = await makeFile(stagedPath, 'dune.epub');
@@ -243,7 +243,7 @@ describe('RequestImportService.importDownload', () => {
     expect(await readFile(join(harness.bookDockPath, 'request-7-dune.epub'), 'utf8')).toBe('book');
   });
 
-  it('refuses a staged cloud path outside BookOrbit client staging', async () => {
+  it('refuses a staged cloud path outside TLS Library client staging', async () => {
     const harness = await makeHarness({ stagesLocally: true });
     const outside = '/etc/dune.epub';
     const staged = download(outside);
@@ -502,7 +502,7 @@ describe('RequestImportService.importDownload', () => {
     expect(harness.fulfillment.holdForReview).toHaveBeenCalledWith(
       expect.anything(),
       expect.objectContaining({ id: 7 }),
-      expect.stringContaining('deeper or larger than BookOrbit reads'),
+      expect.stringContaining('deeper or larger than TLS Library reads'),
     );
   });
 
@@ -518,7 +518,7 @@ describe('RequestImportService.importDownload', () => {
     expect(harness.fulfillment.holdForReview).toHaveBeenCalledWith(
       expect.anything(),
       expect.objectContaining({ id: 7 }),
-      expect.stringContaining('deeper or larger than BookOrbit reads'),
+      expect.stringContaining('deeper or larger than TLS Library reads'),
     );
   });
 
@@ -723,7 +723,7 @@ describe('RequestImportService.importDownload', () => {
     await expect(harness.service.importDownload(download(folder))).resolves.toBe(false);
     expect(harness.fulfillment.failDownload).toHaveBeenCalledWith(
       expect.anything(),
-      'The download is an archive nested deeper than BookOrbit will unwrap',
+      'The download is an archive nested deeper than TLS Library will unwrap',
     );
   });
 

@@ -563,7 +563,7 @@ function validateDownloadResponse(
 
   const range = parseContentRange(response.headers.get('content-range'));
   if (range.start !== offset || range.end < range.start) {
-    throw new Error('That source resumed from a different byte than BookOrbit requested');
+    throw new Error('That source resumed from a different byte than TLS Library requested');
   }
   if (expectedBytes !== null && range.total !== expectedBytes) {
     throw new Error('That source changed size since this download started');

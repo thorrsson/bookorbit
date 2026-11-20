@@ -59,7 +59,7 @@ describe('secret input policy', () => {
     expect(vueFiles.length).toBeGreaterThan(100)
   })
 
-  it('restricts input[type=password] to BookOrbit credential forms', () => {
+  it('restricts input[type=password] to TLS Library credential forms', () => {
     const offenders = vueFiles.filter((file) => rendersPasswordInput(file.source)).map((file) => file.path)
 
     expect([...offenders].sort()).toEqual(BOOKORBIT_CREDENTIAL_FILES)

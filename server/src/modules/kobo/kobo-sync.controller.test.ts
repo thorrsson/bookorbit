@@ -438,7 +438,7 @@ describe('KoboSyncController', () => {
       expect(proxyService.request.mock.calls[0][2]).not.toHaveProperty('extraHeaders');
     });
 
-    it('forwards a raw Kobo token from a device that synced with Kobo before BookOrbit', async () => {
+    it('forwards a raw Kobo token from a device that synced with Kobo before TLS Library', async () => {
       proxyService.request.mockResolvedValue(storeResponse([]));
 
       await runSync(makeReply(), 'kobo-native-token');
@@ -476,7 +476,7 @@ describe('KoboSyncController', () => {
       ['the store returns unparseable JSON', () => proxyService.request.mockResolvedValue({ status: 200, headers: {}, body: Buffer.from('<html>') })],
       ['the store returns an empty body', () => proxyService.request.mockResolvedValue({ status: 200, headers: {}, body: Buffer.from('   ') })],
       ['reading the store sync setting fails', () => settingsService.getSettings.mockRejectedValue(new Error('settings row race'))],
-    ])('still serves BookOrbit entitlements when %s', async (_label, arrange) => {
+    ])('still serves TLS Library entitlements when %s', async (_label, arrange) => {
       arrange();
       const reply = makeReply();
 
@@ -585,7 +585,7 @@ describe('KoboSyncController', () => {
     expect(reply.send).not.toHaveBeenCalled();
   });
 
-  it('acknowledges delete-items requests for synced BookOrbit collection tags', async () => {
+  it('acknowledges delete-items requests for synced TLS Library collection tags', async () => {
     const req = { method: 'POST', url: '/api/v1/kobo/token/v1/library/tags/col-1/items/delete' };
     const reply = makeReply();
 
@@ -659,7 +659,7 @@ describe('KoboSyncController', () => {
     expect(reply.send).not.toHaveBeenCalledWith({ RequestResult: 'Success' });
   });
 
-  it('acknowledges add-items requests for synced BookOrbit collection tags', async () => {
+  it('acknowledges add-items requests for synced TLS Library collection tags', async () => {
     const req = { method: 'POST', url: '/api/v1/kobo/token/v1/library/tags/col-1/items' };
     const reply = makeReply();
 
@@ -680,7 +680,7 @@ describe('KoboSyncController', () => {
     expect(reply.send).not.toHaveBeenCalled();
   });
 
-  it('acknowledges delete-tag requests for synced BookOrbit collection tags', async () => {
+  it('acknowledges delete-tag requests for synced TLS Library collection tags', async () => {
     const req = { method: 'DELETE', url: '/api/v1/kobo/token/v1/library/tags/col-1' };
     const reply = makeReply();
 
@@ -713,7 +713,7 @@ describe('KoboSyncController', () => {
     expect(reply.send).not.toHaveBeenCalled();
   });
 
-  it('does not proxy delete-tag requests for BookOrbit tag ids using a different device token', async () => {
+  it('does not proxy delete-tag requests for TLS Library tag ids using a different device token', async () => {
     const req = { method: 'DELETE', url: '/api/v1/kobo/other-token/v1/library/tags/col-42' };
     const reply = makeReply();
 

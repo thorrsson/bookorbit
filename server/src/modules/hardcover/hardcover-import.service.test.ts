@@ -154,7 +154,7 @@ describe('HardcoverImportService', () => {
     expect(preview.rows[0]).toMatchObject({
       localReadStatus: 'reading',
       outcome: 'conflict',
-      reason: 'BookOrbit already has a read status',
+      reason: 'TLS Library already has a read status',
     });
   });
 
@@ -361,7 +361,7 @@ describe('HardcoverImportService', () => {
     expect(preview.rows[0]).toMatchObject({
       localBookId: null,
       outcome: 'skipped',
-      reason: 'Multiple BookOrbit books match this Hardcover ID',
+      reason: 'Multiple TLS Library books match this Hardcover ID',
     });
   });
 
@@ -387,7 +387,7 @@ describe('HardcoverImportService', () => {
     expect(preview.rows[0]).toMatchObject({
       localBookId: null,
       outcome: 'skipped',
-      reason: 'Multiple BookOrbit books match this Hardcover slug',
+      reason: 'Multiple TLS Library books match this Hardcover slug',
     });
   });
 
@@ -400,7 +400,7 @@ describe('HardcoverImportService', () => {
     expect(preview.rows[0]).toMatchObject({
       localBookId: null,
       outcome: 'skipped',
-      reason: 'Multiple BookOrbit books match this ISBN',
+      reason: 'Multiple TLS Library books match this ISBN',
     });
   });
 
@@ -448,7 +448,7 @@ describe('HardcoverImportService', () => {
     expect(preview.rows[0]).toMatchObject({
       localBookId: null,
       outcome: 'unmatched',
-      reason: 'No matching BookOrbit book found',
+      reason: 'No matching TLS Library book found',
     });
   });
 

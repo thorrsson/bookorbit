@@ -185,8 +185,8 @@ function DetailData.fileSubs(entry)
     end
     if entry.read_along and entry.text_only then
         return {
-            join(entry.size, _("Text only here; narration plays in BookOrbit")),
-            join(entry.size, _("Text only; narration in BookOrbit")),
+            join(entry.size, _("Text only here; narration plays in TLS Library")),
+            join(entry.size, _("Text only; narration in TLS Library")),
             join(entry.size, _("Text only")),
         }
     end
@@ -209,7 +209,7 @@ function DetailData.otherFilesSubs(other)
         end
     end
     return {
-        T(_("Not for KOReader: %1. In BookOrbit."), table.concat(long, "; ")),
+        T(_("Not for KOReader: %1. In TLS Library."), table.concat(long, "; ")),
         T(_("Not for KOReader: %1"), table.concat(long, "; ")),
         T(_("Not for KOReader: %1"), table.concat(short, ", ")),
         _("Not for KOReader"),
@@ -439,7 +439,7 @@ function DetailData.primary(state, usable, other)
     if not file then
         for _i, entry in ipairs(other or {}) do
             if entry.audio then
-                return { kind = "none", icon = "headphones", labels = { _("Audiobook · listen in BookOrbit"), _("Audiobook only") } }
+                return { kind = "none", icon = "headphones", labels = { _("Audiobook · listen in TLS Library"), _("Audiobook only") } }
             end
         end
         return { kind = "none", icon = "x", labels = { _("No file KOReader can open"), _("Unavailable") } }

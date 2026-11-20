@@ -97,7 +97,7 @@ local cached_dashboard = {
 local function newCatalog(opts)
     opts = opts or {}
     local catalog = {
-        title = "BookOrbit",
+        title = "TLS Library",
         settings = { catalog_dashboard_cache = opts.cache },
         prefer_cached_dashboard = opts.prefer_cached_dashboard == true,
         client = {

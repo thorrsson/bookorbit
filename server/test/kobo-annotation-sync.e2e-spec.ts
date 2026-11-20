@@ -587,12 +587,12 @@ describe.each(['epub', 'kepub'])('Kobo annotation sync with %s (e2e)', { timeout
     return { id, type: 'dogear', highlightedText: '', location: DOGEAR_LOCATION, clientLastModifiedUtc: '2026-06-13T08:00:00Z' };
   }
 
-  it('serves a BookOrbit bookmark as a Kobo dogear and waits for its etag acknowledgment', async () => {
+  it('serves a TLS Library bookmark as a Kobo dogear and waits for its etag acknowledgment', async () => {
     const create = await ctx.app.inject({
       method: 'POST',
       url: `/api/v1/books/${epub.bookId}/bookmarks`,
       headers: authHeader(ctx.adminToken),
-      payload: { bookFileId: epub.bookFileId, cfi: DOGEAR_CFI, title: 'BookOrbit bookmark' },
+      payload: { bookFileId: epub.bookFileId, cfi: DOGEAR_CFI, title: 'TLS Library bookmark' },
     });
     expect(create.statusCode).toBe(201);
 
@@ -606,7 +606,7 @@ describe.each(['epub', 'kepub'])('Kobo annotation sync with %s (e2e)', { timeout
       endPath: 'OPS/chapter.xhtml#kobo.1.1',
       startChar: 0,
       endChar: 0,
-      chapterTitle: 'BookOrbit bookmark',
+      chapterTitle: 'TLS Library bookmark',
     });
 
     const [pending] = await findBookmarkLinks();
@@ -644,7 +644,7 @@ describe.each(['epub', 'kepub'])('Kobo annotation sync with %s (e2e)', { timeout
     expect((await findBookmarks()).find((row) => row.id === live[0]!.id)?.bookFileId).toBe(epub.bookFileId);
   });
 
-  it('reports a bookmark deleted in BookOrbit and leaves it out of the next pull', async () => {
+  it('reports a bookmark deleted in TLS Library and leaves it out of the next pull', async () => {
     const [bookmark] = (await findBookmarks()).filter((row) => row.deletedAt === null);
     const removed = await ctx.app.inject({
       method: 'DELETE',

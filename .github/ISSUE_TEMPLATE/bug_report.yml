@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug in BookOrbit
+description: Report a bug in TLS Library
 title: "[Bug] "
 labels: ["bug", "needs-triage"]
 body:
@@ -35,7 +35,7 @@ body:
     attributes:
       label: Your setup
       placeholder: |
-        - BookOrbit version/image tag: latest
+        - TLS Library version/image tag: latest
         - Deployment: Docker / manual
         - OS: Ubuntu 22.04
         - Browser: Firefox 124

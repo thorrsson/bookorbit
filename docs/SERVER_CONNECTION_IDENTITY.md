@@ -1,7 +1,7 @@
 # Server connection identity
 
 The iOS client supports several user-entered connection addresses for one
-BookOrbit installation. `GET /api/v1/server-identity` is public and returns only
+TLS Library installation. `GET /api/v1/server-identity` is public and returns only
 `product: "bookorbit"`, `protocolVersion: 1`, and a persisted UUID `instanceId`.
 It sends `Cache-Control: no-store`. The authenticated `/api/v1/app-info` response
 adds the same optional `instanceId` and advertises `server-connection-identity`.

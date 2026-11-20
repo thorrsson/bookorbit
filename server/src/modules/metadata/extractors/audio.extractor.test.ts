@@ -102,7 +102,7 @@ describe('extractAudioMetadata — author/narrator split', () => {
     expect(result.narrators).toEqual(['Andy Serkis']);
   });
 
-  it('uses artist as narrator for old BookOrbit tags when albumartist exists and composer is absent', async () => {
+  it('uses artist as narrator for old TLS Library tags when albumartist exists and composer is absent', async () => {
     makeExecFileSuccess(
       makeProbeOutput({ format: { tags: { album: 'The Lord of the Rings', albumartist: 'J.R.R. Tolkien', artist: 'Andy Serkis' } } }),
     );

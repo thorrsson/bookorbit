@@ -52,13 +52,13 @@ describe('describeUploadFailure', () => {
     )
   })
 
-  it('treats an uncoded 413 from BookOrbit as its own limit', () => {
+  it('treats an uncoded 413 from TLS Library as its own limit', () => {
     expect(render(describeUploadFailure(server({ status: 413, message: 'request file too large' })))).toBe('Larger than the server upload limit')
   })
 
-  it('blames a reverse proxy for a 413 that did not come from BookOrbit', () => {
+  it('blames a reverse proxy for a 413 that did not come from TLS Library', () => {
     expect(render(describeUploadFailure(server({ status: 413, fromBookOrbit: false })))).toBe(
-      'Rejected as too large before it reached BookOrbit, likely by a reverse proxy',
+      'Rejected as too large before it reached TLS Library, likely by a reverse proxy',
     )
   })
 

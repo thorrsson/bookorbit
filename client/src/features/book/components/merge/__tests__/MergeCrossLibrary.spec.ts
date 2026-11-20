@@ -287,7 +287,7 @@ describe('cross-library review', () => {
 
     const left = byTestId('merge-left-behind')
     expect(left.text()).toContain('Left in Audiobooks')
-    expect(left.text()).toContain('BookOrbit stops tracking them')
+    expect(left.text()).toContain('TLS Library stops tracking them')
     expect(left.text()).toContain('Ann Author/Book 2/metadata.opf')
   })
 

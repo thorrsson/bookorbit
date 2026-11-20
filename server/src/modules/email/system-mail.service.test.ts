@@ -25,7 +25,7 @@ describe('SystemMailService', () => {
     ssl: false,
     startTls: true,
     tlsRejectUnauthorized: true,
-    fromName: 'BookOrbit',
+    fromName: 'TLS Library',
     fromAddress: 'no-reply@example.com',
   };
 
@@ -87,7 +87,7 @@ describe('SystemMailService', () => {
     });
     expect(transporter.sendMail).toHaveBeenCalledWith(
       expect.objectContaining({
-        from: 'BookOrbit <no-reply@example.com>',
+        from: 'TLS Library <no-reply@example.com>',
         to: 'user@example.com',
         subject: 'Reset your password',
       }),

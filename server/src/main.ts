@@ -138,6 +138,6 @@ async function bootstrap() {
 
 bootstrap().catch((err: unknown) => {
   const message = err instanceof Error ? (err.stack ?? err.message) : String(err);
-  process.stderr.write(`BookOrbit startup failed:\n${message}\n`);
+  process.stderr.write(`TLS Library startup failed:\n${message}\n`);
   process.exit(1);
 });

@@ -191,7 +191,7 @@ describe('External metadata providers (e2e)', { timeout: SCENARIO_TIMEOUT_MS }, 
     expect(new Set(providers.map((p) => p.key)).size).toBe(providers.length);
   });
 
-  it("serves the provider's icon from BookOrbit to every signed-in user", async () => {
+  it("serves the provider's icon from TLS Library to every signed-in user", async () => {
     const [listed] = ((await call(reader, 'GET', '/metadata-fetch/providers')).json() as MetadataProviderInfo[]).filter((p) => p.key === KEY);
     const icon = await ctx.app.inject({ method: 'GET', url: listed.iconUrl!, headers: authHeader(reader.accessToken) });
     expect(icon.statusCode).toBe(200);

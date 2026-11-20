@@ -139,7 +139,7 @@ export class NzbgetAdapter implements DownloadClientAdapter {
     const sharedWith = (await this.history(config)).some((other) => other.NZBID !== item.NZBID && completedFolder(other) === folder);
     if (!name || remoteFolderName(folder) !== name || sharedWith) {
       throw new BadRequestException(
-        'NZBGet put this download into a folder that is not its own, so BookOrbit will not delete it. Nothing was removed.',
+        'NZBGet put this download into a folder that is not its own, so TLS Library will not delete it. Nothing was removed.',
       );
     }
     return this.contentRemoval.planFolder(config.id, folder);
@@ -233,7 +233,7 @@ function addOwned(found: Map<string, LocatedItem>, item: NzbGetItem, location: L
 
 function toStatus(item: NzbGetItem, location: LocatedItem['location'], clientId: number): DownloadStatus {
   const key = clientKey(item.DupeKey, clientId);
-  if (!key) throw new BadRequestException('NZBGet returned an invalid BookOrbit duplicate key');
+  if (!key) throw new BadRequestException('NZBGet returned an invalid TLS Library duplicate key');
   const totalBytes = uint64(item.FileSizeHi, item.FileSizeLo);
   const remainingBytes = uint64(item.RemainingSizeHi, item.RemainingSizeLo) ?? 0;
   const downloadedBytes = uint64(item.DownloadedSizeHi, item.DownloadedSizeLo) ?? Math.max(0, (totalBytes ?? 0) - remainingBytes);

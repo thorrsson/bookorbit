@@ -122,7 +122,7 @@ local function migrateOverride(prefix)
 
     local existing = util.readFromFile(path, "r")
     if not existing then
-        logger.warn("BookOrbit: cannot read menu order file, leaving it alone:", path)
+        logger.warn("TLS Library: cannot read menu order file, leaving it alone:", path)
         return
     end
 
@@ -131,7 +131,7 @@ local function migrateOverride(prefix)
         if not ok then
             local cleared, clear_err = util.writeToFile(EMPTY_OVERRIDE, path, true)
             if not cleared then
-                logger.warn("BookOrbit: cannot clear generated menu order file", path, err, clear_err)
+                logger.warn("TLS Library: cannot clear generated menu order file", path, err, clear_err)
             end
         end
         return
@@ -140,7 +140,7 @@ local function migrateOverride(prefix)
     -- Hand-maintained file: replace stale BookOrbit ids without touching other entries.
     local parsed, user = pcall(dofile, path)
     if not parsed or type(user) ~= "table" then
-        logger.warn("BookOrbit: cannot parse user menu order file, leaving it alone:", path)
+        logger.warn("TLS Library: cannot parse user menu order file, leaving it alone:", path)
         return
     end
     if type(user.tools) == "table" then
@@ -154,14 +154,14 @@ local function migrateOverride(prefix)
     end
     local ok, err = util.writeToFile(dump(user, nil, true), path, true, true)
     if not ok then
-        logger.warn("BookOrbit: cannot update user menu order file", path, err)
+        logger.warn("TLS Library: cannot update user menu order file", path, err)
     end
 end
 
 local function ensureOne(prefix, order_module)
     local ok, order = pcall(require, order_module)
     if not ok then
-        logger.warn("BookOrbit: cannot load menu order", order_module, order)
+        logger.warn("TLS Library: cannot load menu order", order_module, order)
         return
     end
     normalizeRuntimeOrder(order)
@@ -172,7 +172,7 @@ local function ensureAll()
     for _, entry in ipairs(PREFIXES) do
         local ok, err = pcall(ensureOne, entry.prefix, entry.order_module)
         if not ok then
-            logger.warn("BookOrbit: menu pin failed for", entry.prefix, err)
+            logger.warn("TLS Library: menu pin failed for", entry.prefix, err)
         end
     end
 end

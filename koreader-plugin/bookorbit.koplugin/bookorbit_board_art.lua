@@ -57,7 +57,7 @@ local function rendered(svg, w, h)
     f:close()
     local ok, bb = pcall(RenderImage.renderSVGImageFile, RenderImage, path, w, h)
     if not ok or not bb then
-        logger.warn("BookOrbit: board art did not render:", ok and "no image" or bb)
+        logger.warn("TLS Library: board art did not render:", ok and "no image" or bb)
         return nil
     end
     hit = { bb = bb }

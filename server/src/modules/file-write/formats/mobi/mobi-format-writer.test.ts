@@ -14,7 +14,7 @@ const FULL_MASK: ReadonlySet<BookWritePayloadKey> = new Set(MOBI_BOOK_FILE_WRITE
 const PAYLOAD: BookWritePayload = {
   title: 'Written Title',
   authors: [{ name: 'Ada Lovelace', sortName: 'Lovelace, Ada' }],
-  publisher: 'BookOrbit Press',
+  publisher: 'TLS Library Press',
 };
 
 let testRoot: string;
@@ -54,7 +54,7 @@ describe('MobiFormatWriter', () => {
     const parsed = parseMobiBuffer(await readFile(path));
     expect(parsed.title).toBe('Written Title');
     expect(parsed.authors).toEqual(['Ada Lovelace']);
-    expect(parsed.publisher).toBe('BookOrbit Press');
+    expect(parsed.publisher).toBe('TLS Library Press');
   });
 
   it('reports a duration', async () => {

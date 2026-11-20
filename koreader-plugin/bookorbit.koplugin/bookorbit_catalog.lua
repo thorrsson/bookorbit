@@ -91,11 +91,11 @@ local DOWNLOAD_ICON_FILE = "bookorbit.download.svg"
 local function showError(err)
     local text
     if isAuthError(err) then
-        text = _("BookOrbit login failed. Check your KOReader credentials.")
+        text = _("TLS Library login failed. Check your KOReader credentials.")
     elseif err then
-        text = T(_("Could not reach the BookOrbit server: %1"), tostring(err))
+        text = T(_("Could not reach the TLS Library server: %1"), tostring(err))
     else
-        text = _("Could not reach the BookOrbit server.")
+        text = _("Could not reach the TLS Library server.")
     end
     Toast.error(text)
 end
@@ -238,7 +238,7 @@ function BookOrbitTitleBar:generateVerticalLayout()
 end
 
 local BookOrbitCatalog = Menu:extend{
-    title = _("BookOrbit"),
+    title = _("TLS Library"),
     title_shrink_font_to_fit = true,
     title_bar_left_icon = "appbar.menu",
 }
@@ -939,11 +939,11 @@ function BookOrbitCatalog:errorText(err)
     elseif transfer_error then
         return transfer_error
     elseif isAuthError(err) then
-        return _("BookOrbit login failed. Check your KOReader credentials.")
+        return _("TLS Library login failed. Check your KOReader credentials.")
     elseif type(err) == "number" then
-        return T(_("BookOrbit server error (%1)."), err)
+        return T(_("TLS Library server error (%1)."), err)
     end
-    return _("Could not reach the BookOrbit server. Check your connection.")
+    return _("Could not reach the TLS Library server. Check your connection.")
 end
 
 function BookOrbitCatalog:emptyEntriesText(section)
@@ -1105,7 +1105,7 @@ function BookOrbitCatalog:titleForSection(section)
     if section == "smart-scopes" then return _("SmartScopes") end
     if section == "authors" then return _("Authors") end
     if section == "series" then return _("Series") end
-    return _("BookOrbit")
+    return _("TLS Library")
 end
 
 function BookOrbitCatalog:paramsForEntry(section, entry)
@@ -1295,7 +1295,7 @@ function BookOrbitCatalog:promptSearch(params, scope_title, initial)
     local recents = self.settings.catalog_recent_searches or {}
     local scoped = scope_title and scope_title ~= ""
     TextEntry.open{
-        title = scoped and T(_("Search in %1"), scope_title) or _("Search BookOrbit"),
+        title = scoped and T(_("Search in %1"), scope_title) or _("Search TLS Library"),
         value = initial or "",
         hint = _("Title, author, series or ISBN"),
         icon = "search",
@@ -1777,7 +1777,7 @@ function BookOrbitCatalog:showBookActions()
 
     table.insert(buttons, {
         {
-            text = _("Close BookOrbit"),
+            text = _("Close TLS Library"),
             callback = function()
                 UIManager:close(dialog)
                 self:onCloseAllMenus()
@@ -1786,7 +1786,7 @@ function BookOrbitCatalog:showBookActions()
     })
 
     dialog = ButtonDialog:new{
-        title = _("BookOrbit"),
+        title = _("TLS Library"),
         buttons = buttons,
     }
     UIManager:show(dialog)
@@ -1795,9 +1795,9 @@ end
 function BookOrbitCatalog:showWriteError(err)
     local text
     if err == 404 or err == 405 then
-        text = _("This BookOrbit server does not support catalog edits.")
+        text = _("This TLS Library server does not support catalog edits.")
     elseif isAuthError(err) then
-        text = _("BookOrbit login failed. Check your KOReader credentials.")
+        text = _("TLS Library login failed. Check your KOReader credentials.")
     else
         text = self:errorText(err)
     end

@@ -20,7 +20,7 @@ local SUCCESS_TEXT = {
     progress_push = function() return _("Sent reading progress") end,
     progress_pull = function() return _("Pulled reading progress") end,
     connection_test = function() return _("Connection test passed") end,
-    lifecycle_unmatched = function() return _("Skipped a book not in BookOrbit") end,
+    lifecycle_unmatched = function() return _("Skipped a book not in TLS Library") end,
 }
 
 local ERROR_TEXT = {

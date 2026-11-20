@@ -69,7 +69,7 @@ export function assertPluginShape(plugin: DeclaredPluginShape): void {
   // Plugins are released apart from BookOrbit, so one written before comics were retired still
   // declares them. That is accepted and ignored; a plugin left with nothing else serves nothing.
   if (!plugin.mediaKinds.some((kind) => (BOOK_REQUEST_MEDIA_KINDS as readonly string[]).includes(kind as string))) {
-    throw new Error('it only serves media BookOrbit no longer requests');
+    throw new Error('it only serves media TLS Library no longer requests');
   }
 
   // Declaring both would leave the grab path guessing which one a release meant.

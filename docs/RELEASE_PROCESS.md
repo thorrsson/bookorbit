@@ -6,7 +6,7 @@ This document covers how releases are created, what triggers Docker image publis
 
 ## Overview
 
-BookOrbit uses [semantic-release](https://github.com/semantic-release/semantic-release) for automated versioning and GitHub Release creation. Releases are triggered manually via `workflow_dispatch` and produce:
+TLS Library uses [semantic-release](https://github.com/semantic-release/semantic-release) for automated versioning and GitHub Release creation. Releases are triggered manually via `workflow_dispatch` and produce:
 
 - A Git tag (`vX.Y.Z`)
 - A GitHub Release with auto-generated release notes
@@ -122,8 +122,8 @@ Full step-by-step walkthrough, format reference, and pre-publish checklist: [doc
 
 The `release.yml` workflow publishes Docker images after a successful release:
 
-- `ghcr.io/bookorbit/bookorbit:<X.Y.Z>` - version-specific tag
-- `ghcr.io/bookorbit/bookorbit:latest` - latest stable release
+- `ghcr.io/thorrsson/bookorbit:<X.Y.Z>` - version-specific tag
+- `ghcr.io/thorrsson/bookorbit:latest` - latest stable release
 
 Images are scanned with Trivy before push. If critical or high vulnerabilities are found, the push is blocked.
 
@@ -141,7 +141,7 @@ To deploy a previous version:
 
 ```bash
 # In your production docker-compose.yml or .env, set:
-APP_IMAGE=ghcr.io/bookorbit/bookorbit:X.Y.Z
+APP_IMAGE=ghcr.io/thorrsson/bookorbit:X.Y.Z
 ```
 
 Replace `X.Y.Z` with the version you want to roll back to, then redeploy:

@@ -4,11 +4,11 @@ import { normalizeDescriptionHtml, sanitizeDescriptionHtml } from './description
 describe('description-html', () => {
   it('keeps supported description tags and link hrefs', () => {
     const html = sanitizeDescriptionHtml(
-      '<blockquote><p>Hello <strong>world</strong> <u>underlined</u> <s>removed</s> <a href="https://bookorbit.app">BookOrbit</a></p></blockquote>',
+      '<blockquote><p>Hello <strong>world</strong> <u>underlined</u> <s>removed</s> <a href="https://bookorbit.app">TLS Library</a></p></blockquote>',
     )
 
     expect(html).toBe(
-      '<blockquote><p>Hello <strong>world</strong> <u>underlined</u> <s>removed</s> <a href="https://bookorbit.app">BookOrbit</a></p></blockquote>',
+      '<blockquote><p>Hello <strong>world</strong> <u>underlined</u> <s>removed</s> <a href="https://bookorbit.app">TLS Library</a></p></blockquote>',
     )
   })
 

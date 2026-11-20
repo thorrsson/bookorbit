@@ -304,7 +304,7 @@ export class KoboSyncController {
       const errorClass = error instanceof Error ? error.name : 'UnknownError';
       const errorMessage = sanitizeLogValue(error instanceof Error ? error.message : 'unknown error');
       this.logger.warn(
-        `[kobo.store_sync] [fail] userId=${userId} deviceId=${device.deviceId} durationMs=${Date.now() - startedAt} errorClass=${errorClass} error="${errorMessage}" - upstream store sync failed, serving BookOrbit entitlements only`,
+        `[kobo.store_sync] [fail] userId=${userId} deviceId=${device.deviceId} durationMs=${Date.now() - startedAt} errorClass=${errorClass} error="${errorMessage}" - upstream store sync failed, serving TLS Library entitlements only`,
       );
       return null;
     }

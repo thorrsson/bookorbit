@@ -42,7 +42,7 @@ function epub3OpfFull(parts: { metadata?: string; manifest?: string }): string {
 
 describe('parseOpf', () => {
   describe('custom metadata', () => {
-    it('parses BookOrbit custom metadata from named and property meta tags', () => {
+    it('parses TLS Library custom metadata from named and property meta tags', () => {
       const xml = epub3Opf(`
         <meta property="bookorbit:custom:original_title">Le Comte de Monte-Cristo</meta>
         <meta name="bookorbit:custom:novel_source" content="https://example.test/novel" />

@@ -328,7 +328,7 @@ function CatalogThumbnails:runThumbnailWorker(generation)
             -- A failed or interrupted worker says nothing about these covers;
             -- leave them unmarked so a later visit retries them, and release
             -- the worker so the next page is not stuck behind it.
-            if not ok then logger.dbg("BookOrbit: thumbnail batch failed", results) end
+            if not ok then logger.dbg("TLS Library: thumbnail batch failed", results) end
             self:stopThumbnailWorker(generation)
             return
         end
@@ -395,7 +395,7 @@ function CatalogThumbnails:downloadThumbnailBatch(batch, generation)
                 background = false,
             })
             if not ok then
-                logger.dbg("BookOrbit: thumbnail download failed", job.id, err)
+                logger.dbg("TLS Library: thumbnail download failed", job.id, err)
             end
             outcome[job.key] = ok == true
         end

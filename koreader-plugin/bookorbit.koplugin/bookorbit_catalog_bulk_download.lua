@@ -356,7 +356,7 @@ function CatalogBulkDownload.install(Catalog)
     -- How read-aloud EPUBs arrive on this device, in a word.
     function Catalog:bulkDeliveryLabel()
         local server_settings = self.client and self.client.delivery_settings
-        if not server_settings or server_settings.deviceOverride == nil then return _("BookOrbit default") end
+        if not server_settings or server_settings.deviceOverride == nil then return _("TLS Library default") end
         if server_settings.deviceOverride == "original" then return _("With narration") end
         return _("Text only")
     end
@@ -372,9 +372,9 @@ function CatalogBulkDownload.install(Catalog)
             local variants = { nil, "audioless_epub", "original" }
             DialogUI.choose{
                 title = _("Read-aloud EPUBs"),
-                sub = _("Saved in BookOrbit for this device. Books already here stay as they are."),
+                sub = _("Saved in TLS Library for this device. Books already here stay as they are."),
                 options = {
-                    { label = _("BookOrbit default"), sub = _("Whatever your BookOrbit settings say"), selected = uses_default },
+                    { label = _("TLS Library default"), sub = _("Whatever your TLS Library settings say"), selected = uses_default },
                     { label = _("Text only"), sub = _("Narration taken out, so books stay small"), selected = not uses_default and selected == "audioless_epub" },
                     { label = _("With narration"), sub = _("The audio comes too"), selected = not uses_default and selected == "original" },
                 },
@@ -590,7 +590,7 @@ function CatalogBulkDownload.install(Catalog)
                     self:bulkPrepare(ctx)
                 end)
                 if not ok then
-                    logger.warn("BookOrbit: bulk download preparation failed", err)
+                    logger.warn("TLS Library: bulk download preparation failed", err)
                     self:bulkAbort(ctx, _("Could not prepare bulk download."))
                 end
             end)
@@ -607,7 +607,7 @@ function CatalogBulkDownload.install(Catalog)
         local supported = Capabilities.supports(self.client, MANIFEST_FEATURE)
         ctx.use_manifest = supported == true
         if supported == nil then
-            logger.dbg("BookOrbit: bulk manifest support unknown, using paged catalog enumeration")
+            logger.dbg("TLS Library: bulk manifest support unknown, using paged catalog enumeration")
         end
 
         ctx.checkpoint = self:bulkOpenCheckpoint()
@@ -638,7 +638,7 @@ function CatalogBulkDownload.install(Catalog)
 
         local loaded, err = self:bulkLoadPage(ctx, ctx.position)
         if not loaded then
-            logger.warn("BookOrbit: bulk enumeration failed", err)
+            logger.warn("TLS Library: bulk enumeration failed", err)
             self:bulkAbort(ctx, _("Could not load the selected books."))
             return
         end
@@ -726,7 +726,7 @@ function CatalogBulkDownload.install(Catalog)
             -- Restarting enumeration is safe: books already downloaded are on
             -- device, and files already published validate against the new
             -- manifest, so neither is transferred again.
-            logger.dbg("BookOrbit: bulk manifest cursor rejected, restarting enumeration")
+            logger.dbg("TLS Library: bulk manifest cursor rejected, restarting enumeration")
             ctx.manifest_version = body.manifestVersion
             BookOrbitStateManager.applyLibraryVersion(body.manifestVersion)
             ctx.restarted = true
@@ -851,7 +851,7 @@ function CatalogBulkDownload.install(Catalog)
                 self:bulkProcessBook(ctx, book)
             end)
             if not ok then
-                logger.warn("BookOrbit: bulk download item failed", err)
+                logger.warn("TLS Library: bulk download item failed", err)
                 self:bulkRecordFailure(ctx, book)
             end
 
@@ -889,7 +889,7 @@ function CatalogBulkDownload.install(Catalog)
 
             local loaded, err = self:bulkLoadPage(ctx, ctx.position)
             if not loaded then
-                logger.warn("BookOrbit: bulk enumeration failed", err)
+                logger.warn("TLS Library: bulk enumeration failed", err)
                 self:bulkRecordEnumerationFailure(ctx, err)
                 self:bulkFinishRun(ctx)
                 return
@@ -932,7 +932,7 @@ function CatalogBulkDownload.install(Catalog)
                 resolved_path = local_path,
                 conflicting_book_id = owner.book_id,
             })
-            logger.warn("BookOrbit: bulk destination path conflict renamed", book_id, owner.book_id, original_path, local_path)
+            logger.warn("TLS Library: bulk destination path conflict renamed", book_id, owner.book_id, original_path, local_path)
             self:bulkShowStatus(ctx, _("Path conflict - using unique filename"), detail, true)
         end
         return local_path
@@ -982,7 +982,7 @@ function CatalogBulkDownload.install(Catalog)
             self:bulkShowStatus(ctx, _("Loading book details..."), book, true)
             local body, err = self.client:catalogBook(book.id, ctx.source.variant)
             if not body then
-                logger.warn("BookOrbit: bulk detail fetch failed", book.id, err)
+                logger.warn("TLS Library: bulk detail fetch failed", book.id, err)
                 self:bulkRecordFailure(ctx, book)
                 self:bulkShowStatus(ctx, _("Could not load book details"), book, true)
                 return
@@ -1027,7 +1027,7 @@ function CatalogBulkDownload.install(Catalog)
         if lfs.attributes(local_path) and self:bulkExistingPolicy().id == "skip" then
             ctx.counts.skipped_existing = ctx.counts.skipped_existing + 1
             table.insert(ctx.existing_files, { book_id = book_id, title = bookTitle(detail), path = local_path })
-            logger.warn("BookOrbit: existing destination skipped", book_id, local_path)
+            logger.warn("TLS Library: existing destination skipped", book_id, local_path)
             self:bulkShowStatus(ctx, _("File already exists - skipping"), detail, true)
             return
         end
@@ -1116,7 +1116,7 @@ function CatalogBulkDownload.install(Catalog)
             end,
         }
         if not ok then
-            logger.warn("BookOrbit: bulk file download failed", book_id, file.id, err)
+            logger.warn("TLS Library: bulk file download failed", book_id, file.id, err)
             return false
         end
 
@@ -1154,7 +1154,7 @@ function CatalogBulkDownload.install(Catalog)
             digest = hashed and computed or nil
         end
         if not digest then
-            logger.warn("BookOrbit: downloaded file partial MD5 failed", entry.file)
+            logger.warn("TLS Library: downloaded file partial MD5 failed", entry.file)
             return
         end
         table.insert(ctx.pending_matches, {
@@ -1191,7 +1191,7 @@ function CatalogBulkDownload.install(Catalog)
             end
             local body, err = self.client:matchCheck(hashes, candidates)
             if not body then
-                logger.warn("BookOrbit: bulk match check failed", err)
+                logger.warn("TLS Library: bulk match check failed", err)
             else
                 BookOrbitStateManager.applyLibraryVersion(body.libraryVersion)
             end
@@ -1271,7 +1271,7 @@ function CatalogBulkDownload.install(Catalog)
             failures = failures,
         })
         if not saved then
-            logger.warn("BookOrbit: bulk checkpoint save failed", err)
+            logger.warn("TLS Library: bulk checkpoint save failed", err)
         end
     end
 
@@ -1288,7 +1288,7 @@ function CatalogBulkDownload.install(Catalog)
             self:bulkFlushLinks(ctx, true)
         end)
         if not ok then
-            logger.warn("BookOrbit: bulk link flush failed", err)
+            logger.warn("TLS Library: bulk link flush failed", err)
         end
         if ctx.checkpoint then
             if ctx.cancelled or ctx.enumeration_error then
@@ -1320,7 +1320,7 @@ function CatalogBulkDownload.install(Catalog)
         add(_("Linked for sync"), counts.linked)
         add(_("Already on this device"), counts.skipped_on_device)
         add(_("Already downloaded"), counts.skipped_present)
-        add(_("Kept a file not from BookOrbit"), counts.skipped_existing)
+        add(_("Kept a file not from TLS Library"), counts.skipped_existing)
         add(_("Saved under a new name"), counts.path_conflicts)
         add(_("No format this reader opens"), counts.skipped_unsupported)
         add(_("Failed"), counts.failed)
@@ -1331,7 +1331,7 @@ function CatalogBulkDownload.install(Catalog)
             table.insert(summary.notes, _("The book list could not be loaded to the end. Run it again to continue."))
         end
         if #(ctx.path_conflicts or {}) > 0 then
-            table.insert(summary.notes, _("Books whose file names clashed were saved with their BookOrbit ID added."))
+            table.insert(summary.notes, _("Books whose file names clashed were saved with their TLS Library ID added."))
         end
         local existing = ctx.existing_files or {}
         if #existing > 0 then
@@ -1342,7 +1342,7 @@ function CatalogBulkDownload.install(Catalog)
             end
             local list = table.concat(titles, ", ")
             if #existing > 3 then list = T(_("%1, and %2 more"), list, #existing - 3) end
-            table.insert(summary.notes, T(_("Files not from BookOrbit were already there and were kept: %1"), list))
+            table.insert(summary.notes, T(_("Files not from TLS Library were already there and were kept: %1"), list))
         end
         return summary
     end

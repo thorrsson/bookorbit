@@ -111,7 +111,7 @@
           "label": "CSS",
           "hint": "Het algehele uiterlijk van de app. Modus, accent, hoeken en achtergrond behouden hun instellingen.",
           "bookorbit": {
-            "label": "BookOrbit",
+            "label": "TLS Library",
             "description": "Tinted oppervlakken, glazen panelen en serif headings."
           },
           "nostalgia": {
@@ -810,8 +810,8 @@
       "test": {
         "connected": "Verbonden - {issuer}",
         "connectionFailed": "Verbinding mislukt",
-        "privateIssuerAddress": "De uitgever URL wordt omgezet naar een privé- of lokaal netwerkadres, dus de server weigerde verbinding te maken. Stel OIDC_ALLOW_LOCAL_ISSUERS=true in op de BookOrbit-server om dit toe te staan.",
-        "tlsCertificateUntrusted": "BookOrbit kan het TLS-certificaat van de OIDC provider niet verifiëren. Als de provider een particuliere certificeringsinstantie gebruikt, koppel je de PEM CA-bundel aan, stel je NODE_EXTRA_CA_CERTS in op het in-containerpad van de bundel en start je BookOrbit opnieuw op.",
+        "privateIssuerAddress": "De uitgever URL wordt omgezet naar een privé- of lokaal netwerkadres, dus de server weigerde verbinding te maken. Stel OIDC_ALLOW_LOCAL_ISSUERS=true in op de TLS Library-server om dit toe te staan.",
+        "tlsCertificateUntrusted": "TLS Library kan het TLS-certificaat van de OIDC provider niet verifiëren. Als de provider een particuliere certificeringsinstantie gebruikt, koppel je de PEM CA-bundel aan, stel je NODE_EXTRA_CA_CERTS in op het in-containerpad van de bundel en start je TLS Library opnieuw op.",
         "hide": "Verbergen",
         "details": "Details",
         "supported": "ondersteund",
@@ -819,7 +819,7 @@
       },
       "groupMappings": {
         "title": "Groepsmappings",
-        "description": "Wijs OIDC-groepsclaims toe aan BookOrbit-rechten. Gesynchroniseerd bij elke login.",
+        "description": "Wijs OIDC-groepsclaims toe aan TLS Library-rechten. Gesynchroniseerd bij elke login.",
         "noPermission": "Geen recht",
         "empty": "Geen groepsmappings geconfigureerd.",
         "addMapping": "Mapping toevoegen",
@@ -1053,7 +1053,7 @@
         "targetUser": "Doel-gebruiker",
         "doNotImport": "Importeer deze gebruiker niet",
         "noSourceUsersLoaded": "Nog geen bron-gebruikers geladen.",
-        "noActiveTargetUsers": "Geen actieve doel-gebruikers gevonden. Maak een BookOrbit-gebruiker aan of schakel deze opnieuw in voordat je koppelt.",
+        "noActiveTargetUsers": "Geen actieve doel-gebruikers gevonden. Maak een TLS Library-gebruiker aan of schakel deze opnieuw in voordat je koppelt.",
         "pathPrefixMappings": "Padprefix-koppelingen",
         "addMapping": "Koppeling toevoegen",
         "pathMappingsHelp1": "Padkoppelingen vertalen bronbestandspaden naar doelpaden zodat boeken op bestandslocatie kunnen worden gekoppeld. Als je Booklore-bibliotheek bijvoorbeeld bestanden opsloeg onder",
@@ -1396,7 +1396,7 @@
         "confirmReset": "Reset bevestigen",
         "resetDialog": {
           "title": "Elk gewicht terugzetten naar de standaardwaarde?",
-          "description": "Alle 24 velden gaan terug naar de wegingen waarmee BookOrbit wordt geleverd. Er wordt niets opgeslagen totdat je kiest voor Opslaan en opnieuw scoren."
+          "description": "Alle 24 velden gaan terug naar de wegingen waarmee TLS Library wordt geleverd. Er wordt niets opgeslagen totdat je kiest voor Opslaan en opnieuw scoren."
         },
         "reset": "Resetten",
         "recalculate": "Herberekenen",
@@ -2032,7 +2032,7 @@
       },
       "providerDirectory": {
         "title": "Beschikbaar voor installatie",
-        "hint": "Elke aanbieder loopt als een kleine container naast BookOrbit. Kopieer zijn Compose service naar het bestand met BookOrbit, start het met docker compose -d, kies dan 'Toevoegen'.",
+        "hint": "Elke aanbieder loopt als een kleine container naast TLS Library. Kopieer zijn Compose service naar het bestand met TLS Library, start het met docker compose -d, kies dan 'Toevoegen'.",
         "updated": "{time} bijgewerkt",
         "bundled": "Lijst inbegrepen in deze versie",
         "loadFailed": "De lijst van kant-en-klare aanbieders kon niet worden geladen. U kunt nog steeds elke provider toevoegen via zijn adres.",
@@ -2469,7 +2469,7 @@
           "reorderFailed": "Kon de nieuwe bestelling niet opslaan"
         },
         "empty": {
-          "body": "Volg waar BookOrbit geen veld voor heeft, zoals waar een boek op je plank zit of voor wie het heeft geleend. Velden verschijnen op Metadata, in tabelkolommen en in de filters.",
+          "body": "Volg waar TLS Library geen veld voor heeft, zoals waar een boek op je plank zit of voor wie het heeft geleend. Velden verschijnen op Metadata, in tabelkolommen en in de filters.",
           "examples": "Start bij een voorbeeld",
           "shelfNumber": "Shelf Nummer",
           "acquiredOn": "Verworven op",
@@ -3145,15 +3145,15 @@
         "syncUrlCopyFailed": "Kan synchronisatie-URL niet kopiëren",
         "syncPreferences": "Synchronisatievoorkeuren",
         "twoWaySync": "Tweerichtings-voortgangssynchronisatie",
-        "twoWaySyncHint": "Synchroniseer de leespositie tussen BookOrbit en Kobo. Vereist KEPUB-levering voor nauwkeurige locaties en betrouwbaar herstel van de pagina.",
-        "syncHighlights": "BookOrbit-markeringen synchroniseren naar Kobo",
-        "syncHighlightsHint": "Stuur markeringen gemaakt in BookOrbit of KOReader naar je Kobo. Kobo-markeringen worden geïmporteerd in BookOrbit, ook wanneer dit uit staat. Gekoppelde annotaties synchroniseren bewerkingen en verwijderingen in beide richtingen. Vereist KEPUB-levering; het boek op Kobo moet de KEPUB zijn die vanuit BookOrbit is gedownload.",
+        "twoWaySyncHint": "Synchroniseer de leespositie tussen TLS Library en Kobo. Vereist KEPUB-levering voor nauwkeurige locaties en betrouwbaar herstel van de pagina.",
+        "syncHighlights": "TLS Library-markeringen synchroniseren naar Kobo",
+        "syncHighlightsHint": "Stuur markeringen gemaakt in TLS Library of KOReader naar je Kobo. Kobo-markeringen worden geïmporteerd in TLS Library, ook wanneer dit uit staat. Gekoppelde annotaties synchroniseren bewerkingen en verwijderingen in beide richtingen. Vereist KEPUB-levering; het boek op Kobo moet de KEPUB zijn die vanuit TLS Library is gedownload.",
         "storeSync": "Voeg Kobo winkeltitels toe",
-        "storeSyncHint": "Lever ook boeken uit je Kobo-account, inclusief Kobo Plus en aankopen, naast je BookOrbit-bibliotheek. Zonder dit bereiken slechts BookOrbit boeken het apparaat. Winkeltitels worden rechtstreeks gedownload van Kobo en worden niet toegevoegd aan je BookOrbit-bibliotheek.",
+        "storeSyncHint": "Lever ook boeken uit je Kobo-account, inclusief Kobo Plus en aankopen, naast je TLS Library-bibliotheek. Zonder dit bereiken slechts TLS Library boeken het apparaat. Winkeltitels worden rechtstreeks gedownload van Kobo en worden niet toegevoegd aan je TLS Library-bibliotheek.",
         "fullSizeCovers": "Covers op ware grootte",
         "fullSizeCoversHint": "Stuur elke omslag in de schermresolutie van je Kobo, zodat de omslag in slaapstand en schermvullende omslagen scherp blijven. Zet dit uit om kleinere omslagen te sturen die sneller synchroniseren. Een omslag die al op een Kobo staat, verandert pas wanneer de omslag van het boek verandert.",
         "convertKepub": "Converteren naar KEPUB",
-        "convertKepubHint": "Stuur in aanmerking komende EPUB's als KEPUB. Dit blijft aan wanneer voortgangssynchronisatie of BookOrbit-naar-Kobo-markeringen zijn ingeschakeld. Bij de volgende Kobo-synchronisatie worden betrokken boeken opnieuw aangeboden als KEPUB-downloads; verwijder een oude EPUB-kopie als Kobo die blijft openen.",
+        "convertKepubHint": "Stuur in aanmerking komende EPUB's als KEPUB. Dit blijft aan wanneer voortgangssynchronisatie of TLS Library-naar-Kobo-markeringen zijn ingeschakeld. Bij de volgende Kobo-synchronisatie worden betrokken boeken opnieuw aangeboden als KEPUB-downloads; verwijder een oude EPUB-kopie als Kobo die blijft openen.",
         "forceHyphenation": "Woordafbreking forceren",
         "forceHyphenationHint": "Zorgt voor consistente tekstuitvulling. Hiermee worden gecachte KEPUB's opnieuw gegenereerd.",
         "progressThresholds": "Voortgangsdrempels",
@@ -3163,7 +3163,7 @@
         "markAsFinished": "Markeren als Voltooid",
         "markAsFinishedHint": "Percentagedrempel om een boek als \"Voltooid\" te markeren.",
         "kepubLimit": "KEPUB-conversielimiet",
-        "kepubLimitHint": "Boeken boven deze limiet worden verzonden als gewone EPUB's, dus BookOrbit synchroniseert hun lezerpositie niet terug naar Kobo.",
+        "kepubLimitHint": "Boeken boven deze limiet worden verzonden als gewone EPUB's, dus TLS Library synchroniseert hun lezerpositie niet terug naar Kobo.",
         "changesMustBeSaved": "Wijzigingen moeten worden opgeslagen om effect te hebben.",
         "saving": "Opslaan...",
         "saveSyncSettings": "Synchronisatie-instellingen opslaan",
@@ -3225,8 +3225,8 @@
           "readingPositionSynced": "Leespositie gesynchroniseerd",
           "labelWithTitle": "{label}: {title}",
           "updateCount": "{count, plural, one {# update} other {# updates}}",
-          "directionToKobo": "BookOrbit -> Kobo",
-          "directionToBookOrbit": "Kobo -> BookOrbit",
+          "directionToKobo": "TLS Library -> Kobo",
+          "directionToBookOrbit": "Kobo -> TLS Library",
           "twoWaySyncEnabled": "Tweerichtingssynchronisatie ingeschakeld",
           "deviceProgressSaved": "Voortgang van apparaat opgeslagen",
           "summary": {
@@ -3258,7 +3258,7 @@
           "filterFailures": "Fouten",
           "refresh": "Vernieuwen",
           "loadingActivity": "Kobo-activiteit laden...",
-          "noActivityHint": "Recente synchronisatieactiviteit verschijnt nadat een gekoppelde Kobo contact opneemt met BookOrbit.",
+          "noActivityHint": "Recente synchronisatieactiviteit verschijnt nadat een gekoppelde Kobo contact opneemt met TLS Library.",
           "error": "Fout",
           "loading": "Laden...",
           "loadMore": "Meer activiteit laden"
@@ -3270,7 +3270,7 @@
         "nextSteps": {
           "title": "Volgende stappen",
           "step1": "1. Configureer je Kobo-apparaat om te synchroniseren met de bovenstaande synchronisatie-URL.",
-          "step2": "2. Ga in BookOrbit via de zijbalk naar een collectie, klik op het bewerkingspictogram en schakel {syncToKobo} in. Alleen boeken in collecties waarvoor synchronisatie is ingeschakeld worden naar je apparaat gedownload."
+          "step2": "2. Ga in TLS Library via de zijbalk naar een collectie, klik op het bewerkingspictogram en schakel {syncToKobo} in. Alleen boeken in collecties waarvoor synchronisatie is ingeschakeld worden naar je apparaat gedownload."
         },
         "syncToKobo": "Synchroniseren naar Kobo",
         "tabs": {
@@ -3280,14 +3280,14 @@
       },
       "koreader": {
         "title": "KOReader-synchronisatie",
-        "subtitle": "Blader door je BookOrbit-catalogus in KOReader en synchroniseer voortgang, leesactiviteit, markeringen en annotatiewijzigingen.",
+        "subtitle": "Blader door je TLS Library-catalogus in KOReader en synchroniseer voortgang, leesactiviteit, markeringen en annotatiewijzigingen.",
         "tabs": {
           "sync": "Synchronisatie-instellingen",
           "fileNaming": "Bestandsnaamgeving"
         },
         "fileNaming": {
           "accountTitle": "Standaard KOReader-patroon voor account",
-          "accountDescription": "Stelt de standaard relatieve map en bestandsnaam in die door downloads van de BookOrbit-plug-in voor je KOReader-account worden gebruikt. Apparaatspecifieke regels kunnen dit hieronder overschrijven.",
+          "accountDescription": "Stelt de standaard relatieve map en bestandsnaam in die door downloads van de TLS Library-plug-in voor je KOReader-account worden gebruikt. Apparaatspecifieke regels kunnen dit hieronder overschrijven.",
           "defaultPattern": "Standaardpatroon voor boekpad",
           "accountHelp": "De standaard voor je account bij downloads van de KOReader-plug-in, tenzij een apparaat een aangepaste regel heeft.",
           "accountHint": "Wordt gebruikt door je KOReader-apparaten zonder aangepaste overschrijving.",
@@ -3295,7 +3295,7 @@
           "saveAccount": "Accountstandaard opslaan",
           "deviceTitle": "Overschrijvingen voor KOReader-apparaten",
           "deviceDescription": "Pas elke combinatie van standaard-, serie- en losse boekpaden aan. Lege apparaatspecifieke velden nemen de apparaatstandaard over, die op zijn beurt het standaard KOReader-patroon van het account kan overnemen.",
-          "noDevices": "Apparaten verschijnen hier nadat ze met BookOrbit zijn gesynchroniseerd.",
+          "noDevices": "Apparaten verschijnen hier nadat ze met TLS Library zijn gesynchroniseerd.",
           "customOrganization": "Aangepaste organisatie",
           "usingAccountDefault": "Accountstandaard wordt gebruikt",
           "deviceDefaultHelp": "Terugvalpatroon voor dit apparaat. Laat dit gelijk aan de accountstandaard om toekomstige wijzigingen automatisch over te nemen.",
@@ -3331,10 +3331,10 @@
         "latestPlugin": "Nieuwste plug-in: v{version}",
         "latestPluginUnavailable": "Nieuwste plug-in niet beschikbaar",
         "notConfigured": "KOReader-synchronisatie is niet geconfigureerd",
-        "notConfiguredHint": "Maak één set synchronisatiegegevens aan en gebruik ze vervolgens met de BookOrbit KOReader-plug-in voor bladeren, downloads, voortgang, leesgebeurtenissen, markeringen en verwijderingen.",
+        "notConfiguredHint": "Maak één set synchronisatiegegevens aan en gebruik ze vervolgens met de TLS Library KOReader-plug-in voor bladeren, downloads, voortgang, leesgebeurtenissen, markeringen en verwijderingen.",
         "createCredentials": "Inloggegevens aanmaken",
         "createFormTitle": "KOReader-synchronisatiegegevens aanmaken",
-        "createFormHint": "Deze inloggegevens authenticeren je KOReader-apparaten bij BookOrbit.",
+        "createFormHint": "Deze inloggegevens authenticeren je KOReader-apparaten bij TLS Library.",
         "username": "Gebruikersnaam",
         "usernamePlaceholder": "bijv. mijnlezer",
         "password": "Wachtwoord",
@@ -3342,7 +3342,7 @@
         "changeCredentials": {
           "action": "Wijzig inloggegevens",
           "title": "Wijzig de inloggegevens van KOReader",
-          "description": "Elk BookOrbit-account heeft één KOReader-inloggegevensset. Wijzig het hier zonder de gesynchroniseerde gegevens te verwijderen.",
+          "description": "Elk TLS Library-account heeft één KOReader-inloggegevensset. Wijzig het hier zonder de gesynchroniseerde gegevens te verwijderen.",
           "newPassword": "Nieuw wachtwoord",
           "usernameInvalid": "De gebruikersnaam moet tussen 3 en 100 tekens lang zijn.",
           "passwordPlaceholder": "Laat dit leeg om het huidige wachtwoord te behouden",
@@ -3363,7 +3363,7 @@
         "status": "KOReader-status",
         "refresh": "Vernieuwen",
         "progressSync": "Voortgangssynchronisatie",
-        "progressSyncHint": "Sta KOReader-apparaten toe voortgang, leesactiviteit, markeringen en annotatieverwijderingen te synchroniseren met BookOrbit.",
+        "progressSyncHint": "Sta KOReader-apparaten toe voortgang, leesactiviteit, markeringen en annotatieverwijderingen te synchroniseren met TLS Library.",
         "lastSync": "Laatste synchronisatie",
         "syncedBooks": "Gesynchroniseerde boeken",
         "bookCount": "{count, plural, =0 {geen boeken} one {# boek} other {# boeken}}",
@@ -3373,17 +3373,17 @@
         "setup": "Instellen",
         "pluginServerUrl": "Plug-in-server-URL",
         "syncUrl": "KOReader synchronisatie URL",
-        "syncUrlHint": "Werkt met de plug-in BookOrbit en de ingebouwde voortgangssynchronisatie van KOReader.",
+        "syncUrlHint": "Werkt met de plug-in TLS Library en de ingebouwde voortgangssynchronisatie van KOReader.",
         "copied": "Gekopieerd",
         "copyUrl": "URL kopiëren",
-        "preconfiguredPlugin": "Voorgeconfigureerde BookOrbit-plug-in",
+        "preconfiguredPlugin": "Voorgeconfigureerde TLS Library-plug-in",
         "preconfiguredPluginHintPrefix": "Download een zip met de server-URL en je synchronisatie-login al geconfigureerd. De plug-in bevat catalogus bladeren en synchronisatie. Kopieer de map naar",
         "preconfiguredPluginHintSuffix": "en herstart KOReader.",
-        "latestPluginNote": "{label}. Apparaatupdates worden uitgevoerd vanuit het BookOrbit-menu in KOReader.",
+        "latestPluginNote": "{label}. Apparaatupdates worden uitgevoerd vanuit het TLS Library-menu in KOReader.",
         "preparing": "Voorbereiden...",
         "downloadPlugin": "Plug-in downloaden",
         "noDevicesSynced": "Nog geen apparaten gesynchroniseerd",
-        "noDevicesSyncedHint": "Installeer de BookOrbit-plug-in voor volledige synchronisatie, of configureer KOReaders standaard voortgangssynchronisatie voor alleen voortgangsupdates.",
+        "noDevicesSyncedHint": "Installeer de TLS Library-plug-in voor volledige synchronisatie, of configureer KOReaders standaard voortgangssynchronisatie voor alleen voortgangsupdates.",
         "lastSyncLabel": "Laatste synchronisatie:",
         "lastBookLabel": "Laatste boek:",
         "noneYet": "Nog geen",
@@ -3400,8 +3400,8 @@
         "failedPositions": "{count, plural, =0 {geen markeringsposities vereisen aandacht.} one {# markeringspositie vereist aandacht.} other {# markeringsposities vereisen aandacht.}}",
         "setupGuide": "Installatiegids",
         "setupSteps": "KOReader-installatiestappen",
-        "setupStepsHint": "Gebruik de BookOrbit-plug-in voor catalogus bladeren, downloads, voortgang, leesgebeurtenissen en markeringen. Gebruik de standaard-plug-in voor alleen voortgang.",
-        "pluginGuideTitle": "BookOrbit-plug-in",
+        "setupStepsHint": "Gebruik de TLS Library-plug-in voor catalogus bladeren, downloads, voortgang, leesgebeurtenissen en markeringen. Gebruik de standaard-plug-in voor alleen voortgang.",
+        "pluginGuideTitle": "TLS Library-plug-in",
         "pluginStep1": "Download de voorgeconfigureerde plug-in hierboven.",
         "pluginStep2Prefix": "Pak het uit en kopieer",
         "pluginStep2Middle": "naar",
@@ -3415,7 +3415,7 @@
         "stockStep2": "Stel de aangepaste synchronisatieserver in op de hierboven getoonde URL.",
         "stockStep2InlineUrl": "Stel de aangepaste synchronisatieserver in op het volgende URL:",
         "stockStep3": "Voer de gebruikersnaam en het wachtwoord in die je hebt aangemaakt en tik op Inloggen.",
-        "locationNote": "BookOrbit slaat KOReader-compatibele EPUB-locaties op vanuit de weblezer. Herstel zou dicht bij dezelfde positie moeten uitkomen, hoewel de exacte regelplaatsing kan variëren per lezer en EPUB-opmaak.",
+        "locationNote": "TLS Library slaat KOReader-compatibele EPUB-locaties op vanuit de weblezer. Herstel zou dicht bij dezelfde positie moeten uitkomen, hoewel de exacte regelplaatsing kan variëren per lezer en EPUB-opmaak.",
         "dangerZone": "Gevarenzone",
         "deleteCredentials": "KOReader-inloggegevens verwijderen",
         "deleteCredentialsHint": "Verwijder synchronisatiegegevens en ontkoppel alle apparaten. Voortgangsgegevens blijven behouden.",
@@ -3456,7 +3456,7 @@
           "unknownFile": "Onbekend KOReader-bestand {hash}",
           "unknownAuthor": "Onbekende auteur",
           "noTitleOrAuthor": "Geen titel of auteur gerapporteerd",
-          "bookNumber": "BookOrbit-boek #{id}",
+          "bookNumber": "TLS Library-boek #{id}",
           "toast": {
             "unmatchedRefreshed": "Niet-gekoppelde boeken vernieuwd",
             "unmatchedRefreshFailed": "Niet-gekoppelde boeken vernieuwen mislukt",
@@ -3481,8 +3481,8 @@
           "modal": {
             "linkTitle": "KOReader-boek koppelen",
             "changeTitle": "KOReader-koppeling wijzigen",
-            "bookOrbitBook": "BookOrbit-boek",
-            "searchPlaceholder": "Zoek in je BookOrbit-bibliotheek",
+            "bookOrbitBook": "TLS Library-boek",
+            "searchPlaceholder": "Zoek in je TLS Library-bibliotheek",
             "minChars": "Voer minstens 2 tekens in.",
             "searching": "Zoeken...",
             "noBooksFound": "Geen boeken gevonden.",
@@ -3492,14 +3492,14 @@
             "loadMore": "Meer laden",
             "confirmTitle": "KOReader-koppeling bevestigen",
             "koreader": "KOReader",
-            "bookOrbit": "BookOrbit",
+            "bookOrbit": "TLS Library",
             "bookId": "Boek-ID: {id}",
-            "syncedStatsNote": "Reeds gesynchroniseerde statistieken blijven bij hun huidige BookOrbit-boek.",
+            "syncedStatsNote": "Reeds gesynchroniseerde statistieken blijven bij hun huidige TLS Library-boek.",
             "chooseDifferent": "Ander boek kiezen",
             "saving": "Opslaan...",
             "confirmLink": "Koppeling bevestigen",
             "unlinkTitle": "KOReader-boek ontkoppelen?",
-            "unlinkBody": "Toekomstige synchronisaties voor deze hash worden niet meer aan {title} gekoppeld totdat het opnieuw wordt gekoppeld. Reeds gesynchroniseerde statistieken blijven bij hun huidige BookOrbit-boek.",
+            "unlinkBody": "Toekomstige synchronisaties voor deze hash worden niet meer aan {title} gekoppeld totdat het opnieuw wordt gekoppeld. Reeds gesynchroniseerde statistieken blijven bij hun huidige TLS Library-boek.",
             "unlinking": "Ontkoppelen..."
           },
           "dismiss": "Negeren",
@@ -3507,15 +3507,15 @@
           "dismissing": "Negeren...",
           "unlinking": "Ontkoppelen...",
           "unlinkConfirmTitle": "KOReader-boek ontkoppelen?",
-          "unlinkConfirmBody": "Toekomstige synchronisaties voor deze hash verwijzen niet langer naar {title} totdat deze opnieuw wordt gekoppeld. Reeds gesynchroniseerde statistieken blijven bij hun huidige BookOrbit-boek.",
+          "unlinkConfirmBody": "Toekomstige synchronisaties voor deze hash verwijzen niet langer naar {title} totdat deze opnieuw wordt gekoppeld. Reeds gesynchroniseerde statistieken blijven bij hun huidige TLS Library-boek.",
           "dismissConfirmTitle": "{title} negeren?",
           "dismissConfirmBody": "Dit verwijdert het uit je lijst met niet-gekoppelde boeken. Als een apparaat deze hash opnieuw meldt, verschijnt het als een nieuwe vermelding.",
           "dismissAllConfirmTitle": "{count, plural, =0 {geen niet-gekoppelde boeken} one {Alle # niet-gekoppelde boek negeren?} other {Alle # niet-gekoppelde boeken negeren?}}",
           "dismissAllConfirmBody": "Dit wist je volledige lijst met niet-gekoppelde boeken, niet alleen de huidige pagina. Als een apparaat een van deze hashes opnieuw meldt, verschijnt het als een nieuwe vermelding.",
           "changeLinkTitle": "KOReader-koppeling wijzigen",
           "linkBookTitle": "KOReader-boek koppelen",
-          "bookOrbitBook": "BookOrbit-boek",
-          "searchLibraryPlaceholder": "Zoek in je BookOrbit-bibliotheek",
+          "bookOrbitBook": "TLS Library-boek",
+          "searchLibraryPlaceholder": "Zoek in je TLS Library-bibliotheek",
           "enterMinChars": "Voer minstens 2 tekens in.",
           "searching": "Zoeken...",
           "noBooksFound": "Geen boeken gevonden.",
@@ -3526,7 +3526,7 @@
           "loadingMore": "Laden...",
           "confirmLinkTitle": "KOReader-koppeling bevestigen",
           "bookId": "Boek-ID: {id}",
-          "syncedStatsNote": "Reeds gesynchroniseerde statistieken blijven bij hun huidige BookOrbit-boek.",
+          "syncedStatsNote": "Reeds gesynchroniseerde statistieken blijven bij hun huidige TLS Library-boek.",
           "chooseDifferent": "Andere kiezen",
           "saving": "Opslaan...",
           "confirmLink": "Koppeling bevestigen",
@@ -3534,7 +3534,7 @@
           "reviewHint": "Boeken zonder een automatische overeenkomst en boeken die je niet verbonden hebt verschijnen hier. Ontkoppelde boeken kunnen nog steeds synchroniseren via een automatische wedstrijd. Koppel een boek om te overschrijven die overeenkomen, of verwijder het om het te verwijderen van deze lijst.",
           "loadingReview": "Boeken laden om te beoordelen...",
           "noReview": "Geen KOReader boeken om te bekijken.",
-          "manualUnlinkConfirmBody": "Verwijder de handmatige link naar {title} en geef dit boek terug naar de beoordelingslijst. Toekomstige synchronisatie zal een automatische match gebruiken als deze bestaat. Al gesynchroniseerde statistieken zullen in hun huidige BookOrbit boek blijven.",
+          "manualUnlinkConfirmBody": "Verwijder de handmatige link naar {title} en geef dit boek terug naar de beoordelingslijst. Toekomstige synchronisatie zal een automatische match gebruiken als deze bestaat. Al gesynchroniseerde statistieken zullen in hun huidige TLS Library boek blijven.",
           "reviewDismissConfirmBody": "Dit verwijdert het uit je boeken die moeten worden beoordeeld. Automatische overeenkomende en bestaande synchronisatiegegevens worden bewaard. Als een apparaat de hash opnieuw zonder match rapporteert, kan het opnieuw verschijnen.",
           "reviewDismissAllConfirmTitle": "{count, plural, =0 {Geen boeken om te beoordelen} one {Verwijder al het # boek om te beoordelen?} other {Alle # boeken afwijzen om te beoordelen?}}",
           "reviewDismissAllConfirmBody": "Dit wist je hele boeken om de lijst te beoordelen, inclusief items op andere pagina's. Automatische overeenkomende en bestaande synchronisatiegegevens worden bewaard. Als een apparaat een hash opnieuw rapporteert zonder een vergelijking, kan het opnieuw verschijnen."
@@ -3644,7 +3644,7 @@
         "deleteClient": "Verwijder {name}",
         "clientsEmpty": {
           "title": "Nog geen downloadclient",
-          "body": "Voor een directe HTTP download is geen client nodig. Sluit er een aan zodat BookOrbit ook releases kan ophalen die via torrent of Usenet zijn geleverd.",
+          "body": "Voor een directe HTTP download is geen client nodig. Sluit er een aan zodat TLS Library ook releases kan ophalen die via torrent of Usenet zijn geleverd.",
           "note": "qBittorrent, Transmission, Deluge, NZBGet en SABnzbd worden ondersteund."
         },
         "summary": "{type} - categorie {category}, prioriteit {priority}",
@@ -3683,7 +3683,7 @@
           "passwordWillClear": "Het opgeslagen wachtwoord wordt verwijderd wanneer je opslaat",
           "apiKeyWillClear": "De opgeslagen API sleutel wordt verwijderd wanneer je opslaat",
           "category": "Categorie",
-          "categoryHint": "Labelt de downloads die BookOrbit toevoegt, zodat deze alleen op zichzelf handelt.",
+          "categoryHint": "Labelt de downloads die TLS Library toevoegt, zodat deze alleen op zichzelf handelt.",
           "priority": "Prioriteit",
           "enabled": "Ingeschakeld",
           "useHardlinks": "Gebruik harde links",
@@ -3695,12 +3695,12 @@
         },
         "mappings": {
           "title": "Padtoewijzingen",
-          "hint": "Vertaal de paden die de client rapporteert naar paden die BookOrbit kunnen openen. Nodig als de twee in aparte containers draaien.",
+          "hint": "Vertaal de paden die de client rapporteert naar paden die TLS Library kunnen openen. Nodig als de twee in aparte containers draaien.",
           "add": "Mapping toevoegen",
           "remove": "Verwijder de toewijzing",
           "remotePath": "Clientpad",
-          "localPath": "BookOrbit pad",
-          "brief": "Vereist. Verklaart de directory waaruit BookOrbit mag importeren; wanneer de client dezelfde bestanden op dezelfde paden ziet, wijs je de downloadmap aan zichzelf toe.",
+          "localPath": "TLS Library pad",
+          "brief": "Vereist. Verklaart de directory waaruit TLS Library mag importeren; wanneer de client dezelfde bestanden op dezelfde paden ziet, wijs je de downloadmap aan zichzelf toe.",
           "identityExample": "Hetzelfde bestandssysteem? Gebruik aan beide kanten hetzelfde pad, bijvoorbeeld /downloads aan de linkerkant en /downloads aan de rechterkant."
         },
         "hardlink": {
@@ -3709,16 +3709,16 @@
           "works": "Hardlinks werken hier: bij import wordt de schijf niet twee keer gebruikt.",
           "unavailable": "Hardlinks zijn hier niet beschikbaar: geïmporteerde bestanden worden gekopieerd, waarbij de ruimte tweemaal wordt gebruikt.",
           "link_refused": "Dit bestandssysteem heeft de link geweigerd ({code}): importbestanden worden gekopieerd, waarbij de spatie twee keer wordt gebruikt.",
-          "download_dir_unwritable": "BookOrbit kan niet schrijven naar de downloadmap ({code}), dus hardlinking kon niet worden getest.",
-          "localMissing": "BookOrbit kan dat pad niet zien.",
+          "download_dir_unwritable": "TLS Library kan niet schrijven naar de downloadmap ({code}), dus hardlinking kon niet worden getest.",
+          "localMissing": "TLS Library kan dat pad niet zien.",
           "dockMissing": "De Book Dock-map is niet leesbaar."
         },
         "reconciliation": {
           "action": "Afstemmen",
-          "clean": "Elk clientitem in eigendom komt overeen met een bewaarde BookOrbit downloadpoging.",
-          "unsupported": "Deze client kan geen items opsommen op basis van de eigendomsmarkering van BookOrbit. Schakel voor Deluge de Label-plug-in in; voor Transmission configureer je een categoriemap.",
+          "clean": "Elk clientitem in eigendom komt overeen met een bewaarde TLS Library downloadpoging.",
+          "unsupported": "Deze client kan geen items opsommen op basis van de eigendomsmarkering van TLS Library. Schakel voor Deluge de Label-plug-in in; voor Transmission configureer je een categoriemap.",
           "truncated": "De client heeft meer dan 1.000 items in eigendom geretourneerd. Los de zichtbare vermeldingen op en stem ze vervolgens opnieuw af.",
-          "orphan": "Geen behouden BookOrbit poging is eigenaar van dit clientitem.",
+          "orphan": "Geen behouden TLS Library poging is eigenaar van dit clientitem.",
           "failedAttempt": "De client heeft dit item nog steeds, maar de poging voor \"{title}\" is gemarkeerd als mislukt.",
           "missing": "Deze {status} poging is niet langer aanwezig in de downloadclient.",
           "adopt": "Bijvoegen bij {title}",
@@ -3727,7 +3727,7 @@
           "removed": "Het verweesde clientitem is verwijderd",
           "removeTitle": "Dit verweesde clientitem verwijderen?",
           "removeDescription": "{name} is verwijderd uit de downloadclient. De gedownloade bestanden worden bewaard.",
-          "notOrphan": "Dat clientitem is nog steeds gekoppeld aan een BookOrbit downloadpoging.",
+          "notOrphan": "Dat clientitem is nog steeds gekoppeld aan een TLS Library downloadpoging.",
           "notAdoptable": "Dit clientitem of deze mislukte poging is gewijzigd en kan niet meer worden gekoppeld. Stem opnieuw af."
         },
         "errors": {
@@ -3743,8 +3743,8 @@
           "encryptionKeyChanged": "De opgeslagen clientgegevens konden niet worden gelezen. BOOK_REQUEST_ENCRYPTION_KEY is mogelijk gewijzigd sinds het is opgeslagen.",
           "pathNotAbsolute": "Padtoewijzingen moeten aan beide zijden absolute paden gebruiken",
           "nameRequired": "Geef deze client een naam.",
-          "urlRequired": "Voer het adres in waarop BookOrbit deze client moet bereiken.",
-          "mappingRequired": "Voeg ten minste één padtoewijzing toe, zodat BookOrbit weet uit welke map het mag importeren.",
+          "urlRequired": "Voer het adres in waarop TLS Library deze client moet bereiken.",
+          "mappingRequired": "Voeg ten minste één padtoewijzing toe, zodat TLS Library weet uit welke map het mag importeren.",
           "apiKeyRequired": "Voer de sleutel SABnzbd API in via Configuratie > Algemeen."
         },
         "encryptionKeyMissing": "BOOK_REQUEST_ENCRYPTION_KEY is niet ingesteld, dus een clientreferentie kan niet worden opgeslagen. Genereer er een met: openssl rand -hex 32",
@@ -3760,14 +3760,14 @@
           "loading": "Indexeerders laden...",
           "empty": {
             "title": "Nog geen bronnen",
-            "body": "BookOrbit bundelt geen eigen bronnen, dus een zoekopdracht op verzoek vindt niets totdat je er een toevoegt. Kies de opstelling die bij je indexeerders past.",
-            "bodyOneWay": "BookOrbit bundelt geen eigen bronnen, dus een verzoekzoekopdracht vindt niets totdat je er een toevoegt.",
+            "body": "TLS Library bundelt geen eigen bronnen, dus een zoekopdracht op verzoek vindt niets totdat je er een toevoegt. Kies de opstelling die bij je indexeerders past.",
+            "bodyOneWay": "TLS Library bundelt geen eigen bronnen, dus een verzoekzoekopdracht vindt niets totdat je er een toevoegt.",
             "responsibility": "Welke bron je indexeert, is je verantwoordelijkheid.",
             "prowlarrTitle": "Verbind Prowlarr",
             "prowlarrBody": "Beheer meerdere torrent- en Usenet-indexers via één verbinding.",
             "recommended": "Aanbevolen",
             "pluginTitle": "Installeer een plug-in",
-            "pluginBody": "Eén bestand dat BookOrbit leert een specifieke site te doorzoeken. Je levert het in en vult vervolgens de instellingen in.",
+            "pluginBody": "Eén bestand dat TLS Library leert een specifieke site te doorzoeken. Je levert het in en vult vervolgens de instellingen in.",
             "torznabTitle": "Voeg een Torznab indexeerder toe",
             "torznabBody": "Wijs naar een Prowlarr, Jackett of NZBHydra feed die je al uitvoert. Eén per voeding.",
             "builtInTitle": "Voeg een indexeerder toe",
@@ -3792,7 +3792,7 @@
           "pluginFailed": "De plug-in in \"{directory}\" is niet geladen: {reason}",
           "sources": {
             "title": "Bronnen",
-            "hint": "Alles BookOrbit kan zoeken, gegroepeerd op verbinding.",
+            "hint": "Alles TLS Library kan zoeken, gegroepeerd op verbinding.",
             "add": "Bron toevoegen",
             "prowlarr": "Verbind Prowlarr",
             "prowlarrHint": "Beheer verschillende torrent- en Usenet-indexers samen.",
@@ -3908,12 +3908,12 @@
             "credentialRequired": "Die indexeerder heeft een referentie nodig voordat deze kan worden gebruikt",
             "invalidSettings": "Een of meer broninstellingen zijn ongeldig. Bekijk de beschikbare keuzes.",
             "nameRequired": "Geef deze indexeerder een naam.",
-            "urlRequired": "Voer het adres in waarop BookOrbit moet zoeken."
+            "urlRequired": "Voer het adres in waarop TLS Library moet zoeken."
           },
           "editName": "Bewerken {name}",
           "editorDescription": "Instellingen voor deze indexeerder.",
           "chooseType": "Kies een type indexeerfunctie",
-          "chooseTypeHint": "Kies waar BookOrbit moet zoeken. Het formulier vraagt ​​dan alleen wat die bron nodig heeft.",
+          "chooseTypeHint": "Kies waar TLS Library moet zoeken. Het formulier vraagt ​​dan alleen wat die bron nodig heeft.",
           "builtIn": "Ingebouwd",
           "plugin": "Plug-in",
           "typeDescriptions": {
@@ -3922,7 +3922,7 @@
           },
           "plugins": {
             "title": "Plug-ins",
-            "hint": "Een site BookOrbit kan zoeken, toegevoegd als één plug-inbestand.",
+            "hint": "Een site TLS Library kan zoeken, toegevoegd als één plug-inbestand.",
             "directoryLink": "Blader door open bibliotheekplug-ins",
             "none": "Geen plug-in geïnstalleerd. Installeer er een om een ​​site te doorzoeken die niet door de ingebouwde protocollen wordt gedekt.",
             "install": "Plug-in installeren",
@@ -3934,7 +3934,7 @@
             "removeFailed": "Die plug-in kon niet worden verwijderd.",
             "confirmRemove": "De plug-in {label} verwijderen?",
             "replaces": "Dit vervangt de plug-in {type} die al is geïnstalleerd.",
-            "restartRequired": "Start BookOrbit opnieuw op zodat de plug-inwijziging van kracht wordt.",
+            "restartRequired": "Start TLS Library opnieuw op zodat de plug-inwijziging van kracht wordt.",
             "confirmInstall": "Installeer plug-in",
             "configure": "Instellen",
             "notSetUp": "Nog niet ingesteld",
@@ -3981,11 +3981,11 @@
             "credential": "Referentie",
             "credentialRequired": "Verplicht",
             "credentialNone": "Geen",
-            "trustWarning": "Er wordt een plug-in uitgevoerd binnen BookOrbit met toegang tot je database, bibliotheekbestanden en coderingssleutel. Installeer er alleen een van een bron die je vertrouwt, en lees deze eerst.",
+            "trustWarning": "Er wordt een plug-in uitgevoerd binnen TLS Library met toegang tot je database, bibliotheekbestanden en coderingssleutel. Installeer er alleen een van een bron die je vertrouwt, en lees deze eerst.",
             "sectionTitle": "Plug-in",
             "removeUnusedWarning": "De plug-in wordt permanent van de server verwijderd."
           },
-          "posture": "BookOrbit verstrekt of onderschrijft geen indexeringsbronnen. Elke bron hier is er één die je hebt geconfigureerd, en je bent verantwoordelijk voor wat je erdoor zoekt en downloadt."
+          "posture": "TLS Library verstrekt of onderschrijft geen indexeringsbronnen. Elke bron hier is er één die je hebt geconfigureerd, en je bent verantwoordelijk voor wat je erdoor zoekt en downloadt."
         },
         "managers": {
           "add": "Voeg Prowlarr toe",
@@ -4006,7 +4006,7 @@
           "toggleSource": "Zoek met {name}",
           "changeColor": "Kleur wijzigen voor {name}",
           "sourceColor": "Bronkleur",
-          "sourceColorHint": "Markeert releases die zijn geretourneerd door {name} gedurende BookOrbit.",
+          "sourceColorHint": "Markeert releases die zijn geretourneerd door {name} gedurende TLS Library.",
           "noSources": "Er zijn geen compatibele torrent- of Usenet-indexers ontdekt. Synchroniseer na het toevoegen van een in Prowlarr.",
           "unknown": "Onbekend",
           "editorDescription": "Verbindings- en bronsynchronisatie-instellingen voor Prowlarr.",
@@ -4022,9 +4022,9 @@
             "syncNew": "Schakel nieuw ontdekte bronnen in",
             "syncNewHint": "Nieuwe Prowlarr indexeerders zijn onmiddellijk doorzoekbaar. Bronnen die je hier uitschakelt, blijven na latere synchronisaties uitgeschakeld.",
             "autoExpand": "Probeer het opnieuw zonder categoriefilters",
-            "autoExpandHint": "Wanneer een indexeerder succesvol antwoordt zonder resultaat, probeer het dan één keer opnieuw zonder het boekcategoriefilter van BookOrbit.",
+            "autoExpandHint": "Wanneer een indexeerder succesvol antwoordt zonder resultaat, probeer het dan één keer opnieuw zonder het boekcategoriefilter van TLS Library.",
             "inheritSeedLimits": "Gebruik Prowlarr startlimieten",
-            "inheritSeedLimitsHint": "Pas de geconfigureerde Seed-ratio en Seed-tijd van elke torrent-indexer toe op toekomstige downloads wanneer er geen BookOrbit overschrijving bestaat.",
+            "inheritSeedLimitsHint": "Pas de geconfigureerde Seed-ratio en Seed-tijd van elke torrent-indexer toe op toekomstige downloads wanneer er geen TLS Library overschrijving bestaat.",
             "perIndexerTimeout": "Time-out indexeerfunctie (seconden)",
             "perIndexerTimeoutHint": "Hoe lang één gesynchroniseerde bron mag duren. Door Slow FlareSolverr ondersteunde indexers hebben mogelijk meer tijd nodig.",
             "overallBudget": "Prowlarr budget (seconden)",
@@ -4072,12 +4072,12 @@
           "minScoreHint": "Een release met een lagere score wordt nooit automatisch gedownload. De scores lopen op tot 100, en hoe goed de titel en de auteur overeenkomen, vormt het grootste deel van één, met het formaat, de bestandsgrootte, seeders en bronprioriteit erachter. Als niets hoog genoeg scoort, wacht het verzoek tot iemand een release met de hand heeft uitgekozen en wordt aangegeven waarom deze is gestopt.",
           "minScoreHintV2": "Een release met een lagere score wordt nooit automatisch gedownload. De scores lopen op tot 100. De relevantie van titel en auteur dragen het meest bij, gevolgd door formaat en plausibele bestandsgrootte, waarbij zwermgezondheid en freeleech worden gebruikt wanneer een bron deze verstrekt. Als niets hoog genoeg scoort, wacht het verzoek tot iemand een release met de hand heeft uitgekozen en wordt aangegeven waarom deze is gestopt.",
           "autoRetry": "Probeer de volgende release na een fout",
-          "autoRetryHint": "Wanneer een automatische download mislukt, wordt de volgende beste release geprobeerd in plaats van op te geven. Het gaat hierbij om een ​​bron die weigert het bestand over te dragen en om een ​​download die halverwege stopt. Het is alleen van toepassing op releases die BookOrbit zelf heeft gekozen: een release die handmatig is uitgekozen, blijft mislukt en wacht erop.",
+          "autoRetryHint": "Wanneer een automatische download mislukt, wordt de volgende beste release geprobeerd in plaats van op te geven. Het gaat hierbij om een ​​bron die weigert het bestand over te dragen en om een ​​download die halverwege stopt. Het is alleen van toepassing op releases die TLS Library zelf heeft gekozen: een release die handmatig is uitgekozen, blijft mislukt en wacht erop.",
           "maxAttempts": "Pogingen per verzoek",
-          "maxAttemptsHint": "Elke release die BookOrbit voor dit verzoek naar een downloadclient verzendt, telt mee voor deze limiet: de eerste automatische poging, alles wat wordt geprobeerd nadat een bron er één heeft afgewezen, en alles wat wordt geprobeerd nadat een download is mislukt. Zet deze op 1 om te stoppen na de eerste poging.",
+          "maxAttemptsHint": "Elke release die TLS Library voor dit verzoek naar een downloadclient verzendt, telt mee voor deze limiet: de eerste automatische poging, alles wat wordt geprobeerd nadat een bron er één heeft afgewezen, en alles wat wordt geprobeerd nadat een download is mislukt. Zet deze op 1 om te stoppen na de eerste poging.",
           "autoSearch": "Blijf zoeken naar verzoeken waarvoor niets is gevonden",
           "autoSearchShort": "Een goedgekeurd verzoek waar niets aan klopt, wordt later opnieuw gezocht.",
-          "autoSearchHint": "Er wordt één keer naar een aanvraag gezocht als deze is goedgekeurd. Als er niets goeds genoeg opduikt, of als het boek nog niet is uitgebracht, wacht het verzoek tot goedkeuring en wordt er niet meer naar gezocht. Schakel dit in en BookOrbit blijft zichzelf controleren, zodat een release die volgende maand is gepost nog steeds wordt gevonden. Het werkt alleen als automatische downloads zijn ingeschakeld, omdat een zoekopdracht die niets te maken heeft met wat er wordt gevonden, alleen maar verkeer van je bron kost.",
+          "autoSearchHint": "Er wordt één keer naar een aanvraag gezocht als deze is goedgekeurd. Als er niets goeds genoeg opduikt, of als het boek nog niet is uitgebracht, wacht het verzoek tot goedkeuring en wordt er niet meer naar gezocht. Schakel dit in en TLS Library blijft zichzelf controleren, zodat een release die volgende maand is gepost nog steeds wordt gevonden. Het werkt alleen als automatische downloads zijn ingeschakeld, omdat een zoekopdracht die niets te maken heeft met wat er wordt gevonden, alleen maar verkeer van je bron kost.",
           "autoSearchEnabledToast": "Er wordt opnieuw naar verzoeken gezocht",
           "autoSearchDisabledToast": "Verzoeken worden alleen doorzocht als ze zijn goedgekeurd",
           "autoSearchInterval": "Zoek daarna opnieuw",
@@ -4169,13 +4169,13 @@
         "external": "Extern",
         "editorDescription": "Instellingen voor deze downloadclient.",
         "chooseClientType": "Kies een clienttype",
-        "chooseClientTypeHint": "Kies naar welk programma BookOrbit de downloads overhandigt.",
+        "chooseClientTypeHint": "Kies naar welk programma TLS Library de downloads overhandigt.",
         "clientTypeDescriptions": {
           "qbittorrent": "Je eigen qBittorrent. Heeft een adres en een account nodig.",
           "transmission": "Je eigen Transmission. Het heeft geen categorieën, dus de categorie wordt een submap van de downloadmap.",
           "deluge": "Je eigen Deluge. Meld je aan met het wachtwoord van de webinterface. Voor de categorie moet de Label-plug-in zijn ingeschakeld.",
-          "nzbget": "Je eigen NZBGet. BookOrbit verzendt NZB bestanden via zijn JSON-RPC API.",
-          "sabnzbd": "Je eigen SABnzbd. BookOrbit verzendt NZB bestanden met behulp van de API sleutel."
+          "nzbget": "Je eigen NZBGet. TLS Library verzendt NZB bestanden via zijn JSON-RPC API.",
+          "sabnzbd": "Je eigen SABnzbd. TLS Library verzendt NZB bestanden met behulp van de API sleutel."
         },
         "searchHealth": {
           "failingOnce": "Laatste zoekopdracht mislukt",
@@ -4216,7 +4216,7 @@
         "readerAudio": "Afspeelsnelheid, intervallen voor overslaan en slaaptimer.",
         "readerFonts": "Lettertypen beschikbaar tijdens het lezen.",
         "readerGeneral": "Standaardwaarden gedeeld door elke leesmodus.",
-        "notifications": "Waar BookOrbit je over vertelt, en waar.",
+        "notifications": "Waar TLS Library je over vertelt, en waar.",
         "privacy": "Leesinzichten, gedeelde links en zichtbaarheid van activiteiten.",
         "restrictions": "Leeftijdsclassificaties en verborgen inhoud voor dit account.",
         "libraries": "Paden scannen, bewaakte mappen en opnameregels.",
@@ -4246,14 +4246,14 @@
         "appearance-icons": "Upload uw eigen pictogrammen om te gebruiken naast de ingebouwde set voor bibliotheken, slimme schermen en collecties.",
         "appearance-layout": "Cover formaten en afstand voor het bibliotheekrad, de omslag getoond voor een ingeklapte ser, en hoe het auteursraster is uitgelegd.",
         "appearance-behavior": "Wat het openen van een boek vanuit een raster of lijst doet, of series inklappen op één kaart en of Boekenverzoeken op dit account staan.",
-        "appearance-language": "De taal BookOrbit gebruikt voor menu's, labels en berichten en de regionale formaten voor data en getallen.",
+        "appearance-language": "De taal TLS Library gebruikt voor menu's, labels en berichten en de regionale formaten voor data en getallen.",
         "reader-ebook": "Standaard voor de eBook leader: of nieuwe boeken beginnen met uw instellingen, paginagrootte en kolommen, thema en typografie zoals letterlijk, grootte en spatie.",
         "reader-pdf": "Hoe PDFs openen: pagina per pagina of een continue scroll, welke pagina een spread-tweepagina start en de standaard zoompas.",
         "reader-comics": "Hoe comics lezen: leesmodus en richting, enkelvoudige of tweepagina's spreads, fit, handling van meerdere pagina's en ga verder naar het volgende boek in de reeks.",
         "reader-audio": "De startsnelheid en volume voor nieuwe audioboods, en hoe ver de knoppen terug kunnen overslaan en vooruit kunnen springen.",
         "reader-fonts": "Upload je eigen lettertypen voor de lezer, en kies welke lettertypen gedeeld worden door de serverbeheerder.",
         "reader-general": "Waar uw lezervoorkeuren worden opgeslagen, en de standaardwaarden worden gedeeld door elke leesmodus.",
-        "tts": "Uw standaard stem en snelheid wanneer BookOrbit een boek hardop leest.",
+        "tts": "Uw standaard stem en snelheid wanneer TLS Library een boek hardop leest.",
         "notifications": "Kies welke events u informeren van voltooide scans en metagegevens naar hernoemen, importeren en boek Dock-resultaten.",
         "privacy": "Bepaal hoeveel leesactiviteit beheerders kunnen zien, uw gedeelde profiel bekijken en controleren wie het heeft bekeken.",
         "restrictions": "Inhoudslimieten voor dit account, zoals leeftijdwaarderingen en verborgen inhoud, en wat ze buiten je bibliotheken houden.",
@@ -4267,7 +4267,7 @@
         "metadata-search-cache": "Bewaar de provider antwoorden zodat herhalingszoekopdrachten snel zijn en nog steeds werken wanneer een provider af is, en bepaal hoe lang en hoeveel wordt bewaard.",
         "metadata-genre-blocklist": "De hier vermelde genre waarden worden van provider resultaten gehaald voordat metadata wordt geschreven, dus labels zoals Audiobook blijven buiten uw boeken.",
         "metadata-reminders": "Kies welke ontbrekende velden worden weergegeven in boekherinneringen. Dit wijzigt alleen de herinneringen, niet de metadata scores.",
-        "file-naming": "Map en bestandsnaam patronen die worden gebruikt wanneer BookOrbit boeken op schijf hernoemt, met een voorbeeld van het resultaat en wat er gebeurt als een waarde ontbreekt.",
+        "file-naming": "Map en bestandsnaam patronen die worden gebruikt wanneer TLS Library boeken op schijf hernoemt, met een voorbeeld van het resultaat en wat er gebeurt als een waarde ontbreekt.",
         "maintenance": "Server huishouding: upload limiet, import uit het verleden, het opnieuw opbouwen van aanbevelingen, backfill prestaties en controleren op updates.",
         "kobo": "Verbind Kobo e-lezers, kies hoe boeken, planken en het lezen van de voortgang synchronisatie en volg de recente synchronisatie van elk apparaat.",
         "koreader": "Synchroniseer voortgang, lees activiteit en markeert met KOReader, verplaats de sync URL en plugin en beheer de apparaten die verbinden.",
@@ -4280,7 +4280,7 @@
         "account-activity": "Zie wanneer elk account voor het laatst actief was en hoe het tekent, en open per-user lees- en sessie-inzichten.",
         "magic-links": "Maak deelbare links die iemand zonder een wachtwoord ondertekenen en trek ze in wanneer ze niet meer nodig zijn.",
         "oidc": "Verbind een enkele aanwijzing-provider zoals Keycloak, wijs zijn claims in kaart en beslis hoe nieuwe accounts worden gemaakt.",
-        "requests": "Waar BookOrbit zoekt naar aangevraagde boeken, welke klanten downloaden deze en wat er gebeurt als een download klaar is.",
+        "requests": "Waar TLS Library zoekt naar aangevraagde boeken, welke klanten downloaden deze en wat er gebeurt als een download klaar is.",
         "admin-tts": "De tekst-naar-spraak-motoren kunnen lezers gebruiken voor lees-aloud, de stemmen die van elk worden aangeboden en de volgorde waarin ze verschijnen.",
         "book-dock": "De Boek Dock drop map, automatische metadata ophalen voor nieuwe bestanden, en de score waarop de bestanden zelf afgerond zijn.",
         "server-fonts": "Upload lettertypen éénmaal voor elke lezer op deze server. Elke lezer kan er nog een verbergen.",
@@ -7421,13 +7421,13 @@
         },
         "emptyStage": {
           "title": "Er is nog niets geregistreerd voor dit boek",
-          "description": "Er wordt een leeslogboek opgebouwd op basis van sessies. BookOrbit registreert er één elke keer dat je in de webreder leest, en haalt de rest op van de apparaten die je synchroniseert.",
+          "description": "Er wordt een leeslogboek opgebouwd op basis van sessies. TLS Library registreert er één elke keer dat je in de webreder leest, en haalt de rest op van de apparaten die je synchroniseert.",
           "readerTitle": "Lees het hier",
-          "readerBody": "Elke minuut in de BookOrbit lezer wordt automatisch geregistreerd.",
+          "readerBody": "Elke minuut in de TLS Library lezer wordt automatisch geregistreerd.",
           "koreaderTitle": "Synchroniseren KOReader",
           "koreaderBody": "De plug-in duwt elke zitplaats terug, met de pagina die je hebt bereikt.",
           "koboTitle": "Synchroniseer een Kobo",
-          "koboBody": "Sluit het apparaat aan en BookOrbit leest zijn eigen leestijdteller.",
+          "koboBody": "Sluit het apparaat aan en TLS Library leest zijn eigen leestijdteller.",
           "addSession": "Voeg handmatig een sessie toe",
           "recordPast": "Neem een eerdere meting op"
         },
@@ -7894,7 +7894,7 @@
         "noExtension": "Het bestand heeft geen extensie, dus de indeling is onbekend",
         "tooLarge": "Groter dan de {limit} upload limiet",
         "tooLargeServer": "Groter dan de server upload limiet",
-        "tooLargeProxy": "Geweigerd als te groot voordat het BookOrbit bereikte, waarschijnlijk door een reverse proxy",
+        "tooLargeProxy": "Geweigerd als te groot voordat het TLS Library bereikte, waarschijnlijk door een reverse proxy",
         "storageFull": "De server heeft geen opslagruimte",
         "network": "Kon server niet bereiken",
         "status": "Uploaden mislukt (HTTP {status})"
@@ -8122,22 +8122,22 @@
         "notProvided": "Niet opgegeven",
         "searchScope": "Kies een van {count, plural, one {# ISBN} other {# ISBN's}} om te zoeken, of zoek op titel en auteur.",
         "searchScopeLimited": "Kies één ISBN om te zoeken.",
-        "titleAuthorOnly": "Er is geen ISBN opgegeven. BookOrbit zoekt één keer op titel en auteur.",
+        "titleAuthorOnly": "Er is geen ISBN opgegeven. TLS Library zoekt één keer op titel en auteur.",
         "chooseSearch": "Kies een editie om te zoeken",
         "searchByEdition": "Zoek een release voor een editie",
         "findRelease": "Zoek vrijgave",
         "primaryIsbn": "ISBN {isbn}",
         "primaryTitleAuthor": "Titel en auteur",
         "recommended": "Aanbevolen",
-        "recommendationHelpLabel": "Hoe BookOrbit de aanbevolen ISBN kiest",
+        "recommendationHelpLabel": "Hoe TLS Library de aanbevolen ISBN kiest",
         "recommendationTitle": "Hoe de aanbevolen zoekopdracht wordt gekozen",
         "recommendationLanguage": "Geef de voorkeur aan de gevraagde taal, dan aan een onbekende taal, vóór een bekende mismatch.",
         "recommendationAgreement": "Geeft de voorkeur aan een ISBN bevestigd door meer onafhankelijke metadataproviders.",
-        "recommendationProvider": "Gebruik de stabiele prioriteit van de metadataprovider van BookOrbit.",
+        "recommendationProvider": "Gebruik de stabiele prioriteit van de metadataprovider van TLS Library.",
         "recommendationRelevance": "Gebruik de positie van de editie in de resultaten van die aanbieder.",
         "recommendationYear": "Geef de voorkeur aan een editiejaar dat het dichtst bij het vroegst bekende jaar van het werk ligt.",
         "recommendationStable": "Gebruik de ISBN zelf als de laatste stabiele tie-breaker.",
-        "recommendationFallback": "Als er geen geldige ISBN beschikbaar is, zoekt BookOrbit één keer op titel en auteur. Het kiezen van een editie uit het menu heeft altijd voorrang op deze aanbeveling.",
+        "recommendationFallback": "Als er geen geldige ISBN beschikbaar is, zoekt TLS Library één keer op titel en auteur. Het kiezen van een editie uit het menu heeft altijd voorrang op deze aanbeveling.",
         "withoutIsbn": "Zoek op titel en auteur",
         "action": "Actie"
       },
@@ -8373,7 +8373,7 @@
         "fileTooLarge": "Dat bestand is groter dan {limit}, dus het is geen .torrent-bestand",
         "fileUnreadable": "Dat bestand kon niet worden gelezen"
       },
-      "noClientList": "BookOrbit gebruikt de downloadclient met de hoogste prioriteit."
+      "noClientList": "TLS Library gebruikt de downloadclient met de hoogste prioriteit."
     },
     "attempts": {
       "title": "Eerdere pogingen",
@@ -8510,7 +8510,7 @@
       "manifest": {
         "ready": "{count, plural, one {Deze release bevat een # bestand. Het ondersteunde boekbestand kan worden geïmporteerd.} other {Deze release bevat # bestanden. Het ondersteunde boekbestand kan worden geïmporteerd.}}",
         "noSupported": "Deze release heeft geen direct ondersteund boekbestand en kan dus niet worden verzonden.",
-        "contentsUnknown": "Deze release is verpakt als archief (RAR, ZIP of 7z). BookOrbit zal het na het downloaden uitpakken, dus de inhoud ervan is nog niet bekend.",
+        "contentsUnknown": "Deze release is verpakt als archief (RAR, ZIP of 7z). TLS Library zal het na het downloaden uitpakken, dus de inhoud ervan is nog niet bekend.",
         "multipleBooks": "Deze release bevat {count} afzonderlijke boeken. Nadat het is gedownload, word je gevraagd welke je wilt importeren.",
         "multiPartBook": "{count, plural, one {Deze release bevat één boek dat uit één bestand bestaat.} other {Deze release bevat één boek dat uit # bestanden bestaat en als één boek wordt geïmporteerd.}}",
         "metadataUnavailable": "Dit is een magneetlink. De bestandslijst is niet beschikbaar totdat een torrent-client de metagegevens van de zwerm ophaalt.",
@@ -8636,7 +8636,7 @@
     },
     "seed": {
       "title": "Downloadclient",
-      "automated": "BookOrbit heeft deze release automatisch gekozen.",
+      "automated": "TLS Library heeft deze release automatisch gekozen.",
       "loading": "De downloadclient lezen...",
       "loadFailed": "Kan de downloadclient voor dit verzoek niet bereiken.",
       "notInClient": "De downloadclient heeft deze torrent niet meer.",
@@ -8651,7 +8651,7 @@
       "ofGoal": "{value} van {goal}",
       "deleteFiles": "Verwijder ook de gedownloade bestanden",
       "remove": "Verwijderen van client",
-      "removeHint": "BookOrbit stopt het seeden nooit automatisch. Het geïmporteerde boek blijft hoe dan ook in je bibliotheek.",
+      "removeHint": "TLS Library stopt het seeden nooit automatisch. Het geïmporteerde boek blijft hoe dan ook in je bibliotheek.",
       "confirm": {
         "title": "Deze torrent verwijderen?",
         "description": "De torrent stopt met het seeden. De gedownloade bestanden blijven op schijf.",
@@ -8959,9 +8959,9 @@
       "changePassword": "Wachtwoord wijzigen",
       "signOut": "Uitloggen",
       "githubStar": {
-        "title": "Vind je BookOrbit leuk?",
-        "body": "Als BookOrbit je helpt met je bibliotheek, overweeg dan om het project een ster te geven op GitHub. Het helpt meer mensen de app te ontdekken en ondersteunt de doorlopende ontwikkeling.",
-        "cta": "Geef BookOrbit een ster op GitHub"
+        "title": "Vind je TLS Library leuk?",
+        "body": "Als TLS Library je helpt met je bibliotheek, overweeg dan om het project een ster te geven op GitHub. Het helpt meer mensen de app te ontdekken en ondersteunt de doorlopende ontwikkeling.",
+        "cta": "Geef TLS Library een ster op GitHub"
       },
       "surfaceOpacity": "Oppervlaktedekking",
       "surfaceOpacityValue": "{value}%",
@@ -9247,10 +9247,10 @@
       "collectionsEmptyHint": "Collecties groeperen boeken die je met de hand kiest."
     },
     "legalNotices": {
-      "about": "Over BookOrbit",
+      "about": "Over TLS Library",
       "trigger": "Juridische mededelingen",
-      "title": "Over BookOrbit",
-      "description": "BookOrbit toeschrijving, licentieverlening en broncode.",
+      "title": "Over TLS Library",
+      "description": "TLS Library toeschrijving, licentieverlening en broncode.",
       "poweredBy": "Mogelijk gemaakt door BookOrbit",
       "originalDevelopment": "Deze software bevat materiaal dat oorspronkelijk is ontwikkeld als BookOrbit.",
       "copyright": "Copyright (C) 2025-2026 neon.",
@@ -9329,7 +9329,7 @@
     },
     "libraryLoad": {
       "errorTitle": "Kan je bibliotheken niet laden",
-      "errorDescription": "BookOrbit kan je bibliotheken niet ophalen. Je bibliotheekgegevens zijn niet verwijderd."
+      "errorDescription": "TLS Library kan je bibliotheken niet ophalen. Je bibliotheekgegevens zijn niet verwijderd."
     },
     "scroller": {
       "failedToLoad": "Laden mislukt.",
@@ -9745,7 +9745,7 @@
       "serversEmptyTitle": "Nog geen mailserver",
       "serversEmptyBody": "Boeken gaan uit via een SMTP-account. Gmail, Outlook, iCloud en Fastmail zijn één klik; elke andere server werkt ook.",
       "needServerTitle": "Voeg een mailserver toe voordat u kunt verzenden",
-      "needServerBody": "BookOrbit stuurt boeken door een SMTP-account dat u hebt, zoals Gmail met een app-wachtwoord.",
+      "needServerBody": "TLS Library stuurt boeken door een SMTP-account dat u hebt, zoals Gmail met een app-wachtwoord.",
       "needServerAsk": "Vraag een beheerder om een e-mailserver met u te delen.",
       "goToServers": "Ga naar de mailservers",
       "noEncryption": "Geen versleuteling"
@@ -9775,7 +9775,7 @@
       "unreachable": "{server} heeft niet geantwoord.",
       "unconfirmed": "De verbinding is verbroken nadat het bericht was overhandigd, dus deze is mogelijk binnengekomen.",
       "unconfirmedFix": "Controleer het postvak in voordat u het opnieuw verzendt, of het kan twee keer aankomen.",
-      "interrupted": "BookOrbit werd opnieuw gestart terwijl deze e-mail begon.",
+      "interrupted": "TLS Library werd opnieuw gestart terwijl deze e-mail begon.",
       "interruptedFix": "Controleer de inbox voordat u opnieuw verzendt.",
       "preparation": "Het bestand kon niet worden voorbereid om te verzenden.",
       "other": "De e-mailserver zette het uit.",
@@ -9899,8 +9899,8 @@
         "approveNoServer": "Voeg eerst een mailserver toe om het adres te zien dat Kindle moet goedkeuren.",
         "lastSent": "Laatste boek verzonden {time}",
         "sendTest": "Stuur een test e-mail",
-        "testSubject": "BookOrbit test e-mail",
-        "testBody": "Dit is een test vanuit BookOrbit. Als u het kunt lezen, zullen ook de naar {name} verzonden boeken hier komen.",
+        "testSubject": "TLS Library test e-mail",
+        "testBody": "Dit is een test vanuit TLS Library. Als u het kunt lezen, zullen ook de naar {name} verzonden boeken hier komen.",
         "testSent": "Test e-mail verzonden naar {name}",
         "testFailed": "De test e-mail ging niet: {error}",
         "makeDefault": "Maak snel verzenden ontvanger",
@@ -9945,7 +9945,7 @@
         "share": "Delen met iedereen",
         "shareHint": "Andere mensen kunnen boeken via deze server verzenden zonder het wachtwoord te zien.",
         "system": "Verzend wachtwoord reset en login links",
-        "systemHint": "De ene server gebruikt BookOrbit zelf. Alleen een supergebruiker kan dit veranderen.",
+        "systemHint": "De ene server gebruikt TLS Library zelf. Alleen een supergebruiker kan dit veranderen.",
         "verifyTls": "Verifieer het servercertificaat",
         "verifyTlsHint": "Schakel alleen uit voor een server op je eigen netwerk met een zelfondertekend certificaat.",
         "test": "Verbindingstest testen",
@@ -10004,7 +10004,7 @@
     }
   },
   "errors": {
-    "network": "Could not reach BookOrbit. Check your connection, then try again."
+    "network": "Could not reach TLS Library. Check your connection, then try again."
   },
   "hardcover": {
     "settings": {
@@ -10050,7 +10050,7 @@
       },
       "syncOnProgress": {
         "title": "Synchroniseren bij voortgangsupdate",
-        "description": "Verstuur leesvoortgang en datums wanneer de voortgang in BookOrbit of KOReader wijzigt."
+        "description": "Verstuur leesvoortgang en datums wanneer de voortgang in TLS Library of KOReader wijzigt."
       },
       "syncOnRating": {
         "title": "Synchroniseren bij beoordelingswijziging",
@@ -10104,7 +10104,7 @@
     },
     "import": {
       "title": "Leesstatus ophalen",
-      "description": "Bekijk Hardcover-overeenkomsten voordat je lege BookOrbit-statussen invult.",
+      "description": "Bekijk Hardcover-overeenkomsten voordat je lege TLS Library-statussen invult.",
       "clear": "Wissen",
       "preview": "Voorbeeld",
       "importProgress": "Voortgang importeren",
@@ -10354,7 +10354,7 @@
           "options": {
             "imported": {
               "title": "Wanneer geïmporteerd",
-              "hint": "De datum waarop BookOrbit het boek voor het eerst importeerde. Dit is de standaardinstelling."
+              "hint": "De datum waarop TLS Library het boek voor het eerst importeerde. Dit is de standaardinstelling."
             },
             "file_modified": {
               "title": "Bestand gewijzigd tijdstip",
@@ -10466,7 +10466,7 @@
           "opfTitle": "metadata.opf-bestand",
           "opfHint": "Bewaard naast het boek door Calibre",
           "swap": "Wissel de bestelling om",
-          "hint": "BookOrbit gebruikt de eerste die een boek heeft en negeert de andere. Calibre bibliotheken willen meestal eerst metadata.opf."
+          "hint": "TLS Library gebruikt de eerste die een boek heeft en negeert de andere. Calibre bibliotheken willen meestal eerst metadata.opf."
         },
         "regex": {
           "title": "Configureren regex metagegevens",
@@ -10708,7 +10708,7 @@
           "metadata": "Welk bestand leidt als een boek er meerdere heeft, en waar de details vandaan komen.",
           "reading": "Wanneer een boek van ongelezen naar lezen naar lezen gaat.",
           "schedule": "Houd de bibliotheek actueel zonder op Scannen te drukken.",
-          "fileWrite": "Optionele wijzigingen BookOrbit kunnen worden aangebracht in de bestanden op schijf.",
+          "fileWrite": "Optionele wijzigingen TLS Library kunnen worden aangebracht in de bestanden op schijf.",
           "access": "Andere personen die deze bibliotheek kunnen bekijken en ermee kunnen werken."
         }
       },
@@ -11024,7 +11024,7 @@
       },
       "cwa": {
         "snapshotTitle": "Snapshot-modus gestopt",
-        "stoppedWarning": "Stop Calibre-Web Geautomatiseerd voordat beide databases worden gekopieerd. BookOrbit kan niet verifiëren dat de twee snapshots op precies hetzelfde moment zijn gekopieerd.",
+        "stoppedWarning": "Stop Calibre-Web Geautomatiseerd voordat beide databases worden gekopieerd. TLS Library kan niet verifiëren dat de twee snapshots op precies hetzelfde moment zijn gekopieerd.",
         "importRootGuidance": "Beide snapshotbestanden moeten leesbare serverpaden zijn onder de geconfigureerde map MIGRATION_IMPORT_ROOT.",
         "logicalRootGuidance": "Boekpadtoewijzing gebruikt de logische Calibre bibliotheekhoofdmap opgeslagen in app.db, niet de hostmap die deze databasemomentopnamen bevat.",
         "compatibilityNote": "Schemagedrag is geverifieerd aan de hand van Calibre-Web Geautomatiseerde versie 4.0.6. De databases geven geen betrouwbare versie van de applicatie vrij."
@@ -11056,7 +11056,7 @@
       "targetUser": "Doelgebruiker",
       "doNotImport": "Importeer deze gebruiker niet",
       "noSourceUsersLoaded": "Nog geen brongebruikers geladen.",
-      "noActiveTargetUsers": "Geen actieve doelgebruikers gevonden. Maak een BookOrbit-gebruiker aan of schakel deze opnieuw in voordat je koppelt.",
+      "noActiveTargetUsers": "Geen actieve doelgebruikers gevonden. Maak een TLS Library-gebruiker aan of schakel deze opnieuw in voordat je koppelt.",
       "pathPrefixMappings": "Padvoorvoegselkoppelingen",
       "addMapping": "Koppeling toevoegen",
       "pathMappingsExplanation": "Padkoppelingen vertalen bronbestandspaden naar doelpaden zodat boeken op bestandslocatie kunnen worden gematcht. Boeken worden ook gematcht op ISBN, bestandshash en titel/auteur, ongeacht padkoppelingen.",
@@ -12261,7 +12261,7 @@
       },
       "confirmDialog": {
         "title": "{count, plural, one {# bestand op schijf hernoemen?} other {# bestanden op schijf hernoemen?}}",
-        "body": "Hiermee worden echte bestanden binnen {library} verplaatst. BookOrbit registreert elke verplaatsing, maar ongedaan maken betekent dat je de bestanden weer hun oude naam moet geven.",
+        "body": "Hiermee worden echte bestanden binnen {library} verplaatst. TLS Library registreert elke verplaatsing, maar ongedaan maken betekent dat je de bestanden weer hun oude naam moet geven.",
         "willRename": "Wordt hernoemd",
         "skippedByYou": "Door jou overgeslagen",
         "heldBack": "Teruggehouden vanwege conflicten",

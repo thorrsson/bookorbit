@@ -146,7 +146,7 @@ function HighlightSummary.message(summary)
         text = text .. "\n" .. T(_("%1 closed book(s) updated."), summary.touched_books)
     end
     if summary.incompatible > 0 then
-        text = text .. "\n" .. T(_("%1 book(s) skipped: the copy on this device is a different file from the one in BookOrbit."), summary.incompatible)
+        text = text .. "\n" .. T(_("%1 book(s) skipped: the copy on this device is a different file from the one in TLS Library."), summary.incompatible)
     end
     return text
 end

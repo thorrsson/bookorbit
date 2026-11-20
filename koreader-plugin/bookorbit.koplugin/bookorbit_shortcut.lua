@@ -82,7 +82,7 @@ function Shortcut.describe(data, id, name_of)
     elseif fm then
         return T(_("In the file browser, replaces %1"), fm), true
     end
-    if Shortcut.current(data) == id then return _("Opens BookOrbit"), false end
+    if Shortcut.current(data) == id then return _("Opens TLS Library"), false end
     return _("Free"), false
 end
 

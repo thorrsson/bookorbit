@@ -157,8 +157,8 @@ local function doneBody(page, w)
     local folder = target(page)
     local BookPeek = require("bookorbit_book_peek")
     local tw = w - px(24) - px(12)
-    local lines = r.linked and _("Linked to BookOrbit, so your place and highlights sync.")
-        or _("Saved, but not linked for sync yet. Open it, then use Sync now in the BookOrbit menu.")
+    local lines = r.linked and _("Linked to TLS Library, so your place and highlights sync.")
+        or _("Saved, but not linked for sync yet. Open it, then use Sync now in the TLS Library menu.")
     return {
         head(page, w),
         hstack({ w = w, gap = px(12), valign = "top" }, {

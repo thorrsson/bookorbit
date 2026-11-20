@@ -34,7 +34,7 @@ const MEBIBYTE = 1024 * 1024;
  */
 const MAX_FILE_BYTES = 8 * 1024 * MEBIBYTE;
 const MAX_FILE_LABEL = `${MAX_FILE_BYTES / (1024 * MEBIBYTE)} GiB`;
-const RELEASE_TOO_LARGE_MESSAGE = `This download is larger than the ${MAX_FILE_LABEL} BookOrbit will stage`;
+const RELEASE_TOO_LARGE_MESSAGE = `This download is larger than the ${MAX_FILE_LABEL} TLS Library will stage`;
 const IDLE_TIMEOUT_MS = 120_000;
 const IDLE_CHECK_MS = 5_000;
 const MAX_TRANSFER_MS = 12 * 60 * 60 * 1000;
@@ -365,7 +365,7 @@ export class TorboxAdapter implements DownloadClientAdapter {
           lastChunkAt = Date.now();
           written += value.byteLength;
           if (written > MAX_FILE_BYTES) {
-            throw new BadRequestException(`A file in this release is larger than the ${MAX_FILE_LABEL} BookOrbit will fetch`);
+            throw new BadRequestException(`A file in this release is larger than the ${MAX_FILE_LABEL} TLS Library will fetch`);
           }
           job.downloadedBytes += value.byteLength;
           ensureWithinReleaseBudget(job);
@@ -381,7 +381,7 @@ export class TorboxAdapter implements DownloadClientAdapter {
         const declared = response.headers.get('content-length');
         const declaredBytes = declared === null ? null : Number(declared);
         if (declaredBytes !== null && Number.isFinite(declaredBytes) && declaredBytes > MAX_FILE_BYTES) {
-          throw new BadRequestException(`A file in this release is larger than the ${MAX_FILE_LABEL} BookOrbit will fetch`);
+          throw new BadRequestException(`A file in this release is larger than the ${MAX_FILE_LABEL} TLS Library will fetch`);
         }
 
         await pipeline(Readable.from(counted()), createWriteStream(target), { signal: transfer });

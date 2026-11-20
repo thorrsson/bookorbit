@@ -17,7 +17,7 @@ assertEqual(DeviceNames.label("macOS"), "macOS", "an unknown device shows as rep
 assertEqual(DeviceNames.label(""), nil, "an empty name is no name")
 assertEqual(DeviceNames.label(nil), nil, "a missing name is no name")
 
-assertEqual(DeviceNames.label("blazer", "Pixel 8"), "Pixel 8", "a name given in BookOrbit wins over the model")
+assertEqual(DeviceNames.label("blazer", "Pixel 8"), "Pixel 8", "a name given in TLS Library wins over the model")
 assertEqual(DeviceNames.label("Kobo_monza", "  Bedside Kobo  "), "Bedside Kobo", "a given name is trimmed")
 assertEqual(DeviceNames.label("Kobo_monza", ""), "Kobo Libra Colour", "an empty given name falls back to the model")
 assertEqual(DeviceNames.label("Kobo_monza", "   "), "Kobo Libra Colour", "a blank given name falls back to the model")

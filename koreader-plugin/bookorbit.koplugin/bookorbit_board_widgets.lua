@@ -566,7 +566,7 @@ W.goalpace = function(ctx, w, hh)
                 })
             end
         end
-        return pick({ empty(_("Set a reading goal in BookOrbit to track your pace.")), empty(_("Set a goal in BookOrbit.")) })
+        return pick({ empty(_("Set a reading goal in TLS Library to track your pace.")), empty(_("Set a goal in TLS Library.")) })
     end
     local expected = goal * d.day_of_year / 365
     local projected = math.floor(done * 365 / math.max(1, d.day_of_year) + 0.5)
@@ -1881,7 +1881,7 @@ function BoardWidgets.tile(ctx, item, w, h)
         BoardUI.surface = surface
         BoardUI.pickScope(nil, ctx.d and ctx.d.fingerprint)
         content = ok and result or text(_("Could not draw this widget."), { s = 12, col = INK.g4, w = w - 2 * px(12) })
-        if not ok then require("logger").warn("BookOrbit: widget", item.type, "failed:", result) end
+        if not ok then require("logger").warn("TLS Library: widget", item.type, "failed:", result) end
     end
     local layers = {
         { widget = BoardUI.box({ w = w, h = h, radius = ch.radius, bg = ch.bg }) },

@@ -38,7 +38,7 @@ describe('parseProviderInfo', () => {
     }
   });
 
-  it('reads the extensions BookOrbit understands and bounds them', () => {
+  it('reads the extensions TLS Library understands and bounds them', () => {
     const result = parseProviderInfo({
       name: 'FantLab',
       key: 'fantlab',
@@ -67,7 +67,7 @@ describe('parseProviderInfo', () => {
     });
   });
 
-  it('refuses info without a name or with a key BookOrbit cannot file data under', () => {
+  it('refuses info without a name or with a key TLS Library cannot file data under', () => {
     expect(parseProviderInfo({ version: '1' }).ok).toBe(false);
     expect(parseProviderInfo([]).ok).toBe(false);
     for (const key of ['Goodreads', 'goodreads', 'autofill', 'x', 'has space', 'a'.repeat(33)]) {

@@ -141,7 +141,7 @@ local function positions(page, w, remote, bold_remote)
     return MenuUI.card(w, {
         position("tablet", _("This device"), here),
         BoardUI.rect(pw, MenuUI.hair(), INK.gb),
-        position("cloud", _("BookOrbit"), there, bold_remote),
+        position("cloud", _("TLS Library"), there, bold_remote),
     }, { vpad = 4 })
 end
 
@@ -152,8 +152,8 @@ local function promptBody(page, w)
     local p = page.prompt
     local d = page.book_data
     local newer = p.newer
-    local chip = newer and MenuUI.chip(_("BookOrbit is further ahead"), { icon = "arrow-up-right", ink = true })
-        or MenuUI.chip(_("BookOrbit has an earlier place"), { icon = "rotate-ccw" })
+    local chip = newer and MenuUI.chip(_("TLS Library is further ahead"), { icon = "arrow-up-right", ink = true })
+        or MenuUI.chip(_("TLS Library has an earlier place"), { icon = "rotate-ccw" })
     local target = pct(p.remote.percentage) or "?"
     local half = math.floor((w - px(10)) / 2)
     local buttons = hstack({ w = w, gap = px(10) }, {
@@ -180,7 +180,7 @@ local function promptBody(page, w)
     table.insert(items, space(nil, px(8)))
     table.insert(items, MenuUI.row(w, {
         icon = "sliders-horizontal",
-        label = newer and _("When BookOrbit is ahead") or _("When BookOrbit is behind"),
+        label = newer and _("When TLS Library is ahead") or _("When TLS Library is behind"),
         value = _("Ask"),
         chevron = true,
         h = 48,
@@ -194,11 +194,11 @@ local function body(page, w)
     local d = page.book_data
     local chip
     if d.ahead then
-        chip = MenuUI.chip(_("BookOrbit is further ahead"), { icon = "arrow-up-right", ink = true })
+        chip = MenuUI.chip(_("TLS Library is further ahead"), { icon = "arrow-up-right", ink = true })
     elseif d.synced then
         chip = MenuUI.chip(T(_("Synced %1"), d.synced), { icon = "cloud-check" })
     elseif d.matched then
-        chip = MenuUI.chip(_("In BookOrbit"), { icon = "cloud-check" })
+        chip = MenuUI.chip(_("In TLS Library"), { icon = "cloud-check" })
     else
         chip = MenuUI.chip(_("Not matched yet"), { icon = "cloud-off" })
     end
@@ -215,7 +215,7 @@ local function body(page, w)
     else
         buttons = hstack({ w = w, gap = px(10) }, {
             MenuUI.pill(running and _("Syncing…") or _("Sync now"), { icon = "refresh-cw", w = half, action = running and { kind = "noop" } or { kind = "sync" } }),
-            MenuUI.pill(_("Open BookOrbit"), { kind = "outline", w = w - half - px(10), action = { kind = "open" } }),
+            MenuUI.pill(_("Open TLS Library"), { kind = "outline", w = w - half - px(10), action = { kind = "open" } }),
         })
     end
     -- How the last Sync now went, under the buttons that started it.
@@ -233,7 +233,7 @@ local function body(page, w)
     if d.incompatible then
         copy_note = hstack({ w = w, gap = px(6), valign = "top" }, {
             icon("info", px(16), { sw = 2 }),
-            text(_("This copy is a different file from the one in BookOrbit. Progress syncs as a percentage. Highlights and bookmarks don't sync. Download the book from BookOrbit to sync everything."),
+            text(_("This copy is a different file from the one in TLS Library. Progress syncs as a percentage. Highlights and bookmarks don't sync. Download the book from TLS Library to sync everything."),
                 { s = 13, col = INK.g3, w = w - px(16) - px(6), lines = 4 }),
         })
     end
@@ -242,12 +242,12 @@ local function body(page, w)
         MenuUI.row(w, { icon = "refresh-cw", label = _("Auto-sync"), sub = _("For every book"), toggle = d.auto, action = { kind = "auto" } }),
     }
     if d.book_id then
-        table.insert(rows, MenuUI.row(w, { icon = "book-open-text", label = _("Book details in BookOrbit"),
+        table.insert(rows, MenuUI.row(w, { icon = "book-open-text", label = _("Book details in TLS Library"),
             sub = T(_("%1 highlights, %2 bookmarks"), d.highlights, d.bookmarks), chevron = true, action = { kind = "details" } }))
     end
     -- Jump and Stay replace the Open BookOrbit button, so it moves down here.
     if d.ahead then
-        table.insert(rows, MenuUI.row(w, { icon = "house", label = _("Open BookOrbit Home"), chevron = true, action = { kind = "open" } }))
+        table.insert(rows, MenuUI.row(w, { icon = "house", label = _("Open TLS Library Home"), chevron = true, action = { kind = "open" } }))
     end
     local list = {}
     for index, r in ipairs(rows) do

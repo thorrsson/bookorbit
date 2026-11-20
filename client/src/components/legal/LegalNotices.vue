@@ -7,9 +7,13 @@ import { useLegalNotices } from './useLegalNotices'
 const { t } = useI18n()
 const { open, closeLegalNotices, handleOpenChange } = useLegalNotices()
 
+// ADDITIONAL_TERMS.md requires the attribution to link to the original project,
+// while the source offer must point at this modified version's repository.
 const PROJECT_URL = 'https://github.com/bookorbit/bookorbit'
-const LICENSE_URL = `${PROJECT_URL}/blob/main/LICENSE`
-const ADDITIONAL_TERMS_URL = `${PROJECT_URL}/blob/main/ADDITIONAL_TERMS.md`
+const SOURCE_URL = 'https://github.com/thorrsson/bookorbit'
+const LICENSE_URL = `${SOURCE_URL}/blob/main/LICENSE`
+const ADDITIONAL_TERMS_URL = `${SOURCE_URL}/blob/main/ADDITIONAL_TERMS.md`
+const MODIFIED_DATE = __BUILD_DATE__
 </script>
 
 <template>
@@ -50,6 +54,11 @@ const ADDITIONAL_TERMS_URL = `${PROJECT_URL}/blob/main/ADDITIONAL_TERMS.md`
             <ExternalLink :size="14" aria-hidden="true" />
           </a>
 
+          <div class="space-y-1 rounded-md border border-border bg-muted p-3 text-foreground">
+            <p class="font-semibold">{{ t('components.legalNotices.modifiedVersion') }}</p>
+            <p class="text-muted-foreground">{{ t('components.legalNotices.modifiedDate', { date: MODIFIED_DATE }) }}</p>
+          </div>
+
           <div class="space-y-1 text-foreground">
             <p>{{ t('components.legalNotices.originalDevelopment') }}</p>
             <p>{{ t('components.legalNotices.copyright') }}</p>
@@ -60,7 +69,7 @@ const ADDITIONAL_TERMS_URL = `${PROJECT_URL}/blob/main/ADDITIONAL_TERMS.md`
 
           <div class="grid gap-2 sm:grid-cols-3">
             <a
-              :href="PROJECT_URL"
+              :href="SOURCE_URL"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center justify-center gap-1.5 rounded-md border border-border px-3 py-2 font-medium text-foreground outline-hidden hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"

@@ -63,7 +63,7 @@ describe('ReadingLogSourceSplit', () => {
 
     const text = wrapper.text()
     expect(text).toContain('Reading sources')
-    expect(text).toContain('BookOrbit')
+    expect(text).toContain('TLS Library')
     expect(text).toContain('iOS app')
     expect(text).toContain('Apple Watch')
     expect(text).toContain('KOReader')
