@@ -48,7 +48,7 @@ Feature branches must:
 
 Do not add the key to target catalogs. Target catalogs are sparse and contain only real Crowdin translations. Vue I18n resolves an absent target key through the complete English catalog, including English ICU plural rules.
 
-CI rejects changes to existing target catalogs in ordinary pull requests. The validated `l10n_main` Crowdin PR is the only routine writer. A normal issue-linked pull request may add an empty catalog only as part of the new-language setup described below.
+CI rejects changes to existing target catalogs in ordinary pull requests. Pull requests authored by the repository owner or organization members are exempt, because this fork has no Crowdin export of its own. Otherwise the validated `l10n_main` Crowdin PR is the only routine writer. A normal issue-linked pull request may add an empty catalog only as part of the new-language setup described below.
 
 Do not create or improve target-language translations directly in Git. Crowdin does not continuously import repository translations after initial setup, so a later Crowdin export would overwrite those changes. Apply any emergency target-catalog fix in Crowdin before the next export.
 

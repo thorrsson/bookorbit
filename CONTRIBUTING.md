@@ -134,7 +134,7 @@ TLS Library uses Vue I18n, with English as the complete source catalog and Crowd
 - Run `pnpm --filter client validate:locales` after changing `en.json`.
 - Read [LOCALIZATION.md](docs/LOCALIZATION.md) before changing ICU plural structure, changing the meaning of an existing message, or adding a language.
 
-CI rejects edits to existing non-English catalogs in ordinary pull requests. A deliberate new-language setup may add only an empty target catalog until Crowdin export is enabled.
+CI rejects edits to existing non-English catalogs in ordinary pull requests unless the pull request is authored by the repository owner or an organization member. A deliberate new-language setup may add only an empty target catalog until Crowdin export is enabled.
 
 ### Phase 7: Write and Run Tests
 
