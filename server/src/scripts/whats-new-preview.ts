@@ -72,7 +72,7 @@ async function main(): Promise<void> {
     else tag = args[i];
   }
 
-  const repo = repoOverride ?? env.GITHUB_RELEASES_REPO ?? 'bookorbit/bookorbit';
+  const repo = repoOverride ?? env.GITHUB_RELEASES_REPO ?? 'thorrsson/bookorbit';
   const token = env.GITHUB_RELEASES_TOKEN;
   const version = env.APP_VERSION;
 
@@ -127,7 +127,7 @@ async function main(): Promise<void> {
   }
 
   console.log(`\n${'─'.repeat(60)}`);
-  console.log(warnings === 0 ? '✓ No problems detected - this is what BookOrbit will render.' : `⚠ ${warnings} warning(s) above.`);
+  console.log(warnings === 0 ? '✓ No problems detected - this is what TLS Library will render.' : `⚠ ${warnings} warning(s) above.`);
 }
 
 main().catch((e) => {

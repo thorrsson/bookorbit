@@ -4,11 +4,11 @@ local Delivery = {}
 
 local errors = {
     invalid = _("The server returned an invalid EPUB delivery preference. Reconnect and retry."),
-    load = _("Could not load the EPUB delivery default from BookOrbit. Reconnect and retry, or choose a variant for this download."),
-    migrate = _("Could not migrate the EPUB delivery preference to BookOrbit. Reconnect and retry."),
+    load = _("Could not load the EPUB delivery default from TLS Library. Reconnect and retry, or choose a variant for this download."),
+    migrate = _("Could not migrate the EPUB delivery preference to TLS Library. Reconnect and retry."),
     unsupported = _("This server cannot confirm support for the requested EPUB variant. Reconnect to a compatible server and retry."),
-    save = _("Could not save the EPUB delivery preference in BookOrbit. Reconnect and retry."),
-    default = _("This server does not support a server default. Update BookOrbit first."),
+    save = _("Could not save the EPUB delivery preference in TLS Library. Reconnect and retry."),
+    default = _("This server does not support a server default. Update TLS Library first."),
 }
 
 function Delivery.errorText(err)

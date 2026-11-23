@@ -1,6 +1,6 @@
 # DjVu reader
 
-BookOrbit opens standalone and bundled DjVu documents with server-side DjVuLibre decoding.
+TLS Library opens standalone and bundled DjVu documents with server-side DjVuLibre decoding.
 The web reader supports page navigation, fit modes, zoom, spreads, virtualized continuous
 scrolling, per-account progress and view preferences, and copying embedded OCR text from
 the page-text panel. Text is the document's embedded OCR, not newly generated recognition.

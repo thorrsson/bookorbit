@@ -505,7 +505,7 @@ describe('parsePdfFile', () => {
     expect(parsed?.pageCount).toBeNull();
   });
 
-  it('falls back to legacy BookOrbit producer metadata when XMP publisher is absent', async () => {
+  it('falls back to legacy TLS Library producer metadata when XMP publisher is absent', async () => {
     mockPdfLoad.mockResolvedValue(
       makePdfDoc({
         getCreator: () => 'bookorbit',

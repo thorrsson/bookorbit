@@ -43,7 +43,7 @@ describe("reading session source bucket constants", () => {
 
   it("labels every bucket", () => {
     expect(READING_SESSION_SOURCE_BUCKET_LABELS).toEqual({
-      bookorbit: "BookOrbit",
+      bookorbit: "TLS Library",
       ios: "iOS app",
       watchos: "Apple Watch",
       android: "Android app",

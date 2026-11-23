@@ -133,7 +133,7 @@ function CatalogDownload.install(Catalog)
     function Catalog:chooseDownloadDir(on_chosen)
         require("ui/downloadmgr"):new{
             onConfirm = function(path)
-                logger.dbg("BookOrbit: download folder set to", path)
+                logger.dbg("TLS Library: download folder set to", path)
                 if self._manager and self._manager.ui and self._manager.ui.folder_shortcuts
                     and self._manager.ui.folder_shortcuts.updateShortcut then
                     self._manager.ui.folder_shortcuts:updateShortcut("download_dir", path)
@@ -316,7 +316,7 @@ function CatalogDownload.install(Catalog)
     function Catalog:linkDownloadedFile(local_path, file)
         local ok, digest = pcall(util.partialMD5, local_path)
         if not ok or not digest then
-            logger.warn("BookOrbit: downloaded file partial MD5 failed", local_path)
+            logger.warn("TLS Library: downloaded file partial MD5 failed", local_path)
             return false
         end
 
@@ -326,7 +326,7 @@ function CatalogDownload.install(Catalog)
         end
         local body, err = self.client:matchCheck({ digest }, { [digest] = candidate })
         if not body then
-            logger.warn("BookOrbit: downloaded file match-check failed", err)
+            logger.warn("TLS Library: downloaded file match-check failed", err)
             return false
         end
         BookOrbitStateManager.applyLibraryVersion(body.libraryVersion)
@@ -353,7 +353,7 @@ function CatalogDownload.install(Catalog)
     function Catalog:openDownloadedFile(local_path)
         if type(local_path) ~= "string" or lfs.attributes(local_path, "mode") ~= "file" then
             self:updateItems(nil, true)
-            Toast.error(_("This book is not on this device. Connect to BookOrbit to download it."))
+            Toast.error(_("This book is not on this device. Connect to TLS Library to download it."))
             return
         end
         if self.close_callback then

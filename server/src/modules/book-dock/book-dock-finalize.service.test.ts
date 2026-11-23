@@ -3006,7 +3006,7 @@ describe('BookDockFinalizeService', () => {
     const result = await (harness.service as any).finalizeFile(row, undefined, undefined, new Map(), 1, true);
 
     expect(result.success).toBe(false);
-    expect(result.message).toBe('Filing this book failed inside BookOrbit. Check the server log for the cause.');
+    expect(result.message).toBe('Filing this book failed inside TLS Library. Check the server log for the cause.');
     expect(result.message).not.toContain('select');
     expect(result.message).not.toContain('book_dock_unit_files');
     expect(warn).toHaveBeenCalledWith(expect.stringContaining('errorClass=DatabaseError errorCode=42601'));
@@ -3047,7 +3047,7 @@ describe('BookDockFinalizeService', () => {
       fileId: 1,
       fileName: 'book.epub',
       success: false,
-      message: 'Filing this book failed inside BookOrbit. Check the server log for the cause.',
+      message: 'Filing this book failed inside TLS Library. Check the server log for the cause.',
     });
     expect(result.message).not.toContain('/dock');
     expect(result.message).not.toContain('/library');
@@ -3145,7 +3145,7 @@ describe('BookDockFinalizeService', () => {
 
     expect(classified).toMatchObject({
       status: 'error',
-      message: 'Filing this book failed inside BookOrbit. Check the server log for the cause.',
+      message: 'Filing this book failed inside TLS Library. Check the server log for the cause.',
     });
     expect(warn).toHaveBeenCalledExactlyOnceWith(
       '[book_dock.finalize] [fail] fileId=1 stage=destination_check errorClass=Error errorCode=EACCES error="EACCES" - Book Dock file finalization failed',

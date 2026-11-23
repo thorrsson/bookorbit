@@ -78,7 +78,7 @@ local OPEN_HIGHLIGHT_MAX_RETRIES = 2
 
 local BookOrbit = WidgetContainer:extend{
     name = "bookorbit",
-    title = _("Login to BookOrbit"),
+    title = _("Login to TLS Library"),
 
     push_timestamp = nil,
     pull_timestamp = nil,
@@ -164,7 +164,7 @@ function BookOrbit:init()
         self.settings.provision_fingerprint = provision_fingerprint
         G_reader_settings:saveSetting("bookorbit", self.settings)
         G_reader_settings:flush()
-        logger.info("BookOrbit: migrated settings from previous schema")
+        logger.info("TLS Library: migrated settings from previous schema")
     end
 
     -- v1 settings cleanup: full sweeps are manual-only since 0.2.0.
@@ -195,7 +195,7 @@ function BookOrbit:init()
 
     if self.settings.auto_sync and Device:hasSeamlessWifiToggle() and G_reader_settings:readSetting("wifi_enable_action") ~= "turn_on" then
         self.settings.auto_sync = false
-        logger.warn("BookOrbit: auto sync disabled because wifi_enable_action is not turn_on")
+        logger.warn("TLS Library: auto sync disabled because wifi_enable_action is not turn_on")
     end
 
     pcall(BookOrbitMenuPin.ensure, self.settings.menu_bar_icon ~= false)
@@ -228,13 +228,13 @@ function BookOrbit:applyProvision()
     setfenv(chunk, {})
     local ok, provision = pcall(chunk)
     if not ok or type(provision) ~= "table" then
-        logger.warn("BookOrbit: ignoring unreadable provision file", provision_path)
+        logger.warn("TLS Library: ignoring unreadable provision file", provision_path)
         return
     end
 
     local server_url = BookOrbitApi.normalizeServerUrl(provision.server_url)
     if not server_url or type(provision.username) ~= "string" or type(provision.userkey) ~= "string" then
-        logger.warn("BookOrbit: ignoring incomplete provision file", provision_path)
+        logger.warn("TLS Library: ignoring incomplete provision file", provision_path)
         return
     end
 
@@ -248,9 +248,9 @@ function BookOrbit:applyProvision()
         self.settings.provision_fingerprint = fingerprint
         self.provision_applied = true
         G_reader_settings:flush()
-        logger.info("BookOrbit: applied provision file for", provision.username)
+        logger.info("TLS Library: applied provision file for", provision.username)
         UIManager:nextTick(function()
-            Toast.show(T(_("BookOrbit is set up as %1"), provision.username), { timeout = 5 })
+            Toast.show(T(_("TLS Library is set up as %1"), provision.username), { timeout = 5 })
         end)
     end
     os.remove(provision_path)
@@ -342,7 +342,7 @@ function BookOrbit:recordHighlightSync(summary, err)
     if code then
         local message
         if code == "unsupported_server" then
-            message = _("BookOrbit server needs an update for two-way highlights.")
+            message = _("TLS Library server needs an update for two-way highlights.")
         end
         self:recordSyncError("highlight_sync", code, message)
     else
@@ -352,7 +352,7 @@ end
 
 function BookOrbit:shouldSkipAutoSyncOffline(event)
     if self.settings.skip_sync_when_offline and not NetworkMgr:isConnected() then
-        logger.dbg("BookOrbit: automatic sync skipped while offline:", event)
+        logger.dbg("TLS Library: automatic sync skipped while offline:", event)
         return true
     end
     return false
@@ -385,10 +385,10 @@ end
 function BookOrbit:recordLifecycleOutboxError(err)
     local message = self:errorLabel("outbox_persistence")
     if err == "hard_limit" then
-        message = _("Lifecycle sync storage is full. Open BookOrbit diagnostics and reconnect before closing more books.")
+        message = _("Lifecycle sync storage is full. Open TLS Library diagnostics and reconnect before closing more books.")
     end
     self:recordSyncError("lifecycle_outbox", "outbox_persistence", message)
-    require("bookorbit_dialog_ui").notice{ title = _("BookOrbit could not save a sync"), text = message }
+    require("bookorbit_dialog_ui").notice{ title = _("TLS Library could not save a sync"), text = message }
 end
 
 function BookOrbit:enqueueLifecycleSnapshot(snap, reason)
@@ -401,7 +401,7 @@ function BookOrbit:enqueueLifecycleSnapshot(snap, reason)
         return nil
     end
     if status_or_err and status_or_err.soft_limit then
-        local message = _("BookOrbit has many pending lifecycle syncs. Reconnect soon to drain them.")
+        local message = _("TLS Library has many pending lifecycle syncs. Reconnect soon to drain them.")
         self:recordSyncError("lifecycle_outbox", "outbox_persistence", message)
         Toast.error(_("Many syncs are waiting. Reconnect soon"))
     end
@@ -655,7 +655,7 @@ function BookOrbit:submitSyncJob(job)
         if job.on_queued then
             job.on_queued()
         else
-            Toast.show(_("BookOrbit sync queued"), { icon = "hourglass" })
+            Toast.show(_("TLS Library sync queued"), { icon = "hourglass" })
         end
     end
     return result
@@ -960,7 +960,7 @@ function BookOrbit:maybeAutoOpenCatalog(mode)
 end
 
 local function promptLogin()
-    Toast.error(_("Sign in to BookOrbit first"))
+    Toast.error(_("Sign in to TLS Library first"))
 end
 
 -- Signed out, anything that needs the server opens the sign-in page.
@@ -974,18 +974,18 @@ end
 
 function BookOrbit:onDispatcherRegisterActions()
     Dispatcher:registerAction("bookorbit_sync_now",
-        { category = "none", event = "BookOrbitSyncNow", title = _("BookOrbit: sync all books"), general = true })
+        { category = "none", event = "BookOrbitSyncNow", title = _("TLS Library: sync all books"), general = true })
     Dispatcher:registerAction("bookorbit_sync_book",
-        { category = "none", event = "BookOrbitSyncBook", title = _("BookOrbit: sync this book"), reader = true })
+        { category = "none", event = "BookOrbitSyncBook", title = _("TLS Library: sync this book"), reader = true })
     Dispatcher:registerAction("bookorbit_push_progress",
-        { category = "none", event = "BookOrbitPushProgress", title = _("BookOrbit: push progress"), reader = true })
+        { category = "none", event = "BookOrbitPushProgress", title = _("TLS Library: push progress"), reader = true })
     Dispatcher:registerAction("bookorbit_pull_progress",
-        { category = "none", event = "BookOrbitPullProgress", title = _("BookOrbit: pull progress"), reader = true })
+        { category = "none", event = "BookOrbitPullProgress", title = _("TLS Library: pull progress"), reader = true })
     Dispatcher:registerAction("bookorbit_this_book",
-        { category = "none", event = "BookOrbitThisBook", title = _("BookOrbit: this book"), reader = true })
+        { category = "none", event = "BookOrbitThisBook", title = _("TLS Library: this book"), reader = true })
     -- The action id predates the rename and is kept for existing gestures.
     Dispatcher:registerAction("bookorbit_open_dashboard",
-        { category = "none", event = "BookOrbitOpenDashboard", title = _("BookOrbit: open"), general = true, separator = true })
+        { category = "none", event = "BookOrbitOpenDashboard", title = _("TLS Library: open"), general = true, separator = true })
 end
 
 function BookOrbit:onReaderReady()
@@ -1160,7 +1160,7 @@ function BookOrbit:exchangeAnnotationsForOpenBook(reason, retry_count)
     local summary = { event = "open_book", reason = reason or "auto" }
     local error_code
     if not ok then
-        logger.err("BookOrbit: annotation exchange error:", result)
+        logger.err("TLS Library: annotation exchange error:", result)
         summary.failed = 1
         error_code = "partial_failure"
     elseif result then
@@ -1170,12 +1170,12 @@ function BookOrbit:exchangeAnnotationsForOpenBook(reason, retry_count)
         summary.failed = (err == "network" or err == "unsupported_server") and 1 or 0
         error_code = err
         if err ~= "unmatched" and err ~= "unsupported_server" and err ~= "network" then
-            logger.dbg("BookOrbit: annotation exchange skipped:", err)
+            logger.dbg("TLS Library: annotation exchange skipped:", err)
         end
     end
 
     if bm_ok == false then
-        logger.err("BookOrbit: bookmark exchange error:", bm_result)
+        logger.err("TLS Library: bookmark exchange error:", bm_result)
         summary = BookOrbitHighlightSummary.addBookmarks(summary, { had_errors = true })
         error_code = error_code or "partial_failure"
     elseif bm_result then
@@ -1206,7 +1206,7 @@ end
 function BookOrbit:openCatalogBrowser(prefer_cached_dashboard)
     if self.catalog_browser ~= nil then return end
     self.catalog_browser = BookOrbitCatalog:new{
-        title = _("BookOrbit"),
+        title = _("TLS Library"),
         -- The catalog owns its subprocess boundaries explicitly, so every
         -- request path, including the ones that bypass fetch(), runs off the
         -- UI thread.
@@ -1290,7 +1290,7 @@ end
 -- Events
 
 function BookOrbit:_onCloseDocument()
-    logger.dbg("BookOrbit: onCloseDocument")
+    logger.dbg("TLS Library: onCloseDocument")
     self.onResume = nil
     self.onSuspend = nil
     UIManager:unschedule(self.periodic_push_task)
@@ -1327,7 +1327,7 @@ function BookOrbit:_onPageUpdate(page)
 end
 
 function BookOrbit:_onResume()
-    logger.dbg("BookOrbit: onResume")
+    logger.dbg("TLS Library: onResume")
     if Device:hasWifiRestore() and NetworkMgr.wifi_was_on and G_reader_settings:isTrue("auto_restore_wifi") then
         return
     end
@@ -1338,7 +1338,7 @@ function BookOrbit:_onResume()
 end
 
 function BookOrbit:_onSuspend()
-    logger.dbg("BookOrbit: onSuspend")
+    logger.dbg("TLS Library: onSuspend")
     UIManager:unschedule(self.periodic_push_task)
     self.periodic_push_scheduled = false
     self:deferAutomaticUpdateCheck()
@@ -1351,7 +1351,7 @@ function BookOrbit:_onSuspend()
 end
 
 function BookOrbit:_onNetworkConnected()
-    logger.dbg("BookOrbit: onNetworkConnected")
+    logger.dbg("TLS Library: onNetworkConnected")
     UIManager:scheduleIn(0.5, function()
         if self:shouldSkipAutoSyncOffline("network_connected") then return end
         self:requestLifecycleOutboxDrain("network_connected")
@@ -1361,7 +1361,7 @@ function BookOrbit:_onNetworkConnected()
 end
 
 function BookOrbit:_onNetworkDisconnecting()
-    logger.dbg("BookOrbit: onNetworkDisconnecting")
+    logger.dbg("TLS Library: onNetworkDisconnecting")
     if self:shouldSkipAutoSyncOffline("network_disconnecting") then return end
     self:requestProgressPush(false, false, "network_disconnecting", SYNC_JOB_PRIORITY.lifecycle)
 end

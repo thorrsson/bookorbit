@@ -70,8 +70,8 @@ describe('EmailRecipientController', () => {
   });
 
   it("delegates a test email with the client's localized text", async () => {
-    await controller.sendTest(4, { subject: 'BookOrbit test', text: 'It works.' }, user);
-    expect(testService.send).toHaveBeenCalledWith(4, 'BookOrbit test', 'It works.', user);
+    await controller.sendTest(4, { subject: 'TLS Library test', text: 'It works.' }, user);
+    expect(testService.send).toHaveBeenCalledWith(4, 'TLS Library test', 'It works.', user);
   });
 
   it('delegates remove and setDefault', async () => {

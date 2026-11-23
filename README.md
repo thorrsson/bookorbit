@@ -2,26 +2,28 @@
 
 <h1>
   <img src="docs/images/bookorbit-icon.png" alt="" width="128" height="128"><br>
-  BookOrbit
+  TLS Library
 </h1>
 
 A self-hosted library and reading platform for ebooks, PDFs, audiobooks, and comics.
 
-[![Latest release](https://img.shields.io/github/v/release/bookorbit/bookorbit?label=latest&style=flat-square)](https://github.com/bookorbit/bookorbit/releases)
-[![Stars](https://img.shields.io/github/stars/bookorbit/bookorbit?style=flat-square&color=FFC72C)](https://github.com/bookorbit/bookorbit/stargazers)
-[![GHCR Pulls](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fghcr-badge.elias.eu.org%2Fapi%2Fbookorbit%2Fbookorbit%2Fbookorbit&query=downloadCount&label=Docker%20Pulls&logo=docker&style=flat-square&color=2496ed)](https://github.com/bookorbit/bookorbit/pkgs/container/bookorbit)
-[![CI](https://img.shields.io/github/actions/workflow/status/bookorbit/bookorbit/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bookorbit/bookorbit/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/actions/workflow/status/bookorbit/bookorbit/release.yml?style=flat-square&label=release)](https://github.com/bookorbit/bookorbit/actions/workflows/release.yml)
-[![Coverage](https://img.shields.io/codecov/c/github/bookorbit/bookorbit?style=flat-square&flag=server&token=F6TADEFCUV&label=server%20coverage)](https://codecov.io/gh/bookorbit/bookorbit)
+> **TLS Library is a modified version of BookOrbit and is not an official BookOrbit release.** It is maintained at [thorrsson/bookorbit](https://github.com/thorrsson/bookorbit). The original project is [bookorbit/bookorbit](https://github.com/bookorbit/bookorbit). See [NOTICE](NOTICE) for modification details and dates.
+
+[![Latest release](https://img.shields.io/github/v/release/thorrsson/bookorbit?label=latest&style=flat-square)](https://github.com/thorrsson/bookorbit/releases)
+[![Stars](https://img.shields.io/github/stars/thorrsson/bookorbit?style=flat-square&color=FFC72C)](https://github.com/thorrsson/bookorbit/stargazers)
+[![GHCR Pulls](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fghcr-badge.elias.eu.org%2Fapi%2Fthorrsson%2Fbookorbit%2Fbookorbit&query=downloadCount&label=Docker%20Pulls&logo=docker&style=flat-square&color=2496ed)](https://github.com/thorrsson/bookorbit/pkgs/container/bookorbit)
+[![CI](https://img.shields.io/github/actions/workflow/status/thorrsson/bookorbit/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/thorrsson/bookorbit/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/actions/workflow/status/thorrsson/bookorbit/release.yml?style=flat-square&label=release)](https://github.com/thorrsson/bookorbit/actions/workflows/release.yml)
+[![Coverage](https://img.shields.io/codecov/c/github/thorrsson/bookorbit?style=flat-square&flag=server&label=server%20coverage)](https://codecov.io/gh/thorrsson/bookorbit)
 
 [![Website](https://img.shields.io/badge/Website-bookorbit.app-blue?style=flat-square&logo=googlechrome&logoColor=white&color=4169E1)](https://bookorbit.app)
 [![Demo](https://img.shields.io/badge/Demo-live-brightgreen?style=flat-square&logo=rocket&logoColor=white&color=40a829)](https://demo.bookorbit.app/magic?token=2d92cb900e184cf0eb8b11f72cffc6011673d1016e1b300d750eb3d76abc1572)
 [![App Store](https://img.shields.io/badge/App_Store-download-0D96F6?style=flat-square&logo=appstore&logoColor=white)](https://apps.apple.com/us/app/bookorbit-the-official-app/id6811807346)
 ![Android coming soon](https://img.shields.io/badge/Android-coming_soon-3DDC84?style=flat-square&logo=android&logoColor=white)
 [![Crowdin](https://img.shields.io/badge/Crowdin-translate-2E3340?style=flat-square&logo=crowdin&logoColor=white)](https://crowdin.com/project/bookorbit)
-[![Contributing](https://img.shields.io/badge/Contributing-guide-orange?style=flat-square&logo=handshake&logoColor=white)](https://github.com/bookorbit/bookorbit/blob/main/CONTRIBUTING.md)
+[![Contributing](https://img.shields.io/badge/Contributing-guide-orange?style=flat-square&logo=handshake&logoColor=white)](https://github.com/thorrsson/bookorbit/blob/main/CONTRIBUTING.md)
 
-![BookOrbit dashboard showing reading stats, widgets, and book shelves](docs/images/dashboard-overview.png)
+![TLS Library dashboard showing reading stats, widgets, and book shelves](docs/images/dashboard-overview.png)
 
 <p align="center">
   <a href="#what-is-bookorbit">Overview</a> &bull;
@@ -40,9 +42,9 @@ A self-hosted library and reading platform for ebooks, PDFs, audiobooks, and com
 
 <a id="what-is-bookorbit"></a>
 
-## 📚 What is BookOrbit?
+## 📚 What is TLS Library?
 
-**[BookOrbit](https://bookorbit.app)** organizes your books and lets you enjoy them anywhere: on iPhone, Apple Watch, the web, Kobo, or KOReader. Your reading progress, highlights, and status stay synchronized, so you can start a chapter in one place and continue in another.
+**TLS Library** organizes your books and lets you enjoy them anywhere: on iPhone, Apple Watch, the web, Kobo, or KOReader. Your reading progress, highlights, and status stay synchronized, so you can start a chapter in one place and continue in another.
 
 Around that core sit 14 metadata providers, reading statistics and achievements, OPDS and Send-to-Kindle delivery, multi-user accounts with OIDC/SSO, and automatic sync out to Hardcover, Readwise, and StoryGraph. All of it runs on infrastructure you control.
 
@@ -95,8 +97,8 @@ Take your library anywhere with the official native BookOrbit app. Read ebooks, 
 ### Reading Experience & Sync
 
 - **Built-in Web Readers**: Ebooks (EPUB, KEPUB, MOBI, AZW3, AZW, FB2), PDFs, comics (CBZ, CBR, CB7), and audiobooks (M4B, MP3, M4A, OPUS, OGG, FLAC), with no extra plugins required.
-- **Native iPhone & Apple Watch Apps**: Read, listen, download, upload, and synchronize with your BookOrbit server from a native, offline-capable iPhone app. Send audiobooks to Apple Watch for independent offline playback and later progress reconciliation.
-- **Three-Way Sync (Kobo + KOReader + BookOrbit)**: Progress and annotations flow bidirectionally between Kobo devices, KOReader, and the BookOrbit web reader. Pick up on any surface where you left off on another, including highlights and deletions.
+- **Native iPhone & Apple Watch Apps**: Read, listen, download, upload, and synchronize with your TLS Library server from a native, offline-capable iPhone app. Send audiobooks to Apple Watch for independent offline playback and later progress reconciliation.
+- **Three-Way Sync (Kobo + KOReader + TLS Library)**: Progress and annotations flow bidirectionally between Kobo devices, KOReader, and the TLS Library web reader. Pick up on any surface where you left off on another, including highlights and deletions.
 - **KOReader Plugin**: An on-device catalog browser with search, download, and status and rating management, alongside full progress and annotation sync.
 - **Annotations & Highlights**: Highlights from the web reader, KOReader, and Kobo merge into one searchable hub. Filter by color, style, and source; export as Markdown, CSV, or JSON.
 - **Hardcover, Readwise & StoryGraph Sync**: Push status, progress, reading dates, and ratings to Hardcover on configurable triggers; status and progress to The StoryGraph; and new highlights and notes to Readwise as you create them, from both the web reader and synced devices. Hardcover read history can be pulled back to backfill blank BookOrbit entries.
@@ -122,8 +124,8 @@ Take your library anywhere with the official native BookOrbit app. Read ebooks, 
 ```bash
 mkdir bookorbit && cd bookorbit
 mkdir -p books data/app data/postgres
-curl -fsSLo .env https://raw.githubusercontent.com/bookorbit/bookorbit/main/.env.example
-curl -fsSLo docker-compose.yml https://raw.githubusercontent.com/bookorbit/bookorbit/main/docker-compose.yml
+curl -fsSLo .env https://raw.githubusercontent.com/thorrsson/bookorbit/main/.env.example
+curl -fsSLo docker-compose.yml https://raw.githubusercontent.com/thorrsson/bookorbit/main/docker-compose.yml
 ```
 
 Edit `.env` and set these required values:
@@ -169,15 +171,15 @@ Read the full walkthrough at **[bookorbit.app/my-workflow](https://bookorbit.app
 
 ## 🔄 KOReader Plugin
 
-The BookOrbit plugin for KOReader adds progress sync, two-way annotation sync, and a native catalog browser: navigate, search, and download books from your library without leaving the device.
+The TLS Library plugin for KOReader adds progress sync, two-way annotation sync, and a native catalog browser: navigate, search, and download books from your library without leaving the device.
 
-![BookOrbit KOReader Plugin on unbranded e-readers showing Home, book details, catalog browsing, dashboard customization, series, and navigation](docs/images/koreader-plugin-preview.webp)
+![TLS Library KOReader Plugin on unbranded e-readers showing Home, book details, catalog browsing, dashboard customization, series, and navigation](docs/images/koreader-plugin-preview.webp)
 
-1. In BookOrbit, go to **Settings > KOReader**, create credentials if prompted, and click **Download Plugin**.
+1. In TLS Library, go to **Settings > KOReader**, create credentials if prompted, and click **Download Plugin**.
 2. Unzip `bookorbit.koplugin.zip`.
 3. Copy `bookorbit.koplugin` to `koreader/plugins/` on the device.
 4. Restart KOReader and open a book.
-5. Use **Tools > BookOrbit Sync** to connect.
+5. Use **Tools > TLS Library Sync** to connect.
 
 The download is pre-configured with your server URL and credentials, so there is no manual entry on the device. For full setup and sync options, see **[bookorbit.app/koreader-plugin](https://bookorbit.app/koreader-plugin)**.
 
@@ -192,7 +194,7 @@ Full documentation lives at **[bookorbit.app](https://bookorbit.app/what-is-book
 - **Book requests**: indexers, download clients, path mappings, automation and the encryption key they need. See the [book requests guide](https://bookorbit.app/book-requests/).
 - **Read-aloud**: optional STAlign generation and QuartzNet hardware acceleration. See [docs/READ_ALOUD.md](docs/READ_ALOUD.md).
 - **API keys**: script and automation access with read-only, permission and library limits. See [docs/API_KEYS.md](docs/API_KEYS.md).
-- **External metadata providers**: add a source that runs beside BookOrbit, such as FantLab or MangaBaka, with [docs/METADATA_PROVIDERS.md](docs/METADATA_PROVIDERS.md), or build your own with [docs/BUILDING_METADATA_PROVIDERS.md](docs/BUILDING_METADATA_PROVIDERS.md).
+- **External metadata providers**: add a source that runs beside TLS Library, such as FantLab or MangaBaka, with [docs/METADATA_PROVIDERS.md](docs/METADATA_PROVIDERS.md), or build your own with [docs/BUILDING_METADATA_PROVIDERS.md](docs/BUILDING_METADATA_PROVIDERS.md).
 
 **Contributing**
 
@@ -212,7 +214,7 @@ If BookOrbit is valuable to you and you would like to support its continued deve
 - [Get the official iPhone and Apple Watch app](https://apps.apple.com/us/app/bookorbit-the-official-app/id6811807346)
 - [Support BookOrbit on Ko-fi](https://ko-fi.com/neonbookorbit)
 - [Contribute through Open Collective](https://opencollective.com/bookorbit)
-- [Star BookOrbit on GitHub](https://github.com/bookorbit/bookorbit)
+- [Star TLS Library on GitHub](https://github.com/thorrsson/bookorbit)
 
 Financial support is entirely optional. Using BookOrbit, recommending it to others, or starring the repository also makes a meaningful difference.
 
@@ -221,9 +223,9 @@ Financial support is entirely optional. Using BookOrbit, recommending it to othe
 ## ⚠️ Unsupported Storage Configurations
 
 > [!WARNING]
-> **NAS and network storage configurations are not supported.** BookOrbit requires a local filesystem with dependable semantics for every writable path, including book libraries, import folders, application data, and PostgreSQL data. Do not place these paths on SMB/CIFS, NFS, FUSE or cloud mounts, distributed filesystems, or similar storage, even when the storage is mounted as an ordinary directory.
+> **NAS and network storage configurations are not supported.** TLS Library requires a local filesystem with dependable semantics for every writable path, including book libraries, import folders, application data, and PostgreSQL data. Do not place these paths on SMB/CIFS, NFS, FUSE or cloud mounts, distributed filesystems, or similar storage, even when the storage is mounted as an ordinary directory.
 >
-> BookOrbit scans, moves, renames, and writes files while coordinating with its database and background jobs. Network and nonstandard filesystems can behave differently around atomic renames, locking, file notifications, permissions, caching, consistency, and durability. A configuration may appear to work and later cause intermittent failures, incomplete moves, stale library state, data loss, or corruption.
+> TLS Library scans, moves, renames, and writes files while coordinating with its database and background jobs. Network and nonstandard filesystems can behave differently around atomic renames, locking, file notifications, permissions, caching, consistency, and durability. A configuration may appear to work and later cause intermittent failures, incomplete moves, stale library state, data loss, or corruption.
 >
 > Such configurations may work in a particular environment, but using them is entirely at your own risk. No support is provided for them. Please do not open GitHub issues for problems encountered with these configurations unless the problem can be reproduced using supported local storage.
 
@@ -253,10 +255,10 @@ When adding user-facing text in code, add the Vue I18n key only to `client/src/l
 
 ## 💬 Help and Community
 
-- **Questions and help:** [Ask in GitHub Issues](https://github.com/bookorbit/bookorbit/issues/new?template=question.yml) or [browse help requests](https://github.com/bookorbit/bookorbit/issues?q=is%3Aissue%20label%3Asupport).
-- **Community conversations:** [Start a conversation](https://github.com/bookorbit/bookorbit/issues/new?template=discussion.yml) or [browse community topics](https://github.com/bookorbit/bookorbit/issues?q=is%3Aissue%20label%3Adiscussion).
-- **Bug reports:** [GitHub Issues](https://github.com/bookorbit/bookorbit/issues/new?template=bug_report.yml)
-- **Feature requests:** [GitHub Issues](https://github.com/bookorbit/bookorbit/issues/new?template=feature_request.yml)
+- **Questions and help:** [Ask in GitHub Issues](https://github.com/thorrsson/bookorbit/issues/new?template=question.yml) or [browse help requests](https://github.com/thorrsson/bookorbit/issues?q=is%3Aissue%20label%3Asupport).
+- **Community conversations:** [Start a conversation](https://github.com/thorrsson/bookorbit/issues/new?template=discussion.yml) or [browse community topics](https://github.com/thorrsson/bookorbit/issues?q=is%3Aissue%20label%3Adiscussion).
+- **Bug reports:** [GitHub Issues](https://github.com/thorrsson/bookorbit/issues/new?template=bug_report.yml)
+- **Feature requests:** [GitHub Issues](https://github.com/thorrsson/bookorbit/issues/new?template=feature_request.yml)
 - **Security vulnerabilities:** Follow the private reporting process in the [Security Policy](.github/SECURITY.md).
 
 Questions are welcome, even if you are unsure whether something is a bug. Share workflows, your setup, or companion apps in community conversations. See the [community guide](docs/COMMUNITY.md) for choosing a category and how topics are handled.
@@ -267,7 +269,7 @@ Questions are welcome, even if you are unsure whether something is a bug. Share 
 ## 🔌 API Compatibility
 
 > [!IMPORTANT]
-> BookOrbit's API evolves alongside its official clients. Backwards compatibility is maintained for released official apps, but the API is not currently a stable public integration surface, and compatibility with third-party clients is not guaranteed. For the most reliable experience, use the official apps, OPDS, Kobo sync, or the KOReader plugin.
+> TLS Library's API evolves alongside its official clients. Backwards compatibility is maintained for released official apps, but the API is not currently a stable public integration surface, and compatibility with third-party clients is not guaranteed. For the most reliable experience, use the official apps, OPDS, Kobo sync, or the KOReader plugin.
 
 <a id="license-and-attribution"></a>
 

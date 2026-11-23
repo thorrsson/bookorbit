@@ -241,7 +241,7 @@ describe('OidcProviderService', () => {
 
       expect(err).toBeInstanceOf(BadRequestException);
       expect(err.getResponse()).toEqual({
-        message: 'The OIDC provider TLS certificate is not trusted by BookOrbit.',
+        message: 'The OIDC provider TLS certificate is not trusted by TLS Library.',
         errorCode: OidcErrorCode.TLS_CERTIFICATE_UNTRUSTED,
       });
     });

@@ -104,7 +104,7 @@ describe('theme-init', () => {
     expect(document.documentElement.getAttribute('data-surface')).toBe('sepia')
   })
 
-  it.each(['/login', '/read/4/9', '/reset-password'])('keeps %s on the BookOrbit style', (path) => {
+  it.each(['/login', '/read/4/9', '/reset-password'])('keeps %s on the TLS Library style', (path) => {
     localStorage.setItem('style', JSON.stringify('nostalgia'))
 
     runThemeInit(true, path)

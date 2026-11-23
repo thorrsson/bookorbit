@@ -127,7 +127,7 @@ describe('FolderPickerModal', () => {
     expect(wrapper.text()).toContain('For Science Fiction · Folder as Book')
     expect(row(wrapper, '/books').attributes('aria-expanded')).toBe('true')
     expect(row(wrapper, '/books/Fiction').text()).toContain('Novels')
-    expect(row(wrapper, '/data').text()).toContain('BookOrbit data')
+    expect(row(wrapper, '/data').text()).toContain('TLS Library data')
     expect(row(wrapper, '/usr').exists()).toBe(false)
     expect(wrapper.text()).toContain('1 system folder hidden at /')
     expect(wrapper.text()).toContain('Not in any library yet')
@@ -308,7 +308,7 @@ describe('FolderPickerModal', () => {
     await field.trigger('keydown', { key: 'Enter' })
     await settle()
 
-    expect(wrapper.text()).toContain('BookOrbit never opens /proc: it is a system folder.')
+    expect(wrapper.text()).toContain('TLS Library never opens /proc: it is a system folder.')
     expect(field.attributes('aria-activedescendant')).toBeUndefined()
   })
 

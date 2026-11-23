@@ -115,14 +115,14 @@ function planEntries(entries: PlannedEntry[], targetDirectory: string, budget: A
 
   for (const entry of entries) {
     if (entry.sizeBytes > ARCHIVE_BOUNDS.maxEntryBytes) {
-      throw new ReleaseArchiveError('The archive contains a file larger than BookOrbit will extract');
+      throw new ReleaseArchiveError('The archive contains a file larger than TLS Library will extract');
     }
     // The aggregate is checked before the ratio, so a release that is simply too big is reported
     // as too big rather than as a decompression bomb. It spans passes: a zip holding a rar spends
     // one budget between them, not one each.
     budget.declaredBytes += entry.sizeBytes;
     if (budget.declaredBytes > ARCHIVE_BOUNDS.maxTotalBytes) {
-      throw new ReleaseArchiveError('The archive expands to more than BookOrbit will extract');
+      throw new ReleaseArchiveError('The archive expands to more than TLS Library will extract');
     }
 
     // Only meaningful for an entry that was actually compressed: a stored entry has a ratio of 1,
@@ -178,12 +178,12 @@ function meterBytes(budget: ArchiveBudget): Transform {
     transform(chunk: Buffer, _encoding, callback) {
       entryBytes += chunk.length;
       if (entryBytes > ARCHIVE_BOUNDS.maxEntryBytes) {
-        callback(new ReleaseArchiveError('The archive contains a file larger than BookOrbit will extract'));
+        callback(new ReleaseArchiveError('The archive contains a file larger than TLS Library will extract'));
         return;
       }
       budget.writtenBytes += chunk.length;
       if (budget.writtenBytes > ARCHIVE_BOUNDS.maxTotalBytes) {
-        callback(new ReleaseArchiveError('The archive expands to more than BookOrbit will extract'));
+        callback(new ReleaseArchiveError('The archive expands to more than TLS Library will extract'));
         return;
       }
       callback(null, chunk);
@@ -247,7 +247,7 @@ async function extractRar(archivePath: string, targetDirectory: string, budget: 
 async function extractSevenZip(archivePath: string, targetDirectory: string, budget: ArchiveBudget): Promise<void> {
   const { size } = await stat(archivePath);
   if (size > ARCHIVE_BOUNDS.maxSevenZipArchiveBytes) {
-    throw new ReleaseArchiveError('That 7z file is too large for BookOrbit to extract');
+    throw new ReleaseArchiveError('That 7z file is too large for TLS Library to extract');
   }
 
   const sevenZip = await getSevenZip();
@@ -287,7 +287,7 @@ async function extractSevenZip(archivePath: string, targetDirectory: string, bud
       // directory that understated an entry does not get to write it anyway.
       budget.writtenBytes += contents.length;
       if (budget.writtenBytes > ARCHIVE_BOUNDS.maxTotalBytes) {
-        throw new ReleaseArchiveError('The archive expands to more than BookOrbit will extract');
+        throw new ReleaseArchiveError('The archive expands to more than TLS Library will extract');
       }
       await mkdir(dirname(entry.destination), { recursive: true });
       await writeFileBytes(entry.destination, contents);

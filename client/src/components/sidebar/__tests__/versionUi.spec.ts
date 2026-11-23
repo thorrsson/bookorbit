@@ -8,10 +8,10 @@ describe('buildSidebarVersionUi', () => {
 
     expect(ui).toEqual({
       currentLabel: 'v1.2.3',
-      currentHref: 'https://github.com/bookorbit/bookorbit/releases/tag/v1.2.3',
+      currentHref: 'https://github.com/thorrsson/bookorbit/releases/tag/v1.2.3',
       showUpdate: false,
       updateVersionLabel: 'v1.3.0',
-      updateHref: 'https://github.com/bookorbit/bookorbit/releases/tag/v1.3.0',
+      updateHref: 'https://github.com/thorrsson/bookorbit/releases/tag/v1.3.0',
     })
   })
 
@@ -19,10 +19,10 @@ describe('buildSidebarVersionUi', () => {
     const ui = buildSidebarVersionUi('v1.2.3', true, 'v1.4.0')
 
     expect(ui.currentLabel).toBe('v1.2.3')
-    expect(ui.currentHref).toBe('https://github.com/bookorbit/bookorbit/releases/tag/v1.2.3')
+    expect(ui.currentHref).toBe('https://github.com/thorrsson/bookorbit/releases/tag/v1.2.3')
     expect(ui.showUpdate).toBe(true)
     expect(ui.updateVersionLabel).toBe('v1.4.0')
-    expect(ui.updateHref).toBe('https://github.com/bookorbit/bookorbit/releases/tag/v1.4.0')
+    expect(ui.updateHref).toBe('https://github.com/thorrsson/bookorbit/releases/tag/v1.4.0')
   })
 
   it('does not show the update release arrow when latestVersion is null', () => {
@@ -51,9 +51,9 @@ describe('buildSidebarVersionUi', () => {
     const ui = buildSidebarVersionUi('  v2.0.1  ', true, '  v2.1.0  ')
 
     expect(ui.currentLabel).toBe('v2.0.1')
-    expect(ui.currentHref).toBe('https://github.com/bookorbit/bookorbit/releases/tag/v2.0.1')
+    expect(ui.currentHref).toBe('https://github.com/thorrsson/bookorbit/releases/tag/v2.0.1')
     expect(ui.updateVersionLabel).toBe('v2.1.0')
-    expect(ui.updateHref).toBe('https://github.com/bookorbit/bookorbit/releases/tag/v2.1.0')
+    expect(ui.updateHref).toBe('https://github.com/thorrsson/bookorbit/releases/tag/v2.1.0')
   })
 
   it('falls back the update link to /releases/latest for non-tag latest versions', () => {
@@ -61,14 +61,14 @@ describe('buildSidebarVersionUi', () => {
 
     expect(ui.showUpdate).toBe(true)
     expect(ui.updateVersionLabel).toBe('main-abc123')
-    expect(ui.updateHref).toBe('https://github.com/bookorbit/bookorbit/releases/latest')
+    expect(ui.updateHref).toBe('https://github.com/thorrsson/bookorbit/releases/latest')
   })
 
   it('links sha versions to commits and does not enable the update release arrow', () => {
     const ui = buildSidebarVersionUi('sha-abc1234', true, 'v1.2.4')
 
     expect(ui.currentLabel).toBe('sha-abc1234')
-    expect(ui.currentHref).toBe('https://github.com/bookorbit/bookorbit/commit/abc1234')
+    expect(ui.currentHref).toBe('https://github.com/thorrsson/bookorbit/commit/abc1234')
     expect(ui.showUpdate).toBe(false)
   })
 
@@ -83,14 +83,14 @@ describe('buildSidebarVersionUi', () => {
     const ui = buildSidebarVersionUi('sha-1234567890abcdef1234567890abcdef12345678', null, null)
 
     expect(ui.currentLabel).toBe('sha-1234567890ab')
-    expect(ui.currentHref).toBe('https://github.com/bookorbit/bookorbit/commit/1234567890abcdef1234567890abcdef12345678')
+    expect(ui.currentHref).toBe('https://github.com/thorrsson/bookorbit/commit/1234567890abcdef1234567890abcdef12345678')
   })
 
   it('links short sha versions to the matching commit page', () => {
     const ui = buildSidebarVersionUi('sha-1234567890ab', null, null)
 
     expect(ui.currentLabel).toBe('sha-1234567890ab')
-    expect(ui.currentHref).toBe('https://github.com/bookorbit/bookorbit/commit/1234567890ab')
+    expect(ui.currentHref).toBe('https://github.com/thorrsson/bookorbit/commit/1234567890ab')
   })
 
   it('does not enable the update release arrow when updateAvailable is null', () => {

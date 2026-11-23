@@ -1,6 +1,6 @@
 # Repository Charts
 
-BookOrbit renders its README charts in the repository instead of depending on
+TLS Library renders its README charts in the repository instead of depending on
 external chart or badge services.
 
 ## Storage

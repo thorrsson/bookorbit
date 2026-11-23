@@ -3,9 +3,10 @@
 const { spawnSync } = require("child_process");
 
 // Derive from the Actions context so forks release against their own repo and
-// image instead of upstream. Falls back to upstream for local dry runs.
+// image instead of upstream. Falls back to this fork for local dry runs.
 const UPSTREAM_REPOSITORY = "bookorbit/bookorbit";
-const GITHUB_REPOSITORY = process.env.GITHUB_REPOSITORY || UPSTREAM_REPOSITORY;
+const DEFAULT_REPOSITORY = "thorrsson/bookorbit";
+const GITHUB_REPOSITORY = process.env.GITHUB_REPOSITORY || DEFAULT_REPOSITORY;
 const DOCKER_IMAGE = `ghcr.io/${GITHUB_REPOSITORY.toLowerCase()}`;
 
 const TYPES = [

@@ -8,7 +8,7 @@ const REPOSITORY = 'https://github.com/bookorbit/bookorbit-metadata-providers'
 const { t } = useI18n()
 
 const LINKS = [
-  { key: 'guide', href: 'https://github.com/bookorbit/bookorbit/blob/main/docs/BUILDING_METADATA_PROVIDERS.md' },
+  { key: 'guide', href: 'https://github.com/thorrsson/bookorbit/blob/main/docs/BUILDING_METADATA_PROVIDERS.md' },
   { key: 'starters', href: `${REPOSITORY}/tree/main/starters` },
   { key: 'checker', href: `${REPOSITORY}/tree/main/conformance` },
   { key: 'suggest', href: `${REPOSITORY}/issues/new` },

@@ -14,7 +14,7 @@ const MAX_PATH_LENGTH = 4096;
  * import time because either can be the first to notice the absence.
  */
 export const ADD_PATH_MAPPING_HINT =
-  'Add one under Settings > System > Requests; if the client and BookOrbit see the same filesystem, map the download directory to itself.';
+  'Add one under Settings > System > Requests; if the client and TLS Library see the same filesystem, map the download directory to itself.';
 
 export interface ResolvedDownloadPath {
   localPath: string;
@@ -49,7 +49,7 @@ export class PathMappingService {
     const mappings = await this.repo.findPathMappings(clientId);
     if (mappings.length === 0) {
       throw new BadRequestException(
-        `This download client has no path mapping, so there is no directory BookOrbit may import from. ${ADD_PATH_MAPPING_HINT}`,
+        `This download client has no path mapping, so there is no directory TLS Library may import from. ${ADD_PATH_MAPPING_HINT}`,
       );
     }
 

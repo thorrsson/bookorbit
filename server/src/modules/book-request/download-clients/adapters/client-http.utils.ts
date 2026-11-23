@@ -96,7 +96,7 @@ export async function readClientText(response: Response, label: string): Promise
   try {
     return await readBoundedText(response, MAX_CLIENT_RESPONSE_BYTES);
   } catch (error) {
-    if (error instanceof ResponseTooLargeError) throw new BadRequestException(`${label} answered with more data than BookOrbit will read`);
+    if (error instanceof ResponseTooLargeError) throw new BadRequestException(`${label} answered with more data than TLS Library will read`);
     throw error;
   }
 }

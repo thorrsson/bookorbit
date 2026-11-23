@@ -62,7 +62,7 @@ describe('EmailSendOrchestrator', () => {
   const mockFile = { id: 100, absolutePath: '/path/to/book.mobi', format: 'MOBI', relPath: 'Books/book.mobi' };
   const mockTemplate = { id: 200, subject: 'Subject {{title}}', bodyText: 'Body' };
   const mockProvider = {
-    config: { host: 'smtp.test.com', fromName: 'BookOrbit Bot', fromAddress: 'bot@example.com' },
+    config: { host: 'smtp.test.com', fromName: 'TLS Library Bot', fromAddress: 'bot@example.com' },
     providerId: 300,
   };
   const mockLogEntry = { id: 400 };
@@ -343,11 +343,19 @@ describe('EmailSendOrchestrator', () => {
       const task = { recipientEmail: 'test@test.com' } as any;
       const file = { absolutePath: '/test.mobi', relPath: 'test.mobi' } as any;
 
-      await (orchestrator as any).dispatchSend(400, { fromName: 'BookOrbit Bot', fromAddress: 'bot@example.com' }, task, file, 'Subject', 'Body', 0);
+      await (orchestrator as any).dispatchSend(
+        400,
+        { fromName: 'TLS Library Bot', fromAddress: 'bot@example.com' },
+        task,
+        file,
+        'Subject',
+        'Body',
+        0,
+      );
 
       expect(mockTransporter.sendMail).toHaveBeenCalledWith(
         expect.objectContaining({
-          from: 'BookOrbit Bot <bot@example.com>',
+          from: 'TLS Library Bot <bot@example.com>',
         }),
       );
     });

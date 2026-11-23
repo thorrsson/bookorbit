@@ -222,7 +222,7 @@ describe('SabnzbdAdapter', () => {
     ]);
   });
 
-  it('lists only jobs with both the BookOrbit marker and configured category', async () => {
+  it('lists only jobs with both the TLS Library marker and configured category', async () => {
     mockApi({
       queue: {
         queue: {

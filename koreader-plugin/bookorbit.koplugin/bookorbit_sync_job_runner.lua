@@ -19,7 +19,7 @@ function SyncJobRunner.prepare(job)
                 end
             end, debug.traceback)
             if not ok then
-                logger.err("BookOrbit: sync job failed:", err)
+                logger.err("TLS Library: sync job failed:", err)
                 done()
             end
         end)

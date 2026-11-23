@@ -111,7 +111,7 @@
           "label": "Style",
           "hint": "L'aspect général de l'application. Mode, accent, coins et arrière-plan gardent leurs paramètres.",
           "bookorbit": {
-            "label": "BookOrbit",
+            "label": "TLS Library",
             "description": "Surfaces teintées, panneaux de verre et titres à empattements."
           },
           "nostalgia": {
@@ -810,8 +810,8 @@
       "test": {
         "connected": "Connecté - {issuer}",
         "connectionFailed": "La connexion a échoué",
-        "privateIssuerAddress": "L'URL de l'émetteur résout à une adresse de réseau privé ou local, donc le serveur a refusé de se connecter. Définissez OIDC_ALLOW_LOCAL_ISSUERS=true sur le serveur BookOrbit pour l'autoriser.",
-        "tlsCertificateUntrusted": "BookOrbit n'a pas pu vérifier le certificat TLS du fournisseur OIDC. Si le fournisseur utilise une autorité de certification privée, montez son bundle CA PEM, définissez NODE_EXTRA_CA_CERTS sur le chemin du bundle dans le conteneur, puis redémarrez BookOrbit.",
+        "privateIssuerAddress": "L'URL de l'émetteur résout à une adresse de réseau privé ou local, donc le serveur a refusé de se connecter. Définissez OIDC_ALLOW_LOCAL_ISSUERS=true sur le serveur TLS Library pour l'autoriser.",
+        "tlsCertificateUntrusted": "TLS Library n'a pas pu vérifier le certificat TLS du fournisseur OIDC. Si le fournisseur utilise une autorité de certification privée, montez son bundle CA PEM, définissez NODE_EXTRA_CA_CERTS sur le chemin du bundle dans le conteneur, puis redémarrez TLS Library.",
         "hide": "Masquer",
         "details": "Détails",
         "supported": "pris en charge",
@@ -819,7 +819,7 @@
       },
       "groupMappings": {
         "title": "Mappages de groupes",
-        "description": "Associez les claims de groupe OIDC aux autorisations BookOrbit. Ils sont synchronisés à chaque connexion.",
+        "description": "Associez les claims de groupe OIDC aux autorisations TLS Library. Ils sont synchronisés à chaque connexion.",
         "noPermission": "Aucune autorisation",
         "empty": "Aucun mappage de groupe configuré.",
         "addMapping": "Ajouter un mappage",
@@ -1053,7 +1053,7 @@
         "targetUser": "Utilisateur cible",
         "doNotImport": "Ne pas importer cet utilisateur",
         "noSourceUsersLoaded": "Aucun utilisateur source n'a encore été chargé.",
-        "noActiveTargetUsers": "Aucun utilisateur cible actif trouvé. Créez ou réactivez un utilisateur BookOrbit avant le mappage.",
+        "noActiveTargetUsers": "Aucun utilisateur cible actif trouvé. Créez ou réactivez un utilisateur TLS Library avant le mappage.",
         "pathPrefixMappings": "Mappages de préfixes de chemin",
         "addMapping": "Ajouter un mappage",
         "pathMappingsHelp1": "Les mappages de chemin traduisent les chemins des fichiers source en chemins cibles afin que les livres puissent être mis en correspondance par emplacement de fichier. Par exemple, si votre bibliothèque Booklore stockait des fichiers sous",
@@ -1396,7 +1396,7 @@
         "confirmReset": "Confirmer la réinitialisation",
         "resetDialog": {
           "title": "Réinitialiser toutes les pondérations à leur valeur par défaut ?",
-          "description": "Les 24 champs retrouvent les pondérations fournies par défaut avec BookOrbit. Rien n'est enregistré tant que vous n'avez pas choisi Enregistrer et recalculer."
+          "description": "Les 24 champs retrouvent les pondérations fournies par défaut avec TLS Library. Rien n'est enregistré tant que vous n'avez pas choisi Enregistrer et recalculer."
         },
         "reset": "Réinitialiser",
         "recalculate": "Recalculer",
@@ -2032,7 +2032,7 @@
       },
       "providerDirectory": {
         "title": "Disponibles pour l'installation",
-        "hint": "Chacun s'exécute comme un petit conteneur aux côtés de BookOrbit. Copiez son service Compose dans le fichier qui exécute BookOrbit, démarrez-le avec la commande docker compose up -d, puis choisissez Ajouter.",
+        "hint": "Chacun s'exécute comme un petit conteneur aux côtés de TLS Library. Copiez son service Compose dans le fichier qui exécute TLS Library, démarrez-le avec la commande docker compose up -d, puis choisissez Ajouter.",
         "updated": "Mis à jour {time}",
         "bundled": "Liste incluse dans cette version",
         "loadFailed": "Impossible de charger la liste des fournisseurs prêts à l'emploi. Vous pouvez tout de même ajouter un fournisseur par son adresse.",
@@ -2465,7 +2465,7 @@
           "reorderFailed": "Impossible d'enregistrer la nouvelle commande"
         },
         "empty": {
-          "body": "Suivez ce pour quoi BookOrbit n'a aucun champ, comme l'endroit où un livre se trouve sur votre étagère ou qui l'a emprunté. Les champs apparaissent dans les métadonnées d'édition, dans les colonnes de la table et dans les filtres.",
+          "body": "Suivez ce pour quoi TLS Library n'a aucun champ, comme l'endroit où un livre se trouve sur votre étagère ou qui l'a emprunté. Les champs apparaissent dans les métadonnées d'édition, dans les colonnes de la table et dans les filtres.",
           "examples": "Commencer à partir d'un exemple",
           "shelfNumber": "Numéro de l'étagère",
           "acquiredOn": "Acquis le",
@@ -3141,15 +3141,15 @@
         "syncUrlCopyFailed": "Échec de la copie de la synchronisation URL",
         "syncPreferences": "Préférences de synchronisation",
         "twoWaySync": "Synchronisation de progression bidirectionnelle",
-        "twoWaySyncHint": "Synchronisez la position de lecture entre BookOrbit et Kobo. Nécessite la livraison KEPUB pour des emplacements précis et une restauration de page fiable.",
-        "syncHighlights": "Synchronisez les passages surlignés de BookOrbit avec Kobo",
-        "syncHighlightsHint": "Envoyez les passages surlignés réalisés dans BookOrbit ou KOReader à votre Kobo. Les passages surlignés Kobo sont importées dans BookOrbit même lorsque cette option est désactivée. Les annotations liées synchronisent les modifications et les suppressions dans les deux sens. Nécessite la livraison KEPUB ; le livre sur Kobo doit être le KEPUB téléchargé depuis BookOrbit.",
+        "twoWaySyncHint": "Synchronisez la position de lecture entre TLS Library et Kobo. Nécessite la livraison KEPUB pour des emplacements précis et une restauration de page fiable.",
+        "syncHighlights": "Synchronisez les passages surlignés de TLS Library avec Kobo",
+        "syncHighlightsHint": "Envoyez les passages surlignés réalisés dans TLS Library ou KOReader à votre Kobo. Les passages surlignés Kobo sont importées dans TLS Library même lorsque cette option est désactivée. Les annotations liées synchronisent les modifications et les suppressions dans les deux sens. Nécessite la livraison KEPUB ; le livre sur Kobo doit être le KEPUB téléchargé depuis TLS Library.",
         "storeSync": "Inclure les titres du magasin Kobo",
-        "storeSyncHint": "Envoyez aussi les livres de votre compte Kobo (y compris Kobo Plus et vos achats) en plus de votre bibliothèque BookOrbit. Sans cette option, seuls les livres BookOrbit sont envoyés vers l'appareil. Les titres du magasin sont téléchargés directement depuis Kobo et ne sont pas ajoutés à votre bibliothèque BookOrbit.",
+        "storeSyncHint": "Envoyez aussi les livres de votre compte Kobo (y compris Kobo Plus et vos achats) en plus de votre bibliothèque TLS Library. Sans cette option, seuls les livres TLS Library sont envoyés vers l'appareil. Les titres du magasin sont téléchargés directement depuis Kobo et ne sont pas ajoutés à votre bibliothèque TLS Library.",
         "fullSizeCovers": "Couvertures en pleine résolution",
         "fullSizeCoversHint": "Envoyer chaque couverture à la résolution de l'écran de votre Kobo, pour que les écrans de veille et les couvertures en plein écran restent nets. Option désactivée, les couvertures envoyées sont plus légères et se synchronisent plus vite. Une couverture déjà présente sur un Kobo ne change que lorsque celle du livre change.",
         "convertKepub": "Convertir en KEPUB",
-        "convertKepubHint": "Envoyez des EPUB éligibles en tant que KEPUB. Cela reste activé lorsque la synchronisation de la progression ou les passages surlignés de BookOrbit-to-Kobo sont activées. Lors de la prochaine synchronisation Kobo, les livres concernés sont à nouveau proposés en téléchargement KEPUB ; supprimez toute ancienne copie de EPUB si Kobo continue de l'ouvrir.",
+        "convertKepubHint": "Envoyez des EPUB éligibles en tant que KEPUB. Cela reste activé lorsque la synchronisation de la progression ou les passages surlignés de TLS Library-to-Kobo sont activées. Lors de la prochaine synchronisation Kobo, les livres concernés sont à nouveau proposés en téléchargement KEPUB ; supprimez toute ancienne copie de EPUB si Kobo continue de l'ouvrir.",
         "forceHyphenation": "Forcer la césure",
         "forceHyphenationHint": "Garantit une justification cohérente du texte. Cela régénérera les KEPUB mis en cache.",
         "progressThresholds": "Seuils de progression",
@@ -3159,7 +3159,7 @@
         "markAsFinished": "Marquer comme terminé",
         "markAsFinishedHint": "Seuil de pourcentage pour marquer un livre comme « Terminé ».",
         "kepubLimit": "Limite de conversion KEPUB",
-        "kepubLimitHint": "Les livres dépassant cette limite sont envoyés sous forme d'EPUB standards, donc BookOrbit ne synchronisera pas sa position de lecteur avec Kobo.",
+        "kepubLimitHint": "Les livres dépassant cette limite sont envoyés sous forme d'EPUB standards, donc TLS Library ne synchronisera pas sa position de lecteur avec Kobo.",
         "changesMustBeSaved": "Les modifications doivent être enregistrées pour prendre effet.",
         "saving": "Sauvegarde...",
         "saveSyncSettings": "Enregistrer les paramètres de synchronisation",
@@ -3221,8 +3221,8 @@
           "readingPositionSynced": "Position de lecture synchronisée",
           "labelWithTitle": "{label} : {title}",
           "updateCount": "{count, plural, one {# mettre à jour} other {# mises à jour} many {# mises à jour}}",
-          "directionToKobo": "BookOrbit → Kobo",
-          "directionToBookOrbit": "Kobo → BookOrbit",
+          "directionToKobo": "TLS Library → Kobo",
+          "directionToBookOrbit": "Kobo → TLS Library",
           "twoWaySyncEnabled": "Synchronisation bidirectionnelle activée",
           "deviceProgressSaved": "Progression de l'appareil enregistrée",
           "summary": {
@@ -3254,7 +3254,7 @@
           "filterFailures": "Échecs",
           "refresh": "Actualiser",
           "loadingActivity": "Chargement de l'activité Kobo...",
-          "noActivityHint": "L'activité de synchronisation récente apparaîtra dès qu'un Kobo appairé contactera BookOrbit.",
+          "noActivityHint": "L'activité de synchronisation récente apparaîtra dès qu'un Kobo appairé contactera TLS Library.",
           "error": "Erreur",
           "loading": "Chargement...",
           "loadMore": "Charger plus d'activité"
@@ -3266,7 +3266,7 @@
         "nextSteps": {
           "title": "Prochaines étapes",
           "step1": "1. Configurez votre appareil Kobo pour qu'il se synchronise avec l'URL de synchronisation ci-dessus.",
-          "step2": "2. Dans BookOrbit, accédez à n'importe quelle collection dans la barre latérale, cliquez sur l'icône Modifier et activez {syncToKobo}. Seuls les livres appartenant à des collections compatibles avec la synchronisation seront téléchargés sur votre appareil."
+          "step2": "2. Dans TLS Library, accédez à n'importe quelle collection dans la barre latérale, cliquez sur l'icône Modifier et activez {syncToKobo}. Seuls les livres appartenant à des collections compatibles avec la synchronisation seront téléchargés sur votre appareil."
         },
         "syncToKobo": "Synchroniser avec Kobo",
         "tabs": {
@@ -3276,14 +3276,14 @@
       },
       "koreader": {
         "title": "KOReader Synchronisation",
-        "subtitle": "Parcourez votre catalogue BookOrbit dans KOReader et synchronisez la progression, l'activité de lecture, les passages surlignés et les modifications d'annotations.",
+        "subtitle": "Parcourez votre catalogue TLS Library dans KOReader et synchronisez la progression, l'activité de lecture, les passages surlignés et les modifications d'annotations.",
         "tabs": {
           "sync": "Paramètres de synchronisation",
           "fileNaming": "Nom du fichier"
         },
         "fileNaming": {
           "accountTitle": "Modèle KOReader par défaut du compte",
-          "accountDescription": "Définit le dossier relatif et le nom de fichier par défaut utilisés par les téléchargements du plugin BookOrbit pour votre compte KOReader. Les règles spécifiques à l'appareil peuvent le remplacer ci-dessous.",
+          "accountDescription": "Définit le dossier relatif et le nom de fichier par défaut utilisés par les téléchargements du plugin TLS Library pour votre compte KOReader. Les règles spécifiques à l'appareil peuvent le remplacer ci-dessous.",
           "defaultPattern": "Modèle de chemin de livre par défaut",
           "accountHelp": "Votre compte est par défaut pour les téléchargements du plug-in KOReader, sauf si un appareil dispose d'une règle personnalisée.",
           "accountHint": "Utilisé par vos appareils KOReader qui ne disposent pas de remplacement personnalisé.",
@@ -3291,7 +3291,7 @@
           "saveAccount": "Enregistrer le compte par défaut",
           "deviceTitle": "Remplacements de périphérique KOReader",
           "deviceDescription": "Personnalisez n'importe quelle combinaison de chemins par défaut, en série et autonomes. Les lignes vides spécifiques à l'appareil héritent de la valeur par défaut de l'appareil, qui elle-même peut hériter du modèle KOReader par défaut du compte.",
-          "noDevices": "Les appareils apparaissent ici après avoir été synchronisés avec BookOrbit.",
+          "noDevices": "Les appareils apparaissent ici après avoir été synchronisés avec TLS Library.",
           "customOrganization": "Organisation personnalisée",
           "usingAccountDefault": "Utiliser le compte par défaut",
           "deviceDefaultHelp": "Solution de repli pour cet appareil. Laissez-le égal à la valeur par défaut du compte pour hériter automatiquement des modifications futures.",
@@ -3327,10 +3327,10 @@
         "latestPlugin": "Dernier plugin : v{version}",
         "latestPluginUnavailable": "Dernier plugin indisponible",
         "notConfigured": "La synchronisation KOReader n'est pas configurée",
-        "notConfiguredHint": "Créez un ensemble d'identifiants de synchronisation, puis utilisez-les avec le plugin BookOrbit KOReader pour la navigation, les téléchargements, la progression, la lecture des événements, les passages surlignés et les suppressions.",
+        "notConfiguredHint": "Créez un ensemble d'identifiants de synchronisation, puis utilisez-les avec le plugin TLS Library KOReader pour la navigation, les téléchargements, la progression, la lecture des événements, les passages surlignés et les suppressions.",
         "createCredentials": "Créer des identifiants",
         "createFormTitle": "Créer des informations d'identification de synchronisation KOReader",
-        "createFormHint": "Ces informations d'identification authentifient vos appareils KOReader avec BookOrbit.",
+        "createFormHint": "Ces informations d'identification authentifient vos appareils KOReader avec TLS Library.",
         "username": "Nom d'utilisateur",
         "usernamePlaceholder": "ex. monlecteur",
         "password": "Mot de passe",
@@ -3338,7 +3338,7 @@
         "changeCredentials": {
           "action": "Modifier les identifiants",
           "title": "Modifier les identifiants KOReader",
-          "description": "Chaque compte BookOrbit ne peut avoir qu'un identifiant KOReader associé. Modifiez-le ici sans supprimer les données synchronisées.",
+          "description": "Chaque compte TLS Library ne peut avoir qu'un identifiant KOReader associé. Modifiez-le ici sans supprimer les données synchronisées.",
           "newPassword": "Nouveau mot de passe",
           "usernameInvalid": "Le nom d'utilisateur doit contenir entre 3 et 100 caractères.",
           "passwordPlaceholder": "Laisser vide pour conserver le mot de passe actuel",
@@ -3359,7 +3359,7 @@
         "status": "KOReader Statut",
         "refresh": "Actualiser",
         "progressSync": "Synchronisation de la progression",
-        "progressSyncHint": "Autorisez les appareils KOReader à synchroniser la progression, l'activité de lecture, les passages surlignés et les suppressions d'annotations avec BookOrbit.",
+        "progressSyncHint": "Autorisez les appareils KOReader à synchroniser la progression, l'activité de lecture, les passages surlignés et les suppressions d'annotations avec TLS Library.",
         "lastSync": "Dernière synchronisation",
         "syncedBooks": "Livres synchronisés",
         "bookCount": "{count, plural, =0 {pas de livres} one {# livre} other {# livres} many {# livres}}",
@@ -3369,17 +3369,17 @@
         "setup": "Configuration",
         "pluginServerUrl": "Serveur de plugins URL",
         "syncUrl": "URL de synchronisation KOReader",
-        "syncUrlHint": "Fonctionne avec le plugin BookOrbit et la synchronisation de progression intégrée à KOReader.",
+        "syncUrlHint": "Fonctionne avec le plugin TLS Library et la synchronisation de progression intégrée à KOReader.",
         "copied": "Copié",
         "copyUrl": "Copier URL",
-        "preconfiguredPlugin": "Plugin BookOrbit préconfiguré",
+        "preconfiguredPlugin": "Plugin TLS Library préconfiguré",
         "preconfiguredPluginHintPrefix": "Téléchargez un zip avec le serveur URL et votre connexion de synchronisation déjà configurée. Le plugin inclut la navigation et la synchronisation du catalogue. Copiez le dossier dans",
         "preconfiguredPluginHintSuffix": "et redémarrez KOReader.",
-        "latestPluginNote": "{label}. Les mises à jour des appareils s'exécutent à partir du menu BookOrbit dans KOReader.",
+        "latestPluginNote": "{label}. Les mises à jour des appareils s'exécutent à partir du menu TLS Library dans KOReader.",
         "preparing": "Préparation...",
         "downloadPlugin": "Télécharger le plugin",
         "noDevicesSynced": "Aucun appareil n'a encore été synchronisé",
-        "noDevicesSyncedHint": "Installez le plugin BookOrbit pour une synchronisation complète ou configurez la synchronisation de la progression des stocks de KOReader pour les mises à jour uniquement sur la progression.",
+        "noDevicesSyncedHint": "Installez le plugin TLS Library pour une synchronisation complète ou configurez la synchronisation de la progression des stocks de KOReader pour les mises à jour uniquement sur la progression.",
         "lastSyncLabel": "Dernière synchronisation :",
         "lastBookLabel": "Dernier livre :",
         "noneYet": "Aucun pour l'instant",
@@ -3396,8 +3396,8 @@
         "failedPositions": "{count, plural, =0 {aucune position de passage surligné ne nécessite d'attention.} one {# La position du passage surligné nécessite une attention particulière.} other {# des passages surlignés nécessitent une attention particulière.} many {# des passages surlignés nécessitent une attention particulière.}}",
         "setupGuide": "Guide de configuration",
         "setupSteps": "KOReader étapes de configuration",
-        "setupStepsHint": "Utilisez le plugin BookOrbit pour la navigation dans le catalogue, les téléchargements, la progression, la lecture des événements et les passages surlignés. Utilisez le plugin stock pour progresser uniquement.",
-        "pluginGuideTitle": "Plugin BookOrbit",
+        "setupStepsHint": "Utilisez le plugin TLS Library pour la navigation dans le catalogue, les téléchargements, la progression, la lecture des événements et les passages surlignés. Utilisez le plugin stock pour progresser uniquement.",
+        "pluginGuideTitle": "Plugin TLS Library",
         "pluginStep1": "Téléchargez le plugin préconfiguré ci-dessus.",
         "pluginStep2Prefix": "Décompressez-le et copiez",
         "pluginStep2Middle": "à",
@@ -3411,7 +3411,7 @@
         "stockStep2": "Définissez le serveur de synchronisation personnalisé sur URL indiqué ci-dessus.",
         "stockStep2InlineUrl": "Définir le serveur de synchronisation personnalisé à l'URL suivante :",
         "stockStep3": "Saisissez le nom d'utilisateur et le mot de passe que vous avez créés, puis appuyez sur Connexion.",
-        "locationNote": "BookOrbit enregistre les emplacements EPUB compatibles KOReader à partir du lecteur Web. La restauration doit atterrir à proximité de la même position, bien que l'emplacement exact de la ligne puisse varier selon le lecteur et la disposition EPUB.",
+        "locationNote": "TLS Library enregistre les emplacements EPUB compatibles KOReader à partir du lecteur Web. La restauration doit atterrir à proximité de la même position, bien que l'emplacement exact de la ligne puisse varier selon le lecteur et la disposition EPUB.",
         "dangerZone": "Zone dangereuse",
         "deleteCredentials": "Supprimer les identifiants KOReader",
         "deleteCredentialsHint": "Supprimez les informations d'identification de synchronisation et déconnectez tous les appareils. Les données de progression seront conservées.",
@@ -3458,7 +3458,7 @@
           "unknownFile": "Fichier KOReader inconnu {hash}",
           "unknownAuthor": "Auteur inconnu",
           "noTitleOrAuthor": "Aucun titre ni auteur signalé",
-          "bookNumber": "BookOrbit livre n° {id}",
+          "bookNumber": "TLS Library livre n° {id}",
           "toast": {
             "unmatchedRefreshed": "Livres sans correspondance actualisés",
             "unmatchedRefreshFailed": "Échec de l'actualisation des livres sans correspondance",
@@ -3483,8 +3483,8 @@
           "modal": {
             "linkTitle": "Lien vers le livre KOReader",
             "changeTitle": "Modifier le lien KOReader",
-            "bookOrbitBook": "Livre BookOrbit",
-            "searchPlaceholder": "Recherchez dans votre bibliothèque BookOrbit",
+            "bookOrbitBook": "Livre TLS Library",
+            "searchPlaceholder": "Recherchez dans votre bibliothèque TLS Library",
             "minChars": "Saisissez au moins 2 caractères.",
             "searching": "Recherche...",
             "noBooksFound": "Aucun livre trouvé.",
@@ -3494,14 +3494,14 @@
             "loadMore": "Charger plus",
             "confirmTitle": "Confirmer le lien KOReader",
             "koreader": "KOReader",
-            "bookOrbit": "BookOrbit",
+            "bookOrbit": "TLS Library",
             "bookId": "Identifiant du livre : {id}",
-            "syncedStatsNote": "Les statistiques déjà synchronisées resteront sur leur livre BookOrbit actuel.",
+            "syncedStatsNote": "Les statistiques déjà synchronisées resteront sur leur livre TLS Library actuel.",
             "chooseDifferent": "Choisissez différent",
             "saving": "Sauvegarde...",
             "confirmLink": "Confirmer le lien",
             "unlinkTitle": "Dissocier le livre KOReader ?",
-            "unlinkBody": "Les synchronisations futures pour ce hachage cesseront de se résoudre en {title} jusqu'à ce qu'il soit à nouveau lié. Les statistiques déjà synchronisées resteront sur leur livre BookOrbit actuel.",
+            "unlinkBody": "Les synchronisations futures pour ce hachage cesseront de se résoudre en {title} jusqu'à ce qu'il soit à nouveau lié. Les statistiques déjà synchronisées resteront sur leur livre TLS Library actuel.",
             "unlinking": "Dissociation..."
           },
           "dismiss": "Ignorer",
@@ -3509,15 +3509,15 @@
           "dismissing": "Rejeter...",
           "unlinking": "Dissociation...",
           "unlinkConfirmTitle": "Dissocier le livre KOReader ?",
-          "unlinkConfirmBody": "Les synchronisations futures pour ce hachage cesseront de se résoudre en {title} jusqu'à ce qu'il soit à nouveau lié. Les statistiques déjà synchronisées resteront sur leur livre BookOrbit actuel.",
+          "unlinkConfirmBody": "Les synchronisations futures pour ce hachage cesseront de se résoudre en {title} jusqu'à ce qu'il soit à nouveau lié. Les statistiques déjà synchronisées resteront sur leur livre TLS Library actuel.",
           "dismissConfirmTitle": "Ignorer {title} ?",
           "dismissConfirmBody": "Cela le supprime de votre liste de livres sans correspondance. Si un appareil signale à nouveau ce hachage, il réapparaîtra en tant que nouvelle entrée.",
           "dismissAllConfirmTitle": "{count, plural, =0 {Ignorer tous les livres sans correspondance ?} one {Ignorer # livre sans correspondance ?} other {Ignorer # livres sans correspondance ?} many {Ignorer # livres sans correspondance ?}}",
           "dismissAllConfirmBody": "Cela efface toute votre liste de livres sans correspondance, pas seulement la page actuelle. Si un appareil signale à nouveau l'un de ces hachages, il réapparaîtra sous la forme d'une nouvelle entrée.",
           "changeLinkTitle": "Modifier le lien KOReader",
           "linkBookTitle": "Lien vers le livre KOReader",
-          "bookOrbitBook": "Livre BookOrbit",
-          "searchLibraryPlaceholder": "Recherchez dans votre bibliothèque BookOrbit",
+          "bookOrbitBook": "Livre TLS Library",
+          "searchLibraryPlaceholder": "Recherchez dans votre bibliothèque TLS Library",
           "enterMinChars": "Saisissez au moins 2 caractères.",
           "searching": "Recherche...",
           "noBooksFound": "Aucun livre trouvé.",
@@ -3528,7 +3528,7 @@
           "loadingMore": "Chargement...",
           "confirmLinkTitle": "Confirmer le lien KOReader",
           "bookId": "Identifiant du livre : {id}",
-          "syncedStatsNote": "Les statistiques déjà synchronisées resteront sur leur livre BookOrbit actuel.",
+          "syncedStatsNote": "Les statistiques déjà synchronisées resteront sur leur livre TLS Library actuel.",
           "chooseDifferent": "Choisissez différent",
           "saving": "Sauvegarde...",
           "confirmLink": "Confirmer le lien",
@@ -3536,7 +3536,7 @@
           "reviewHint": "Les livres sans correspondance automatique et les livres que vous déconnectez apparaissent ici. Les livres non liés peuvent toujours se synchroniser via une correspondance automatique. Lier un livre pour remplacer cette correspondance, ou la rejeter pour le retirer de cette liste.",
           "loadingReview": "Chargement des livres à vérifier...",
           "noReview": "Aucun livre KOReader à vérifier.",
-          "manualUnlinkConfirmBody": "Retirez le lien manuel vers {title} et renvoyez ce livre à la liste des revues. Les futures synchronisations utiliseront une correspondance automatique si on existe. Les statistiques déjà synchronisées resteront sur leur livre BookOrbit actuel.",
+          "manualUnlinkConfirmBody": "Retirez le lien manuel vers {title} et renvoyez ce livre à la liste des revues. Les futures synchronisations utiliseront une correspondance automatique si on existe. Les statistiques déjà synchronisées resteront sur leur livre TLS Library actuel.",
           "reviewDismissConfirmBody": "Cela le supprime de vos livres à vérifier. Les données de correspondance automatique et de synchronisation existantes sont conservées. Si un périphérique signale à nouveau le hachage sans correspondance, il peut réapparaître.",
           "reviewDismissAllConfirmTitle": "{count, plural, =0 {Aucun livre à revoir} one {Rejetez tout # livre à revoir ?} other {Rejetez tous les # livres à revoir ?}}",
           "reviewDismissAllConfirmBody": "Cela efface tous vos livres pour passer en revue la liste, y compris les entrées sur d'autres pages. La correspondance automatique et les données de synchronisation existantes sont conservées. Si un périphérique rapporte à nouveau un hachage sans correspondance, il peut réapparaître."
@@ -3646,7 +3646,7 @@
         "deleteClient": "Supprimer {name}",
         "clientsEmpty": {
           "title": "Aucun client de téléchargement",
-          "body": "Un téléchargement HTTP direct n'a besoin d'aucun client. Connectez-en un pour que BookOrbit puisse aussi récupérer ce qu'un tracker propose en torrent.",
+          "body": "Un téléchargement HTTP direct n'a besoin d'aucun client. Connectez-en un pour que TLS Library puisse aussi récupérer ce qu'un tracker propose en torrent.",
           "note": "qBittorrent, Transmission et Deluge sont pris en charge."
         },
         "summary": "{type} - catégorie {category}, priorité {priority}",
@@ -3685,7 +3685,7 @@
           "passwordWillClear": "Le mot de passe enregistré sera supprimé à l'enregistrement",
           "apiKeyWillClear": "La clé API enregistrée sera supprimée à l'enregistrement",
           "category": "Catégorie",
-          "categoryHint": "Marque les torrents ajoutés par BookOrbit, pour qu'il n'agisse jamais que sur les siens.",
+          "categoryHint": "Marque les torrents ajoutés par TLS Library, pour qu'il n'agisse jamais que sur les siens.",
           "priority": "Priorité",
           "enabled": "Activé",
           "useHardlinks": "Utiliser les liens physiques",
@@ -3697,12 +3697,12 @@
         },
         "mappings": {
           "title": "Correspondances de chemins",
-          "hint": "Traduit les chemins signalés par le client en chemins que BookOrbit peut ouvrir. Nécessaire lorsque les deux tournent dans des conteneurs distincts.",
+          "hint": "Traduit les chemins signalés par le client en chemins que TLS Library peut ouvrir. Nécessaire lorsque les deux tournent dans des conteneurs distincts.",
           "add": "Ajouter une correspondance",
           "remove": "Supprimer la correspondance",
           "remotePath": "Chemin côté client",
-          "localPath": "Chemin côté BookOrbit",
-          "brief": "Obligatoire. Déclare le répertoire depuis lequel BookOrbit peut importer ; lorsque le client voit les mêmes fichiers aux mêmes chemins, faites correspondre le répertoire de téléchargement à lui-même.",
+          "localPath": "Chemin côté TLS Library",
+          "brief": "Obligatoire. Déclare le répertoire depuis lequel TLS Library peut importer ; lorsque le client voit les mêmes fichiers aux mêmes chemins, faites correspondre le répertoire de téléchargement à lui-même.",
           "identityExample": "Même système de fichiers ? Utilisez le même chemin des deux côtés, par exemple /downloads à gauche et /downloads à droite."
         },
         "hardlink": {
@@ -3711,16 +3711,16 @@
           "works": "Les liens physiques fonctionnent ici : les imports n'occuperont pas le disque deux fois.",
           "unavailable": "Les liens physiques ne sont pas disponibles ici : les imports copieront les fichiers, occupant l'espace deux fois.",
           "link_refused": "Ce système de fichiers a refusé le lien ({code}) : les imports copieront les fichiers, occupant l'espace deux fois.",
-          "download_dir_unwritable": "BookOrbit ne peut pas écrire dans le répertoire de téléchargement ({code}), les liens physiques n'ont donc pas pu être testés.",
-          "localMissing": "BookOrbit ne voit pas ce chemin.",
+          "download_dir_unwritable": "TLS Library ne peut pas écrire dans le répertoire de téléchargement ({code}), les liens physiques n'ont donc pas pu être testés.",
+          "localMissing": "TLS Library ne voit pas ce chemin.",
           "dockMissing": "Le dossier Book Dock n'est pas lisible."
         },
         "reconciliation": {
           "action": "Rapprocher",
-          "clean": "Chaque élément du client rattaché à BookOrbit correspond à une tentative de téléchargement conservée.",
-          "unsupported": "Ce client ne sait pas lister ses éléments d'après la marque de propriété de BookOrbit. Pour Deluge, activez le plugin Label ; pour Transmission, configurez un dossier de catégorie.",
+          "clean": "Chaque élément du client rattaché à TLS Library correspond à une tentative de téléchargement conservée.",
+          "unsupported": "Ce client ne sait pas lister ses éléments d'après la marque de propriété de TLS Library. Pour Deluge, activez le plugin Label ; pour Transmission, configurez un dossier de catégorie.",
           "truncated": "Le client a renvoyé plus de 1 000 éléments lui appartenant. Traitez les entrées visibles, puis relancez le rapprochement.",
-          "orphan": "Aucune tentative BookOrbit conservée ne possède cet élément du client.",
+          "orphan": "Aucune tentative TLS Library conservée ne possède cet élément du client.",
           "failedAttempt": "Le client détient encore cet élément, mais sa tentative pour « {title} » est marquée en échec.",
           "missing": "Cette tentative {status} n'est plus présente dans le client de téléchargement.",
           "adopt": "Rattacher à {title}",
@@ -3729,7 +3729,7 @@
           "removed": "Élément orphelin retiré du client",
           "removeTitle": "Retirer cet élément orphelin du client ?",
           "removeDescription": "{name} est retiré du client de téléchargement. Ses fichiers téléchargés sont conservés.",
-          "notOrphan": "Cet élément du client est encore rattaché à une tentative de téléchargement BookOrbit.",
+          "notOrphan": "Cet élément du client est encore rattaché à une tentative de téléchargement TLS Library.",
           "notAdoptable": "Cet élément du client ou cette tentative en échec a changé et ne peut plus être rattaché. Relancez le rapprochement."
         },
         "errors": {
@@ -3745,8 +3745,8 @@
           "encryptionKeyChanged": "Le mot de passe enregistré n'a pas pu être lu. BOOK_REQUEST_ENCRYPTION_KEY a peut-être changé depuis son enregistrement.",
           "pathNotAbsolute": "Les correspondances de chemins doivent utiliser des chemins absolus des deux côtés",
           "nameRequired": "Donnez un nom à ce client.",
-          "urlRequired": "Saisissez l'adresse à laquelle BookOrbit doit joindre ce client.",
-          "mappingRequired": "Ajoutez au moins une correspondance de chemins, pour que BookOrbit sache depuis quel répertoire il peut importer.",
+          "urlRequired": "Saisissez l'adresse à laquelle TLS Library doit joindre ce client.",
+          "mappingRequired": "Ajoutez au moins une correspondance de chemins, pour que TLS Library sache depuis quel répertoire il peut importer.",
           "apiKeyRequired": "Saisissez la clé API SABnzbd indiquée sous Config > General."
         },
         "encryptionKeyMissing": "BOOK_REQUEST_ENCRYPTION_KEY n'est pas définie, un mot de passe de client ne peut donc pas être enregistré. Générez-en une avec : openssl rand -hex 32",
@@ -3762,14 +3762,14 @@
           "loading": "Chargement des indexeurs...",
           "empty": {
             "title": "Aucune source pour l'instant",
-            "body": "BookOrbit ne fournit aucune source, une recherche de demande ne trouve donc rien tant que vous n'en ajoutez pas une. Il y a deux façons de procéder.",
-            "bodyOneWay": "BookOrbit ne fournit aucune source, une recherche de demande ne trouve donc rien tant que vous n'en ajoutez pas une.",
+            "body": "TLS Library ne fournit aucune source, une recherche de demande ne trouve donc rien tant que vous n'en ajoutez pas une. Il y a deux façons de procéder.",
+            "bodyOneWay": "TLS Library ne fournit aucune source, une recherche de demande ne trouve donc rien tant que vous n'en ajoutez pas une.",
             "responsibility": "Ce qu'indexe une source que vous ajoutez relève de votre responsabilité.",
             "prowlarrTitle": "Connecter Prowlarr",
             "prowlarrBody": "Gérez plusieurs indexeurs torrent et Usenet via une seule connexion.",
             "recommended": "Recommandé",
             "pluginTitle": "Installer un plugin",
-            "pluginBody": "Un fichier unique qui apprend à BookOrbit à interroger un site précis. Vous le fournissez, puis vous renseignez ses paramètres.",
+            "pluginBody": "Un fichier unique qui apprend à TLS Library à interroger un site précis. Vous le fournissez, puis vous renseignez ses paramètres.",
             "torznabTitle": "Ajouter un indexeur Torznab",
             "torznabBody": "Pointez vers un flux Prowlarr, Jackett ou NZBHydra que vous hébergez déjà. Un par flux.",
             "builtInTitle": "Ajouter un indexeur",
@@ -3794,7 +3794,7 @@
           "pluginFailed": "Le plugin situé dans « {directory} » ne s'est pas chargé : {reason}",
           "sources": {
             "title": "Sources",
-            "hint": "Tout ce que BookOrbit peut interroger, regroupé par connexion.",
+            "hint": "Tout ce que TLS Library peut interroger, regroupé par connexion.",
             "add": "Ajouter une source",
             "prowlarr": "Connecter Prowlarr",
             "prowlarrHint": "Gérez plusieurs indexeurs torrent et Usenet ensemble.",
@@ -3910,12 +3910,12 @@
             "credentialRequired": "Cet indexeur a besoin d'un identifiant avant de pouvoir servir",
             "invalidSettings": "Un ou plusieurs paramètres de la source sont invalides. Revoyez les choix disponibles.",
             "nameRequired": "Donnez un nom à cet indexeur.",
-            "urlRequired": "Saisissez l'adresse à laquelle BookOrbit doit chercher."
+            "urlRequired": "Saisissez l'adresse à laquelle TLS Library doit chercher."
           },
           "editName": "Modifier {name}",
           "editorDescription": "Paramètres de cet indexeur.",
           "chooseType": "Choisir un type d'indexeur",
-          "chooseTypeHint": "Choisissez où BookOrbit doit chercher. Le formulaire ne demande ensuite que ce dont cette source a besoin.",
+          "chooseTypeHint": "Choisissez où TLS Library doit chercher. Le formulaire ne demande ensuite que ce dont cette source a besoin.",
           "builtIn": "Intégré",
           "plugin": "Plugin",
           "typeDescriptions": {
@@ -3924,7 +3924,7 @@
           },
           "plugins": {
             "title": "Plugins",
-            "hint": "Un site que BookOrbit peut interroger, ajouté sous la forme d'un unique fichier de plugin. Installez-en un, puis renseignez ses paramètres.",
+            "hint": "Un site que TLS Library peut interroger, ajouté sous la forme d'un unique fichier de plugin. Installez-en un, puis renseignez ses paramètres.",
             "directoryLink": "Parcourir les plugins open source disponibles",
             "none": "Aucun plugin installé. Installez-en un pour interroger un site que Torznab ne couvre pas.",
             "install": "Installer un plugin",
@@ -3936,7 +3936,7 @@
             "removeFailed": "Ce plugin n'a pas pu être supprimé.",
             "confirmRemove": "Supprimer le plugin {label} ?",
             "replaces": "Cela remplace le plugin {type} déjà installé.",
-            "restartRequired": "Redémarrez BookOrbit pour que le changement de plugin prenne effet.",
+            "restartRequired": "Redémarrez TLS Library pour que le changement de plugin prenne effet.",
             "confirmInstall": "Installer le plugin",
             "configure": "Configurer",
             "notSetUp": "Pas encore configuré",
@@ -3983,11 +3983,11 @@
             "credential": "Identifiant",
             "credentialRequired": "Obligatoire",
             "credentialNone": "Aucun",
-            "trustWarning": "Un plugin s'exécute à l'intérieur de BookOrbit, avec son accès à votre base de données, aux fichiers de votre bibliothèque et à votre clé de chiffrement. N'en installez un que depuis une source de confiance, et lisez-le d'abord.",
+            "trustWarning": "Un plugin s'exécute à l'intérieur de TLS Library, avec son accès à votre base de données, aux fichiers de votre bibliothèque et à votre clé de chiffrement. N'en installez un que depuis une source de confiance, et lisez-le d'abord.",
             "sectionTitle": "Plugin",
             "removeUnusedWarning": "Le plugin sera définitivement supprimé du serveur."
           },
-          "posture": "BookOrbit ne fournit ni ne cautionne aucune source d'indexation. Chaque source ici est une source que vous avez configurée, et vous êtes responsable de ce que vous recherchez et téléchargez par son intermédiaire."
+          "posture": "TLS Library ne fournit ni ne cautionne aucune source d'indexation. Chaque source ici est une source que vous avez configurée, et vous êtes responsable de ce que vous recherchez et téléchargez par son intermédiaire."
         },
         "managers": {
           "add": "Ajouter Prowlarr",
@@ -4008,7 +4008,7 @@
           "toggleSource": "Rechercher avec {name}",
           "changeColor": "Changer la couleur de {name}",
           "sourceColor": "Couleur de la source",
-          "sourceColorHint": "Signale les releases renvoyées par {name} dans tout BookOrbit.",
+          "sourceColorHint": "Signale les releases renvoyées par {name} dans tout TLS Library.",
           "noSources": "Aucun indexeur torrent ou Usenet compatible n'a été découvert. Synchronisez après en avoir ajouté un dans Prowlarr.",
           "unknown": "de version inconnue",
           "editorDescription": "Paramètres de connexion et de synchronisation des sources pour Prowlarr.",
@@ -4024,9 +4024,9 @@
             "syncNew": "Activer les sources nouvellement découvertes",
             "syncNewHint": "Les nouveaux indexeurs Prowlarr sont interrogeables immédiatement. Les sources que vous désactivez ici le restent après les synchronisations suivantes.",
             "autoExpand": "Réessayer sans filtre de catégorie",
-            "autoExpandHint": "Lorsqu'un indexeur répond correctement mais sans résultat, réessayer une fois sans le filtre de catégorie livres de BookOrbit.",
+            "autoExpandHint": "Lorsqu'un indexeur répond correctement mais sans résultat, réessayer une fois sans le filtre de catégorie livres de TLS Library.",
             "inheritSeedLimits": "Utiliser les limites de partage de Prowlarr",
-            "inheritSeedLimitsHint": "Appliquer aux prochains téléchargements le ratio et la durée de partage configurés sur chaque indexeur torrent, lorsqu'aucune valeur BookOrbit ne les remplace.",
+            "inheritSeedLimitsHint": "Appliquer aux prochains téléchargements le ratio et la durée de partage configurés sur chaque indexeur torrent, lorsqu'aucune valeur TLS Library ne les remplace.",
             "perIndexerTimeout": "Délai d'attente par indexeur (secondes)",
             "perIndexerTimeoutHint": "Temps maximal accordé à une source synchronisée. Les indexeurs lents qui passent par FlareSolverr peuvent demander davantage.",
             "overallBudget": "Budget Prowlarr (secondes)",
@@ -4074,12 +4074,12 @@
           "minScoreHint": "Une release dont le score est inférieur n'est jamais téléchargée automatiquement. Les scores vont jusqu'à 100, et la correspondance du titre et de l'auteur en constitue l'essentiel, devant le format, la taille du fichier, les seeders et la priorité de la source. Si rien n'atteint un score suffisant, la demande attend qu'une personne choisisse une release à la main, en indiquant ce qui l'a arrêtée.",
           "minScoreHintV2": "Une release dont le score est inférieur n'est jamais téléchargée automatiquement. Les scores vont jusqu'à 100. La pertinence du titre et de l'auteur compte le plus, suivie du format et d'une taille de fichier plausible ; l'état de l'essaim et le freeleech entrent en compte lorsqu'une source les fournit. Si rien n'atteint un score suffisant, la demande attend qu'une personne choisisse une release à la main et indique pourquoi elle s'est arrêtée.",
           "autoRetry": "Essayer la release suivante après un échec",
-          "autoRetryHint": "Quand un téléchargement automatique échoue, la release suivante est essayée plutôt que d'abandonner. Cela couvre une source qui refuse de livrer le fichier comme un téléchargement qui meurt en cours de route. Cela ne vaut que pour les releases choisies par BookOrbit lui-même : une release choisie à la main par un approbateur reste en échec et l'attend.",
+          "autoRetryHint": "Quand un téléchargement automatique échoue, la release suivante est essayée plutôt que d'abandonner. Cela couvre une source qui refuse de livrer le fichier comme un téléchargement qui meurt en cours de route. Cela ne vaut que pour les releases choisies par TLS Library lui-même : une release choisie à la main par un approbateur reste en échec et l'attend.",
           "maxAttempts": "Tentatives par demande",
-          "maxAttemptsHint": "Chaque release que BookOrbit envoie à un client de téléchargement pour cette demande compte dans cette limite : la première tentative automatique, tout ce qui est essayé après le refus d'une source, et tout ce qui est essayé après l'échec d'un téléchargement. Réglez-la sur 1 pour vous arrêter à la première tentative.",
+          "maxAttemptsHint": "Chaque release que TLS Library envoie à un client de téléchargement pour cette demande compte dans cette limite : la première tentative automatique, tout ce qui est essayé après le refus d'une source, et tout ce qui est essayé après l'échec d'un téléchargement. Réglez-la sur 1 pour vous arrêter à la première tentative.",
           "autoSearch": "Continuer à chercher pour les demandes restées sans résultat",
           "autoSearchShort": "Une demande approuvée sans correspondance est recherchée à nouveau plus tard.",
-          "autoSearchHint": "Une demande fait l'objet d'une recherche au moment de son approbation. Si rien d'assez bon ne se présente, ou si le livre n'est pas encore paru, cette demande reste à l'état approuvé et plus rien ne la cherche. Activez ceci et BookOrbit continue de vérifier tout seul, si bien qu'une release publiée le mois suivant est quand même trouvée. Cela ne fonctionne que si les téléchargements automatiques sont actifs, puisqu'une recherche qui ne peut rien faire de ce qu'elle trouve ne fait que coûter du trafic à vos sources.",
+          "autoSearchHint": "Une demande fait l'objet d'une recherche au moment de son approbation. Si rien d'assez bon ne se présente, ou si le livre n'est pas encore paru, cette demande reste à l'état approuvé et plus rien ne la cherche. Activez ceci et TLS Library continue de vérifier tout seul, si bien qu'une release publiée le mois suivant est quand même trouvée. Cela ne fonctionne que si les téléchargements automatiques sont actifs, puisqu'une recherche qui ne peut rien faire de ce qu'elle trouve ne fait que coûter du trafic à vos sources.",
           "autoSearchEnabledToast": "Les demandes feront l'objet de nouvelles recherches",
           "autoSearchDisabledToast": "Les demandes ne seront recherchées qu'à leur approbation",
           "autoSearchInterval": "Chercher à nouveau après",
@@ -4171,13 +4171,13 @@
         "external": "Externe",
         "editorDescription": "Paramètres de ce client de téléchargement.",
         "chooseClientType": "Choisir un type de client",
-        "chooseClientTypeHint": "Choisissez le programme auquel BookOrbit confie les torrents.",
+        "chooseClientTypeHint": "Choisissez le programme auquel TLS Library confie les torrents.",
         "clientTypeDescriptions": {
           "qbittorrent": "Votre propre qBittorrent. Demande une adresse et un compte.",
           "transmission": "Votre propre Transmission. Il n'a pas de catégories : la catégorie devient un sous-dossier de son répertoire de téléchargement.",
           "deluge": "Votre propre Deluge. Connectez-vous avec le mot de passe de l'interface web ; la catégorie nécessite le plugin Label activé.",
-          "nzbget": "Votre propre NZBGet. BookOrbit envoie les fichiers NZB via son API JSON-RPC.",
-          "sabnzbd": "Votre propre SABnzbd. BookOrbit envoie les fichiers NZB à l'aide de sa clé API."
+          "nzbget": "Votre propre NZBGet. TLS Library envoie les fichiers NZB via son API JSON-RPC.",
+          "sabnzbd": "Votre propre SABnzbd. TLS Library envoie les fichiers NZB à l'aide de sa clé API."
         },
         "searchHealth": {
           "failingOnce": "La dernière recherche a échoué",
@@ -4218,7 +4218,7 @@
         "readerAudio": "Vitesse de lecture, intervalles de saut et minuterie de veille.",
         "readerFonts": "Polices disponibles pendant la lecture.",
         "readerGeneral": "Paramètres par défaut communs à tous les modes de lecture.",
-        "notifications": "Ce que BookOrbit vous signale, et où.",
+        "notifications": "Ce que TLS Library vous signale, et où.",
         "privacy": "Statistiques de lecture, liens partagés et visibilité de l'activité.",
         "restrictions": "Classifications d'âge et contenu masqué pour ce compte.",
         "libraries": "Chemins d'analyse, dossiers surveillés et règles d'importation.",
@@ -4248,14 +4248,14 @@
         "appearance-icons": "Téléchargez vos propres icônes à côté de l'ensemble intégré pour les bibliothèques, portées intelligentes et collections.",
         "appearance-layout": "Dimensions de couverture et espacement pour la grille de bibliothèque, la couverture montrée pour une série effondrée, et comment la grille de l'auteur est présentée.",
         "appearance-behavior": "Qu'est-ce que l'ouverture d'un livre à partir d'une grille ou d'une liste fait, si la série se réduit en une seule carte, et si les demandes de livres apparaissent dans ce compte.",
-        "appearance-language": "La langue utilisée par BookOrbit pour les menus, les étiquettes et les messages, et les formats régionaux pour les dates et les numéros.",
+        "appearance-language": "La langue utilisée par TLS Library pour les menus, les étiquettes et les messages, et les formats régionaux pour les dates et les numéros.",
         "reader-ebook": "Par défaut pour le lecteur de livres électroniques : si les nouveaux livres commencent avec vos paramètres, le flux de pages et les colonnes, le thème et la typographie tels que la police, la taille et l'espacement.",
         "reader-pdf": "Comment les PDFs s'ouvrent : page par page ou défilement continu, quelle page démarre un spread de deux pages et le zoom par défaut.",
         "reader-comics": "Comment lire la BD : mode de lecture et de direction, spreads à une ou deux pages, ajustement, manipulation à grande page et passage au livre suivant de la série.",
         "reader-audio": "La vitesse de départ et le volume des nouveaux livres audionumériques, et la distance à laquelle les boutons de sauter et de sauter vers l'avant.",
         "reader-fonts": "Téléchargez vos propres polices pour le lecteur, et choisissez les polices partagées par l'administrateur de votre serveur.",
         "reader-general": "Où vos préférences de lecture sont sauvegardées, et les valeurs par défaut partagées par chaque mode de lecture.",
-        "tts": "Votre voix et votre vitesse par défaut lorsque BookOrbit lit un livre à voix haute.",
+        "tts": "Votre voix et votre vitesse par défaut lorsque TLS Library lit un livre à voix haute.",
         "notifications": "Choisissez les événements qui vous notifient, des scans terminés et des récupérations de métadonnées aux renommages de fichiers, aux importations et aux résultats du Dock de livres.",
         "privacy": "Décidez de combien les administrateurs de votre activité de lecture peuvent voir, prévisualisez votre profil partagé et vérifiez qui l'a vu.",
         "restrictions": "Limites de contenu définies sur ce compte, telles que les classements d'âge et le contenu caché, et ce qu'ils ne sont pas dans vos bibliothèques.",
@@ -4269,7 +4269,7 @@
         "metadata-search-cache": "Gardez les réponses des fournisseurs afin que les recherches répétées soient rapides et fonctionnent quand un fournisseur est en panne, et contrôlez combien de temps et combien de temps est conservé.",
         "metadata-genre-blocklist": "Les valeurs de genre énumérées ici sont retirées des résultats du fournisseur avant que les métadonnées ne soient écrites, donc les étiquettes comme les livres audionumériques restent en dehors de vos livres.",
         "metadata-reminders": "Choisissez les champs manquants qui apparaissent dans les rappels du livre. Cela change les rappels uniquement, pas les notes de métadonnées.",
-        "file-naming": "Modèles de nom de dossier et de fichier utilisés lorsque BookOrbit renomme des livres sur disque, avec un aperçu du résultat et ce qui se passe quand une valeur est manquante.",
+        "file-naming": "Modèles de nom de dossier et de fichier utilisés lorsque TLS Library renomme des livres sur disque, avec un aperçu du résultat et ce qui se passe quand une valeur est manquante.",
         "maintenance": "Entretien du serveur: la limite de taille de téléchargement, les importations passées, la reconstitution des recommandations, le remplissage des réalisations et la vérification des mises à jour.",
         "kobo": "Connectez les lecteurs électroniques Kobo, choisissez comment les livres, les étagères et la lecture de la synchronisation de progression, et suivez l'activité récente de synchronisation de chaque appareil.",
         "koreader": "Synchronisez les progrès, lisez les activités et les faits saillants avec KOReader, obtenez l'URL de synchronisation et le plugin, et gérez les périphériques qui se connectent.",
@@ -4282,7 +4282,7 @@
         "account-activity": "Voyez quand chaque compte a été actif pour la dernière fois et comment il se connecte, et ouvrez les aperçus de lecture et de session par utilisateur.",
         "magic-links": "Créez des liens partageables qui se connectent à quelqu'un sans mot de passe et révoquez-les lorsqu'il n'est plus nécessaire.",
         "oidc": "Connectez un seul fournisseur de connexion tel que Keycloak, associez ses réclamations et décidez de la manière dont les nouveaux comptes sont créés.",
-        "requests": "Où BookOrbit recherche les livres demandés, que téléchargent les clients et ce qui se passe une fois le téléchargement terminé.",
+        "requests": "Où TLS Library recherche les livres demandés, que téléchargent les clients et ce qui se passe une fois le téléchargement terminé.",
         "admin-tts": "Les lecteurs de moteurs de synthèse vocale peuvent utiliser pour lire à haute voix, les voix offertes de chacun, et l'ordre dans lequel elles apparaissent.",
         "book-dock": "Le dossier de suppression du Dock du Livre, la récupération automatique des métadonnées pour les nouveaux fichiers, et la note à laquelle les fichiers sont finalisés par eux-mêmes.",
         "server-fonts": "Téléchargez les polices une fois pour chaque lecteur sur ce serveur. Chaque lecteur peut toujours les cacher.",
@@ -5146,7 +5146,7 @@
     },
     "sources": {
       "web": "Web",
-      "bookorbit": "BookOrbit",
+      "bookorbit": "TLS Library",
       "koreader": "KOReader",
       "kobo": "Kobo"
     },
@@ -5731,7 +5731,7 @@
     },
     "reconnect": {
       "heading": "En attente du serveur",
-      "description": "BookOrbit ne parvient pas à joindre son serveur pour le moment. Cette page reprendra d'elle-même dès que le serveur répondra.",
+      "description": "TLS Library ne parvient pas à joindre son serveur pour le moment. Cette page reprendra d'elle-même dès que le serveur répondra.",
       "retry": "Réessayer maintenant",
       "retrying": "Nouvelle tentative..."
     }
@@ -7508,13 +7508,13 @@
         },
         "emptyStage": {
           "title": "Rien d'enregistré pour ce livre",
-          "description": "Un journal de lecture se construit à partir des sessions. BookOrbit en enregistre une chaque fois que vous lisez dans le lecteur web, et récupère le reste depuis les appareils que vous synchronisez.",
+          "description": "Un journal de lecture se construit à partir des sessions. TLS Library en enregistre une chaque fois que vous lisez dans le lecteur web, et récupère le reste depuis les appareils que vous synchronisez.",
           "readerTitle": "Lisez ici",
-          "readerBody": "Chaque minute passée dans le lecteur BookOrbit est enregistrée automatiquement.",
+          "readerBody": "Chaque minute passée dans le lecteur TLS Library est enregistrée automatiquement.",
           "koreaderTitle": "Synchroniser KOReader",
           "koreaderBody": "Le plugin renvoie chaque séance, avec la page que vous avez atteinte.",
           "koboTitle": "Synchroniser une Kobo",
-          "koboBody": "Branchez l'appareil et BookOrbit lit son propre compteur de temps de lecture.",
+          "koboBody": "Branchez l'appareil et TLS Library lit son propre compteur de temps de lecture.",
           "addSession": "Ajouter une session à la main",
           "recordPast": "Enregistrer une lecture passée"
         },
@@ -7981,7 +7981,7 @@
         "noExtension": "Le fichier n'a pas d'extension, donc son format est inconnu",
         "tooLarge": "Plus grand que la limite de téléchargement {limit}",
         "tooLargeServer": "Plus grand que la limite de téléchargement du serveur",
-        "tooLargeProxy": "Rejeté comme trop grand avant d'atteindre BookOrbit, probablement par un proxy inversé",
+        "tooLargeProxy": "Rejeté comme trop grand avant d'atteindre TLS Library, probablement par un proxy inversé",
         "storageFull": "Le serveur est à court d'espace de stockage",
         "network": "Impossible d'accéder au serveur",
         "status": "Échec du téléchargement (HTTP {status})"
@@ -8213,22 +8213,22 @@
         "notProvided": "Non fourni",
         "searchScope": "Choisissez {count, plural, one {l'ISBN} other {l'un des # ISBN} many {l'un des # ISBN}} à chercher, ou cherchez par titre et auteur.",
         "searchScopeLimited": "Choisissez un seul ISBN à chercher.",
-        "titleAuthorOnly": "Aucun ISBN n'a été fourni. BookOrbit cherchera une fois par titre et auteur.",
+        "titleAuthorOnly": "Aucun ISBN n'a été fourni. TLS Library cherchera une fois par titre et auteur.",
         "chooseSearch": "Choisir une édition à chercher",
         "searchByEdition": "Trouver une release pour une édition",
         "findRelease": "Trouver une release",
         "primaryIsbn": "ISBN {isbn}",
         "primaryTitleAuthor": "Titre et auteur",
         "recommended": "Recommandé",
-        "recommendationHelpLabel": "Comment BookOrbit choisit l'ISBN recommandé",
+        "recommendationHelpLabel": "Comment TLS Library choisit l'ISBN recommandé",
         "recommendationTitle": "Comment la recherche recommandée est choisie",
         "recommendationLanguage": "Préférer la langue demandée, puis une langue inconnue, avant une langue qui ne correspond pas.",
         "recommendationAgreement": "Préférer un ISBN confirmé par davantage de fournisseurs de métadonnées indépendants.",
-        "recommendationProvider": "Utiliser la priorité stable des fournisseurs de métadonnées de BookOrbit.",
+        "recommendationProvider": "Utiliser la priorité stable des fournisseurs de métadonnées de TLS Library.",
         "recommendationRelevance": "Utiliser la position de l'édition dans les résultats de ce fournisseur.",
         "recommendationYear": "Préférer l'année d'édition la plus proche de la première année connue de l'œuvre.",
         "recommendationStable": "Utiliser l'ISBN lui-même comme départage stable final.",
-        "recommendationFallback": "Si aucun ISBN valide n'est disponible, BookOrbit cherche une fois par titre et auteur. Choisir une édition dans le menu prime toujours sur cette recommandation.",
+        "recommendationFallback": "Si aucun ISBN valide n'est disponible, TLS Library cherche une fois par titre et auteur. Choisir une édition dans le menu prime toujours sur cette recommandation.",
         "withoutIsbn": "Chercher par titre et auteur",
         "action": "Action"
       },
@@ -8464,7 +8464,7 @@
         "fileTooLarge": "Ce fichier dépasse {limit} : ce n'est donc pas un fichier .torrent",
         "fileUnreadable": "Ce fichier n'a pas pu être lu"
       },
-      "noClientList": "BookOrbit utilisera son client de téléchargement actif de plus haute priorité."
+      "noClientList": "TLS Library utilisera son client de téléchargement actif de plus haute priorité."
     },
     "attempts": {
       "title": "Tentatives précédentes",
@@ -8603,7 +8603,7 @@
       "manifest": {
         "ready": "{count, plural, one {Cette release contient # fichier. Le fichier de livre pris en charge peut être importé.} other {Cette release contient # fichiers. Le fichier de livre pris en charge peut être importé.} many {Cette release contient # fichiers. Le fichier de livre pris en charge peut être importé.}}",
         "noSupported": "Cette release ne contient aucun fichier de livre directement pris en charge : elle ne peut donc pas être envoyée.",
-        "contentsUnknown": "Cette release est empaquetée dans une archive (RAR, ZIP ou 7z). BookOrbit l'extraira après le téléchargement, son contenu n'est donc pas encore connu.",
+        "contentsUnknown": "Cette release est empaquetée dans une archive (RAR, ZIP ou 7z). TLS Library l'extraira après le téléchargement, son contenu n'est donc pas encore connu.",
         "multipleBooks": "Cette release contient {count} livres distincts. Une fois téléchargée, il vous sera demandé lequel importer.",
         "multiPartBook": "{count, plural, one {Cette release est un seul livre composé de # fichier.} other {Cette release est un seul livre composé de # fichiers, importés ensemble comme un livre unique.} many {Cette release est un seul livre composé de # fichiers, importés ensemble comme un livre unique.}}",
         "metadataUnavailable": "C'est un lien magnet. Sa liste de fichiers reste indisponible tant qu'un client torrent n'a pas récupéré les métadonnées auprès de l'essaim.",
@@ -8729,7 +8729,7 @@
     },
     "seed": {
       "title": "Client de téléchargement",
-      "automated": "BookOrbit a choisi cette release automatiquement.",
+      "automated": "TLS Library a choisi cette release automatiquement.",
       "loading": "Lecture du client de téléchargement...",
       "loadFailed": "Impossible de joindre le client de téléchargement pour cette demande.",
       "notInClient": "Le client de téléchargement n'a plus ce torrent.",
@@ -8744,7 +8744,7 @@
       "ofGoal": "{value} sur {goal}",
       "deleteFiles": "Supprimer aussi les fichiers téléchargés",
       "remove": "Retirer du client",
-      "removeHint": "BookOrbit n'arrête jamais un partage de lui-même. Le livre importé reste dans votre bibliothèque dans les deux cas.",
+      "removeHint": "TLS Library n'arrête jamais un partage de lui-même. Le livre importé reste dans votre bibliothèque dans les deux cas.",
       "confirm": {
         "title": "Retirer ce torrent ?",
         "description": "Le torrent cesse d'être partagé. Les fichiers téléchargés restent sur le disque.",
@@ -9071,9 +9071,9 @@
       "changePassword": "Changer le mot de passe",
       "signOut": "Se déconnecter",
       "githubStar": {
-        "title": "Vous appréciez BookOrbit ?",
-        "body": "Si BookOrbit vous aide avec votre bibliothèque, pensez à mettre le projet en vedette sur GitHub. Cela aide davantage de personnes à découvrir l'application et prend en charge le développement continu.",
-        "cta": "Mettez une étoile à BookOrbit sur GitHub"
+        "title": "Vous appréciez TLS Library ?",
+        "body": "Si TLS Library vous aide avec votre bibliothèque, pensez à mettre le projet en vedette sur GitHub. Cela aide davantage de personnes à découvrir l'application et prend en charge le développement continu.",
+        "cta": "Mettez une étoile à TLS Library sur GitHub"
       },
       "surfaceOpacity": "Opacité de la surface",
       "surfaceOpacityValue": "{value} %",
@@ -9372,10 +9372,10 @@
       "collectionsEmptyHint": "Les collections regroupent les livres que vous choisissez à la main."
     },
     "legalNotices": {
-      "about": "À propos de BookOrbit",
+      "about": "À propos de TLS Library",
       "trigger": "Mentions légales",
-      "title": "À propos de BookOrbit",
-      "description": "Crédits, licence et code source de BookOrbit.",
+      "title": "À propos de TLS Library",
+      "description": "Crédits, licence et code source de TLS Library.",
       "poweredBy": "Propulsé par BookOrbit",
       "originalDevelopment": "Ce logiciel contient des éléments développés à l'origine sous le nom de BookOrbit.",
       "copyright": "Copyright (C) 2025–2026 neon.",
@@ -9454,7 +9454,7 @@
     },
     "libraryLoad": {
       "errorTitle": "Impossible de charger vos bibliothèques",
-      "errorDescription": "BookOrbit n'a pas pu récupérer vos bibliothèques. Les données de votre bibliothèque n'ont pas été supprimées."
+      "errorDescription": "TLS Library n'a pas pu récupérer vos bibliothèques. Les données de votre bibliothèque n'ont pas été supprimées."
     },
     "scroller": {
       "failedToLoad": "Échec du chargement.",
@@ -9870,7 +9870,7 @@
       "serversEmptyTitle": "Pas encore de serveur de messagerie",
       "serversEmptyBody": "Les livres passent par un compte SMTP. Gmail, Outlook, iCloud et Fastmail sont en un clic, tous les autres serveurs fonctionnent aussi.",
       "needServerTitle": "Ajouter un serveur de messagerie avant d'envoyer",
-      "needServerBody": "BookOrbit envoie des livres via un compte SMTP que vous possédez, comme Gmail avec un mot de passe de l'application.",
+      "needServerBody": "TLS Library envoie des livres via un compte SMTP que vous possédez, comme Gmail avec un mot de passe de l'application.",
       "needServerAsk": "Demandez à un administrateur de partager un serveur de messagerie avec vous.",
       "goToServers": "Aller aux serveurs de messagerie",
       "noEncryption": "Pas de chiffrement"
@@ -9900,7 +9900,7 @@
       "unreachable": "{server} n’a pas répondu.",
       "unconfirmed": "La connexion a été interrompue après la transmission du message, il se peut qu'il soit arrivé.",
       "unconfirmedFix": "Vérifiez la boîte de réception avant de renvoyer, ou elle peut arriver deux fois.",
-      "interrupted": "BookOrbit a redémarré pendant la sortie de cet e-mail.",
+      "interrupted": "TLS Library a redémarré pendant la sortie de cet e-mail.",
       "interruptedFix": "Vérifiez la boîte de réception avant de renvoyer.",
       "preparation": "Le fichier n'a pas pu être préparé pour l'envoi.",
       "other": "Le serveur de messagerie l'a désactivé.",
@@ -10024,8 +10024,8 @@
         "approveNoServer": "Ajoutez d'abord un serveur de messagerie pour voir l'adresse que Kindle doit approuver.",
         "lastSent": "Dernier livre envoyé {time}",
         "sendTest": "Envoyer un e-mail de test",
-        "testSubject": "Email de test de BookOrbit",
-        "testBody": "Ceci est un test de BookOrbit. Si vous pouvez le lire, les livres envoyés à {name} arriveront ici aussi.",
+        "testSubject": "Email de test de TLS Library",
+        "testBody": "Ceci est un test de TLS Library. Si vous pouvez le lire, les livres envoyés à {name} arriveront ici aussi.",
         "testSent": "Courriel de test envoyé à {name}",
         "testFailed": "L'e-mail de test n'est pas sorti : {error}",
         "makeDefault": "Rendre le destinataire de l'envoi rapide",
@@ -10070,7 +10070,7 @@
         "share": "Partager avec tout le monde",
         "shareHint": "D'autres personnes peuvent envoyer des livres à travers ce serveur sans voir le mot de passe.",
         "system": "Envoyer des réinitialisations de mot de passe et des liens de connexion",
-        "systemHint": "Le serveur BookOrbit lui-même utilise. Seul un super-utilisateur peut changer cela.",
+        "systemHint": "Le serveur TLS Library lui-même utilise. Seul un super-utilisateur peut changer cela.",
         "verifyTls": "Vérifier le certificat du serveur",
         "verifyTlsHint": "Désactiver uniquement pour un serveur sur votre propre réseau avec un certificat auto-signé.",
         "test": "Tester la connexion",
@@ -10129,7 +10129,7 @@
     }
   },
   "errors": {
-    "network": "Impossible de joindre BookOrbit. Vérifiez votre connexion, puis réessayez."
+    "network": "Impossible de joindre TLS Library. Vérifiez votre connexion, puis réessayez."
   },
   "hardcover": {
     "settings": {
@@ -10175,7 +10175,7 @@
       },
       "syncOnProgress": {
         "title": "Synchronisation lors de la mise à jour de la progression",
-        "description": "Envoie la progression de lecture et les dates lorsque celle-ci change dans BookOrbit ou KOReader."
+        "description": "Envoie la progression de lecture et les dates lorsque celle-ci change dans TLS Library ou KOReader."
       },
       "syncOnRating": {
         "title": "Synchronisation lors du changement de note",
@@ -10229,7 +10229,7 @@
     },
     "import": {
       "title": "Extraire l'état de lecture",
-      "description": "Prévisualisez les correspondances Hardcover avant de remplir les statuts BookOrbit vides.",
+      "description": "Prévisualisez les correspondances Hardcover avant de remplir les statuts TLS Library vides.",
       "clear": "Effacer",
       "preview": "Aperçu",
       "importProgress": "Progression de l'importation",
@@ -10479,7 +10479,7 @@
           "options": {
             "imported": {
               "title": "Date d'import",
-              "hint": "La date à laquelle BookOrbit a importé le livre pour la première fois. C'est la valeur par défaut."
+              "hint": "La date à laquelle TLS Library a importé le livre pour la première fois. C'est la valeur par défaut."
             },
             "file_modified": {
               "title": "Date de modification du fichier",
@@ -10591,7 +10591,7 @@
           "opfTitle": "Fichier metadata.opf",
           "opfHint": "Enregistré à côté du livre par Calibre",
           "swap": "Inverser l'ordre",
-          "hint": "BookOrbit utilise la première source dont dispose un livre et ignore l'autre. Les bibliothèques Calibre veulent généralement metadata.opf en premier."
+          "hint": "TLS Library utilise la première source dont dispose un livre et ignore l'autre. Les bibliothèques Calibre veulent généralement metadata.opf en premier."
         },
         "regex": {
           "title": "Configurer les métadonnées regex",
@@ -10833,7 +10833,7 @@
           "metadata": "Quel fichier prime lorsqu'un livre en a plusieurs, et d'où viennent ses détails.",
           "reading": "Quand un livre passe de non lu à en cours, puis à lu.",
           "schedule": "Garder la bibliothèque à jour sans lancer d'analyse à la main.",
-          "fileWrite": "Les modifications facultatives que BookOrbit peut apporter aux fichiers sur le disque.",
+          "fileWrite": "Les modifications facultatives que TLS Library peut apporter aux fichiers sur le disque.",
           "access": "Qui d'autre peut voir cette bibliothèque et y travailler."
         }
       },
@@ -11149,7 +11149,7 @@
       },
       "cwa": {
         "snapshotTitle": "Mode instantané à l'arrêt",
-        "stoppedWarning": "Arrêtez Calibre-Web Automated avant de copier les deux bases de données. BookOrbit ne peut pas vérifier que les deux instantanés ont été copiés exactement au même instant.",
+        "stoppedWarning": "Arrêtez Calibre-Web Automated avant de copier les deux bases de données. TLS Library ne peut pas vérifier que les deux instantanés ont été copiés exactement au même instant.",
         "importRootGuidance": "Les deux fichiers instantanés doivent se trouver sur des chemins du serveur lisibles, sous le répertoire MIGRATION_IMPORT_ROOT configuré.",
         "logicalRootGuidance": "Le mappage des chemins de livres utilise la racine logique de la bibliothèque Calibre stockée dans app.db, et non le dossier hôte contenant ces instantanés de base de données.",
         "compatibilityNote": "Le comportement du schéma est vérifié avec Calibre-Web Automated v4.0.6. Ses bases de données n'exposent pas de version fiable de l'application."
@@ -11181,7 +11181,7 @@
       "targetUser": "Utilisateur cible",
       "doNotImport": "Ne pas importer cet utilisateur",
       "noSourceUsersLoaded": "Aucun utilisateur source n'a encore été chargé.",
-      "noActiveTargetUsers": "Aucun utilisateur cible actif trouvé. Créez ou réactivez un utilisateur BookOrbit avant le mappage.",
+      "noActiveTargetUsers": "Aucun utilisateur cible actif trouvé. Créez ou réactivez un utilisateur TLS Library avant le mappage.",
       "pathPrefixMappings": "Mappages de préfixes de chemin",
       "addMapping": "Ajouter un mappage",
       "pathMappingsExplanation": "Les mappages de chemin traduisent les chemins des fichiers source en chemins cibles afin que les livres puissent être mis en correspondance par emplacement de fichier. Les livres correspondent également à ISBN, au hachage de fichier et au titre/auteur, quels que soient les mappages de chemin.",
@@ -12408,7 +12408,7 @@
       },
       "confirmDialog": {
         "title": "{count, plural, one {Renommer # fichier sur le disque ?} many {Renommer # fichiers sur le disque ?} other {Renommer # fichiers sur le disque ?}}",
-        "body": "Cela déplace de vrais fichiers dans {library}. BookOrbit enregistre chaque déplacement, mais revenir en arrière suppose de renommer à nouveau.",
+        "body": "Cela déplace de vrais fichiers dans {library}. TLS Library enregistre chaque déplacement, mais revenir en arrière suppose de renommer à nouveau.",
         "willRename": "Seront renommés",
         "skippedByYou": "Ignorés par vous",
         "heldBack": "Mis en attente pour conflit",
@@ -13206,7 +13206,7 @@
       "offer": "J'ai enlevé uniquement la copie de l'appareil ; proposer le remplacement",
       "confirm": "J'ai installé le remplacement",
       "cancel": "Annuler le remplacement",
-      "replacementHint": "Préparez et révisez en premier. La suppression d'une copie de l'appareil ne supprime pas le livre de la bibliothèque. Sauvegardez vous-même les notes locales. BookOrbit préserve la progression canonique et les annotations des serveurs. Les événements retardés peuvent limiter la synchronisation précise.",
+      "replacementHint": "Préparez et révisez en premier. La suppression d'une copie de l'appareil ne supprime pas le livre de la bibliothèque. Sauvegardez vous-même les notes locales. TLS Library préserve la progression canonique et les annotations des serveurs. Les événements retardés peuvent limiter la synchronisation précise.",
       "prepared": "Remplacement préparé : {format}, {size}. Retirez ce livre uniquement de l'appareil sélectionné, puis offrez le remplacement et la synchronisation préparés.",
       "offered": "Remplacement offert. Synchronisez et téléchargez sur l'appareil, puis confirmez l'installation. Un transfert HTTP terminé ne prouve pas l'installation.",
       "cancelled": "Remplacement annulé. L'annulation ne restaure pas une copie de l'appareil supprimée ou partiellement remplacée. Sélectionnez le même livre pour préparer un téléchargement de récupération.",

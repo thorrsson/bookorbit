@@ -4,7 +4,7 @@ export const READING_SESSION_SOURCE_BUCKETS = ["bookorbit", "ios", "watchos", "a
 export type ReadingSessionSourceBucket = (typeof READING_SESSION_SOURCE_BUCKETS)[number];
 
 export const READING_SESSION_SOURCE_BUCKET_LABELS: Record<ReadingSessionSourceBucket, string> = {
-  bookorbit: "BookOrbit",
+  bookorbit: "TLS Library",
   ios: "iOS app",
   watchos: "Apple Watch",
   android: "Android app",

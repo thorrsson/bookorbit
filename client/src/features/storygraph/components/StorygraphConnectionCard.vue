@@ -242,7 +242,7 @@ function selectBookSyncMode(mode: 'all_eligible' | 'selected_only') {
       <div class="flex items-center justify-between">
         <div>
           <p class="text-sm">Sync on progress update</p>
-          <p class="text-xs text-muted-foreground mt-0.5">Push reading progress when BookOrbit or KOReader progress changes.</p>
+          <p class="text-xs text-muted-foreground mt-0.5">Push reading progress when TLS Library or KOReader progress changes.</p>
         </div>
         <ToggleSwitch v-model="form.autoSyncOnProgressUpdate" :disabled="!form.enabled" />
       </div>

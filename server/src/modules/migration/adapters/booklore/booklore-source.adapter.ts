@@ -273,7 +273,7 @@ export class BookloreSourceAdapter implements SourceAdapter<BookloreConnectionCo
       return warnings;
     }
     if (rootState === 'not_readable') {
-      warnings.push(`mediaRootPath "${mediaRootPath}" is not readable by the BookOrbit process; book cover/thumbnail import may fail`);
+      warnings.push(`mediaRootPath "${mediaRootPath}" is not readable by the TLS Library process; book cover/thumbnail import may fail`);
       return warnings;
     }
     if (rootState === 'unknown') {
@@ -288,7 +288,7 @@ export class BookloreSourceAdapter implements SourceAdapter<BookloreConnectionCo
     } else if (imagesState === 'not_directory') {
       warnings.push(`mediaRootPath "${imagesPath}" is not a directory; book cover/thumbnail import will be skipped`);
     } else if (imagesState === 'not_readable') {
-      warnings.push(`mediaRootPath "${imagesPath}" is not readable by the BookOrbit process; book cover/thumbnail import may fail`);
+      warnings.push(`mediaRootPath "${imagesPath}" is not readable by the TLS Library process; book cover/thumbnail import may fail`);
     } else if (imagesState === 'unknown') {
       warnings.push(`mediaRootPath "${imagesPath}" could not be verified; book cover/thumbnail import may fail`);
     }

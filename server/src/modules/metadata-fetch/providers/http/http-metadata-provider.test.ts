@@ -143,7 +143,7 @@ describe('HttpMetadataProvider', () => {
     expect(found.map((c) => c.mediaKind)).toEqual(['ebook', 'comic', undefined, undefined]);
   });
 
-  it('turns a provider throttle into the cooldown BookOrbit already understands', async () => {
+  it('turns a provider throttle into the cooldown TLS Library already understands', async () => {
     const { client, adapter: a } = adapter();
     client.search.mockRejectedValue(new HttpProviderError('throttled', 'provider answered 429', 429, 30));
     await expect(a.search({ title: 'x' })).rejects.toBeInstanceOf(ProviderThrottleError);

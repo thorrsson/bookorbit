@@ -216,7 +216,7 @@ async function draw() {
       tiles,
       facts: facts.value,
       moreLabel: (count) => t('readingHistory.share.poster.more', { count }),
-      brand: ['Book', 'Orbit'],
+      brand: ['TLS', 'Library'],
     },
     {
       look: look.value,

@@ -24,7 +24,7 @@ import { infoHashFromMagnet } from '../src/modules/book-request/fulfillment/torr
 // BO_REPRO_1318=1 pnpm --filter server test test/qbittorrent-hybrid.repro.test.ts
 const IMAGE = 'lscr.io/linuxserver/qbittorrent:5.2.3@sha256:8d48fa8c619caadfb103f04efea8747e2a2762d6c7551690919cffb987e61cee';
 const exec = promisify(execFile);
-const CONTENT = Buffer.from('BookOrbit issue 1318 synthetic public test content.\n');
+const CONTENT = Buffer.from('TLS Library issue 1318 synthetic public test content.\n');
 const FILE_NAME = 'issue-1318.txt';
 
 type Bencoded = number | Buffer | { [key: string]: Bencoded };

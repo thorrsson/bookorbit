@@ -31,7 +31,7 @@ local SYNC_STRATEGY
 local ProgressSync = {}
 
 local function showSyncError()
-    Toast.error(_("Could not sync progress with BookOrbit"))
+    Toast.error(_("Could not sync progress with TLS Library"))
 end
 
 -- "54%" for a 0..1 fraction.
@@ -103,14 +103,14 @@ function ProgressSync:getDocumentDigest()
         local repaired, repair_err = pcall(
             BookOrbitStateManager.repairFileIdentity, file, cached, computed)
         if not repaired then
-            logger.warn("BookOrbit: could not repair cached file identity:", repair_err)
+            logger.warn("TLS Library: could not repair cached file identity:", repair_err)
         end
     end
     return computed
 end
 
 function ProgressSync:syncToProgress(progress, percentage_fallback)
-    logger.dbg("BookOrbit: syncing to progress", progress, "percent", percentage_fallback)
+    logger.dbg("TLS Library: syncing to progress", progress, "percent", percentage_fallback)
     local has_position = progress ~= nil and progress ~= ""
     if not has_position and percentage_fallback then
         -- No exact position (web or audio sync, or a different copy of the
@@ -210,8 +210,8 @@ function ProgressSync:reconcileProgressBeforeBookSync(digest, on_done)
     self:rememberRemoteProgress(digest, body)
 
     if not body then
-        logger.dbg("BookOrbit: progress check before book sync failed:", err)
-        Toast.show(_("Could not check BookOrbit's position"), { icon = "triangle-alert", timeout = 4 })
+        logger.dbg("TLS Library: progress check before book sync failed:", err)
+        Toast.show(_("Could not check TLS Library's position"), { icon = "triangle-alert", timeout = 4 })
         on_done(true)
         return true
     end
@@ -257,7 +257,7 @@ function ProgressSync:reconcileProgressBeforeBookSync(digest, on_done)
         self:applyRemoteProgress(body, on_done)
         return true
     elseif remote_newer then
-        Toast.show(_("Kept your place. BookOrbit is further ahead."), { icon = "info", timeout = 4 })
+        Toast.show(_("Kept your place. TLS Library is further ahead."), { icon = "info", timeout = 4 })
         on_done(true)
         return true
     else
@@ -288,7 +288,7 @@ function ProgressSync:pushProgressAfterBookSync(digest)
     if body then
         self:noteProgressCompared(digest)
     else
-        logger.dbg("BookOrbit: progress push after book sync failed:", err)
+        logger.dbg("TLS Library: progress push after book sync failed:", err)
     end
 end
 
@@ -306,7 +306,7 @@ function ProgressSync:updateProgress(ensure_networking, interactive, on_suspend)
 
     local now = UIManager:getElapsedTimeSinceBoot()
     if not interactive and now - self.push_timestamp <= API_CALL_DEBOUNCE_DELAY then
-        logger.dbg("BookOrbit: push debounced")
+        logger.dbg("TLS Library: push debounced")
         return
     end
 
@@ -328,7 +328,7 @@ function ProgressSync:updateProgress(ensure_networking, interactive, on_suspend)
             if self.recordSyncSuccess then
                 self:recordSyncSuccess("progress_push", _("Progress pushed"))
             end
-            Toast.show(_("Progress sent to BookOrbit"))
+            Toast.show(_("Progress sent to TLS Library"))
             if not on_suspend then
                 if self.requestUpdateCheck then
                     self:requestUpdateCheck(false, "progress_push")
@@ -346,7 +346,7 @@ function ProgressSync:updateProgress(ensure_networking, interactive, on_suspend)
         if self.recordSyncError then
             self:recordSyncError("progress_push", err)
         end
-        logger.dbg("BookOrbit: push failed:", err)
+        logger.dbg("TLS Library: push failed:", err)
     elseif not on_suspend then
         if self.recordSyncSuccess then
             self:recordSyncSuccess("progress_push", _("Progress pushed"))
@@ -382,7 +382,7 @@ function ProgressSync:getProgress(ensure_networking, interactive)
 
     local now = UIManager:getElapsedTimeSinceBoot()
     if not interactive and now - self.pull_timestamp <= API_CALL_DEBOUNCE_DELAY then
-        logger.dbg("BookOrbit: pull debounced")
+        logger.dbg("TLS Library: pull debounced")
         return
     end
 
@@ -414,7 +414,7 @@ function ProgressSync:getProgress(ensure_networking, interactive)
         if self.recordSyncError then
             self:recordSyncError("progress_pull", err)
         end
-        logger.dbg("BookOrbit: pull failed:", err)
+        logger.dbg("TLS Library: pull failed:", err)
         return
     end
     if self.requestUpdateCheck then
@@ -426,7 +426,7 @@ function ProgressSync:getProgress(ensure_networking, interactive)
     if not body.percentage then
         self:noteProgressCompared(digest)
         if interactive then
-            Toast.show(_("BookOrbit has no position for this book yet"), { icon = "info" })
+            Toast.show(_("TLS Library has no position for this book yet"), { icon = "info" })
         end
         return
     end

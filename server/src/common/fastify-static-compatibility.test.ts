@@ -16,7 +16,7 @@ describe('@fastify/static production compatibility', () => {
     publicRoot = join(testRoot, 'public');
     await mkdir(join(publicRoot, 'assets'), { recursive: true });
     await mkdir(join(publicRoot, 'deep'), { recursive: true });
-    await writeFile(join(publicRoot, 'index.html'), '<main>BookOrbit</main>');
+    await writeFile(join(publicRoot, 'index.html'), '<main>TLS Library</main>');
     await writeFile(join(publicRoot, 'assets', 'app.js'), 'globalThis.bookOrbit = true;');
     await writeFile(join(publicRoot, 'deep', 'secret.txt'), 'protected');
     await writeFile(join(testRoot, 'outside.txt'), 'outside root');
@@ -44,7 +44,7 @@ describe('@fastify/static production compatibility', () => {
     expect(assetResponse.statusCode).toBe(200);
     expect(assetResponse.body).toBe('globalThis.bookOrbit = true;');
     expect(fallbackResponse.statusCode).toBe(200);
-    expect(fallbackResponse.body).toBe('<main>BookOrbit</main>');
+    expect(fallbackResponse.body).toBe('<main>TLS Library</main>');
   });
 
   it('caches hashed build output forever and keeps fixed-name files revalidating', async () => {

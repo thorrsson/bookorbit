@@ -193,7 +193,7 @@ describe('DelugeAdapter', () => {
       expect(add?.params[1]).toBe(Buffer.from('d4:infod4:name4:duneee').toString('base64'));
     });
 
-    it('sets the seed ratio goal so the client, not BookOrbit, enforces it', async () => {
+    it('sets the seed ratio goal so the client, not TLS Library, enforces it', async () => {
       const { calls, handlers } = mockRpc();
       handlers.set('core.add_torrent_magnet', () => result(INFO_HASH));
 

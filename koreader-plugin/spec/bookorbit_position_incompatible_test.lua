@@ -175,7 +175,7 @@ assertEqual(summary.incompatible, 1, "one skipped book is counted once, not per 
 assertEqual(summary.failed, 0, "no highlight failure")
 assertEqual(summary.bm_failed, 0, "no bookmark failure")
 assertEqual(HighlightSummary.actionableError(summary, nil), nil, "no partial failure is reported")
-assert(HighlightSummary.message(summary):find("different file from the one in BookOrbit", 1, true),
+assert(HighlightSummary.message(summary):find("different file from the one in TLS Library", 1, true),
     "the message names the reason")
 assertEqual(HighlightSummary.normalize({}).incompatible, 0, "older persisted summaries read as zero")
 
@@ -184,7 +184,7 @@ assertEqual(Diagnostics.openHighlightsText{
     has_open_book = true,
     matched = true,
     position_incompatible = true,
-}, "not synced: this copy differs from BookOrbit's file", "diagnostics name the state")
+}, "not synced: this copy differs from TLS Library's file", "diagnostics name the state")
 assertEqual(Diagnostics.openHighlightsText{
     annotation_sync = true,
     has_open_book = true,

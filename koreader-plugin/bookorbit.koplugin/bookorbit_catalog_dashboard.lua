@@ -230,7 +230,7 @@ function CatalogDashboard:dashboardRootFetch(opts)
 
     if isDashboardUnsupported(err) then
         if requestIsCurrent() then
-            require("bookorbit_toast").show(_("Home needs a newer BookOrbit server. Showing the catalog instead."), { icon = "info", timeout = 4 })
+            require("bookorbit_toast").show(_("Home needs a newer TLS Library server. Showing the catalog instead."), { icon = "info", timeout = 4 })
         end
         return self:rootItems(), { kind = "root", title = self.title }
     end

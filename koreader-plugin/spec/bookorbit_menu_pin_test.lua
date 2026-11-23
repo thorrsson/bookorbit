@@ -100,9 +100,9 @@ IntegrationMenuPin.ensure(true)
 assertEqual(fs:attributes(generated_path), nil, "generated overrides are removed")
 assertEqual(table.concat(filemanager_order["KOMenu:menu_buttons"], ","),
     "filemanager_settings,setting,tools,search,plus_menu,bookorbit_tab,main",
-    "BookOrbit extends the shared file-manager button order")
+    "TLS Library extends the shared file-manager button order")
 assertEqual(table.concat(filemanager_order.tools, ","), "read_timer,calibre,bookorbit,exporter",
-    "BookOrbit extends the shared tools order")
+    "TLS Library extends the shared tools order")
 
 -- Bookshelf and another plugin load after BookOrbit.
 table.insert(filemanager_order["KOMenu:menu_buttons"], 2, "bookshelf_tab")

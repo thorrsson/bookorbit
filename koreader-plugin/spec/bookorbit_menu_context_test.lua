@@ -92,12 +92,12 @@ end
 -- The file browser's Tools entry: open BookOrbit, or its settings.
 local plugin, calls = newPlugin()
 local items = menuItems(plugin)
-assertEqual(texts(items.bookorbit.sub_item_table), "Open BookOrbit|Settings", "the Tools entry is two rows in the file browser")
+assertEqual(texts(items.bookorbit.sub_item_table), "Open TLS Library|Settings", "the Tools entry is two rows in the file browser")
 assertEqual(items.bookorbit.sorting_hint, "tools", "the entry still falls back to the Tools menu")
 
 -- In a book it adds This book.
 local reader = newPlugin({ reader = true })
-assertEqual(texts(menuItems(reader).bookorbit.sub_item_table), "Open BookOrbit|This book|Settings", "a book adds This book")
+assertEqual(texts(menuItems(reader).bookorbit.sub_item_table), "Open TLS Library|This book|Settings", "a book adds This book")
 
 -- The menu bar tab is a button: never remembered, never a list.
 local tab = items.bookorbit_tab
@@ -127,7 +127,7 @@ tab.callback()
 assertEqual(calls[1][1], "close_fm_menu", "the KOReader menu closes first")
 assertEqual(#calls, 1, "nothing opens before the close has painted")
 runTicks()
-assertEqual(calls[2][1], "browseCatalog", "the file browser's tab opens BookOrbit")
+assertEqual(calls[2][1], "browseCatalog", "the file browser's tab opens TLS Library")
 
 local book, book_calls = newPlugin({ reader = true })
 book.ui.menu.onCloseReaderMenu = function() table.insert(book_calls, { "close_reader_menu" }) end
@@ -144,7 +144,7 @@ assertEqual(out_calls[1][1], "openSignIn", "signed out, the tab opens sign-in")
 -- Open BookOrbit from Tools signs in first when needed.
 out_calls[1] = nil
 out:openBookOrbit()
-assertEqual(out_calls[#out_calls][1], "openSignIn", "Open BookOrbit asks for a sign-in when signed out")
+assertEqual(out_calls[#out_calls][1], "openSignIn", "Open TLS Library asks for a sign-in when signed out")
 
 -- The sheet's actions close it, then act.
 local sheet_plugin, sheet_calls = newPlugin()
@@ -175,7 +175,7 @@ run({ kind = "link", link = "authors" })
 run({ kind = "list-options" })
 assertEqual(table.concat(events, ","), "home,exit,exit,search,link:authors,list-options", "catalog actions reach the catalog")
 assertEqual(table.concat(sent_events, ","), "Home", "Files asks KOReader to open its file browser")
-assertEqual(sheet_plugin.skip_return_home_once, true, "Files bypasses the BookOrbit home preference once")
+assertEqual(sheet_plugin.skip_return_home_once, true, "Files bypasses the TLS Library home preference once")
 assertEqual(closes, 6, "every action closes the sheet first")
 
 -- Sync now keeps the sheet open: its tile shows the run, then the outcome.

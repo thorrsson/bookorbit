@@ -1,1 +1,36 @@
-{"version":1,"sessions":{"9e9db5fd-abb4-43b2-9a01-19dbd0b4a3de":{"updatedAt":1794597509105,"files":{"/Users/tim/workspace/copilot-worktrees/bookorbit/thorrsson-animated-eureka/release.config.js":{"editCount":2,"findings":["broken-image:65"]}}}}}
+{
+  "version": 1,
+  "sessions": {
+    "9e9db5fd-abb4-43b2-9a01-19dbd0b4a3de": {
+      "updatedAt": 1794597509105,
+      "files": {
+        "/Users/tim/workspace/copilot-worktrees/bookorbit/thorrsson-animated-eureka/release.config.js": {
+          "editCount": 2,
+          "findings": ["broken-image:65"]
+        }
+      }
+    },
+    "d00873ab-5b94-49f2-b9f2-513ddd34d432": {
+      "updatedAt": 1795033695033,
+      "files": {
+        "/Users/tim/workspace/copilot-worktrees/bookorbit/thorrsson-super-broccoli/release.config.js": {
+          "editCount": 2,
+          "findings": ["broken-image:67"]
+        },
+        "/Users/tim/workspace/copilot-worktrees/bookorbit/thorrsson-super-broccoli/client/src/components/legal/LegalNotices.vue": {
+          "editCount": 4,
+          "findings": [],
+          "cleanAcked": true
+        },
+        "/Users/tim/workspace/copilot-worktrees/bookorbit/thorrsson-super-broccoli/client/src/components/legal/LegalNotices.spec.ts": {
+          "editCount": 2,
+          "findings": []
+        },
+        "/Users/tim/workspace/copilot-worktrees/bookorbit/thorrsson-super-broccoli/client/vite.config.ts": {
+          "editCount": 1,
+          "findings": []
+        }
+      }
+    }
+  }
+}

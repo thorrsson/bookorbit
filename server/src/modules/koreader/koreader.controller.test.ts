@@ -66,7 +66,7 @@ describe('KoreaderController', () => {
   it('registerKoreader always rejects plugin self-registration', () => {
     const { controller } = makeController();
 
-    expect(() => controller.registerKoreader()).toThrow('Registration disabled. Create credentials in BookOrbit settings.');
+    expect(() => controller.registerKoreader()).toThrow('Registration disabled. Create credentials in TLS Library settings.');
   });
 
   it('forwards kosync protocol routes to the service', async () => {

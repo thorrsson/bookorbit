@@ -83,7 +83,7 @@ local function decodeResponse(parts)
     end
     local ok, decoded, decode_err = pcall(rapidjson.decode, raw)
     if not ok or decoded == nil then
-        logger.dbg("BookOrbit: invalid JSON response:", ok and decode_err or decoded)
+        logger.dbg("TLS Library: invalid JSON response:", ok and decode_err or decoded)
         return nil, "invalid_json"
     end
     return scrubNulls(decoded) or {}
@@ -299,7 +299,7 @@ function BookOrbitApi:requestBlocking(method, path, body, extra_headers)
         socketutil:reset_timeout()
 
         if type(code) ~= "number" then
-            logger.dbg("BookOrbit: network error:", status or code)
+            logger.dbg("TLS Library: network error:", status or code)
             return nil, tostring(status or code or "network_error")
         end
 
@@ -621,7 +621,7 @@ function BookOrbitApi:matchCheck(hashes, candidates)
     end
 
     if skipped > 0 then
-        logger.warn("BookOrbit: match-check skipped invalid hashes:", skipped)
+        logger.warn("TLS Library: match-check skipped invalid hashes:", skipped)
     end
     if #payload.hashes == 0 then
         return { matches = {} }

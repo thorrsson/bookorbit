@@ -1078,10 +1078,10 @@ function Decor.badge(ctx, w, hh)
     local iw, ih = w - 2 * pad, hh - 2 * pad
     local function award() return icon("award", px(17), BoardColour.icon(ctx, 2.25)) end
     if data.missing then
-        return emptyTile(w, hh, _("Next badge"), award, _("Badges show up here with a newer BookOrbit server."), _("Needs a newer server."))
+        return emptyTile(w, hh, _("Next badge"), award, _("Badges show up here with a newer TLS Library server."), _("Needs a newer server."))
     end
     if data.off then
-        return emptyTile(w, hh, _("Next badge"), award, _("Achievements are turned off in your BookOrbit settings."), _("Achievements are off."))
+        return emptyTile(w, hh, _("Next badge"), award, _("Achievements are turned off in your TLS Library settings."), _("Achievements are off."))
     end
     if not data.next and not data.latest then
         return emptyTile(w, hh, _("Next badge"), award, _("Read a little and your first badge shows up here."), _("No badges yet."))

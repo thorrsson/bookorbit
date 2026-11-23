@@ -117,7 +117,7 @@ describe('QbittorrentAdapter', () => {
       expect(calls.some((call) => call.url.includes('setShareLimits'))).toBe(false);
     });
 
-    it('passes seed goals through so the client, not BookOrbit, enforces them', async () => {
+    it('passes seed goals through so the client, not TLS Library, enforces them', async () => {
       const { calls } = mockFetch();
 
       await adapter.add({ magnet: `magnet:?xt=urn:btih:${INFO_HASH}`, clientKey: INFO_HASH, seedRatioGoal: 2, seedTimeMinutes: 4320 }, config());

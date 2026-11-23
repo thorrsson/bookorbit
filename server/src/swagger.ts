@@ -22,8 +22,8 @@ export async function setupSwaggerDocs(app: NestFastifyApplication, config: AppC
   await loadSwaggerPluginMetadata();
 
   const openApiConfig = new DocumentBuilder()
-    .setTitle('BookOrbit API')
-    .setDescription('BookOrbit server API')
+    .setTitle('TLS Library API')
+    .setDescription('TLS Library server API')
     .setVersion(config.version)
     .addBearerAuth(
       { type: 'http', scheme: 'bearer', description: 'A session access token, or an API key (`bok_...`) where the route accepts one.' },
@@ -35,7 +35,7 @@ export async function setupSwaggerDocs(app: NestFastifyApplication, config: AppC
   const documentFactory = () => normalizeSwaggerDocument(SwaggerModule.createDocument(app, openApiConfig));
 
   SwaggerModule.setup('api/docs', app, documentFactory, {
-    customSiteTitle: 'BookOrbit API Docs',
+    customSiteTitle: 'TLS Library API Docs',
     jsonDocumentUrl: 'api/docs-json',
     raw: ['json'],
     swaggerOptions: {

@@ -732,7 +732,7 @@ describe('KoboReadingStateService', () => {
 
     // A Kobo with its own row was served the status it last reported, so a book marked read in
     // BookOrbit afterwards stayed Reading on it.
-    it('serves a status BookOrbit set after the Kobo last reported one', async () => {
+    it('serves a status TLS Library set after the Kobo last reported one', async () => {
       const db = makeDb();
       db.query.books.findFirst.mockResolvedValue({ id: 44 });
       db.query.koboDeviceReadingStates.findFirst.mockResolvedValue({
@@ -746,7 +746,7 @@ describe('KoboReadingStateService', () => {
       expect(state.StatusInfo).toEqual({ Status: 'Finished', LastModified: '2026-10-17T20:26:17.150Z', TimesStartedReading: 1 });
     });
 
-    it('keeps a status the Kobo reported after the one BookOrbit set', async () => {
+    it('keeps a status the Kobo reported after the one TLS Library set', async () => {
       const db = makeDb();
       db.query.books.findFirst.mockResolvedValue({ id: 44 });
       db.query.koboDeviceReadingStates.findFirst.mockResolvedValue({
@@ -1057,7 +1057,7 @@ describe('KoboReadingStateService', () => {
       expect(insert.values).toHaveBeenCalledWith(expect.objectContaining({ bookFileId: 55, percentage: 0 }));
       expect(insert.values).toHaveBeenCalledWith(expect.objectContaining({ deviceId: 77, deliveryId: 'old' }));
     });
-    it('permits a replacement to echo a deliberate reset already saved in BookOrbit', async () => {
+    it('permits a replacement to echo a deliberate reset already saved in TLS Library', async () => {
       const { db, insert } = resetDb(0);
       await makeService(db, {
         current: vi.fn().mockResolvedValue({ id: 'new', previousId: 'old', state: 'user_confirmed', options: { replacement: true } }),

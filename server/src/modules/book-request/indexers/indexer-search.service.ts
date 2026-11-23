@@ -169,7 +169,7 @@ export class IndexerSearchService {
           filtered,
           query: indexerQuery,
           failure: 'error',
-          error: `${config.name} returned a release BookOrbit could not read: ${message}`,
+          error: `${config.name} returned a release TLS Library could not read: ${message}`,
           seedsBack,
           delivery,
         });

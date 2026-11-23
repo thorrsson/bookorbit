@@ -60,7 +60,7 @@ appointed representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders via GitHub's private reporting channel:
-https://github.com/bookorbit/bookorbit/security/advisories/new. For conduct
+https://github.com/thorrsson/bookorbit/security/advisories/new. For conduct
 reports, include "Code of Conduct report" in the title so it can be triaged
 appropriately. All complaints will be reviewed and investigated promptly and
 fairly.

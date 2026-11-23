@@ -39,14 +39,14 @@ describe('annotation-style-map', () => {
   });
 
   describe('hexFromKoreaderColor', () => {
-    it('maps KOReader named colors to BookOrbit equivalents', () => {
+    it('maps KOReader named colors to TLS Library equivalents', () => {
       expect(hexFromKoreaderColor('yellow')).toBe('#FACC15');
       expect(hexFromKoreaderColor('olive')).toBe('#84CC16');
       expect(hexFromKoreaderColor('cyan')).toBe('#22D3EE');
       expect(hexFromKoreaderColor('GRAY')).toBe('#9CA3AF');
     });
 
-    it('maps exact KOReader hex values to BookOrbit equivalents', () => {
+    it('maps exact KOReader hex values to TLS Library equivalents', () => {
       expect(hexFromKoreaderColor('#ffff33')).toBe('#FACC15');
       expect(hexFromKoreaderColor('88ff77')).toBe('#84CC16');
     });
@@ -108,7 +108,7 @@ describe('annotation-style-map', () => {
       expect(applyDeviceColor('#FACC15', 'blue')).toBe('#38BDF8');
     });
 
-    it('applies exact device hex colors as BookOrbit equivalents', () => {
+    it('applies exact device hex colors as TLS Library equivalents', () => {
       expect(applyDeviceColor('#FACC15', '#00AA66')).toBe('#4ADE80');
     });
 
@@ -118,12 +118,12 @@ describe('annotation-style-map', () => {
   });
 
   describe('Kobo color mapping', () => {
-    it('maps Kobo colors into BookOrbit equivalents', () => {
+    it('maps Kobo colors into TLS Library equivalents', () => {
       expect(hexFromKoboColor('#F6F3B3')).toBe('#FACC15');
       expect(hexFromKoboColor('#E8AFCF')).toBe('#F472B6');
     });
 
-    it('uses explicit Kobo fallbacks for BookOrbit colors', () => {
+    it('uses explicit Kobo fallbacks for TLS Library colors', () => {
       expect(koboColorFromHex('#F87171')).toBe('#E8AFCF');
       expect(koboColorFromHex('#FB923C')).toBe('#F6F3B3');
       expect(koboColorFromHex('#84CC16')).toBe('#C6E09E');

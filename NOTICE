@@ -23,3 +23,20 @@ The required attribution is:
 
 See ADDITIONAL_TERMS.md for the conditions governing display, source access,
 modified versions, preservation, and trademarks.
+
+Modifications
+
+    This is a modified version of BookOrbit and is not an official BookOrbit
+    release. It is maintained at https://github.com/thorrsson/bookorbit and is
+    not affiliated with, approved, sponsored, or endorsed by the BookOrbit
+    project.
+
+    2026-11-18: Repository, release, image, and support references point at
+    the thorrsson/bookorbit fork. The in-app Legal Notices identify this
+    modified version and its build date.
+
+    2026-11-18: The user-facing name is changed to "TLS Library" and the
+    application icon is replaced. The "Powered by BookOrbit" attribution,
+    copyright notices, and these legal notices are unchanged. Internal
+    identifiers, such as package names, environment variables, and the
+    KOReader plugin folder, still use "bookorbit" for compatibility.

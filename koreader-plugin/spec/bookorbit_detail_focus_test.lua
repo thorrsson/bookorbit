@@ -95,7 +95,7 @@ assertEqual(usable[2].size, "305 KB", "and shows the stored file's size")
 assertEqual(#other, 2, "audio and formats KOReader cannot open are listed apart")
 assertEqual(other[1].audio, true, "the M4B is audio")
 assertEqual(other[2].opens, false, "the AZW3 cannot be opened")
-assertEqual(DetailData.fileSubs(usable[1])[1], "Text only here; narration plays in BookOrbit", "the read-along explains itself")
+assertEqual(DetailData.fileSubs(usable[1])[1], "Text only here; narration plays in TLS Library", "the read-along explains itself")
 
 -- The main file is the first this reader can open, so a primary it cannot use
 -- never leaves the ebook it can labelled as a spare.
@@ -139,7 +139,7 @@ assertEqual(DetailData.primary({ on_device = true, pct = 0 }, usable, other).kin
 assertEqual(DetailData.primary({ on_device = true, status = "read", pct = 100 }, usable, other).kind, "again", "a finished book reads again")
 assertEqual(DetailData.primary({ offline = true }, usable, other).kind, "offline", "offline cannot download")
 local audio_only = DetailData.primary({}, {}, { { audio = true } })
-assertEqual(audio_only.labels[1], "Audiobook · listen in BookOrbit", "an audiobook-only book points to BookOrbit")
+assertEqual(audio_only.labels[1], "Audiobook · listen in TLS Library", "an audiobook-only book points to TLS Library")
 assertEqual(DetailData.primary({}, {}, { { audio = false } }).labels[1], "No file KOReader can open", "nothing usable says so")
 assertEqual(DetailData.primary({ downloading = { pct = 46, sub = "212 KB of 460 KB" } }, usable, other).kind, "downloading",
     "a download in progress fills the button")

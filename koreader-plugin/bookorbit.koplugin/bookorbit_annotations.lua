@@ -513,7 +513,7 @@ function BookOrbitAnnotations.applyLive(ui, to_apply)
                 end
             end
             if not verified then
-                logger.dbg("BookOrbit: annotation apply failed, no verifiable position:", entry.serverId)
+                logger.dbg("TLS Library: annotation apply failed, no verifiable position:", entry.serverId)
                 table.insert(applied, ackApplied(entry, { failed = true }))
             else
                 local item = {
@@ -556,7 +556,7 @@ function BookOrbitAnnotations.applyLive(ui, to_apply)
         local index, annotation = lookup:find(entry)
         lookup:claim(annotation, entry)
         if not index then
-            logger.dbg("BookOrbit: annotation edit target missing:", entry.serverId)
+            logger.dbg("TLS Library: annotation edit target missing:", entry.serverId)
             table.insert(applied, ackApplied(entry, { failed = true }))
         elseif type(annotation.pos0) ~= "string" then
             -- A page-position (PDF) highlight: nothing elsewhere can move it, so only its note,
@@ -803,7 +803,7 @@ function BookOrbitAnnotations.exchangeBook(opts)
             if err == 401 or err == 403 then return nil, "auth" end
             if err == 404 then return nil, "unsupported_server" end
             if type(err) ~= "number" then return nil, "network" end
-            logger.dbg("BookOrbit: annotation exchange failed:", err)
+            logger.dbg("TLS Library: annotation exchange failed:", err)
             result.had_errors = true
             upload_failed = true
             break
@@ -882,7 +882,7 @@ function BookOrbitAnnotations.exchangeBook(opts)
             { hash = opts.digest, applied = applied, deleted = deleted },
         })
         if not ack_body then
-            logger.dbg("BookOrbit: annotation exchange ack failed:", ack_err)
+            logger.dbg("TLS Library: annotation exchange ack failed:", ack_err)
             result.had_errors = true
             break
         end
@@ -893,7 +893,7 @@ function BookOrbitAnnotations.exchangeBook(opts)
             { hash = opts.digest, keys = {}, keysComplete = false, changes = {} },
         })
         if not body then
-            logger.dbg("BookOrbit: annotation exchange follow-up failed:", err)
+            logger.dbg("TLS Library: annotation exchange follow-up failed:", err)
             result.had_errors = true
             break
         end

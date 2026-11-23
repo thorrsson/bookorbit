@@ -401,7 +401,7 @@ describe('ProviderConfigService', () => {
     // Aladin closed its API, so there is no image to point at.
     expect(statuses.find((s) => s.key === MetadataProviderKey.ALADIN)).toMatchObject({
       enabled: false,
-      hint: 'Aladin closed the service BookOrbit used.',
+      hint: 'Aladin closed the service TLS Library used.',
       movedOut: { image: null, inUse: false },
     });
     expect(statuses.find((s) => s.key === MetadataProviderKey.GOOGLE)?.configured).toBe(false);

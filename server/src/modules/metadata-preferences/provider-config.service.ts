@@ -488,7 +488,7 @@ export class ProviderConfigService implements OnModuleInit {
         label,
         enabled: false,
         configured: false,
-        hint: image ? 'Now runs as its own provider. Add it under External providers.' : `${label} closed the service BookOrbit used.`,
+        hint: image ? 'Now runs as its own provider. Add it under External providers.' : `${label} closed the service TLS Library used.`,
         source: 'external' as const,
         movedOut: { image, inUse: inUse.has(key) },
       };

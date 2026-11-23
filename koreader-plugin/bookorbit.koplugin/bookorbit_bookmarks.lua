@@ -190,7 +190,7 @@ function BookOrbitBookmarks.applyLive(ui, to_apply)
         else
             local ok, resolves = pcall(document.isXPointerInDocument, document, entry.pos)
             if not (ok and resolves) then
-                logger.dbg("BookOrbit: bookmark apply failed, position does not resolve:", entry.serverId)
+                logger.dbg("TLS Library: bookmark apply failed, position does not resolve:", entry.serverId)
                 table.insert(applied, ackApplied(entry, { failed = true }))
             else
                 local item = { page = entry.pos }
@@ -346,7 +346,7 @@ function BookOrbitBookmarks.exchangeBook(opts)
             if err == 401 or err == 403 then return nil, "auth" end
             if err == 404 then return nil, "unsupported_server" end
             if type(err) ~= "number" then return nil, "network" end
-            logger.dbg("BookOrbit: bookmark exchange failed:", err)
+            logger.dbg("TLS Library: bookmark exchange failed:", err)
             result.had_errors = true
             upload_failed = true
             break
@@ -417,7 +417,7 @@ function BookOrbitBookmarks.exchangeBook(opts)
             { hash = opts.digest, applied = applied, deleted = deleted },
         })
         if not ack_body then
-            logger.dbg("BookOrbit: bookmark exchange ack failed:", ack_err)
+            logger.dbg("TLS Library: bookmark exchange ack failed:", ack_err)
             result.had_errors = true
             break
         end
@@ -427,7 +427,7 @@ function BookOrbitBookmarks.exchangeBook(opts)
             { hash = opts.digest, keys = {}, keysComplete = false, changes = {} },
         })
         if not body then
-            logger.dbg("BookOrbit: bookmark exchange follow-up failed:", err)
+            logger.dbg("TLS Library: bookmark exchange follow-up failed:", err)
             result.had_errors = true
             break
         end

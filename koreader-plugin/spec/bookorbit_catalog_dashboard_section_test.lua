@@ -49,7 +49,7 @@ local function newCatalog(opts)
     requests = {}
     last_books_params = nil
     local catalog = {
-        title = "BookOrbit",
+        title = "TLS Library",
         settings = { catalog_dashboard_cache = opts.cache },
         client = {
             server_url = "https://example.test",

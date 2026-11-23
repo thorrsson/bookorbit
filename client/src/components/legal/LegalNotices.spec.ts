@@ -32,6 +32,16 @@ describe('LegalNotices', () => {
     expect(wrapper.get('.legal-dialog').text()).toContain('provided without warranty')
   })
 
+  it('states that this is a modified, unofficial release with a modification date', async () => {
+    const wrapper = mount(LegalNotices)
+    useLegalNotices().openLegalNotices()
+    await nextTick()
+
+    const text = wrapper.get('.legal-dialog').text()
+    expect(text).toContain('This is a modified version of BookOrbit and is not an official BookOrbit release.')
+    expect(text).toMatch(/Modified: \d{4}-\d{2}-\d{2}/)
+  })
+
   it('links attribution, source, license, and additional terms to the project', async () => {
     const wrapper = mount(LegalNotices)
     useLegalNotices().openLegalNotices()
@@ -40,9 +50,9 @@ describe('LegalNotices', () => {
     const links = wrapper.findAll('a')
     expect(links.map((link) => link.attributes('href'))).toEqual([
       'https://github.com/bookorbit/bookorbit',
-      'https://github.com/bookorbit/bookorbit',
-      'https://github.com/bookorbit/bookorbit/blob/main/LICENSE',
-      'https://github.com/bookorbit/bookorbit/blob/main/ADDITIONAL_TERMS.md',
+      'https://github.com/thorrsson/bookorbit',
+      'https://github.com/thorrsson/bookorbit/blob/main/LICENSE',
+      'https://github.com/thorrsson/bookorbit/blob/main/ADDITIONAL_TERMS.md',
     ])
   })
 

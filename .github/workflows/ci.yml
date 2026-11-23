@@ -89,7 +89,8 @@ jobs:
       - name: Enforce localization change policy
         shell: bash
         env:
-          IS_CROWDIN: ${{ steps.crowdin.outputs.is_crowdin }}
+          # Fork maintainers may edit target catalogs directly because this fork has no Crowdin export.
+          IS_CROWDIN: ${{ steps.crowdin.outputs.is_crowdin == 'true' || contains(fromJSON('["OWNER", "MEMBER"]'), github.event.pull_request.author_association) }}
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |

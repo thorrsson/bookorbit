@@ -111,7 +111,7 @@
           "label": "Slog",
           "hint": "Celoten videz aplikacije. Način, naglas, koti in ozadje obdržijo svoje nastavitve.",
           "bookorbit": {
-            "label": "BookOrbit",
+            "label": "TLS Library",
             "description": "Površine, steklene plošče in serifne tarifne številke."
           },
           "nostalgia": {
@@ -810,8 +810,8 @@
       "test": {
         "connected": "Povezano - {issuer}",
         "connectionFailed": "Povezava ni uspela",
-        "privateIssuerAddress": "URL izdajatelja se razreši na zasebni ali lokalni omrežni naslov, zato strežnik ni hotel vzpostaviti povezave. Na strežniku BookOrbit nastavite OIDC_ALLOW_LOCAL_ISSUERS=true, da to omogočite.",
-        "tlsCertificateUntrusted": "BookOrbit ni mogel preveriti potrdila ponudnika OIDC TLS. Če ponudnik uporablja zasebni organ za potrjevanje, priklopi svoj paket PEM CA, nastavi NODE EXTRA CA CERTS na pot paketa v zabojniku in zaženi BookOrbit.",
+        "privateIssuerAddress": "URL izdajatelja se razreši na zasebni ali lokalni omrežni naslov, zato strežnik ni hotel vzpostaviti povezave. Na strežniku TLS Library nastavite OIDC_ALLOW_LOCAL_ISSUERS=true, da to omogočite.",
+        "tlsCertificateUntrusted": "TLS Library ni mogel preveriti potrdila ponudnika OIDC TLS. Če ponudnik uporablja zasebni organ za potrjevanje, priklopi svoj paket PEM CA, nastavi NODE EXTRA CA CERTS na pot paketa v zabojniku in zaženi TLS Library.",
         "hide": "Skrij",
         "details": "Podrobnosti",
         "supported": "podprto",
@@ -819,7 +819,7 @@
       },
       "groupMappings": {
         "title": "Preslikave skupin",
-        "description": "Preslikaj OIDC zahteve skupin v dovoljenja BookOrbit. Sinhronizirano ob vsaki prijavi.",
+        "description": "Preslikaj OIDC zahteve skupin v dovoljenja TLS Library. Sinhronizirano ob vsaki prijavi.",
         "noPermission": "Brez dovoljenja",
         "empty": "Ni nastavljenih preslikav skupin.",
         "addMapping": "Dodaj preslikavo",
@@ -1053,7 +1053,7 @@
         "targetUser": "Ciljni uporabnik",
         "doNotImport": "Ne uvozi tega uporabnika",
         "noSourceUsersLoaded": "Uporabniki vira še niso naloženi.",
-        "noActiveTargetUsers": "Ni najdenih aktivnih ciljnih uporabnikov. Pred preslikavo ustvarite ali ponovno omogočite uporabnika BookOrbit.",
+        "noActiveTargetUsers": "Ni najdenih aktivnih ciljnih uporabnikov. Pred preslikavo ustvarite ali ponovno omogočite uporabnika TLS Library.",
         "pathPrefixMappings": "Preslikave predpon poti",
         "addMapping": "Dodaj preslikavo",
         "pathMappingsHelp1": "Preslikave poti prevedejo poti do datotek vira v ciljne poti, da se knjige lahko ujemajo po lokaciji datoteke. Če je na primer vaša knjižnica Booklore shranjevala datoteke pod",
@@ -1396,7 +1396,7 @@
         "confirmReset": "Potrdi ponastavitev",
         "resetDialog": {
           "title": "Ponastavi vsako težo na privzeto?",
-          "description": "Vseh 24 polj se vrne na uteži BookOrbitovih ladij. Nič ni shranjeno, dokler ne izberete Save in ponovite."
+          "description": "Vseh 24 polj se vrne na uteži TLS Library ladij. Nič ni shranjeno, dokler ne izberete Save in ponovite."
         },
         "reset": "Ponastavi",
         "recalculate": "Preračunaj",
@@ -2449,7 +2449,7 @@
           "reorderFailed": "Ni mogel shraniti novega naročila."
         },
         "empty": {
-          "body": "Spremljajte, za kaj BookOrbit nima polja, kot na primer, kje se knjiga nahaja na vaši polici ali kdo si jo je izposodil. Polja se pojavljajo na Edit Metadata, v stolpcih tabele in v filtrih.",
+          "body": "Spremljajte, za kaj TLS Library nima polja, kot na primer, kje se knjiga nahaja na vaši polici ali kdo si jo je izposodil. Polja se pojavljajo na Edit Metadata, v stolpcih tabele in v filtrih.",
           "examples": "Začnite z zgledom",
           "shelfNumber": "Številka Rok uporabnosti",
           "acquiredOn": "Pridobljeno",
@@ -3125,15 +3125,15 @@
         "syncUrlCopyFailed": "Kopiranje URL-ja za sinhronizacijo ni uspelo",
         "syncPreferences": "Nastavitve sinhronizacije",
         "twoWaySync": "Dvosmerna sinhronizacija napredka",
-        "twoWaySyncHint": "Sinhronizirajte položaj branja med BookOrbit in Kobo. Za natančne lokacije in zanesljivo obnovitev strani je potrebna dostava KEPUB.",
-        "syncHighlights": "Sinhroniziraj označbe BookOrbit v Kobo",
-        "syncHighlightsHint": "Pošljite označbe, ustvarjene v BookOrbit ali KOReader, v vašo napravo Kobo. Označbe iz naprave Kobo se uvozijo v BookOrbit tudi, kadar je to izklopljeno. Povezane opombe sinhronizirajo urejanja in brisanja v obe smeri. Zahteva dostavo KEPUB; knjiga na napravi Kobo mora biti KEPUB, prenesen iz BookOrbit.",
+        "twoWaySyncHint": "Sinhronizirajte položaj branja med TLS Library in Kobo. Za natančne lokacije in zanesljivo obnovitev strani je potrebna dostava KEPUB.",
+        "syncHighlights": "Sinhroniziraj označbe TLS Library v Kobo",
+        "syncHighlightsHint": "Pošljite označbe, ustvarjene v TLS Library ali KOReader, v vašo napravo Kobo. Označbe iz naprave Kobo se uvozijo v TLS Library tudi, kadar je to izklopljeno. Povezane opombe sinhronizirajo urejanja in brisanja v obe smeri. Zahteva dostavo KEPUB; knjiga na napravi Kobo mora biti KEPUB, prenesen iz TLS Library.",
         "storeSync": "Vključi naslove trgovine Kobo",
-        "storeSyncHint": "Knjige iz vašega računa Kobo, vključno s Kobo Plus in nakupi, dostavljajte tudi iz vaše knjižnice BookOrbit. Brez tega bodo v napravo prispele samo knjige iz BookOrbit. Naslovi iz trgovine se prenesejo neposredno iz Kobo in se ne dodajo v vašo knjižnico BookOrbit.",
+        "storeSyncHint": "Knjige iz vašega računa Kobo, vključno s Kobo Plus in nakupi, dostavljajte tudi iz vaše knjižnice TLS Library. Brez tega bodo v napravo prispele samo knjige iz TLS Library. Naslovi iz trgovine se prenesejo neposredno iz Kobo in se ne dodajo v vašo knjižnico TLS Library.",
         "fullSizeCovers": "Pokrovi za celo velikost",
         "fullSizeCoversHint": "Vsako ovitek pošljite na zaslonsko ločljivost vašega Koboja, tako da bodo spalni zasloni in celozaslonski ovitki ostali ostri. To izklopite, da boste poslali manjše ovitke, ki se hitreje sinhronizirajo. Ovitek se že na Kobo spremeni šele, ko se knjiga spremeni.",
         "convertKepub": "Pretvori v KEPUB",
-        "convertKepubHint": "Pošlji ustrezne datoteke EPUB kot KEPUB. To ostane vklopljeno, kadar sta omogočena sinhronizacija napredka ali označbe iz BookOrbit v Kobo. Ob naslednji sinhronizaciji s Kobo bodo prizadete knjige znova ponujene kot prenosi KEPUB; odstranite morebitno staro kopijo EPUB, če jo Kobo še vedno odpira.",
+        "convertKepubHint": "Pošlji ustrezne datoteke EPUB kot KEPUB. To ostane vklopljeno, kadar sta omogočena sinhronizacija napredka ali označbe iz TLS Library v Kobo. Ob naslednji sinhronizaciji s Kobo bodo prizadete knjige znova ponujene kot prenosi KEPUB; odstranite morebitno staro kopijo EPUB, če jo Kobo še vedno odpira.",
         "forceHyphenation": "Prisili deljenje besed",
         "forceHyphenationHint": "Zagotavlja dosledno poravnavo besedila. To bo ponovno ustvarilo predpomnjene datoteke KEPUB.",
         "progressThresholds": "Pragovi napredka",
@@ -3143,7 +3143,7 @@
         "markAsFinished": "Označi kot Prebrano",
         "markAsFinishedHint": "Prag odstotka za označitev knjige kot \"Prebrano\".",
         "kepubLimit": "Omejitev pretvorbe KEPUB",
-        "kepubLimitHint": "Knjige nad to omejitvijo se pošljejo kot navadne datoteke EPUB, zato BookOrbit ne bo sinhroniziral njihovega položaja bralnika nazaj na Kobo.",
+        "kepubLimitHint": "Knjige nad to omejitvijo se pošljejo kot navadne datoteke EPUB, zato TLS Library ne bo sinhroniziral njihovega položaja bralnika nazaj na Kobo.",
         "changesMustBeSaved": "Spremembe morajo biti shranjene, da začnejo veljati.",
         "saving": "Shranjevanje ...",
         "saveSyncSettings": "Shrani nastavitve sinhronizacije",
@@ -3205,8 +3205,8 @@
           "readingPositionSynced": "Položaj branja sinhroniziran",
           "labelWithTitle": "{label}: {title}",
           "updateCount": "{count, plural, one {# posodobitev} two {# posodobitvi} few {# posodobitev} other {# posodobitev}}",
-          "directionToKobo": "BookOrbit -> Kobo",
-          "directionToBookOrbit": "Kobo -> BookOrbit",
+          "directionToKobo": "TLS Library -> Kobo",
+          "directionToBookOrbit": "Kobo -> TLS Library",
           "twoWaySyncEnabled": "Dvosmerna sinhronizacija omogočena",
           "deviceProgressSaved": "Napredek naprave shranjen",
           "summary": {
@@ -3238,7 +3238,7 @@
           "filterFailures": "Napake",
           "refresh": "Osveži",
           "loadingActivity": "Nalaganje dejavnosti Kobo ...",
-          "noActivityHint": "Nedavna dejavnost sinhronizacije se bo prikazala, ko se seznanjena naprava Kobo poveže z BookOrbit.",
+          "noActivityHint": "Nedavna dejavnost sinhronizacije se bo prikazala, ko se seznanjena naprava Kobo poveže z TLS Library.",
           "error": "Napaka",
           "loading": "Nalaganje ...",
           "loadMore": "Naloži več dejavnosti"
@@ -3250,7 +3250,7 @@
         "nextSteps": {
           "title": "Naslednji koraki",
           "step1": "1. Nastavite napravo Kobo za sinhronizacijo z zgornjim URL-jem za sinhronizacijo.",
-          "step2": "2. V BookOrbitu v stranski vrstici odprite katero koli zbirko, kliknite ikono za urejanje in omogočite {syncToKobo}. V napravo se bodo prenesle samo knjige iz zbirk z omogočeno sinhronizacijo."
+          "step2": "2. V TLS Library v stranski vrstici odprite katero koli zbirko, kliknite ikono za urejanje in omogočite {syncToKobo}. V napravo se bodo prenesle samo knjige iz zbirk z omogočeno sinhronizacijo."
         },
         "syncToKobo": "Sinhronizacija s Kobo",
         "tabs": {
@@ -3260,14 +3260,14 @@
       },
       "koreader": {
         "title": "Sinhronizacija KOReader",
-        "subtitle": "Brskajte po svojem katalogu BookOrbit v KOReaderju ter sinhronizirajte napredek, dejavnost branja, označbe in spremembe opomb.",
+        "subtitle": "Brskajte po svojem katalogu TLS Library v KOReaderju ter sinhronizirajte napredek, dejavnost branja, označbe in spremembe opomb.",
         "tabs": {
           "sync": "Nastavitve sinhronizacije",
           "fileNaming": "Poimenovanje datotek"
         },
         "fileNaming": {
           "accountTitle": "Privzeti vzorec KOReader za račun",
-          "accountDescription": "Nastavi privzeto relativno mapo in ime datoteke, ki ju prenosi vtičnika BookOrbit uporabljajo za vaš račun KOReader. Pravila za posamezne naprave lahko to nastavitev spodaj preglasijo.",
+          "accountDescription": "Nastavi privzeto relativno mapo in ime datoteke, ki ju prenosi vtičnika TLS Library uporabljajo za vaš račun KOReader. Pravila za posamezne naprave lahko to nastavitev spodaj preglasijo.",
           "defaultPattern": "Privzeti vzorec poti knjige",
           "accountHelp": "Privzeta nastavitev računa za prenose vtičnika KOReader, razen če ima naprava lastno pravilo.",
           "accountHint": "Uporabljajo jo naprave KOReader brez lastne preglasitve.",
@@ -3275,7 +3275,7 @@
           "saveAccount": "Shrani privzeto nastavitev računa",
           "deviceTitle": "Preglasitve za naprave KOReader",
           "deviceDescription": "Prilagodite poljubno kombinacijo privzetih poti ter poti za serije in samostojne knjige. Prazna polja za posamezno napravo podedujejo privzeto nastavitev naprave, ta pa lahko podeduje privzeti vzorec KOReader za račun.",
-          "noDevices": "Naprave se tukaj prikažejo po sinhronizaciji z BookOrbitom.",
+          "noDevices": "Naprave se tukaj prikažejo po sinhronizaciji z TLS Library.",
           "customOrganization": "Organizacija po meri",
           "usingAccountDefault": "Uporablja se privzeta nastavitev računa",
           "deviceDefaultHelp": "Rezervni vzorec za to napravo. Pustite ga enakega privzeti nastavitvi računa, da se prihodnje spremembe samodejno podedujejo.",
@@ -3311,10 +3311,10 @@
         "latestPlugin": "Najnovejši vtičnik: v{version}",
         "latestPluginUnavailable": "Najnovejši vtičnik ni na voljo",
         "notConfigured": "Sinhronizacija KOReader ni nastavljena",
-        "notConfiguredHint": "Ustvarite en nabor poverilnic za sinhronizacijo, nato jih uporabite z vtičnikom BookOrbit za KOReader za brskanje, prenose, napredek, dogodke branja, označbe in brisanja.",
+        "notConfiguredHint": "Ustvarite en nabor poverilnic za sinhronizacijo, nato jih uporabite z vtičnikom TLS Library za KOReader za brskanje, prenose, napredek, dogodke branja, označbe in brisanja.",
         "createCredentials": "Ustvari poverilnice",
         "createFormTitle": "Ustvarjanje poverilnic za sinhronizacijo KOReader",
-        "createFormHint": "Te poverilnice avtenticirajo vaše naprave KOReader z BookOrbit.",
+        "createFormHint": "Te poverilnice avtenticirajo vaše naprave KOReader z TLS Library.",
         "username": "Uporabniško ime",
         "usernamePlaceholder": "npr. mojbralnik",
         "password": "Geslo",
@@ -3322,7 +3322,7 @@
         "changeCredentials": {
           "action": "Spremeni poverilnice",
           "title": "Spremeni poverilnice KOReaderja",
-          "description": "Vsak račun BookOrbit ima en nabor poverilnic KOReader. Spremenite ga tukaj, ne da bi izbrisali sinhronizirane podatke.",
+          "description": "Vsak račun TLS Library ima en nabor poverilnic KOReader. Spremenite ga tukaj, ne da bi izbrisali sinhronizirane podatke.",
           "newPassword": "Novo geslo",
           "usernameInvalid": "Uporabniško ime mora imeti med 3 in 100 znakov.",
           "passwordPlaceholder": "Pustite prazno, če želite ohraniti trenutno geslo",
@@ -3343,7 +3343,7 @@
         "status": "Stanje KOReader",
         "refresh": "Osveži",
         "progressSync": "Sinhronizacija napredka",
-        "progressSyncHint": "Napravam KOReader dovoli sinhronizacijo napredka, dejavnosti branja, označb in brisanj opomb z BookOrbit.",
+        "progressSyncHint": "Napravam KOReader dovoli sinhronizacijo napredka, dejavnosti branja, označb in brisanj opomb z TLS Library.",
         "lastSync": "Zadnja sinhronizacija",
         "syncedBooks": "Sinhronizirane knjige",
         "bookCount": "{count, plural, =0 {brez knjig} one {# knjiga} two {# knjigi} few {# knjigi} other {# knjigi}}",
@@ -3353,17 +3353,17 @@
         "setup": "Namestitev",
         "pluginServerUrl": "URL strežnika vtičnika",
         "syncUrl": "URL za sinhronizacijo KOReaderja",
-        "syncUrlHint": "Deluje z vtičnikom BookOrbit in vgrajeno sinhronizacijo napredka KOReaderja.",
+        "syncUrlHint": "Deluje z vtičnikom TLS Library in vgrajeno sinhronizacijo napredka KOReaderja.",
         "copied": "Kopirano",
         "copyUrl": "Kopiraj URL",
-        "preconfiguredPlugin": "Vnaprej nastavljen vtičnik BookOrbit",
+        "preconfiguredPlugin": "Vnaprej nastavljen vtičnik TLS Library",
         "preconfiguredPluginHintPrefix": "Prenesite zip datoteko z že nastavljenim URL-jem strežnika in vašo prijavo za sinhronizacijo. Vtičnik vključuje brskanje po katalogu in sinhronizacijo. Kopirajte mapo v",
         "preconfiguredPluginHintSuffix": "in znova zaženite KOReader.",
-        "latestPluginNote": "{label}. Posodobitve naprav se izvajajo iz menija BookOrbit v KOReaderju.",
+        "latestPluginNote": "{label}. Posodobitve naprav se izvajajo iz menija TLS Library v KOReaderju.",
         "preparing": "Pripravljanje ...",
         "downloadPlugin": "Prenesi vtičnik",
         "noDevicesSynced": "Nobena naprava se še ni sinhronizirala",
-        "noDevicesSyncedHint": "Namestite vtičnik BookOrbit za polno sinhronizacijo ali nastavite vgrajeno sinhronizacijo napredka v KOReaderju za posodobitve samo napredka.",
+        "noDevicesSyncedHint": "Namestite vtičnik TLS Library za polno sinhronizacijo ali nastavite vgrajeno sinhronizacijo napredka v KOReaderju za posodobitve samo napredka.",
         "lastSyncLabel": "Zadnja sinhronizacija:",
         "lastBookLabel": "Zadnja knjiga:",
         "noneYet": "Še nič",
@@ -3380,8 +3380,8 @@
         "failedPositions": "{count, plural, =0 {nobena pozicija označbe ne potrebuje pozornosti.} one {# pozicija označbe potrebuje pozornost.} two {# pozicije označb potrebujejo pozornost.} few {# pozicije označb potrebujejo pozornost.} other {# pozicije označb potrebujejo pozornost.}}",
         "setupGuide": "Vodnik za namestitev",
         "setupSteps": "Koraki nastavitve KOReader",
-        "setupStepsHint": "Uporabite vtičnik BookOrbit za brskanje po katalogu, prenose, napredek, dogodke branja in označbe. Za samo napredek uporabite vgrajeni vtičnik.",
-        "pluginGuideTitle": "Vtičnik BookOrbit",
+        "setupStepsHint": "Uporabite vtičnik TLS Library za brskanje po katalogu, prenose, napredek, dogodke branja in označbe. Za samo napredek uporabite vgrajeni vtičnik.",
+        "pluginGuideTitle": "Vtičnik TLS Library",
         "pluginStep1": "Prenesite zgornji vnaprej nastavljeni vtičnik.",
         "pluginStep2Prefix": "Razpakirajte ga in kopirajte",
         "pluginStep2Middle": "v",
@@ -3395,7 +3395,7 @@
         "stockStep2": "Nastavite strežnik za sinhronizacijo po meri na zgoraj prikazani URL.",
         "stockStep2InlineUrl": "Nastavite strežnik za sinhronizacijo po meri na naslednji URL:",
         "stockStep3": "Vnesite uporabniško ime in geslo, ki ste ju ustvarili, nato tapnite Prijava.",
-        "locationNote": "BookOrbit shrani lokacije EPUB, združljive s KOReader, iz spletnega bralnika. Obnovitev naj bi pristala blizu enakega položaja, čeprav se natančna postavitev vrstice lahko razlikuje glede na bralnik in postavitev EPUB.",
+        "locationNote": "TLS Library shrani lokacije EPUB, združljive s KOReader, iz spletnega bralnika. Obnovitev naj bi pristala blizu enakega položaja, čeprav se natančna postavitev vrstice lahko razlikuje glede na bralnik in postavitev EPUB.",
         "dangerZone": "Nevarno območje",
         "deleteCredentials": "Izbriši poverilnice KOReader",
         "deleteCredentialsHint": "Odstrani poverilnice za sinhronizacijo in prekini povezavo z vsemi napravami. Podatki o napredku bodo ohranjeni.",
@@ -3436,7 +3436,7 @@
           "unknownFile": "Neznana datoteka KOReader {hash}",
           "unknownAuthor": "Neznan avtor",
           "noTitleOrAuthor": "Ni sporočenega naslova ali avtorja",
-          "bookNumber": "Knjiga BookOrbit #{id}",
+          "bookNumber": "Knjiga TLS Library #{id}",
           "toast": {
             "unmatchedRefreshed": "Neujemajoče knjige osvežene",
             "unmatchedRefreshFailed": "Osveževanje neujemajočih knjig ni uspelo",
@@ -3461,8 +3461,8 @@
           "modal": {
             "linkTitle": "Poveži knjigo KOReader",
             "changeTitle": "Spremeni povezavo KOReader",
-            "bookOrbitBook": "Knjiga BookOrbit",
-            "searchPlaceholder": "Preišči svojo knjižnico BookOrbit",
+            "bookOrbitBook": "Knjiga TLS Library",
+            "searchPlaceholder": "Preišči svojo knjižnico TLS Library",
             "minChars": "Vnesite vsaj 2 znaka.",
             "searching": "Iskanje ...",
             "noBooksFound": "Ni najdenih knjig.",
@@ -3472,14 +3472,14 @@
             "loadMore": "Naloži več",
             "confirmTitle": "Potrdi povezavo KOReader",
             "koreader": "KOReader",
-            "bookOrbit": "BookOrbit",
+            "bookOrbit": "TLS Library",
             "bookId": "ID knjige: {id}",
-            "syncedStatsNote": "Že sinhronizirana statistika bo ostala na trenutni knjigi BookOrbit.",
+            "syncedStatsNote": "Že sinhronizirana statistika bo ostala na trenutni knjigi TLS Library.",
             "chooseDifferent": "Izberi drugo",
             "saving": "Shranjevanje ...",
             "confirmLink": "Potrdi povezavo",
             "unlinkTitle": "Prekinem povezavo knjige KOReader?",
-            "unlinkBody": "Prihodnje sinhronizacije za to zgoščeno vrednost se ne bodo več razreševale v {title}, dokler ni znova povezana. Že sinhronizirana statistika bo ostala na trenutni knjigi BookOrbit.",
+            "unlinkBody": "Prihodnje sinhronizacije za to zgoščeno vrednost se ne bodo več razreševale v {title}, dokler ni znova povezana. Že sinhronizirana statistika bo ostala na trenutni knjigi TLS Library.",
             "unlinking": "Prekinjanje povezave ..."
           },
           "dismiss": "Zavrni",
@@ -3487,15 +3487,15 @@
           "dismissing": "Zavračanje ...",
           "unlinking": "Prekinjanje povezave ...",
           "unlinkConfirmTitle": "Prekinem povezavo knjige KOReader?",
-          "unlinkConfirmBody": "Prihodnje sinhronizacije za to zgoščeno vrednost se ne bodo več razreševale v {title}, dokler ni znova povezana. Že sinhronizirana statistika bo ostala na trenutni knjigi BookOrbit.",
+          "unlinkConfirmBody": "Prihodnje sinhronizacije za to zgoščeno vrednost se ne bodo več razreševale v {title}, dokler ni znova povezana. Že sinhronizirana statistika bo ostala na trenutni knjigi TLS Library.",
           "dismissConfirmTitle": "Zavrnem {title}?",
           "dismissConfirmBody": "To jo odstrani s seznama vaših neujemajočih knjig. Če katera naprava ponovno sporoči to zgoščeno vrednost, se bo znova pojavila kot nov vnos.",
           "dismissAllConfirmTitle": "{count, plural, =0 {brez neujemajočih knjig} one {Zavrnem vseh # neujemajočo knjigo?} two {Zavrnem vseh # neujemajočih knjig?} few {Zavrnem vseh # neujemajočih knjig?} other {Zavrnem vseh # neujemajočih knjig?}}",
           "dismissAllConfirmBody": "To počisti celoten seznam vaših neujemajočih knjig, ne le trenutne strani. Če katera naprava znova sporoči eno od teh zgoščenih vrednosti, se bo znova pojavila kot nov vnos.",
           "changeLinkTitle": "Spremeni povezavo KOReader",
           "linkBookTitle": "Poveži knjigo KOReader",
-          "bookOrbitBook": "Knjiga BookOrbit",
-          "searchLibraryPlaceholder": "Preišči svojo knjižnico BookOrbit",
+          "bookOrbitBook": "Knjiga TLS Library",
+          "searchLibraryPlaceholder": "Preišči svojo knjižnico TLS Library",
           "enterMinChars": "Vnesite vsaj 2 znaka.",
           "searching": "Iskanje ...",
           "noBooksFound": "Ni najdenih knjig.",
@@ -3506,7 +3506,7 @@
           "loadingMore": "Nalaganje ...",
           "confirmLinkTitle": "Potrdi povezavo KOReader",
           "bookId": "ID knjige: {id}",
-          "syncedStatsNote": "Že sinhronizirana statistika bo ostala na trenutni knjigi BookOrbit.",
+          "syncedStatsNote": "Že sinhronizirana statistika bo ostala na trenutni knjigi TLS Library.",
           "chooseDifferent": "Izberi drugo",
           "saving": "Shranjevanje ...",
           "confirmLink": "Potrdi povezavo",
@@ -3514,7 +3514,7 @@
           "reviewHint": "Knjige brez samodejnega ujemanja in knjige, ki ste jih nevezani, se lahko tukaj prikažejo. Nepovezane knjige lahko še vedno sinhronizirajo preko samodejnega ujemanja. Povežite knjigo, da razveljavite ujemanje, ali pa jo odstranite, da jo odstranite s tega seznama.",
           "loadingReview": "Nalaganje knjig za pregled...",
           "noReview": "Ni knjig za pregled KOReader.",
-          "manualUnlinkConfirmBody": "Odstrani ročno povezavo do {title} in vrnete to knjigo na seznam recenzij. Prihodnje sinhronizacije bodo uporabile samodejno ujemanje, če obstaja. Že sinhronizirane statistike bodo ostale na svoji trenutni knjigi BookOrbit.",
+          "manualUnlinkConfirmBody": "Odstrani ročno povezavo do {title} in vrnete to knjigo na seznam recenzij. Prihodnje sinhronizacije bodo uporabile samodejno ujemanje, če obstaja. Že sinhronizirane statistike bodo ostale na svoji trenutni knjigi TLS Library.",
           "reviewDismissConfirmBody": "To ga odstrani iz vaših knjig za pregled. Samodejno ujemanje in obstoječi sinhronizirani podatki se hranijo. Če naprava ponovno poroča hašiš brez ujemanja, se lahko ponovno pojavi.",
           "reviewDismissAllConfirmTitle": "{count,plural,one{Prosto # Knjiga za pregled?} two{Prosto # Knjige za pregled?} few{Prosto # Knjige za pregled?} other{Prosto # Knjige za pregled?} =0{Ni knjig za pregled}}",
           "reviewDismissAllConfirmBody": "To počisti vse vaše knjige za pregled seznama, vključno z vnosi na drugih straneh. Samodejno ujemanje in obstoječi sinhronizirani podatki se hranijo. Če naprava ponovno poroča hašiš brez ujemanja, se lahko ponovno pojavi."
@@ -3624,7 +3624,7 @@
         "deleteClient": "Zbriši {name}",
         "clientsEmpty": {
           "title": "Ni še nobenega odjemalca za prenos",
-          "body": "Neposredni prenos HTTP ne potrebuje odjemalca. Povežite enega, da bo BookOrbit lahko prinesel datoteke, ki jih dostavi torrent ali Usenet.",
+          "body": "Neposredni prenos HTTP ne potrebuje odjemalca. Povežite enega, da bo TLS Library lahko prinesel datoteke, ki jih dostavi torrent ali Usenet.",
           "note": "qBittorrent, Transmission, Deluge, NZBGet in SABnzbd so podprti."
         },
         "summary": "{type} - kategorija {category}, prioriteta {priority}",
@@ -3663,7 +3663,7 @@
           "passwordWillClear": "Shranjeno geslo se odstrani, ko shranite",
           "apiKeyWillClear": "Shranjeni ključ API se odstrani, ko shranite",
           "category": "Kategorija",
-          "categoryHint": "Tags prenosi BookOrbit dodaja, tako da vedno deluje samo na lastno pest.",
+          "categoryHint": "Tags prenosi TLS Library dodaja, tako da vedno deluje samo na lastno pest.",
           "priority": "Prednost",
           "enabled": "Omogočeno",
           "useHardlinks": "Uporabi trde povezave",
@@ -3675,12 +3675,12 @@
         },
         "mappings": {
           "title": "Kartiranje vlakovnih poti",
-          "hint": "Prevedite poti, ki jih stranka poroča v poti BookOrbit lahko odpre. Potrebno je, ko dve teče v ločenih zabojnikih.",
+          "hint": "Prevedite poti, ki jih stranka poroča v poti TLS Library lahko odpre. Potrebno je, ko dve teče v ločenih zabojnikih.",
           "add": "Dodaj kartiranje",
           "remove": "Odstrani kartiranje",
           "remotePath": "Pot do naročnika",
-          "localPath": "Pot BookOrbit",
-          "brief": "Zahtevano. Deklarira imenik BookOrbit lahko uvozi iz; ko odjemalec vidi iste datoteke na istih poteh, mapira imenik za prenos sebi.",
+          "localPath": "Pot TLS Library",
+          "brief": "Zahtevano. Deklarira imenik TLS Library lahko uvozi iz; ko odjemalec vidi iste datoteke na istih poteh, mapira imenik za prenos sebi.",
           "identityExample": "Isti datotečni sistem? Uporabite isto pot na obeh straneh, na primer / odlaganje na levi in / odlaganje na desni."
         },
         "hardlink": {
@@ -3689,16 +3689,16 @@
           "works": "Trdne povezave delujejo tukaj: uvoz ne bo uporabil diska dvakrat.",
           "unavailable": "Trdih povezav ni na voljo tukaj: uvoz bo kopiral, z uporabo prostora dvakrat.",
           "link_refused": "Ta datotečni sistem je zavrnil povezavo ({code}): uvoz bo prepisan, z uporabo prostora dvakrat.",
-          "download_dir_unwritable": "BookOrbit ne more pisati v mapo za prenos ({code}), tako hardlinking ni bilo mogoče preizkusiti.",
-          "localMissing": "BookOrbit ne vidi te poti.",
+          "download_dir_unwritable": "TLS Library ne more pisati v mapo za prenos ({code}), tako hardlinking ni bilo mogoče preizkusiti.",
+          "localMissing": "TLS Library ne vidi te poti.",
           "dockMissing": "Mapa z Dockovo knjigo ni berljiva."
         },
         "reconciliation": {
           "action": "Reconcile",
-          "clean": "Vsak predmet odjemalca se ujema z zadržanim poskusom prenosa BookOrbita.",
-          "unsupported": "Ta odjemalec ne more naštevati elementov z označevalcem lastništva BookOrbita. Za potop omogočite vstavek Label; za prenos nastavite mapo kategorije.",
+          "clean": "Vsak predmet odjemalca se ujema z zadržanim poskusom prenosa TLS Library.",
+          "unsupported": "Ta odjemalec ne more naštevati elementov z označevalcem lastništva TLS Library. Za potop omogočite vstavek Label; za prenos nastavite mapo kategorije.",
           "truncated": "Stranka je vrnila več kot 1000 predmetov v lasti. Rešiti vidne vnose, nato pa se ponovno uskladiti.",
-          "orphan": "Ta predmet ni v lasti nobenega poskusa BookOrbita.",
+          "orphan": "Ta predmet ni v lasti nobenega poskusa TLS Library.",
           "failedAttempt": "Stranka še vedno drži to stvar, vendar njen poskus za \"{title}\"je označeno kot neuspešno.",
           "missing": "Tole. {status} poskus ni več prisoten v prejemniku.",
           "adopt": "Priloži na {title}",
@@ -3707,7 +3707,7 @@
           "removed": "Odstranil je osirotel predmet stranke",
           "removeTitle": "Odstraniti to osirotelo stranko stvar?",
           "removeDescription": "{name} je odstranjen iz odjemalca za prenos. Njegove prenesene datoteke se hranijo.",
-          "notOrphan": "Ta stranka je še vedno priložena poskusu prenosa BookOrbita.",
+          "notOrphan": "Ta stranka je še vedno priložena poskusu prenosa TLS Library.",
           "notAdoptable": "Ta stranka ali neuspeli poskus se je spremenil in ga ni več mogoče pritrditi."
         },
         "errors": {
@@ -3723,8 +3723,8 @@
           "encryptionKeyChanged": "Shranjena poverilnica odjemalca ni bila prebrana. KNJIGA  ZAHTEVA  ZAHTEVA  ZAHTEVA  ZAHTEVA  ZAHTEVA se je morda spremenila, odkar je bila shranjena.",
           "pathNotAbsolute": "Kartiranje poti mora uporabiti absolutne poti na obeh straneh.",
           "nameRequired": "Povej mu ime.",
-          "urlRequired": "Vnesite naslov BookOrbit, ki naj bi dosegel tega odjemalca na.",
-          "mappingRequired": "Dodajte vsaj eno kartografiranje poti, tako da BookOrbit ve, iz katere mape lahko uvozi.",
+          "urlRequired": "Vnesite naslov TLS Library, ki naj bi dosegel tega odjemalca na.",
+          "mappingRequired": "Dodajte vsaj eno kartografiranje poti, tako da TLS Library ve, iz katere mape lahko uvozi.",
           "apiKeyRequired": "Vnesite ključ SABnzbd API iz Config > Splošno."
         },
         "encryptionKeyMissing": "KNJIGA  ZAHTEVA ENCRYPTION KEY ni nastavljena, zato odjemalčeve poverilnice ni moč shraniti. Ustvari eno z: opensl rand -hex 32",
@@ -3740,14 +3740,14 @@
           "loading": "Nalaganje indeksov...",
           "empty": {
             "title": "Ni še nobenih virov.",
-            "body": "BookOrbit ni lastnega vira, zato iskanje po naročilu ne najde ničesar, dokler ne dodate enega. Izberite nastavitev, ki ustreza vašim indekserjem.",
-            "bodyOneWay": "BookOrbit ne zbira lastnih virov, zato iskanje po zahtevi ne najde ničesar, dokler ne dodate enega.",
+            "body": "TLS Library ni lastnega vira, zato iskanje po naročilu ne najde ničesar, dokler ne dodate enega. Izberite nastavitev, ki ustreza vašim indekserjem.",
+            "bodyOneWay": "TLS Library ne zbira lastnih virov, zato iskanje po zahtevi ne najde ničesar, dokler ne dodate enega.",
             "responsibility": "Kakšen vir, ki ga dodaš indeksom, je tvoja odgovornost.",
             "prowlarrTitle": "Poveži Prowlarr",
             "prowlarrBody": "Upravljajte več torrentov in indeksov Usenet preko ene povezave.",
             "recommended": "Priporočeno",
             "pluginTitle": "Namesti vstavek",
-            "pluginBody": "Ena datoteka, ki uči BookOrbit iskati določeno spletno stran. Vi jo dobavljate, nato pa vnesite njene nastavitve.",
+            "pluginBody": "Ena datoteka, ki uči TLS Library iskati določeno spletno stran. Vi jo dobavljate, nato pa vnesite njene nastavitve.",
             "torznabTitle": "Dodaj indekser Torznab",
             "torznabBody": "Point na Prowlarr, Jackett ali NZBHydra krmo ste že teče.",
             "builtInTitle": "Dodaj indekser",
@@ -3772,7 +3772,7 @@
           "pluginFailed": "Vstavek v »{directory}\"ni naložil: {reason}",
           "sources": {
             "title": "Viri",
-            "hint": "Vse, kar lahko BookOrbit išče, združeno s povezavo.",
+            "hint": "Vse, kar lahko TLS Library išče, združeno s povezavo.",
             "add": "Dodaj vir",
             "prowlarr": "Poveži Prowlarr",
             "prowlarrHint": "Upravljajte več torrentov in indeksov Usenet.",
@@ -3888,12 +3888,12 @@
             "credentialRequired": "Ta indekser potrebuje potrdilo, preden se lahko uporabi",
             "invalidSettings": "Ena ali več nastavitev vira so neveljavne. Pregled razpoložljivih možnosti.",
             "nameRequired": "Daj temu indekserju ime.",
-            "urlRequired": "Vnesite naslov BookOrbit, na katerem naj bi iskal."
+            "urlRequired": "Vnesite naslov TLS Library, na katerem naj bi iskal."
           },
           "editName": "Uredi {name}",
           "editorDescription": "Nastavitve za ta indekser.",
           "chooseType": "Izberite vrsto indekserja",
-          "chooseTypeHint": "Izberite, kje naj bo BookOrbit. Obrazec nato zahteva samo tisto, kar ta vir potrebuje.",
+          "chooseTypeHint": "Izberite, kje naj bo TLS Library. Obrazec nato zahteva samo tisto, kar ta vir potrebuje.",
           "builtIn": "Vgrajena",
           "plugin": "Vstavek",
           "typeDescriptions": {
@@ -3902,7 +3902,7 @@
           },
           "plugins": {
             "title": "Vstavki",
-            "hint": "BookOrbit stran lahko išče, dodan kot ena datoteka vstavka.",
+            "hint": "TLS Library stran lahko išče, dodan kot ena datoteka vstavka.",
             "directoryLink": "Brskajte po odprtih vstavkih knjižnice",
             "none": "Ni nameščenega vstavka. Namestite enega za iskanje mesta vgrajenih protokolov ne zajema.",
             "install": "Namesti vstavek",
@@ -3914,7 +3914,7 @@
             "removeFailed": "Tega vstavka ni bilo moč zbrisati.",
             "confirmRemove": "Zbriši {label} -Vstavek?",
             "replaces": "To nadomešča {type} vstavek je že nameščen.",
-            "restartRequired": "Znova zaženi BookOrbit za spremembo vstavka za začetek veljavnosti.",
+            "restartRequired": "Znova zaženi TLS Library za spremembo vstavka za začetek veljavnosti.",
             "confirmInstall": "Namesti vstavek",
             "configure": "Nastavi",
             "notSetUp": "Ni še nastavljeno",
@@ -3961,11 +3961,11 @@
             "credential": "Zaupnost",
             "credentialRequired": "Zahtevano",
             "credentialNone": "Brez",
-            "trustWarning": "Vstavek teče znotraj BookOrbita z dostopom do vaše baze podatkov, datotek knjižnice in šifrirnega ključa. Namestite enega samo iz vira, ki mu zaupate, in ga najprej preberite.",
+            "trustWarning": "Vstavek teče znotraj TLS Library z dostopom do vaše baze podatkov, datotek knjižnice in šifrirnega ključa. Namestite enega samo iz vira, ki mu zaupate, in ga najprej preberite.",
             "sectionTitle": "Vstavek",
             "removeUnusedWarning": "Vstavek bo trajno izbrisan iz strežnika."
           },
-          "posture": "BookOrbit ne zagotavlja ali podpira indeksnih virov. Vsak vir je tukaj tisti, ki ste ga nastavili, in ste odgovorni za to, kar iščete in prenesete preko njega."
+          "posture": "TLS Library ne zagotavlja ali podpira indeksnih virov. Vsak vir je tukaj tisti, ki ste ga nastavili, in ste odgovorni za to, kar iščete in prenesete preko njega."
         },
         "managers": {
           "add": "Dodaj Prowlarr",
@@ -3986,7 +3986,7 @@
           "toggleSource": "Iskanje z {name}",
           "changeColor": "Spremeni barvo za {name}",
           "sourceColor": "Barva vira",
-          "sourceColorHint": "Marks sprostitve nazaj {name} skozi BookOrbit.",
+          "sourceColorHint": "Marks sprostitve nazaj {name} skozi TLS Library.",
           "noSources": "Ni bilo moč najti nobenega ustreznega torrenta ali indeksa Usenet. Sinhronizirajte po dodajanju enega v Prowlarr.",
           "unknown": "Neznano",
           "editorDescription": "Nastavitve za sinhronizacijo povezave in vira za Prowlarr.",
@@ -4002,9 +4002,9 @@
             "syncNew": "Omogoči novo odkrite vire",
             "syncNewHint": "Novi indeksi Prowlarr so takoj na voljo. Viri, ki jih izklopite tukaj, ostanejo izključeni po kasnejših sinhronizacijah.",
             "autoExpand": "Poskusi znova brez filtrov kategorije",
-            "autoExpandHint": "Ko indekser uspešno odgovori brez rezultatov, ponovno poskusite enkrat brez filtra BookOrbitove kategorije knjige.",
+            "autoExpandHint": "Ko indekser uspešno odgovori brez rezultatov, ponovno poskusite enkrat brez filtra TLS Library kategorije knjige.",
             "inheritSeedLimits": "Uporabi omejitve semen Prowlarra",
-            "inheritSeedLimitsHint": "Uporabi nastavljeno razmerje semen in čas sejanja za vsak torrent indekser, ko ne obstaja noben program BookOrbit.",
+            "inheritSeedLimitsHint": "Uporabi nastavljeno razmerje semen in čas sejanja za vsak torrent indekser, ko ne obstaja noben program TLS Library.",
             "perIndexerTimeout": "Zakasnitev indekserja (sekund)",
             "perIndexerTimeoutHint": "Kako dolgo lahko en sinhroniziran vir traja. Počasni FlareSolverr-backed indekserji morda potrebujejo več časa.",
             "overallBudget": "Proračun podjetja Prowlarr (sekunde)",
@@ -4052,12 +4052,12 @@
           "minScoreHint": "Izid točkovanja pod to ni nikoli samodejno preneseno. Rezultati tečejo na 100, in kako dobro naslov in avtor ujema sestavlja večino enega, z obliko, velikost datoteke, sejalniki in prioriteto vira za njim. Če nič ne doseže dovolj visoko, zahteva čaka, da nekdo izbere sprostitev ročno in pove, zakaj se je ustavila.",
           "minScoreHintV2": "Izid točkovanja pod to ni nikoli preneseno samodejno. Rezultati tečejo na 100. Naslov in pomen avtorja prispeva največ, sledi format in verjetna velikost datoteke, z zdravjem rojov in freeleech uporablja, ko jih vir. Če nič ne doseže dovolj visoko, zahteva čaka, da nekdo izbere sprostitev ročno in pove, zakaj se je ustavil.",
           "autoRetry": "Poskusite naslednjo izdajo po napaki",
-          "autoRetryHint": "Ko samodejno prenašanje ne uspe, se namesto predaja poskuša naslednja najboljša izdaja. To zajema vir, ki noče izročiti datoteke, in prenos, ki umre delno. Velja samo za izdaje BookOrbit se je odločil: eden od afirmerjev, ki jih izbere ročno, ostane neuspešen in jih čaka.",
+          "autoRetryHint": "Ko samodejno prenašanje ne uspe, se namesto predaja poskuša naslednja najboljša izdaja. To zajema vir, ki noče izročiti datoteke, in prenos, ki umre delno. Velja samo za izdaje TLS Library se je odločil: eden od afirmerjev, ki jih izbere ročno, ostane neuspešen in jih čaka.",
           "maxAttempts": "Poskusi na zahtevo",
-          "maxAttemptsHint": "Vsaka objava BookOrbit pošlje prejemniku za to zahtevo šteje do te meje: prvi samodejni poskus, karkoli poskušal po vir zavrnil eno, in vse, kar poskušal po prenosu ni uspelo. Nastavi na 1 ustaviti po prvem poskusu.",
+          "maxAttemptsHint": "Vsaka objava TLS Library pošlje prejemniku za to zahtevo šteje do te meje: prvi samodejni poskus, karkoli poskušal po vir zavrnil eno, in vse, kar poskušal po prenosu ni uspelo. Nastavi na 1 ustaviti po prvem poskusu.",
           "autoSearch": "Iščite prošnje, za katere ni bilo nič.",
           "autoSearchShort": "Odobreno zahtevo, ki se ne ujema z nič, se išče še enkrat kasneje.",
-          "autoSearchHint": "Zahteva je treba iskati enkrat, ko je odobrena. Če se ne pojavi nič dovolj dobrega, ali pa knjiga še ni bila izdana, da zahteva čaka na odobren in nič ne išče še enkrat. Vklopite to in BookOrbit še vedno preverja sam, tako da je objava objavljena naslednji mesec še vedno. Poteče samo, ko so na voljo samodejni prenosi, saj iskanje z ničimer ne pomaga pri tem, kar najde, samo stane promet vaših virov.",
+          "autoSearchHint": "Zahteva je treba iskati enkrat, ko je odobrena. Če se ne pojavi nič dovolj dobrega, ali pa knjiga še ni bila izdana, da zahteva čaka na odobren in nič ne išče še enkrat. Vklopite to in TLS Library še vedno preverja sam, tako da je objava objavljena naslednji mesec še vedno. Poteče samo, ko so na voljo samodejni prenosi, saj iskanje z ničimer ne pomaga pri tem, kar najde, samo stane promet vaših virov.",
           "autoSearchEnabledToast": "Prošnje bodo znova iskale.",
           "autoSearchDisabledToast": "Zahtevki bodo preiskani šele, ko bodo odobreni.",
           "autoSearchInterval": "Išči znova po",
@@ -4149,13 +4149,13 @@
         "external": "Zunanja",
         "editorDescription": "Nastavitve za tega odjemalca.",
         "chooseClientType": "Izberite vrsto odjemalca",
-        "chooseClientTypeHint": "Izberite kateri program BookOrbit roke prenese.",
+        "chooseClientTypeHint": "Izberite kateri program TLS Library roke prenese.",
         "clientTypeDescriptions": {
           "qbittorrent": "Potrebuje naslov in račun.",
           "transmission": "Vaš lasten prenos. Nima kategorij, tako da kategorija postane podmapa svojega imenika za prenos.",
           "deluge": "Vpišite se z geslom za spletni uporabniški vmesnik; kategorija potrebuje vstavek za označevanje vklopljen.",
-          "nzbget": "Vaš NZBGet. BookOrbit pošilja NZB datoteke preko svoje JSON-RPC API.",
-          "sabnzbd": "Vaš lastni SABnzbd. BookOrbit pošilja NZB datoteke z uporabo svojega API ključa."
+          "nzbget": "Vaš NZBGet. TLS Library pošilja NZB datoteke preko svoje JSON-RPC API.",
+          "sabnzbd": "Vaš lastni SABnzbd. TLS Library pošilja NZB datoteke z uporabo svojega API ključa."
         },
         "searchHealth": {
           "failingOnce": "Zadnje iskanje ni uspelo",
@@ -4196,7 +4196,7 @@
         "readerAudio": "Hitrost predvajanja, intervali preskakovanja in časovnik spanja.",
         "readerFonts": "Pisave, ki so na voljo med branjem.",
         "readerGeneral": "Privzete nastavitve, ki jih deli vsak način branja.",
-        "notifications": "O čem vam BookOrbit pove in kje.",
+        "notifications": "O čem vam TLS Library pove in kje.",
         "privacy": "Vpogledi v branje, deljene povezave in vidnost dejavnosti.",
         "restrictions": "Starostne ocene in skrita vsebina za ta račun.",
         "libraries": "Preglej poti, nadzorovane mape in vnesi pravila.",
@@ -4226,14 +4226,14 @@
         "appearance-icons": "Naložite svoje ikone za uporabo poleg vgrajenega kompleta za knjižnice, pametne obsege in zbirke.",
         "appearance-layout": "Velikosti in razmiki za knjižnično mrežo, naslovnica za sesuto serijo in kako je mreža avtorja postavljena.",
         "appearance-behavior": "Kaj odpira knjigo iz mreže ali seznama, ali se serija sesuje v eno karto in ali se na tem računu pojavijo knjižni zahtevki.",
-        "appearance-language": "Jezik BookOrbit uporablja za menije, oznake in sporočila ter regionalne formate za datume in številke.",
+        "appearance-language": "Jezik TLS Library uporablja za menije, oznake in sporočila ter regionalne formate za datume in številke.",
         "reader-ebook": "Privzete vrednosti za bralnik e-knjig: ali se nove knjige začnejo z vašimi nastavitvami, pretokom strani in stolpci, temo in tipografijo, kot so pisava, velikost in razmik.",
         "reader-pdf": "Kako se PDF odpre: stran po strani ali en neprekinjen zvitek, katera stran začne dvostrano širjenje, in privzeto povečavo fit.",
         "reader-comics": "Kako stripi berejo: način branja in smer, eno- ali dvostrankarski razmiki, fit, širokostranska rokovanja in prehitevanje k naslednji knjigi v seriji.",
         "reader-audio": "Začetna hitrost in glasnost za nove avdioknjige, in kako daleč skip nazaj in preskočite naprej gumbi skok.",
         "reader-fonts": "Naložite svoje pisave za bralnik in izberite, katere pisave, ki jih deli vaš strežnik administrator, se pojavijo v njem.",
         "reader-general": "Kjer so shranjene nastavitve bralnika in privzete vrednosti, ki jih deli vsak način branja.",
-        "tts": "Vaš privzeti glas in hitrost, ko BookOrbit bere knjigo na glas.",
+        "tts": "Vaš privzeti glas in hitrost, ko TLS Library bere knjigo na glas.",
         "notifications": "Izberite, kateri dogodki vas obveščajo, od končanih skeniranj in metapodatkov do datotek preimenovanja, uvoz in Dockovi rezultati.",
         "privacy": "Odločite se, koliko vaših vodij bralnih dejavnosti lahko vidi, si ogleda vaš skupni profil in preverite, kdo si ga je ogledal.",
         "restrictions": "Omejitve vsebine, določene na tem računu, kot so starostne ocene in skrite vsebine, ter tisto, kar hranijo zunaj vaših knjižnic.",
@@ -4247,7 +4247,7 @@
         "metadata-search-cache": "Naj ponudnik odgovori tako ponavljajoče iskanje so hitro in še vedno deluje, ko je ponudnik dol, in nadzor, kako dolgo in koliko se hrani.",
         "metadata-genre-blocklist": "Žanrske vrednosti, ki so naštete tukaj, so odstranjene iz rezultatov ponudnika, preden so napisani metapodatki, zato oznake, kot je Audiobook, ne vnašajte v svoje knjige.",
         "metadata-reminders": "Izberite, katera manjkajoča polja se prikažejo v opomnikih. To spremeni samo opomnike, ne pa metapodatkovne rezultate.",
-        "file-naming": "Vzorci map in imen datotek, ki se uporabljajo, ko BookOrbit preimenuje knjige na disku, s predogledom rezultata in kaj se zgodi, ko manjka vrednost.",
+        "file-naming": "Vzorci map in imen datotek, ki se uporabljajo, ko TLS Library preimenuje knjige na disku, s predogledom rezultata in kaj se zgodi, ko manjka vrednost.",
         "maintenance": "Strežnik: omejitev velikosti nalaganja, pretekli uvoz, obnovo priporočil, zapolnitev dosežkov in preverjanje posodobitev.",
         "kobo": "Povežite kobo e-bralnike, izberite, kako knjige, policah in branje napredek sinhronizacijo, in sledite vsaki napravi je nedavno sinhronizacijo dejavnost.",
         "koreader": "Uskladite napredek, branje dejavnost in poudarja s KOReader, dobili sinhronizacijo URL in plugin, in upravljanje naprav, ki se povezujejo.",
@@ -4260,7 +4260,7 @@
         "account-activity": "Oglejte si, kdaj je bil vsak račun nazadnje aktiven in kako se vpiše, ter odprite vpoglede na uporabnika in seje.",
         "magic-links": "Ustvarite skupne povezave, ki se vpišejo v nekoga brez gesla, in jih prekličete, ko niso več potrebni.",
         "oidc": "Povežite enega ponudnika podpisa, kot je Keycloak, mapirajte njegove zahtevke in se odločite, kako se ustvarjajo novi računi.",
-        "requests": "Kjer BookOrbit išče zahtevane knjige, ki prenesete stranke, jih prinesejo in kaj se zgodi, ko se prenos konča.",
+        "requests": "Kjer TLS Library išče zahtevane knjige, ki prenesete stranke, jih prinesejo in kaj se zgodi, ko se prenos konča.",
         "admin-tts": "Čitalniki tekst-do-govora lahko uporabljajo za branje-glas, glasove, ki jih ponujajo od vsakega, in vrstni red, v katerem se pojavljajo.",
         "book-dock": "Mapa s spustom Dock knjige, samodejni metapodatki, ki iščejo nove datoteke, in rezultat, na katerem so datoteke zaključene same.",
         "server-fonts": "Naloži pisave enkrat za vsakega bralca na strežnik. Vsak bralec lahko še vedno skrije katero koli od njih.",
@@ -7401,13 +7401,13 @@
         },
         "emptyStage": {
           "title": "Nič še ni zabeleženo za to knjigo.",
-          "description": "Dnevnik branja je zgrajen iz sej. BookOrbit zapisi enkrat vsakič, ko preberete v spletnem čitalniku, in pobere preostale iz naprav, ki jih sinhronizirate.",
+          "description": "Dnevnik branja je zgrajen iz sej. TLS Library zapisi enkrat vsakič, ko preberete v spletnem čitalniku, in pobere preostale iz naprav, ki jih sinhronizirate.",
           "readerTitle": "Preberi tukaj.",
-          "readerBody": "Vsaka minuta v bralniku BookOrbit je samodejno prijavljena.",
+          "readerBody": "Vsaka minuta v bralniku TLS Library je samodejno prijavljena.",
           "koreaderTitle": "Uskladi KOReader",
           "koreaderBody": "Vstavek potiska vsak sedel nazaj, s strani, ki ste jo dosegli.",
           "koboTitle": "Uskladi a Kobo",
-          "koboBody": "Vklopite napravo in BookOrbit bere svoj števec časa branja.",
+          "koboBody": "Vklopite napravo in TLS Library bere svoj števec časa branja.",
           "addSession": "Ročno dodaj sejo",
           "recordPast": "Zapiši preteklo branje"
         },
@@ -7874,7 +7874,7 @@
         "noExtension": "Datoteka nima pripone, zato njena oblika ni znana",
         "tooLarge": "Večje od {limit} Omejitev pošiljanja",
         "tooLargeServer": "Večja od omejitve pošiljanja strežnika",
-        "tooLargeProxy": "Zavrnjen kot prevelik, preden je dosegel BookOrbit, verjetno z obratno posrednik",
+        "tooLargeProxy": "Zavrnjen kot prevelik, preden je dosegel TLS Library, verjetno z obratno posrednik",
         "storageFull": "Strežnik je izven prostora za shranjevanje",
         "network": "Ni moč doseči strežnika",
         "status": "Pošiljanje ni uspelo (HTTP) {status})"
@@ -8102,22 +8102,22 @@
         "notProvided": "Ni določeno",
         "searchScope": "Izberite eno od {count,plural,one{# ISBN} two{# ISBNs} few{# ISBNs} other{# ISBNs}} iskanje ali iskanje po naslovu in avtorju.",
         "searchScopeLimited": "Izberite en ISBN za iskanje.",
-        "titleAuthorOnly": "ISBN ni bil na voljo. BookOrbit bo iskal enkrat po naslovu in avtorju.",
+        "titleAuthorOnly": "ISBN ni bil na voljo. TLS Library bo iskal enkrat po naslovu in avtorju.",
         "chooseSearch": "Izberite edition za iskanje",
         "searchByEdition": "Najdi izdajo za izdajo",
         "findRelease": "Najdi sprostitev",
         "primaryIsbn": "ISBN {isbn}",
         "primaryTitleAuthor": "Naslov in avtor",
         "recommended": "Priporočeno",
-        "recommendationHelpLabel": "Kako BookOrbit izbere priporočeno ISBN",
+        "recommendationHelpLabel": "Kako TLS Library izbere priporočeno ISBN",
         "recommendationTitle": "Kako se izbere priporočeno iskanje",
         "recommendationLanguage": "Pred znano neusklajenostjo raje imej zahtevani jezik, nato neznan jezik.",
         "recommendationAgreement": "Prefer ISBN, ki ga potrdi bolj neodvisnih ponudnikov metapodatkov.",
-        "recommendationProvider": "Uporabi BookOrbitovo stabilno prioriteto zagotavljanja metapodatkov.",
+        "recommendationProvider": "Uporabi TLS Library stabilno prioriteto zagotavljanja metapodatkov.",
         "recommendationRelevance": "Uporabi položaj izdaje v rezultatih tega ponudnika.",
         "recommendationYear": "Raje bi imel leto izdaje, ki je najbližje prvemu znanemu letu.",
         "recommendationStable": "Uporabite ISBN kot končni stabilni lomilec kravat.",
-        "recommendationFallback": "Če ni na voljo veljavnega ISBN-a, BookOrbit išče enkrat po naslovu in avtorju. Izbira izdaje iz menija vedno prevlada nad tem priporočilom.",
+        "recommendationFallback": "Če ni na voljo veljavnega ISBN-a, TLS Library išče enkrat po naslovu in avtorju. Izbira izdaje iz menija vedno prevlada nad tem priporočilom.",
         "withoutIsbn": "Iskanje po naslovu in avtorju",
         "action": "Ukrepanje"
       },
@@ -8353,7 +8353,7 @@
         "fileTooLarge": "Ta datoteka je večja od {limit}, torej ni .torrent datoteko",
         "fileUnreadable": "Te datoteke ni bilo moč prebrati"
       },
-      "noClientList": "BookOrbit bo uporabil svoj odjemalec za prenos, ki je omogočen z najvišjo prioriteto."
+      "noClientList": "TLS Library bo uporabil svoj odjemalec za prenos, ki je omogočen z najvišjo prioriteto."
     },
     "attempts": {
       "title": "Predhodni poskusi",
@@ -8490,7 +8490,7 @@
       "manifest": {
         "ready": "{count,plural,one{Ta sprostitev vsebuje # datoteka. Podprta datoteka knjige se lahko uvozi.} two{Ta sprostitev vsebuje # datoteke. Podprta datoteka z knjigo se lahko uvozi.} few{Ta sprostitev vsebuje # datoteke. Podprta datoteka z knjigo se lahko uvozi.} other{Ta sprostitev vsebuje # datoteke. Podprta datoteka z knjigo se lahko uvozi.}}",
         "noSupported": "Ta objava nima neposredno podprte datoteke z knjigo, zato je ni mogoče poslati.",
-        "contentsUnknown": "Ta sprostitev je pakirana kot arhiv (RAR, ZIP ali 7z). BookOrbit ga bo po prenosu izluščil, zato njegova vsebina še ni znana.",
+        "contentsUnknown": "Ta sprostitev je pakirana kot arhiv (RAR, ZIP ali 7z). TLS Library ga bo po prenosu izluščil, zato njegova vsebina še ni znana.",
         "multipleBooks": "Ta sprostitev vsebuje {count} ločene knjige. Ko bo prenesete, vas bomo vprašali, katero uvoziti.",
         "multiPartBook": "{count,plural,one{Ta izdaja je ena knjiga, narejena iz # Datoteka.} two{Ta izdaja je ena knjiga, narejena iz # datoteke, uvožene skupaj kot ena knjiga.} few{Ta izdaja je ena knjiga, narejena iz # datoteke, uvožene skupaj kot ena knjiga.} other{Ta izdaja je ena knjiga, narejena iz # datoteke, uvožene skupaj kot ena knjiga.}}",
         "metadataUnavailable": "To je magnetna povezava. Njen seznam datotek ni na voljo, dokler torrent ne prinese metapodatkov iz roja.",
@@ -8616,7 +8616,7 @@
     },
     "seed": {
       "title": "Prenesi odjemalca",
-      "automated": "BookOrbit je samodejno izbral to izdajo.",
+      "automated": "TLS Library je samodejno izbral to izdajo.",
       "loading": "Branje odjemalca za prenos...",
       "loadFailed": "Za to zahtevo ni bilo mogoče doseči odjemalca za prenos.",
       "notInClient": "Odjemalec prejemanja nima več tega torrenta.",
@@ -8939,9 +8939,9 @@
       "changePassword": "Spremeni geslo",
       "signOut": "Odjava",
       "githubStar": {
-        "title": "Vam je BookOrbit všeč?",
-        "body": "Če vam BookOrbit pomaga pri urejanju knjižnice, razmislite o oznaki z zvezdico projektu na GitHubu. To pomaga več ljudem odkriti aplikacijo in podpira nadaljnji razvoj.",
-        "cta": "Označi BookOrbit z zvezdico na GitHubu"
+        "title": "Vam je TLS Library všeč?",
+        "body": "Če vam TLS Library pomaga pri urejanju knjižnice, razmislite o oznaki z zvezdico projektu na GitHubu. To pomaga več ljudem odkriti aplikacijo in podpira nadaljnji razvoj.",
+        "cta": "Označi TLS Library z zvezdico na GitHubu"
       },
       "surfaceOpacity": "Prekrivnost površine",
       "surfaceOpacityValue": "{value}%",
@@ -9227,10 +9227,10 @@
       "collectionsEmptyHint": "Zbirke združujejo knjige, ki jih izberete ročno."
     },
     "legalNotices": {
-      "about": "O BookOrbitu",
+      "about": "O TLS Library",
       "trigger": "Pravna obvestila",
-      "title": "O BookOrbitu",
-      "description": "BookOrbitova dodelitev, licenciranje in izvorna koda.",
+      "title": "O TLS Library",
+      "description": "TLS Library dodelitev, licenciranje in izvorna koda.",
       "poweredBy": "Poganja jo BookOrbit",
       "originalDevelopment": "Ta programska oprema vsebuje material, ki je bil prvotno razvit kot BookOrbit.",
       "copyright": "Avtorske pravice (C) 2025-2026 neon.",
@@ -9309,7 +9309,7 @@
     },
     "libraryLoad": {
       "errorTitle": "Vaših knjižnic ni mogoče naložiti",
-      "errorDescription": "BookOrbit ni mogel pridobiti vaših knjižnic. Vsebina v vaši knjižnici ni bila odstranjena."
+      "errorDescription": "TLS Library ni mogel pridobiti vaših knjižnic. Vsebina v vaši knjižnici ni bila odstranjena."
     },
     "scroller": {
       "failedToLoad": "Nalaganje ni uspelo.",
@@ -9725,7 +9725,7 @@
       "serversEmptyTitle": "Ni še poštnega strežnika",
       "serversEmptyBody": "Knjige gredo ven preko SMTP računa. Gmail, Outlook, iCloud in Fastmail so en klik; vsak drug strežnik deluje preveč.",
       "needServerTitle": "Dodaj poštni strežnik, preden ga lahko pošljete",
-      "needServerBody": "BookOrbit pošilja knjige preko SMTP računa, ki ga imate, kot je Gmail z geslom aplikacije.",
+      "needServerBody": "TLS Library pošilja knjige preko SMTP računa, ki ga imate, kot je Gmail z geslom aplikacije.",
       "needServerAsk": "Vprašajte skrbnika, če želite deliti poštni strežnik z vami.",
       "goToServers": "Pojdi na poštne strežnike",
       "noEncryption": "Brez šifriranja"
@@ -9755,7 +9755,7 @@
       "unreachable": "{server} ni odgovoril.",
       "unconfirmed": "Povezava je padla po predaji sporočila, zato je morda prispela.",
       "unconfirmedFix": "Pred responiranjem preglejte inbox, ali pa lahko prispe dvakrat.",
-      "interrupted": "BookOrbit se je znova začel, medtem ko je ta e- pošta odhajala.",
+      "interrupted": "TLS Library se je znova začel, medtem ko je ta e- pošta odhajala.",
       "interruptedFix": "Pred responiranjem preglejte polje.",
       "preparation": "Datoteka ni bila pripravljena za pošiljanje.",
       "other": "Poštni strežnik ga je zavrnil.",
@@ -9879,8 +9879,8 @@
         "approveNoServer": "Najprej dodajte poštni strežnik, da vidite naslov, ki ga mora Kindle odobriti.",
         "lastSent": "Zadnja poslana knjiga {time}",
         "sendTest": "Pošlji testno e- pošto",
-        "testSubject": "E- pošta za preizkus BookOrbit",
-        "testBody": "To je preizkus iz BookOrbita. Če ga lahko preberete, knjige poslane {name} Tudi jaz bom prišel sem.",
+        "testSubject": "E- pošta za preizkus TLS Library",
+        "testBody": "To je preizkus iz TLS Library. Če ga lahko preberete, knjige poslane {name} Tudi jaz bom prišel sem.",
         "testSent": "Preizkusi e-pošto poslano {name}",
         "testFailed": "E- pošta za preizkus ni izšla: {error}",
         "makeDefault": "Naredite hitro pošiljanje prejemnika",
@@ -9925,7 +9925,7 @@
         "share": "Deli z vsemi",
         "shareHint": "Drugi ljudje lahko pošiljajo knjige po tem strežniku, ne da bi videli geslo.",
         "system": "Pošlji ponastavitve gesel in vpisovne povezave",
-        "systemHint": "Edini strežnik BookOrbit sam uporablja. Samo superuporabnik lahko to spremeni.",
+        "systemHint": "Edini strežnik TLS Library sam uporablja. Samo superuporabnik lahko to spremeni.",
         "verifyTls": "Preveri certifikat strežnika",
         "verifyTlsHint": "Izklopite samo za strežnik na svojem omrežju s samopodpisanim certifikatom.",
         "test": "Preskusna povezava",
@@ -9984,7 +9984,7 @@
     }
   },
   "errors": {
-    "network": "Could not reach BookOrbit. Check your connection, then try again."
+    "network": "Could not reach TLS Library. Check your connection, then try again."
   },
   "hardcover": {
     "settings": {
@@ -10030,7 +10030,7 @@
       },
       "syncOnProgress": {
         "title": "Sinhroniziraj ob posodobitvi napredka",
-        "description": "Pošlji napredek branja in datume, ko se spremeni napredek v BookOrbit ali KOReader."
+        "description": "Pošlji napredek branja in datume, ko se spremeni napredek v TLS Library ali KOReader."
       },
       "syncOnRating": {
         "title": "Sinhroniziraj ob spremembi ocene",
@@ -10084,7 +10084,7 @@
     },
     "import": {
       "title": "Povleci status branja",
-      "description": "Predogled ujemanj s Hardcover pred izpolnjevanjem praznih statusov v BookOrbit.",
+      "description": "Predogled ujemanj s Hardcover pred izpolnjevanjem praznih statusov v TLS Library.",
       "clear": "Počisti",
       "preview": "Predogled",
       "importProgress": "Napredek uvoza",
@@ -10446,7 +10446,7 @@
           "opfTitle": "metapodatkovna datoteka.opf",
           "opfHint": "Shranil poleg knjige Calibre",
           "swap": "Zamenjaj naročilo",
-          "hint": "BookOrbit uporablja prvo knjigo ima in ignorira drugo. Calibre knjižnice običajno želijo metapodatke.opf najprej."
+          "hint": "TLS Library uporablja prvo knjigo ima in ignorira drugo. Calibre knjižnice običajno želijo metapodatke.opf najprej."
         },
         "regex": {
           "title": "Nastavi metapodatke regex",
@@ -10688,7 +10688,7 @@
           "metadata": "Katera datoteka vodi, ko ima knjiga več in od kod prihajajo njene podrobnosti.",
           "reading": "Ko se knjiga premakne od neprebranega do branja do branja.",
           "schedule": "Obdržite tok knjižnice brez pritiska Scan.",
-          "fileWrite": "Neobvezne spremembe BookOrbit lahko naredite v datoteke na disku.",
+          "fileWrite": "Neobvezne spremembe TLS Library lahko naredite v datoteke na disku.",
           "access": "Kdo še lahko vidi in dela s to knjižnico."
         }
       },
@@ -11004,7 +11004,7 @@
       },
       "cwa": {
         "snapshotTitle": "Ustavljen način posnetka",
-        "stoppedWarning": "Pred kopiranjem obeh podatkovnih baz ustavite Calibre-Web Automated. BookOrbit ne more preveriti, ali sta bila posnetka kopirana v istem trenutku.",
+        "stoppedWarning": "Pred kopiranjem obeh podatkovnih baz ustavite Calibre-Web Automated. TLS Library ne more preveriti, ali sta bila posnetka kopirana v istem trenutku.",
         "importRootGuidance": "Obe datoteki posnetkov morata biti berljivi strežniški poti pod konfiguriranim imenikom MIGRATION_IMPORT_ROOT.",
         "logicalRootGuidance": "Preslikava poti knjige uporablja logični koren knjižnice Calibre, shranjen v app.db, ne pa mape gostitelja, ki vsebuje te posnetke baze podatkov.",
         "compatibilityNote": "Obnašanje sheme je preverjeno s programsko opremo Calibre-Web Automated v4.0.6. Njene podatkovne baze ne razkrivajo zanesljive različice izdaje aplikacije."
@@ -11036,7 +11036,7 @@
       "targetUser": "Ciljni uporabnik",
       "doNotImport": "Ne uvozi tega uporabnika",
       "noSourceUsersLoaded": "Izvorni uporabniki še niso naloženi.",
-      "noActiveTargetUsers": "Ni najdenih aktivnih ciljnih uporabnikov. Pred preslikavo ustvarite ali ponovno omogočite uporabnika BookOrbit.",
+      "noActiveTargetUsers": "Ni najdenih aktivnih ciljnih uporabnikov. Pred preslikavo ustvarite ali ponovno omogočite uporabnika TLS Library.",
       "pathPrefixMappings": "Preslikave predpon poti",
       "addMapping": "Dodaj preslikavo",
       "pathMappingsExplanation": "Preslikave poti prevedejo izvorne poti do datotek v ciljne poti, tako da je knjige mogoče ujemati po lokaciji datoteke. Knjige se ujemajo tudi po ISBN, zgoščeni vrednosti datoteke ter naslovu/avtorju, ne glede na preslikave poti.",
@@ -12241,7 +12241,7 @@
       },
       "confirmDialog": {
         "title": "{count, plural, few {Preimenovati # datoteke na disku?} one {Preimenovati # datoteko na disku?} two {Preimenovati # datoteki na disku?} other {Preimenovati # datotek na disku?}}",
-        "body": "To premakne prave datoteke znotraj {library}. BookOrbit beleži vsak premik, razveljavitev pa pomeni ponovno preimenovanje.",
+        "body": "To premakne prave datoteke znotraj {library}. TLS Library beleži vsak premik, razveljavitev pa pomeni ponovno preimenovanje.",
         "willRename": "Preimenovali se bodo v",
         "skippedByYou": "Preskočila si me.",
         "heldBack": "Zadržan kot konflikti",
@@ -13039,7 +13039,7 @@
       "offer": "Odstranil sem samo kopijo naprave; ponudi zamenjavo",
       "confirm": "Namestil sem zamenjavo.",
       "cancel": "Prekliči zamenjavo",
-      "replacementHint": "Pripravite se in najprej pregledajte. Odstranitev kopije naprave ne izbriše knjižnične knjige. Back up naprava-lokalne opombe sami. BookOrbit ohranja kanonični napredek in zabeležke strežnika. Zamujeni dogodki lahko omejijo natančno usklajevanje.",
+      "replacementHint": "Pripravite se in najprej pregledajte. Odstranitev kopije naprave ne izbriše knjižnične knjige. Back up naprava-lokalne opombe sami. TLS Library ohranja kanonični napredek in zabeležke strežnika. Zamujeni dogodki lahko omejijo natančno usklajevanje.",
       "prepared": "Pripravljeno nadomestilo: {format}, {size}. Odstrani to knjigo samo iz izbrane naprave, nato pa ponudite pripravljeno zamenjavo in sinhronizacijo.",
       "offered": "Nadomestek ponujen. Sinhronizirajte in prenesete na napravo, nato potrdite namestitev. Dokončan prenos HTTP ne dokazuje namestitve.",
       "cancelled": "Zamenjava preklicana. Prekličitev ne obnovi odstranitve ali delno zamenjane kopije naprave. Za pripravo prenosa obnovitve izberite isto knjigo.",

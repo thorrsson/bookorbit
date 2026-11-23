@@ -111,7 +111,7 @@
           "label": "Styl",
           "hint": "Celkový vzhled aplikace. Režim, zvýraznění, rohy a pozadí si zachovávají svá nastavení.",
           "bookorbit": {
-            "label": "BookOrbit",
+            "label": "TLS Library",
             "description": "Barevné plochy, skleněné panely a nadpisy s patkovým písmem."
           },
           "nostalgia": {
@@ -809,8 +809,8 @@
       "test": {
         "connected": "Připojeno - {issuer}",
         "connectionFailed": "Připojení se nezdařilo",
-        "privateIssuerAddress": "URL vydavatele směřuje na adresu v soukromé nebo lokální síti, proto server odmítl navázat spojení. Pro povolení nastavte na serveru BookOrbit proměnnou OIDC_ALLOW_LOCAL_ISSUERS=true.",
-        "tlsCertificateUntrusted": "BookOrbit nemohl ověřit certifikát TLS poskytovatele OIDC. Pokud poskytovatel používá soukromou certifikační autoritu, připojte jeho balíček PEM CA, nastavte proměnnou NODE_EXTRA_CA_CERTS na cestu k tomuto balíčku uvnitř kontejneru a restartujte BookOrbit.",
+        "privateIssuerAddress": "URL vydavatele směřuje na adresu v soukromé nebo lokální síti, proto server odmítl navázat spojení. Pro povolení nastavte na serveru TLS Library proměnnou OIDC_ALLOW_LOCAL_ISSUERS=true.",
+        "tlsCertificateUntrusted": "TLS Library nemohl ověřit certifikát TLS poskytovatele OIDC. Pokud poskytovatel používá soukromou certifikační autoritu, připojte jeho balíček PEM CA, nastavte proměnnou NODE_EXTRA_CA_CERTS na cestu k tomuto balíčku uvnitř kontejneru a restartujte TLS Library.",
         "hide": "Skrýt",
         "details": "Podrobnosti",
         "supported": "podporováno",
@@ -1040,7 +1040,7 @@
         "sourceUser": "Zdrojový uživatel",
         "targetUser": "Cílový uživatel",
         "noSourceUsersLoaded": "Zatím nejsou načteni žádní zdrojoví uživatelé.",
-        "noActiveTargetUsers": "Nebyli nalezeni žádní aktivní cíloví uživatelé. Vytvořte nebo znovu povolte uživatele BookOrbit před mapováním.",
+        "noActiveTargetUsers": "Nebyli nalezeni žádní aktivní cíloví uživatelé. Vytvořte nebo znovu povolte uživatele TLS Library před mapováním.",
         "pathPrefixMappings": "Předpona cesty",
         "addMapping": "Přidat mapování",
         "pathMappingsHelp1": "Cesta k mapování přeloží cesty zdrojových souborů do cílových cest, aby knihy mohly být porovnány s umístěním souboru. Například, pokud vaše Booklore knihovny ukládají soubory pod",
@@ -1979,11 +1979,11 @@
         "syncUrlCopyFailed": "Nepodařilo se zkopírovat synchronizaci URL",
         "syncPreferences": "Nastavení synchronizace",
         "twoWaySync": "Obousměrná synchronizace průběhu",
-        "twoWaySyncHint": "Synchronizovat pozici čtení mezi BookOrbit a Kobo. Vyžaduje doručení KEPUB pro přesné umístění a spolehlivou obnovu stránky.",
+        "twoWaySyncHint": "Synchronizovat pozici čtení mezi TLS Library a Kobo. Vyžaduje doručení KEPUB pro přesné umístění a spolehlivou obnovu stránky.",
         "syncHighlights": "Synchronizovat Orbit zvýraznění v Kobu",
-        "syncHighlightsHint": "Posílejte zvýraznění v BookOrbit nebo KOReader do vašeho Koba. Výrazy Kobo jsou importovány do BookOrbit i když je vypnuté. Synchronizace anotací se propojí a odstraní oba způsoby. Vyžaduje doručení KEPUB. Kniha na Kobu musí být KEPUB stažená z BookOrbit.",
+        "syncHighlightsHint": "Posílejte zvýraznění v TLS Library nebo KOReader do vašeho Koba. Výrazy Kobo jsou importovány do TLS Library i když je vypnuté. Synchronizace anotací se propojí a odstraní oba způsoby. Vyžaduje doručení KEPUB. Kniha na Kobu musí být KEPUB stažená z TLS Library.",
         "convertKepub": "Převést na KEPUB",
-        "convertKepubHint": "Posílejte způsobilé EPUB jako KEPUB. To zůstane zapnuto, když je povolena synchronizace s postupem nebo zvýraznění BookOrbit-to-Kobo. Na další syntaxi Kobo jsou dotčené knihy opět nabízeny jako stahování KEPUB; odstraňte jakoukoliv starou kopii EPUB, pokud Kobo ji stále otevírá.",
+        "convertKepubHint": "Posílejte způsobilé EPUB jako KEPUB. To zůstane zapnuto, když je povolena synchronizace s postupem nebo zvýraznění TLS Library-to-Kobo. Na další syntaxi Kobo jsou dotčené knihy opět nabízeny jako stahování KEPUB; odstraňte jakoukoliv starou kopii EPUB, pokud Kobo ji stále otevírá.",
         "forceHyphenation": "Vynutit hyfenaci",
         "forceHyphenationHint": "Zajišťuje konzistentní zdůvodnění textu. Toto obnoví mezipaměť KEPUB.",
         "progressThresholds": "Prahové hodnoty pokroku",
@@ -1993,7 +1993,7 @@
         "markAsFinished": "Označit jako dokončené",
         "markAsFinishedHint": "Prahová hodnota procenta pro označení knihy jako \"Dokončeno\".",
         "kepubLimit": "Limit konverze KEPUB",
-        "kepubLimitHint": "Knihy překračující tento limit jsou posílány jako běžné EPUBy, takže BookOrbit nebude synchronizovat svou pozici v čtečce zpět do Koba.",
+        "kepubLimitHint": "Knihy překračující tento limit jsou posílány jako běžné EPUBy, takže TLS Library nebude synchronizovat svou pozici v čtečce zpět do Koba.",
         "changesMustBeSaved": "Změny musí být uloženy, aby se projevily.",
         "saving": "Ukládání...",
         "saveSyncSettings": "Uložit nastavení synchronizace",
@@ -2055,7 +2055,7 @@
           "readingPositionSynced": "Pozice čtení synchronizována",
           "labelWithTitle": "{label}: {title}",
           "updateCount": "{count, plural, one {# aktualizujte} few {# aktualizace} many {# aktualizace} other {# aktualizace}}",
-          "directionToKobo": "BookOrbit -> Kobo",
+          "directionToKobo": "TLS Library -> Kobo",
           "directionToBookOrbit": "Kobo -> Orbit",
           "twoWaySyncEnabled": "Obousměrná synchronizace povolena",
           "deviceProgressSaved": "Průběh zařízení uložen",
@@ -2088,7 +2088,7 @@
           "filterFailures": "Selhání",
           "refresh": "Aktualizovat",
           "loadingActivity": "Načítání aktivity Kobo...",
-          "noActivityHint": "Nedávná synchronizace se objeví po spárovaném Kobo kontaktech BookOrbit.",
+          "noActivityHint": "Nedávná synchronizace se objeví po spárovaném Kobo kontaktech TLS Library.",
           "error": "Chyba",
           "loading": "Načítám...",
           "loadMore": "Načíst více aktivit"
@@ -2100,7 +2100,7 @@
         "nextSteps": {
           "title": "Další kroky",
           "step1": "1. Nakonfigurujte vaše Kobo zařízení pro synchronizaci s URL adresy pro synchronizaci výše.",
-          "step2": "2. V BookOrbitu přejděte na jakoukoliv kolekci z postranního panelu, klikněte na ikonu Upravit a povolte {syncToKobo}. Do vašeho zařízení se stáhnou pouze knihy v rámci synchronizovaných kolekcí."
+          "step2": "2. V TLS Library přejděte na jakoukoliv kolekci z postranního panelu, klikněte na ikonu Upravit a povolte {syncToKobo}. Do vašeho zařízení se stáhnou pouze knihy v rámci synchronizovaných kolekcí."
         },
         "syncToKobo": "Synchronizovat do Kobo",
         "tabs": {
@@ -2110,14 +2110,14 @@
       },
       "koreader": {
         "title": "KOReader synchronizace",
-        "subtitle": "Procházejte katalog BookOrbit v KOReaderu a synchronizujte pokrok, čtení, aktivitu, zvýraznění a změny anotací.",
+        "subtitle": "Procházejte katalog TLS Library v KOReaderu a synchronizujte pokrok, čtení, aktivitu, zvýraznění a změny anotací.",
         "tabs": {
           "sync": "Nastavení synchronizace",
           "fileNaming": "Pojmenování souborů"
         },
         "fileNaming": {
           "accountTitle": "Výchozí vzor KOReader účtu",
-          "accountDescription": "Nastaví výchozí relativní složku a název souboru použitý pro stahování pluginu BookOrbit pro váš účet KOReader. Pravidla specifická pro zařízení mohou být přepsána níže.",
+          "accountDescription": "Nastaví výchozí relativní složku a název souboru použitý pro stahování pluginu TLS Library pro váš účet KOReader. Pravidla specifická pro zařízení mohou být přepsána níže.",
           "defaultPattern": "Výchozí schéma knihy",
           "accountHelp": "Výchozí nastavení vašeho účtu pro KOReader plugin se stáhne, pokud zařízení nemá vlastní pravidlo.",
           "accountHint": "Používá vaše zařízení KOReader, která nemají vlastní přepsání.",
@@ -2125,7 +2125,7 @@
           "saveAccount": "Uložit výchozí účet",
           "deviceTitle": "KOReader zařízení přepíše",
           "deviceDescription": "Přizpůsobit libovolnou kombinaci výchozích, sériových a samostatných cest. Prázdné řádky specifické pro zařízení dědí výchozí nastavení zařízení, což samo o sobě může zdědit výchozí nastavení účtu KOReader vzor.",
-          "noDevices": "Zařízení se objeví po synchronizaci s BookOrbit.",
+          "noDevices": "Zařízení se objeví po synchronizaci s TLS Library.",
           "customOrganization": "Vlastní organizace",
           "usingAccountDefault": "Použít výchozí nastavení účtu",
           "deviceDefaultHelp": "Vrátit se zpět pro toto zařízení. Ponechte rovno výchozímu účtu pro automatické dědění budoucích změn.",
@@ -2156,10 +2156,10 @@
         "latestPlugin": "Nejnovější plugin: v{version}",
         "latestPluginUnavailable": "Nejnovější plugin není k dispozici",
         "notConfigured": "KOReader synchronizace není nakonfigurována",
-        "notConfiguredHint": "Vytvořte jednu sadu synchronizovaných přihlašovacích údajů a poté je použijte s pluginem BookOrbit KOReader pro prohlížení, stahování, průběh, čtení událostí, zvýraznění a odstranění.",
+        "notConfiguredHint": "Vytvořte jednu sadu synchronizovaných přihlašovacích údajů a poté je použijte s pluginem TLS Library KOReader pro prohlížení, stahování, průběh, čtení událostí, zvýraznění a odstranění.",
         "createCredentials": "Vytvořit přihlašovací údaje",
         "createFormTitle": "Vytvořit přihlašovací údaje pro synchronizaci KOReader",
-        "createFormHint": "Tyto přihlašovací údaje ověřují vaše zařízení KOReader pomocí BookOrbit.",
+        "createFormHint": "Tyto přihlašovací údaje ověřují vaše zařízení KOReader pomocí TLS Library.",
         "username": "Uživatelské jméno",
         "usernamePlaceholder": "např. myreader",
         "password": "Heslo",
@@ -2171,7 +2171,7 @@
         "status": "Stav KOReaderu",
         "refresh": "Aktualizovat",
         "progressSync": "Probíhá synchronizace",
-        "progressSyncHint": "Povolit zařízení KOReader synchronizovat pokrok, čtení, zvýraznění a anotace s BookOrbit.",
+        "progressSyncHint": "Povolit zařízení KOReader synchronizovat pokrok, čtení, zvýraznění a anotace s TLS Library.",
         "lastSync": "Poslední synchronizace",
         "syncedBooks": "Synchronizované knihy",
         "bookCount": "{count, plural, =0 {Žádné knihy} one {# kniha} few {# knih} many {# knih} other {# knih}}",
@@ -2182,14 +2182,14 @@
         "pluginServerUrl": "URL serveru pluginu",
         "copied": "Zkopírováno",
         "copyUrl": "Kopírovat URL",
-        "preconfiguredPlugin": "Přednastavený plugin BookOrbit",
+        "preconfiguredPlugin": "Přednastavený plugin TLS Library",
         "preconfiguredPluginHintPrefix": "Stáhněte si zip s URL serveru a vaše synchronizační přihlášení je již nakonfigurováno. Plugin zahrnuje prohlížení a synchronizaci katalogu. Zkopírujte složku do",
         "preconfiguredPluginHintSuffix": "a restartujte KOReader.",
-        "latestPluginNote": "{label}. Aktualizace zařízení běží z menu BookOrbit v KOReader.",
+        "latestPluginNote": "{label}. Aktualizace zařízení běží z menu TLS Library v KOReader.",
         "preparing": "Připravuji...",
         "downloadPlugin": "Stáhnout plugin",
         "noDevicesSynced": "Zatím nebyla synchronizována žádná zařízení",
-        "noDevicesSyncedHint": "Nainstalujte plugin BookOrbit pro plnou synchronizaci nebo nakonfigurujte KOReaderu burzovní synchronizaci pro aktualizace pouze průběhu.",
+        "noDevicesSyncedHint": "Nainstalujte plugin TLS Library pro plnou synchronizaci nebo nakonfigurujte KOReaderu burzovní synchronizaci pro aktualizace pouze průběhu.",
         "lastSyncLabel": "Poslední synchronizace:",
         "lastBookLabel": "Poslední kniha:",
         "noneYet": "Zatím žádné",
@@ -2206,7 +2206,7 @@
         "failedPositions": "{count, plural, =0 {žádné zvýraznění pozice nepotřebují pozornost.} one {# zvýrazní pozici vyžaduje pozornost.} few {# zvýrazní pozice potřebují pozornost.} many {# zvýrazní pozice potřebují pozornost.} other {# zvýrazní pozice potřebují pozornost.}}",
         "setupGuide": "Průvodce nastavením",
         "setupSteps": "KOReader kroky nastavení",
-        "pluginGuideTitle": "Doplněk BookOrbit",
+        "pluginGuideTitle": "Doplněk TLS Library",
         "pluginStep1": "Stáhněte si přednastavený plugin výše.",
         "pluginStep2Prefix": "Rozbalit a kopírovat",
         "pluginStep2Middle": "do",
@@ -2219,7 +2219,7 @@
         "stockStep1Suffix": ".",
         "stockStep2": "Nastavte vlastní synchronizační server na URL zobrazenou výše.",
         "stockStep3": "Zadejte uživatelské jméno a heslo, které jste vytvořili, a poté klepněte na Přihlášení.",
-        "locationNote": "BookOrbit ukládá místa EPUB kompatibilní s KOReaderem z webové čtečky. Obnova by měla být umístěna v blízkosti stejné polohy, ale přesné umístění čáry se může lišit podle čtečky a grafu EPUB.",
+        "locationNote": "TLS Library ukládá místa EPUB kompatibilní s KOReaderem z webové čtečky. Obnova by měla být umístěna v blízkosti stejné polohy, ale přesné umístění čáry se může lišit podle čtečky a grafu EPUB.",
         "dangerZone": "Nebezpečná zóna",
         "deleteCredentials": "Odstranit pověření KOReader",
         "deleteCredentialsHint": "Odstranit synchronizaci a odpojit všechna zařízení. Data průběhu budou zachována.",
@@ -2280,7 +2280,7 @@
             "linkTitle": "Odkaz na knihu KOReader",
             "changeTitle": "Změnit odkaz KOReader",
             "bookOrbitBook": "Kniha Obíhání knih",
-            "searchPlaceholder": "Prohledat knihovnu BookOrbit",
+            "searchPlaceholder": "Prohledat knihovnu TLS Library",
             "minChars": "Zadejte alespoň 2 znaky.",
             "searching": "Vyhledávání...",
             "noBooksFound": "Nebyly nalezeny žádné knihy.",
@@ -2292,7 +2292,7 @@
             "koreader": "KOČlověk",
             "bookOrbit": "Obíhání knih",
             "bookId": "ID rezervace: {id}",
-            "syncedStatsNote": "Již synchronizované statistiky zůstanou na své aktuální knize BookOrbit.",
+            "syncedStatsNote": "Již synchronizované statistiky zůstanou na své aktuální knize TLS Library.",
             "chooseDifferent": "Vyberte si jiný",
             "saving": "Ukládání...",
             "confirmLink": "Potvrdit odkaz",
@@ -2311,7 +2311,7 @@
           "changeLinkTitle": "Změnit odkaz KOReader",
           "linkBookTitle": "Odkaz na knihu KOReader",
           "bookOrbitBook": "Kniha Obíhání knih",
-          "searchLibraryPlaceholder": "Prohledat knihovnu BookOrbit",
+          "searchLibraryPlaceholder": "Prohledat knihovnu TLS Library",
           "enterMinChars": "Zadejte alespoň 2 znaky.",
           "searching": "Vyhledávání...",
           "noBooksFound": "Nebyly nalezeny žádné knihy.",
@@ -2322,7 +2322,7 @@
           "loadingMore": "Načítám...",
           "confirmLinkTitle": "Potvrdit odkaz KOReader",
           "bookId": "ID rezervace: {id}",
-          "syncedStatsNote": "Již synchronizované statistiky zůstanou na své aktuální knize BookOrbit.",
+          "syncedStatsNote": "Již synchronizované statistiky zůstanou na své aktuální knize TLS Library.",
           "chooseDifferent": "Vyberte si jiný",
           "saving": "Ukládání...",
           "confirmLink": "Potvrdit odkaz"
@@ -4541,9 +4541,9 @@
       "changePassword": "Změnit heslo",
       "signOut": "Odhlásit se",
       "githubStar": {
-        "title": "Líbí se vám BookOrbit?",
-        "body": "Pokud BookOrbit pomáhá s Vaší knihovnou, zvažte prosím spuštění projektu na GitHubu. Pomáhá to více lidem objevit aplikaci a podporuje probíhající vývoj.",
-        "cta": "Hvězdná BookOrbit na GitHub"
+        "title": "Líbí se vám TLS Library?",
+        "body": "Pokud TLS Library pomáhá s Vaší knihovnou, zvažte prosím spuštění projektu na GitHubu. Pomáhá to více lidem objevit aplikaci a podporuje probíhající vývoj.",
+        "cta": "Hvězdná TLS Library na GitHub"
       },
       "surfaceOpacity": "Neprůhlednost povrchu",
       "surfaceOpacityValue": "{value}%"
@@ -5097,7 +5097,7 @@
     }
   },
   "errors": {
-    "network": "Could not reach BookOrbit. Check your connection, then try again."
+    "network": "Could not reach TLS Library. Check your connection, then try again."
   },
   "hardcover": {
     "settings": {
@@ -5143,7 +5143,7 @@
       },
       "syncOnProgress": {
         "title": "Synchronizovat při aktualizaci",
-        "description": "Stiskněte průběh čtení a data, kdy se mění BookOrbit nebo KOReader průběh."
+        "description": "Stiskněte průběh čtení a data, kdy se mění TLS Library nebo KOReader průběh."
       },
       "syncOnRating": {
         "title": "Synchronizovat při změně hodnocení",
@@ -5196,7 +5196,7 @@
     },
     "import": {
       "title": "Stáhnout stav čtení",
-      "description": "Náhled hardcover odpovídá před vyplněním prázdného stavu BookOrbitu.",
+      "description": "Náhled hardcover odpovídá před vyplněním prázdného stavu TLS Library.",
       "clear": "Vyčistit",
       "preview": "Náhled",
       "importProgress": "Importovat pokrok",
@@ -5654,7 +5654,7 @@
       "sourceUser": "Zdrojový uživatel",
       "targetUser": "Cílový uživatel",
       "noSourceUsersLoaded": "Zatím nejsou načteni žádní zdrojoví uživatelé.",
-      "noActiveTargetUsers": "Nebyli nalezeni žádní aktivní cíloví uživatelé. Vytvořte nebo znovu povolte uživatele BookOrbit před mapováním.",
+      "noActiveTargetUsers": "Nebyli nalezeni žádní aktivní cíloví uživatelé. Vytvořte nebo znovu povolte uživatele TLS Library před mapováním.",
       "pathPrefixMappings": "Předpona cesty",
       "addMapping": "Přidat mapování",
       "pathMappingsExplanation": "Cesta k mapování přeloží cesty zdrojových souborů do cílových cest, aby knihy mohly být porovnány s umístěním souboru. Knihy se také shodují s ISBN, hashem souborů a názvem/autorem bez ohledu na mapování cesty.",
@@ -6482,7 +6482,7 @@
       },
       "confirmDialog": {
         "title": "{count, plural, few {Přejmenovat # soubory na disku?} many {Přejmenovat # souboru na disku?} one {Přejmenovat # soubor na disku?} other {Přejmenovat # souborů na disku?}}",
-        "body": "Tímto přesunete skutečné soubory uvnitř {library}. BookOrbit si každý přesun zaznamená, ale vrácení zpět znamená je přejmenovat zpět."
+        "body": "Tímto přesunete skutečné soubory uvnitř {library}. TLS Library si každý přesun zaznamená, ale vrácení zpět znamená je přejmenovat zpět."
       }
     },
     "bookDuplicates": {

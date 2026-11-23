@@ -70,7 +70,7 @@ describe('PathService folder picker routes', () => {
       expect(listing.entries.at(-1)?.name).toBe('Author 4999');
     });
 
-    it('marks BookOrbit’s data folder', async () => {
+    it('marks TLS Library’s data folder', async () => {
       const listing = await service.listFolder(root);
 
       expect(listing.truncated).toBe(false);

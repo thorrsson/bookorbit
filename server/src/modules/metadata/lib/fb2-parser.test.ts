@@ -267,7 +267,7 @@ describe('parseFb2File', () => {
       );
     }
 
-    it('reads namespaced fields written by BookOrbit', async () => {
+    it('reads namespaced fields written by TLS Library', async () => {
       mockReadFile.mockResolvedValue(
         withCustomInfo(
           [

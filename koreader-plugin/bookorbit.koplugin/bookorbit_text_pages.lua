@@ -270,7 +270,7 @@ function TextPages.tags(detail)
             if #tags > 0 then
                 table.insert(items, DialogUI.section(w, _("Tags"), chips(tags), text(tostring(#tags), { s = 13, col = INK.g4 })))
             else
-                table.insert(items, DialogUI.note(w, "tag", _("No tags on this book yet. Tags added in BookOrbit show here."), { col = INK.g4 }))
+                table.insert(items, DialogUI.note(w, "tag", _("No tags on this book yet. Tags added in TLS Library show here."), { col = INK.g4 }))
             end
             return items
         end, { pop_w = 460 })

@@ -193,7 +193,7 @@ export class TorznabAdapter implements IndexerAdapter {
     }
     if (!response.ok) throw new IndexerSearchException('error', `${config.name} answered ${response.status}`);
 
-    const body = (await readBounded(response, MAX_XML_RESPONSE_BYTES, `${config.name} answered with more XML than BookOrbit will read`)).toString(
+    const body = (await readBounded(response, MAX_XML_RESPONSE_BYTES, `${config.name} answered with more XML than TLS Library will read`)).toString(
       'utf8',
     );
     // Torznab reports its own failures as a 200 carrying an <error> element, so the status alone

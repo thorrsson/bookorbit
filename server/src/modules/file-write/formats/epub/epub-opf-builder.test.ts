@@ -344,7 +344,7 @@ describe('epub-opf-builder', () => {
     expect(result.newOpfXml).not.toContain('<meta name="bookorbit:subtitle"');
   });
 
-  it('writes EPUB2-only BookOrbit metadata fields and preserves omitted values', () => {
+  it('writes EPUB2-only TLS Library metadata fields and preserves omitted values', () => {
     const opf = `
       <package version="2.0" unique-identifier="uid">
         <metadata>
