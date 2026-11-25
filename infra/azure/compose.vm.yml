@@ -1,0 +1,50 @@
+services:
+  app:
+    ports: !reset []
+    environment:
+      APP_DATA_PATH: /data
+      BOOK_DOCK_PATH: /books/.book-dock
+      LIBRARY_BROWSE_ROOT: /books
+    volumes: !override
+      - /srv/bookorbit/state/books:/books
+      - /srv/bookorbit/state/app:/data
+    healthcheck:
+      start_period: 30m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  postgres:
+    image: ${POSTGRES_IMAGE?required}
+    volumes: !override
+      - /srv/bookorbit/state/postgres:/var/lib/postgresql/data
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  proxy:
+    image: ${CADDY_IMAGE?required}
+    restart: unless-stopped
+    environment:
+      APP_URL: ${APP_URL?required}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - /srv/bookorbit/state/caddy-data:/data
+      - /srv/bookorbit/state/caddy-config:/config
+    depends_on:
+      app:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

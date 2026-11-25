@@ -49,6 +49,8 @@
     "tts:down": "docker compose -f docker-compose.dev.yml --profile tts stop kokoro",
     "prod:up": "docker compose up -d --wait",
     "prod:down": "docker compose down",
+    "azure": "bash ./scripts/azure/azure.sh",
+    "test:azure": "bash ./scripts/azure/test.sh",
     "db:migrate": "pnpm --filter server db:migrate",
     "db:reset": "bash ./scripts/db/reset.sh",
     "db:seed": "bash ./scripts/db/seed-baseline.sh",

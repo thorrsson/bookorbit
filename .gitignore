@@ -25,6 +25,7 @@ docker/postgres/data/
 
 # Local-only
 local/
+/infra/azure/*.local.*
 
 # Build artifacts
 coverage/
