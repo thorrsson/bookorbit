@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": { "value": "bookorbit" },
+    "sshPublicKey": { "value": "REPLACE_WITH_YOUR_SSH_PUBLIC_KEY" },
+    "sshSourceCidr": { "value": "203.0.113.1/32" },
+    "vmSize": { "value": "Standard_D2as_v6" },
+    "diskControllerType": { "value": "NVMe" },
+    "dataDiskSizeGB": { "value": 128 }
+  }
+}

@@ -151,6 +151,8 @@ Open `http://your-server-ip:3000` and complete setup using your `SETUP_BOOTSTRAP
 
 For the full installation guide including reverse proxy setup, host file permissions, secrets from mounted files, external databases, OIDC hardening, and environment variable reference, see **[bookorbit.app/installation](https://bookorbit.app/installation)**.
 
+For a reproducible single-VM Azure deployment and an opt-in Container Apps migration path, see **[the Azure deployment guide](docs/AZURE.md)**.
+
 <a id="managed-hosting"></a>
 
 ## ☁️ Managed Hosting
