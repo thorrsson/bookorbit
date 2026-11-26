@@ -62,6 +62,32 @@ class AzureDeploymentTest < Minitest::Test
     assert_raises(ArgumentError) { AzureConfig.parameters('vm', path, '-') }
   end
 
+  def test_vm_tts_requires_a_pinned_cpu_image
+    @env['COMPOSE_PROFILES'] = 'tts'
+    ['', 'ghcr.io/remsky/kokoro-fastapi-cpu:v0.8.0',
+     "ghcr.io/remsky/kokoro-fastapi-gpu@sha256:#{'4' * 64}"].each do |image|
+      @env['KOKORO_IMAGE'] = image
+      write_env
+      assert_raises(ArgumentError) { AzureConfig.validate_env(@env_file, 'vm') }
+    end
+    @env['KOKORO_IMAGE'] = "ghcr.io/remsky/kokoro-fastapi-cpu:v0.8.0@sha256:#{'4' * 64}"
+    write_env
+    assert_equal 'tts', AzureConfig.validate_env(@env_file, 'vm')['COMPOSE_PROFILES']
+  end
+
+  def test_vm_tts_settings_cannot_silently_disappear_in_container_apps
+    @env['COMPOSE_PROFILES'] = 'tts'
+    @env['KOKORO_IMAGE'] = "ghcr.io/remsky/kokoro-fastapi-cpu@sha256:#{'4' * 64}"
+    write_env
+    %w[container-app container-apps-platform].each do |target|
+      error = assert_raises(ArgumentError) { AzureConfig.validate_env(@env_file, target) }
+      assert_includes error.message, 'only for VM'
+    end
+    @env['COMPOSE_PROFILES'] = 'tts,read-aloud'
+    write_env
+    assert_raises(ArgumentError) { AzureConfig.validate_env(@env_file, 'vm') }
+  end
+
   def test_container_app_requires_verified_tls_and_preserves_runtime_secrets
     path = File.join(REPO, 'infra/azure/container-app.parameters.example.json')
     assert_raises(ArgumentError) { AzureConfig.parameters('container-app', path, @env_file) }
@@ -80,7 +106,7 @@ class AzureDeploymentTest < Minitest::Test
     assert_raises(ArgumentError) { AzureConfig.validate_env(@env_file, 'vm') }
   end
 
-  def test_compose_keeps_state_across_releases_and_exposes_only_the_proxy
+  def vm_compose_services
     FileUtils.cp(File.join(REPO, 'docker-compose.yml'), @tmp)
     FileUtils.cp(File.join(REPO, 'infra/azure/compose.vm.yml'), @tmp)
     stdout, stderr, status = Open3.capture3(
@@ -88,7 +114,12 @@ class AzureDeploymentTest < Minitest::Test
       '-f', File.join(@tmp, 'compose.vm.yml'), 'config', '--format', 'json'
     )
     assert status.success?, stderr
-    services = JSON.parse(stdout).fetch('services')
+    JSON.parse(stdout).fetch('services')
+  end
+
+  def test_compose_keeps_state_across_releases_and_exposes_only_the_proxy
+    services = vm_compose_services
+    refute services.key?('kokoro')
     assert_empty services['app'].fetch('ports', [])
     assert_empty services['postgres'].fetch('ports', [])
     assert_equal %w[80 443], services['proxy'].fetch('ports').map { |port| port['published'] }
@@ -96,6 +127,28 @@ class AzureDeploymentTest < Minitest::Test
     assert_equal '/srv/bookorbit/state/books', app_mounts['/books']
     assert_equal '/srv/bookorbit/state/app', app_mounts['/data']
     assert_equal @env['POSTGRES_IMAGE'], services['postgres']['image']
+  end
+
+  def test_vm_tts_profile_enables_private_health_checked_cpu_service
+    @env['COMPOSE_PROFILES'] = 'tts'
+    @env['KOKORO_IMAGE'] = "ghcr.io/remsky/kokoro-fastapi-cpu@sha256:#{'4' * 64}"
+    write_env
+    services = vm_compose_services
+    kokoro = services.fetch('kokoro')
+    assert_equal @env['KOKORO_IMAGE'], kokoro['image']
+    assert_empty kokoro.fetch('ports', [])
+    assert_includes kokoro.fetch('expose'), '8880'
+    assert_equal services.fetch('app').fetch('networks').keys, kokoro.fetch('networks').keys
+    assert_equal 'unless-stopped', kokoro['restart']
+    assert_includes kokoro.fetch('healthcheck').fetch('test').join(' '), '/v1/audio/voices'
+    assert_equal '5m0s', kokoro.fetch('healthcheck').fetch('start_period')
+    assert_equal 1.0, kokoro['cpus']
+    assert_equal 2 * 1024**3, Integer(kokoro.fetch('mem_limit'))
+    assert_equal 256, kokoro['pids_limit']
+    assert_equal 'false', kokoro.fetch('environment').fetch('USE_GPU')
+    assert_equal 'cpu', kokoro.fetch('environment').fetch('DEVICE_TYPE')
+    assert_equal '10m', kokoro.fetch('logging').fetch('options').fetch('max-size')
+    refute services.key?('read-aloud-worker')
   end
 
   def test_templates_keep_managed_dependencies_private_and_bound_startup_probes
@@ -115,6 +168,94 @@ class AzureDeploymentTest < Minitest::Test
     storage = platform['resources'].find { |resource| resource['type'] == 'Microsoft.Storage/storageAccounts' }
     assert_equal 'Deny', storage.dig('properties', 'networkAcls', 'defaultAction')
     refute platform['resources'].any? { |resource| resource['type'] == 'Microsoft.App/containerApps' }
+  end
+
+  def setup_vm_transfer
+    bin = File.join(@tmp, 'transfer-bin')
+    FileUtils.mkdir_p(bin)
+    @remote_stage = File.join(@tmp, 'remote-stage')
+    @transfer_log = File.join(@tmp, 'transfer-log')
+    real_tar = ENV.fetch('PATH').split(File::PATH_SEPARATOR)
+                  .map { |path| File.join(path, 'tar') }.find { |path| File.executable?(path) }
+    File.write(File.join(bin, 'tar'), <<~'RUBY', mode: 'w', perm: 0o755)
+      #!/usr/bin/env ruby
+      require 'fileutils'
+      require 'tmpdir'
+      if ARGV.include?('-xf') || ENV['COPYFILE_DISABLE'] == '1'
+        exec ENV.fetch('REAL_TAR'), *ARGV
+      end
+      Dir.mktmpdir('appledouble-test') do |archive|
+        FileUtils.cp_r("#{ARGV.fetch(1)}/.", archive)
+        File.write(File.join(archive, '._.env'), 'AppleDouble metadata')
+        system(ENV.fetch('REAL_TAR'), '-C', archive, '-cf', '-', '.')
+        exit $?.exitstatus
+      end
+    RUBY
+    File.write(File.join(bin, 'ssh'), <<~'RUBY', mode: 'w', perm: 0o755)
+      #!/usr/bin/env ruby
+      require 'fileutils'
+      command = ARGV.last
+      stage = ENV.fetch('REMOTE_STAGE')
+      case command
+      when 'sudo cloud-init status --wait'
+        exit 0
+      when 'umask 077; mktemp -d /tmp/bookorbit.XXXXXXXXXX'
+        FileUtils.mkdir(stage, mode: 0o700)
+        puts '/tmp/bookorbit.test123'
+      when /sudo bash/
+        File.write(ENV.fetch('TRANSFER_LOG'), Dir.children(stage).sort.join("\n"))
+        File.write(File.join(stage, 'unexpected'), 'retain') if ENV['EXTRA_STAGE_FILE'] == 'true'
+        warn 'Installed release: test' if ENV.fetch('DEPLOY_EXIT', '0') == '0'
+        exit ENV.fetch('DEPLOY_EXIT', '0').to_i
+      else
+        exec 'bash', '-c', command.gsub('/tmp/bookorbit.test123', stage)
+      end
+    RUBY
+    File.write(File.join(bin, 'curl'), <<~'RUBY', mode: 'w', perm: 0o755)
+      #!/usr/bin/env ruby
+      exit ENV.fetch('HEALTH_EXIT', '0').to_i
+    RUBY
+    @transfer_env = {
+      'PATH' => "#{bin}:#{ENV.fetch('PATH')}", 'REAL_TAR' => real_tar,
+      'REMOTE_STAGE' => @remote_stage, 'TRANSFER_LOG' => @transfer_log,
+      'COPYFILE_DISABLE' => nil
+    }
+  end
+
+  def run_vm_transfer(overrides = {})
+    Open3.capture3(
+      @transfer_env.merge(overrides), 'bash', File.join(REPO, 'scripts/azure/azure.sh'),
+      'deploy-vm', 'azureuser@test-host', @env_file
+    )
+  end
+
+  def test_vm_transfer_omits_appledouble_metadata_and_removes_staging
+    setup_vm_transfer
+    stdout, stderr, status = run_vm_transfer
+    assert status.success?, stderr
+    assert_includes stdout, 'Deployment healthy'
+    assert_equal %w[.env Caddyfile compose.vm.yml docker-compose.yml vm-host.sh].sort,
+                 File.read(@transfer_log).split("\n")
+    refute File.exist?(@remote_stage)
+  end
+
+  def test_vm_transfer_cleans_staging_and_preserves_deploy_and_health_failures
+    setup_vm_transfer
+    [{ 'DEPLOY_EXIT' => '17' }, { 'HEALTH_EXIT' => '35' }].each do |failure|
+      stdout, stderr, status = run_vm_transfer(failure)
+      assert_equal failure.values.first.to_i, status.exitstatus, stderr
+      refute_includes stdout, 'Deployment healthy'
+      refute File.exist?(@remote_stage)
+    end
+  end
+
+  def test_vm_transfer_reports_cleanup_failure_without_deleting_unexpected_files
+    setup_vm_transfer
+    stdout, stderr, status = run_vm_transfer('EXTRA_STAGE_FILE' => 'true')
+    refute status.success?
+    assert_includes stdout, 'Deployment healthy'
+    assert_includes stderr, 'Remote deployment cleanup failed'
+    assert_equal ['unexpected'], Dir.children(@remote_stage)
   end
 
   def setup_host
