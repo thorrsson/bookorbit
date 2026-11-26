@@ -258,4 +258,18 @@ describe('SharedReadingInsightsService', () => {
 
     expect(result.items[0].sharingLevel).toBe('summary');
   });
+
+  it('identifies administrator dashboard views without changing shared-profile history', async () => {
+    const audit = {
+      getReadingInsightsAccess: vi.fn().mockResolvedValue({
+        items: [
+          { id: 1, viewerUsername: 'admin', meta: { sharingLevel: 'detailed', adminOverride: true }, viewedAt: new Date('2026-07-01T00:00:00Z') },
+        ],
+        total: 1,
+      }),
+    };
+    const service = new SharedReadingInsightsService({} as never, audit as never);
+    const result = await service.getMyAccessHistory(9, 1, 20);
+    expect(result.items[0]).toMatchObject({ adminOverride: true, sharingLevel: 'detailed' });
+  });
 });

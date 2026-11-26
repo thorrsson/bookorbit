@@ -30,6 +30,14 @@
     "privacySharing": {
       "title": "Privacy & Sharing",
       "subtitle": "Control whether administrators can see an identifiable summary of your reading activity.",
+      "adminVisibility": {
+        "subtitle": "Control your shared reading profile. Administrators with View all reading activity permission can still see reading history, progress, and achievements, including private profiles.",
+        "privateDescription": "Hide your opt-in shared profile. This does not block the administrator reading dashboard.",
+        "stopDescription": "Shared-profile access will be blocked immediately. Administrators with View all reading activity permission retain dashboard access. Existing access records remain in your history.",
+        "previewDescription": "Preview your opt-in shared profile, not the administrator reading dashboard.",
+        "historyDescription": "Recent administrator views of your shared profile or reading dashboard details.",
+        "historyEmpty": "No administrator profile or reader-list views have been recorded."
+      },
       "levelLegend": "Reading insights sharing level",
       "current": "Current setting",
       "levels": {
@@ -78,6 +86,7 @@
         "title": "Profile access history",
         "description": "Recent administrator views of your shared reading profile.",
         "empty": "No administrator has viewed your shared reading profile.",
+        "adminOverride": "Administrator reading dashboard",
         "paginationLabel": "Profile access history pages"
       },
       "durationMinutes": "{count, plural, one {# minute} other {# minutes}}",
@@ -1519,6 +1528,7 @@
       "tabs": {
         "users": "Users",
         "account-activity": "Account Activity",
+        "reading": "Reading Activity",
         "magic-links": "Magic Links",
         "oidc": "OIDC / SSO",
         "tts": "Text-to-Speech",
@@ -4456,6 +4466,7 @@
         "storygraph": "Connect your StoryGraph account using your browser session cookies to sync reading progress and status.",
         "users": "Create and manage accounts, their roles, permissions and library access, and see which accounts need attention.",
         "account-activity": "See when each account was last active and how it signs in, and open per-user reading and session insights.",
+        "reading": "Understand recorded reading across the platform, inspect book progress, and review earned achievements.",
         "magic-links": "Create shareable links that sign someone in without a password, and revoke them when they are no longer needed.",
         "oidc": "Connect a single sign-on provider such as Keycloak, map its claims, and decide how new accounts are created.",
         "requests": "Where TLS Library searches for requested books, which download clients fetch them, and what happens once a download finishes.",
@@ -4696,6 +4707,46 @@
     }
   },
   "adminFeature": {
+    "reading": {
+      "subtitle": "Understand reading across the platform, from recorded sessions to book progress and earned achievements.",
+      "permissionLabel": "View all reading activity (including private profiles)",
+      "auditNotice": "Permission-protected access to all users, including private profiles. Overview, reader-list, and detail views are audited.",
+      "coverage": "Times and frequency use recorded sessions with positive duration, grouped by their start day in UTC. Listening includes audiobooks and text-to-speech. Device time may be estimated; untracked reading is not included. Completions count non-deleted completed reading attempts, including rereads and books since removed. Accounts include disabled users.",
+      "activeReaders": "Active readers",
+      "activeRatio": "{active} of {total} accounts",
+      "readingTime": "Reading time",
+      "listeningTime": "Listening time",
+      "totalTime": "Recorded time",
+      "sessions": "Sessions",
+      "sessionCount": "{count, plural, one {# session} other {# sessions}}",
+      "averageSession": "Average session",
+      "booksRead": "Books with sessions",
+      "completions": "Completed reads",
+      "achievements": "Achievements earned",
+      "activeDays": "Active days",
+      "trend": "Daily recorded time (UTC)",
+      "sources": "Reading clients",
+      "minutes": "Minutes",
+      "day": "Day (UTC)",
+      "viewData": "View chart data",
+      "readers": "Readers",
+      "openReader": "View reading details for {name}",
+      "lastRead": "Last recorded reading",
+      "notRecorded": "Not recorded",
+      "progress": "Latest progress",
+      "bookProgress": "Progress through {title}",
+      "books": "Books active in this period",
+      "earnedAchievements": "Earned achievements",
+      "achievementsAllTime": "All-time earned achievements, newest first. The overview counts only awards in the selected period.",
+      "readerSummary": "{sessions, plural, one {# session} other {# sessions}} on {days, plural, one {# active day} other {# active days}} · {time}",
+      "noActivity": "No reading sessions recorded in this period. Open a reader to review available progress and achievements.",
+      "noReaders": "No accounts match this search.",
+      "noBooks": "No book activity recorded in this period.",
+      "noAchievements": "No achievements earned yet.",
+      "loadError": "Could not load reading activity. Retry to refresh the dashboard.",
+      "detailError": "Could not load this reader. Retry or return to the reader list.",
+      "forbidden": "You do not have permission to view all reading activity."
+    },
     "accountActivity": {
       "title": "Account Activity",
       "subtitle": "Review account authentication activity without exposing reading history.",
@@ -15337,6 +15388,7 @@
     "admin": {
       "users": "Users",
       "account-activity": "Account Activity",
+      "reading": "Reading Activity",
       "magic-links": "Magic Links",
       "oidc": "OIDC / SSO",
       "server-fonts": "Server Fonts",

@@ -1,4 +1,4 @@
-export const ADMIN_TABS = ['users', 'account-activity', 'oidc', 'magic-links', 'server-fonts', 'tts', 'api-keys'] as const
+export const ADMIN_TABS = ['users', 'account-activity', 'reading', 'oidc', 'magic-links', 'server-fonts', 'tts', 'api-keys'] as const
 
 export type AdminTab = (typeof ADMIN_TABS)[number]
 
@@ -15,6 +15,10 @@ export const ADMIN_TAB_INFO: Record<AdminTab, AdminTabInfo> = {
   'account-activity': {
     permission: 'view_user_activity',
     titleKey: 'titles.admin.account-activity',
+  },
+  reading: {
+    permission: 'view_reading_activity',
+    titleKey: 'titles.admin.reading',
   },
   'magic-links': {
     permission: null,

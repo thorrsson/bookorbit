@@ -878,6 +878,11 @@ describe('Authorization matrix (e2e)', () => {
           path: '/account-activity/summary',
           token: 'allPerms',
         },
+        [Permission.ViewReadingActivity]: {
+          method: 'GET',
+          path: '/admin/reading/overview',
+          token: 'allPerms',
+        },
         [Permission.NotificationAccess]: {
           method: 'GET',
           path: '/notifications',

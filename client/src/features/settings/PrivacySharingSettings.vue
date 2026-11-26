@@ -98,7 +98,7 @@ function durationLabel(seconds: number): string {
       <div class="space-y-2">
         <div>
           <h2 id="privacy-sharing-heading" class="settings-group-label mb-0">{{ t('settings.privacySharing.title') }}</h2>
-          <p class="settings-hint">{{ t('settings.privacySharing.subtitle') }}</p>
+          <p class="settings-hint">{{ t('settings.privacySharing.adminVisibility.subtitle') }}</p>
         </div>
         <fieldset>
           <legend class="sr-only">{{ t('settings.privacySharing.levelLegend') }}</legend>
@@ -119,7 +119,13 @@ function durationLabel(seconds: number): string {
               />
               <component :is="option.icon" :size="18" class="text-muted-foreground" aria-hidden="true" />
               <span class="settings-label mt-3 block">{{ t(`settings.privacySharing.levels.${option.level}.title`) }}</span>
-              <span class="settings-hint block">{{ t(`settings.privacySharing.levels.${option.level}.description`) }}</span>
+              <span class="settings-hint block">
+                {{
+                  option.level === 'private'
+                    ? t('settings.privacySharing.adminVisibility.privateDescription')
+                    : t(`settings.privacySharing.levels.${option.level}.description`)
+                }}
+              </span>
               <span
                 v-if="sharing.settings.value.sharingLevel === option.level"
                 class="mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary"
@@ -140,7 +146,7 @@ function durationLabel(seconds: number): string {
         <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div class="min-w-0">
             <h3 id="privacy-preview-heading" class="text-sm font-semibold text-foreground">{{ t('settings.privacySharing.preview.title') }}</h3>
-            <p class="settings-hint">{{ t('settings.privacySharing.preview.description') }}</p>
+            <p class="settings-hint">{{ t('settings.privacySharing.adminVisibility.previewDescription') }}</p>
           </div>
           <Button variant="outline" size="sm" type="button" :disabled="sharing.previewLoading.value" @click="handlePreview">
             {{ sharing.previewLoading.value ? t('common.loading') : t('settings.privacySharing.preview.action') }}
@@ -176,15 +182,21 @@ function durationLabel(seconds: number): string {
 
       <section aria-labelledby="privacy-history-heading" class="rounded-lg border border-border bg-card p-4 shadow-xs md:p-5">
         <h3 id="privacy-history-heading" class="text-sm font-semibold text-foreground">{{ t('settings.privacySharing.history.title') }}</h3>
-        <p class="settings-hint">{{ t('settings.privacySharing.history.description') }}</p>
+        <p class="settings-hint">{{ t('settings.privacySharing.adminVisibility.historyDescription') }}</p>
         <p v-if="sharing.history.value.items.length === 0" class="mt-4 text-sm text-muted-foreground">
-          {{ t('settings.privacySharing.history.empty') }}
+          {{ t('settings.privacySharing.adminVisibility.historyEmpty') }}
         </p>
         <ul v-else class="mt-4 divide-y divide-border">
           <li v-for="item in sharing.history.value.items" :key="item.id" class="flex items-center justify-between gap-3 py-3 first:pt-0 last:pb-0">
             <div class="min-w-0">
               <p class="settings-label truncate">{{ item.viewerUsername }}</p>
-              <p class="text-xs text-muted-foreground">{{ t(`settings.privacySharing.levels.${item.sharingLevel}.title`) }}</p>
+              <p class="text-xs text-muted-foreground">
+                {{
+                  item.adminOverride
+                    ? t('settings.privacySharing.history.adminOverride')
+                    : t(`settings.privacySharing.levels.${item.sharingLevel}.title`)
+                }}
+              </p>
             </div>
             <time :datetime="item.viewedAt" class="shrink-0 text-xs text-muted-foreground">{{ formatDateTime(new Date(item.viewedAt)) }}</time>
           </li>
@@ -229,7 +241,7 @@ function durationLabel(seconds: number): string {
           <SheetDescription>
             {{
               pendingLevel === 'private'
-                ? t('settings.privacySharing.confirm.stopDescription')
+                ? t('settings.privacySharing.adminVisibility.stopDescription')
                 : t('settings.privacySharing.confirm.shareDescription')
             }}
           </SheetDescription>

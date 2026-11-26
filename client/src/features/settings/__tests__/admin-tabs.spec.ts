@@ -4,11 +4,11 @@ import { ADMIN_TABS, ADMIN_TAB_INFO, normalizeAdminTab } from '../lib/admin-tabs
 describe('admin-tabs', () => {
   describe('ADMIN_TABS', () => {
     it('contains exactly users, account activity, oidc, magic-links, server-fonts, tts, and api-keys', () => {
-      expect(ADMIN_TABS).toEqual(['users', 'account-activity', 'oidc', 'magic-links', 'server-fonts', 'tts', 'api-keys'])
+      expect(ADMIN_TABS).toEqual(['users', 'account-activity', 'reading', 'oidc', 'magic-links', 'server-fonts', 'tts', 'api-keys'])
     })
 
-    it('has length 7', () => {
-      expect(ADMIN_TABS.length).toBe(7)
+    it('has length 8', () => {
+      expect(ADMIN_TABS.length).toBe(8)
     })
 
     it('places server-fonts immediately after magic-links', () => {

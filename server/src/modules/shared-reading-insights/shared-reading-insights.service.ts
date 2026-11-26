@@ -106,9 +106,15 @@ export class SharedReadingInsightsService {
     const result = await this.auditService.getReadingInsightsAccess(userId, page, pageSize);
     return {
       items: result.items.map((item) => {
-        const meta = item.meta as { sharingLevel?: unknown } | null;
+        const meta = item.meta as { sharingLevel?: unknown; adminOverride?: unknown } | null;
         const sharingLevel = meta?.sharingLevel === 'detailed' ? 'detailed' : 'summary';
-        return { id: item.id, viewerUsername: item.viewerUsername, sharingLevel, viewedAt: item.viewedAt.toISOString() };
+        return {
+          id: item.id,
+          viewerUsername: item.viewerUsername,
+          sharingLevel,
+          viewedAt: item.viewedAt.toISOString(),
+          ...(meta?.adminOverride === true ? { adminOverride: true } : {}),
+        };
       }),
       total: result.total,
       page,

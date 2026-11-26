@@ -1,0 +1,41 @@
+[
+  {
+    "file": "server/src/modules/admin-reading/admin-reading.controller.ts",
+    "className": "AdminReadingController",
+    "methodName": "overview",
+    "httpMethod": "GET",
+    "path": "/admin/reading/overview",
+    "permissions": ["Permission.ViewReadingActivity"],
+    "libraryAccess": [],
+    "isPublic": false,
+    "allowDefault": false,
+    "useGuards": [],
+    "apiKey": "read"
+  },
+  {
+    "file": "server/src/modules/admin-reading/admin-reading.controller.ts",
+    "className": "AdminReadingController",
+    "methodName": "readers",
+    "httpMethod": "GET",
+    "path": "/admin/reading/readers",
+    "permissions": ["Permission.ViewReadingActivity"],
+    "libraryAccess": [],
+    "isPublic": false,
+    "allowDefault": false,
+    "useGuards": [],
+    "apiKey": "read"
+  },
+  {
+    "file": "server/src/modules/admin-reading/admin-reading.controller.ts",
+    "className": "AdminReadingController",
+    "methodName": "detail",
+    "httpMethod": "GET",
+    "path": "/admin/reading/readers/:userId",
+    "permissions": ["Permission.ViewReadingActivity"],
+    "libraryAccess": [],
+    "isPublic": false,
+    "allowDefault": false,
+    "useGuards": [],
+    "apiKey": "read"
+  }
+]
