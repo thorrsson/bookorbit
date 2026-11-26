@@ -2,7 +2,7 @@
 
 The default target is one Ubuntu 26.04 LTS VM running the existing app and PostgreSQL Compose stack, with Caddy for automatic HTTPS at **https://library.the3littlesisters.com**. A separate, opt-in target provisions Container Apps, managed PostgreSQL and Azure Files. Both targets use the same published application image, public hostname and container paths. No Azure resource is created or DNS record changed by CI or by installing the tooling.
 
-The tooling deploys the **core stack**. The optional read-aloud/TTS workers, download clients, private container registries, custom CA mounts and feature-specific environment overrides need additional deployment configuration. Unsupported runtime settings fail validation instead of being silently dropped.
+The tooling deploys the **core stack**, with optional private Kokoro CPU narration on the VM. Read-aloud conversion workers, download clients, private container registries, custom CA mounts and feature-specific environment overrides need additional deployment configuration. Unsupported runtime settings fail validation instead of being silently dropped.
 
 ## Prerequisites
 
@@ -67,6 +67,8 @@ bash scripts/azure/azure.sh deploy-vm azureuser@YOUR_VM_IP .env.azure.local
 
 The command waits for cloud-init, transfers this checkout's Compose files and configuration over SSH, validates and pulls pinned images, then waits for application health and checks the public HTTPS health endpoint. DNS must already point to the VM for Caddy to obtain its certificate. No new application build happens on the VM.
 
+Transfers omit macOS AppleDouble metadata so the private staging directory can be removed on exit. Transient TLS errors can appear while the HTTPS health check retries; `Deployment healthy` means a subsequent check succeeded. A staging cleanup failure still returns a nonzero exit status without undoing the installed release.
+
 Complete the setup wizard using `SETUP_BOOTSTRAP_TOKEN` from your protected settings file. Do not remove the token from the environment afterwards: production startup requires it.
 
 Persistent state is independent of release directories:
@@ -82,6 +84,57 @@ Persistent state is independent of release directories:
 Copy/import your book files into the `books` directory, preserving writable ownership for the configured `PUID`/`PGID`. Create libraries under `/books` in the UI. Do not configure library paths pointing into release directories.
 
 Only Caddy publishes ports 80/443. Neither the app nor PostgreSQL has a host-published port. `/books` and Book Dock share a filesystem so local hardlinks can work.
+
+### Optional Kokoro narration on the VM
+
+The VM can run [Kokoro-FastAPI](https://github.com/remsky/Kokoro-FastAPI) alongside BookOrbit using its existing `tts` Compose profile. This adapts the [BookOrbit text-to-speech guide](https://bookorbit.app/text-to-speech/) for Linux: use the CPU container, not Apple MPS or a native macOS Python environment.
+
+Inspect the supported CPU image:
+
+```bash
+docker buildx imagetools inspect ghcr.io/remsky/kokoro-fastapi-cpu:v0.8.0
+```
+
+Add or update these two settings in your **existing** `.env.azure.local`, using the image's top-level digest:
+
+```dotenv
+COMPOSE_PROFILES=tts
+KOKORO_IMAGE=ghcr.io/remsky/kokoro-fastapi-cpu:v0.8.0@sha256:REPLACE
+```
+
+Keep your existing app/database images and secrets unchanged, then deploy normally:
+
+```bash
+bash scripts/azure/azure.sh deploy-vm azureuser@YOUR_VM_IP .env.azure.local
+```
+
+Compose reads the profile from the protected runtime file, pulls the pinned CPU image, starts Kokoro and waits for its voice-discovery health check along with the rest of the stack. Kokoro restarts automatically with Docker. It is limited to 1 CPU, 2 GiB RAM and 256 processes/threads, with rotated logs and a five-minute startup grace period. The default 2-vCPU/8-GiB VM shares resources with the app and database; concurrent narration may need a larger VM. Models and stock voices are supplied by the image, so no book-library mount or separate model volume is needed.
+
+Kokoro is reachable **only inside the Compose network** at `http://kokoro:8880/v1`. Do not publish port 8880, add an NSG rule, or proxy it through Caddy. BookOrbit calls the provider server-side, so readers continue using BookOrbit's authenticated HTTPS interface.
+
+With `manage_app_settings` permission, open **Settings > Server > Text-to-Speech > Add provider**:
+
+| Field                                 | Value                   |
+| ------------------------------------- | ----------------------- |
+| Name                                  | `Kokoro`                |
+| Base URL                              | `http://kokoro:8880/v1` |
+| API key                               | Leave blank             |
+| Default model                         | `kokoro`                |
+| This provider can list its own voices | On                      |
+
+Save, expand the provider and select **Test connection**. Then open **Manage voices**, select **Load Kokoro preset** or **Import from provider**, and **Save voices**. Open an eBook and choose **Listen with narration** to verify actual synthesis. The provider and selected voices are stored in BookOrbit's database and survive deployments.
+
+On the VM, inspect startup or synthesis problems without exposing the API:
+
+```bash
+sudo docker logs --tail 100 bookorbit-kokoro
+sudo docker exec bookorbit-kokoro python -c 'import urllib.request; print(urllib.request.urlopen("http://127.0.0.1:8880/v1/audio/voices").read().decode())'
+sudo docker exec bookorbit-app node -e 'fetch("http://kokoro:8880/v1/audio/voices").then(async r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); console.log(await r.json()); }).catch(e => { console.error(e); process.exit(1); })'
+```
+
+To disable narration, disable or remove the provider in BookOrbit, stop Kokoro on the VM with `sudo docker stop bookorbit-kokoro`, then clear `COMPOSE_PROFILES` and `KOKORO_IMAGE` in the runtime file before the next deployment. Disabling the profile alone does not stop an already-running container. For a Kokoro-only rollback, restore the previous pinned `KOKORO_IMAGE` and redeploy without changing the app/database images or secrets.
+
+These two runtime settings are VM-only. For the Container Apps migration below, use a separate protected runtime file with `COMPOSE_PROFILES` and `KOKORO_IMAGE` removed or empty; that target does not deploy Kokoro.
 
 ### TLS certificates
 
@@ -128,6 +181,8 @@ Premium file-share capacity, managed PostgreSQL, logs and an always-on app incur
 
 ### 1. Provision dependencies without starting the app
 
+Create a separate protected `.env.azure-apps.local` from your existing VM runtime settings, preserving credentials and signing/encryption keys. Remove or clear `COMPOSE_PROFILES` and `KOKORO_IMAGE` in that copy. Do not change the source VM's runtime file.
+
 Register `Microsoft.App`, `Microsoft.DBforPostgreSQL`, `Microsoft.Storage`, `Microsoft.Network` and `Microsoft.OperationalInsights` if these providers are not registered in your subscription. Install the Azure CLI Container Apps extension when needed:
 
 ```bash
@@ -139,8 +194,8 @@ cp infra/azure/container-apps-platform.parameters.example.json infra/azure/conta
 Set `migrationVirtualNetworkId` and `migrationSubnetId` to the VM template's outputs. The VM subnet already has a Storage service endpoint. Networks must have non-overlapping address spaces; defaults are `10.40.0.0/24` for the VM and `10.42.0.0/16` for Container Apps.
 
 ```bash
-bash scripts/azure/azure.sh plan container-apps-platform bookorbit-apps-prod infra/azure/container-apps-platform.parameters.local.json .env.azure.local
-bash scripts/azure/azure.sh apply container-apps-platform bookorbit-apps-prod infra/azure/container-apps-platform.parameters.local.json .env.azure.local
+bash scripts/azure/azure.sh plan container-apps-platform bookorbit-apps-prod infra/azure/container-apps-platform.parameters.local.json .env.azure-apps.local
+bash scripts/azure/azure.sh apply container-apps-platform bookorbit-apps-prod infra/azure/container-apps-platform.parameters.local.json .env.azure-apps.local
 ```
 
 Save the returned `postgresHost`, `storageAccountName` and `virtualNetworkId`. The source runtime file supplies the PostgreSQL username/database/password; no app is deployed yet. The [extensions allowlist](https://learn.microsoft.com/en-us/azure/postgresql/extensions/how-to-use-pgvector) permits installation during restore/startup, but does not itself execute SQL.
@@ -204,7 +259,7 @@ Use your configured username/database if different. Keep `pipefail` enabled so a
 
 ### 4. Start the managed app, verify, then cut over DNS
 
-Copy the **existing** protected runtime file to `.env.azure-apps.local`, preserving all signing/encryption keys, credentials and `PUID`/`PGID`. Add `DATABASE_URL` with the managed PostgreSQL hostname and `?sslmode=verify-full`; URL-encode credentials if necessary. Keep `APP_IMAGE` at the exact digest running on the source for this first cutover, and keep `APP_URL` at your intended public hostname.
+Update the protected `.env.azure-apps.local` prepared in step 1, preserving all signing/encryption keys, credentials and `PUID`/`PGID`. Add `DATABASE_URL` with the managed PostgreSQL hostname and `?sslmode=verify-full`; URL-encode credentials if necessary. Keep `APP_IMAGE` at the exact digest running on the source for this first cutover, and keep `APP_URL` at your intended public hostname.
 
 ```bash
 cp infra/azure/container-app.parameters.example.json infra/azure/container-app.parameters.local.json

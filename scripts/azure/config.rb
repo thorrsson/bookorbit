@@ -27,12 +27,23 @@ module AzureConfig
     env = read_env(path)
     supported = %w[APP_IMAGE POSTGRES_IMAGE CADDY_IMAGE APP_URL CLIENT_URL POSTGRES_USER POSTGRES_DB POSTGRES_PASSWORD
                    JWT_SECRET SETUP_BOOTSTRAP_TOKEN EMAIL_ENCRYPTION_KEY MIGRATION_ENCRYPTION_KEY BOOK_REQUEST_ENCRYPTION_KEY
-                   PUID PGID NODE_MAX_OLD_SPACE_SIZE DATABASE_URL]
+                   PUID PGID NODE_MAX_OLD_SPACE_SIZE DATABASE_URL COMPOSE_PROFILES KOKORO_IMAGE]
     unknown = env.keys - supported
-    raise ArgumentError, "Unsupported runtime settings: #{unknown.join(', ')}. This tooling deploys the core stack only." unless unknown.empty?
-    %w[APP_IMAGE POSTGRES_IMAGE CADDY_IMAGE].each do |key|
+    raise ArgumentError, "Unsupported runtime settings: #{unknown.join(', ')}. Only the core stack and VM Kokoro TTS are supported." unless unknown.empty?
+    profiles = env.fetch('COMPOSE_PROFILES', '')
+    kokoro_image = env.fetch('KOKORO_IMAGE', '')
+    raise ArgumentError, 'COMPOSE_PROFILES must be empty or tts; other optional workers are not supported.' unless ['', 'tts'].include?(profiles)
+    if target != 'vm' && (!profiles.empty? || !kokoro_image.empty?)
+      raise ArgumentError, 'COMPOSE_PROFILES and KOKORO_IMAGE are supported only for VM deployments; remove them for Container Apps.'
+    end
+    image_keys = %w[APP_IMAGE POSTGRES_IMAGE CADDY_IMAGE]
+    image_keys << 'KOKORO_IMAGE' if profiles == 'tts' || !kokoro_image.empty?
+    image_keys.each do |key|
       raise ArgumentError, "#{key} must be pinned with @sha256 and a complete digest." unless
         /\A[a-z0-9][a-z0-9._:\/-]*@sha256:[a-f0-9]{64}\z/.match?(env.fetch(key, ''))
+    end
+    unless kokoro_image.empty? || /\Aghcr\.io\/remsky\/kokoro-fastapi-cpu(?::[a-z0-9._-]+)?@sha256:/.match?(kokoro_image)
+      raise ArgumentError, 'KOKORO_IMAGE must use ghcr.io/remsky/kokoro-fastapi-cpu, not a GPU image.'
     end
     raise ArgumentError, 'POSTGRES_IMAGE must use pgvector/pgvector:pg18, not a different database major.' unless
       env['POSTGRES_IMAGE'].start_with?('pgvector/pgvector:pg18@')
@@ -134,6 +145,9 @@ module AzureConfig
       PUID=1000
       PGID=1000
       NODE_MAX_OLD_SPACE_SIZE=2048
+      # Optional VM narration: set COMPOSE_PROFILES=tts and pin the Kokoro CPU image.
+      COMPOSE_PROFILES=
+      KOKORO_IMAGE=
     ENV
     File.open(path, File::WRONLY | File::CREAT | File::EXCL, 0o600) { |file| file.write(contents) }
   end
