@@ -110,7 +110,7 @@ case "$command" in
     cp "$ROOT/infra/azure/compose.vm.yml" "$tmp/compose.vm.yml"
     cp "$ROOT/infra/azure/Caddyfile" "$tmp/Caddyfile"
     cp "$ROOT/scripts/azure/vm-host.sh" "$tmp/vm-host.sh"
-    tar -C "$tmp" -cf - . | ssh "${ssh_options[@]}" "$target" "tar -xf - -C '$remote'"
+    COPYFILE_DISABLE=1 tar -C "$tmp" -cf - . | ssh "${ssh_options[@]}" "$target" "tar -xf - -C '$remote'"
     ssh "${ssh_options[@]}" "$target" "sudo bash '$remote/vm-host.sh' deploy '$remote'"
     curl --fail --silent --show-error --retry 12 --retry-delay 10 --retry-all-errors --max-time 15 "$url/api/v1/health"
     printf '\nDeployment healthy at %s\n' "$url"

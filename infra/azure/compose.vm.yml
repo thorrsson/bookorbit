@@ -16,6 +16,24 @@ services:
         max-size: "10m"
         max-file: "3"
 
+  kokoro:
+    cpus: 1.0
+    mem_limit: 2g
+    pids_limit: 256
+    environment:
+      USE_GPU: "false"
+      DEVICE_TYPE: cpu
+      OMP_NUM_THREADS: "1"
+    cap_drop:
+      - ALL
+    healthcheck:
+      start_period: 5m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
   postgres:
     image: ${POSTGRES_IMAGE?required}
     volumes: !override
