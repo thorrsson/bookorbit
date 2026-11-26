@@ -112,7 +112,8 @@ Take your library anywhere with the official native BookOrbit app. Read ebooks, 
 
 ### Platform & Delivery
 
-- **Multi-User & SSO**: Granular per-user permissions and isolated reading data, with native support for Authentik, Keycloak, and Authelia via OIDC.
+- **Multi-User & SSO**: Granular per-user permissions and user-scoped reading data, with native support for Authentik, Keycloak, and Authelia via OIDC.
+- **Administrator Reading Activity**: Settings > Users & Access > Reading Activity provides 30-, 90-, and 365-day platform summaries, searchable readers, paginated book progress, and all-time earned achievements. Superusers and accounts explicitly granted `view_reading_activity` can see all users, including private profiles; ordinary account-activity access does not grant this permission. Views are audited, and reader-list and detail views appear in each user's profile access history. Library-restricted API keys are excluded. Time and frequency use positive-duration recorded sessions grouped by UTC start day; untracked reading is not inferred.
 - **Multilingual Interface**: Community translations are managed on [Crowdin](https://crowdin.com/project/bookorbit). See the [localization guide](docs/LOCALIZATION.md) for current language support and contributor instructions.
 - **Content Delivery**: OPDS support for compatible apps, Send-to-Kindle via email, and browser drag-and-drop uploads.
 - **Automated Ingestion**: Configure a Book Dock drop folder for hands-free importing.

@@ -90,6 +90,7 @@ const METADATA_ROUTES: Record<MetadataTab, string> = {
 const ADMIN_ROUTES: Record<AdminTab, string> = {
   users: 'settings-admin-users',
   'account-activity': 'settings-admin-account-activity',
+  reading: 'settings-admin-reading',
   'magic-links': 'settings-admin-magic-links',
   oidc: 'settings-admin-oidc',
   'server-fonts': 'settings-admin-server-fonts',
@@ -449,6 +450,16 @@ export const routes: RouteRecordRaw[] = [
             name: 'settings-admin-account-activity',
             component: () => import('@/features/admin/AccountActivityPage.vue'),
             meta: { maxWidth: 'max-w-6xl', title: () => t('titles.admin.account-activity') },
+          },
+          {
+            path: 'admin/reading',
+            name: 'settings-admin-reading',
+            component: () => import('@/features/admin/AdminReadingPage.vue'),
+            meta: {
+              maxWidth: 'max-w-6xl',
+              title: () => t('titles.admin.reading'),
+              requiredPermission: Permission.ViewReadingActivity,
+            },
           },
           {
             path: 'admin/account-activity/:userId/insights',

@@ -1,5 +1,5 @@
 {
-  "totalRoutes": 691,
+  "totalRoutes": 694,
   "byPermission": {
     "(none)": 270,
     "Permission.ManageMetadataConfig": 47,
@@ -17,6 +17,7 @@
     "Permission.OpdsAccess": 4,
     "Permission.ViewAuditLog": 4,
     "Permission.ViewUserActivity": 6,
+    "Permission.ViewReadingActivity": 3,
     "Permission.LibraryDeleteBooks": 20,
     "Permission.LibraryDownload": 4,
     "Permission.LibraryUpload": 2,
@@ -46,6 +47,7 @@
     "routes-07.json",
     "routes-08.json",
     "routes-09.json",
-    "routes-10.json"
+    "routes-10.json",
+    "routes-11.json"
   ]
 }

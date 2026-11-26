@@ -49,6 +49,16 @@ describe('settings navigation model', () => {
 })
 
 describe('visibleSettingsNav', () => {
+  it('requires the separate reading permission rather than account activity or user management', () => {
+    for (const permissions of [[Permission.ManageUsers], [Permission.ViewUserActivity], []]) {
+      const items = visibleSettingsNav({ ...NOBODY, permissions }).flatMap((group) => group.items.flatMap((item) => item.children ?? [item]))
+      expect(items.map((item) => item.routeName)).not.toContain('settings-admin-reading')
+    }
+    const items = visibleSettingsNav({ ...NOBODY, permissions: [Permission.ViewReadingActivity] }).flatMap((group) =>
+      group.items.flatMap((item) => item.children ?? [item]),
+    )
+    expect(items.map((item) => item.routeName)).toContain('settings-admin-reading')
+  })
   it('drops groups with no reachable destination', () => {
     expect(visibleSettingsNav(NOBODY).map((group) => group.id)).toEqual(['you', 'library'])
     const library = visibleSettingsNav(NOBODY).find((group) => group.id === 'library')

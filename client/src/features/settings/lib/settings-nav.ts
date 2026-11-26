@@ -500,6 +500,15 @@ export const SETTINGS_NAV: readonly SettingsNavGroup[] = [
             isVisible: superuserOnly,
           },
           {
+            id: 'reading',
+            routeName: 'settings-admin-reading',
+            labelKey: 'settings.admin.tabs.reading',
+            descriptionKey: 'adminFeature.reading.subtitle',
+            icon: BookOpen,
+            keywords: 'reading dashboard progress achievements engagement usage',
+            isVisible: anyPermission(Permission.ViewReadingActivity),
+          },
+          {
             id: 'oidc',
             routeName: 'settings-admin-oidc',
             labelKey: 'settings.admin.tabs.oidc',

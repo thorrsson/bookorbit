@@ -52,6 +52,7 @@ export const PERMISSION_GROUPS: PermissionGroup[] = [
       Permission.ManageIcons,
       Permission.ManageUsers,
       Permission.ViewUserActivity,
+      Permission.ViewReadingActivity,
       Permission.ViewAuditLog,
       Permission.ManageAppSettings,
     ],

@@ -96,6 +96,9 @@ export const readingAttempts = pgTable(
     index('reading_attempts_user_book_idx').on(t.userId, t.bookId, t.id),
     index('reading_attempts_book_id_idx').on(t.bookId),
     index('reading_attempts_user_outcome_ended_idx').on(t.userId, t.outcome, t.endedOn),
+    index('reading_attempts_completed_ended_idx')
+      .on(t.endedOn)
+      .where(sql`${t.outcome} = 'completed' and ${t.deletedAt} is null`),
     uniqueIndex('reading_attempts_one_active_uidx')
       .on(t.userId, t.bookId)
       .where(sql`${t.outcome} is null and ${t.deletedAt} is null`),
@@ -325,6 +328,7 @@ export const readingSessions = pgTable(
   (t) => [
     uniqueIndex('rs_user_session_id_uidx').on(t.userId, t.sessionId),
     index('rs_user_started_at_idx').on(t.userId, t.startedAt),
+    index('rs_started_at_idx').on(t.startedAt),
     index('rs_book_file_started_at_idx').on(t.bookFileId, t.startedAt),
     index('rs_user_book_file_idx').on(t.userId, t.bookFileId),
     index('rs_user_book_started_at_idx').on(t.userId, t.bookId, t.startedAt),

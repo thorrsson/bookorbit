@@ -93,6 +93,7 @@ import { StorygraphModule } from './modules/storygraph/storygraph.module';
 import { CustomMetadataModule } from './modules/custom-metadata/custom-metadata.module';
 import { CustomIconModule } from './modules/custom-icon/custom-icon.module';
 import { AccountActivityModule } from './modules/account-activity/account-activity.module';
+import { AdminReadingModule } from './modules/admin-reading/admin-reading.module';
 import { SharedReadingInsightsModule } from './modules/shared-reading-insights/shared-reading-insights.module';
 import { BookDuplicatesModule } from './modules/book-duplicates/book-duplicates.module';
 import { MaintenanceModule } from './modules/maintenance/maintenance.module';
@@ -147,6 +148,7 @@ import { StoryEditsModule } from './modules/story-edits/story-edits.module';
       ],
     }),
     DbModule,
+    AdminReadingModule,
     SeriesIdentityModule,
     CommonModule,
     LibraryScopeModule,

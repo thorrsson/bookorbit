@@ -13,6 +13,7 @@ export interface ReadingInsightsAccessHistoryItem {
   viewerUsername: string;
   sharingLevel: Exclude<ReadingInsightsSharingLevel, "private">;
   viewedAt: string;
+  adminOverride?: boolean;
 }
 
 export interface ReadingInsightsAccessHistoryPage {

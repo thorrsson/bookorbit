@@ -1,0 +1,2 @@
+CREATE INDEX "reading_attempts_completed_ended_idx" ON "reading_attempts" USING btree ("ended_on") WHERE "reading_attempts"."outcome" = 'completed' and "reading_attempts"."deleted_at" is null;--> statement-breakpoint
+CREATE INDEX "rs_started_at_idx" ON "reading_sessions" USING btree ("started_at");

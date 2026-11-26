@@ -34,6 +34,7 @@ export enum Permission {
   BookRequestSelfFulfill = "book_request_self_fulfill",
   ManageUsers = "manage_users",
   ViewUserActivity = "view_user_activity",
+  ViewReadingActivity = "view_reading_activity",
   ViewAuditLog = "view_audit_log",
 
   // Notifications
@@ -69,6 +70,7 @@ export const PERMISSION_LABELS: Record<Permission, string> = {
   [Permission.BookRequestSelfFulfill]: "Download books directly",
   [Permission.ManageUsers]: "Manage users",
   [Permission.ViewUserActivity]: "View user activity",
+  [Permission.ViewReadingActivity]: "View all reading activity (including private profiles)",
   [Permission.ViewAuditLog]: "View audit log",
   [Permission.NotificationAccess]: "Notifications",
 };
